@@ -16,10 +16,22 @@ namespace View
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void TestOrderFrameBtn_Click(object sender, EventArgs e)
         {
+            OrderFrame order = new OrderFrame();
+            order.Show();
+        }
 
+        private void TestLoginFrameBtn_Click(object sender, EventArgs e)
+        {
+            LoginFrame login = new LoginFrame();
+            login.Show();
+        }
+
+        private void TestMaschineFrameBtn_Click(object sender, EventArgs e)
+        {
+            MaschineFrame maschine = new MaschineFrame();
+            maschine.Show();
         }
     }
 }
