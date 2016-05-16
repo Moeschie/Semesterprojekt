@@ -16,5 +16,10 @@ namespace View
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("clicked");
+        }
     }
 }
