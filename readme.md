@@ -1,7 +1,8 @@
-** Semester Project **
+# Semester Project
 
 Work Branch "Dev"
 
--- Info
-(Terminal Command in .git - root dir)
-## git checkout dev
+**Info**
+_(Terminal Command in .git - root dir)_
+
+>$ git checkout dev
