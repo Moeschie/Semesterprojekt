@@ -9,6 +9,8 @@ namespace Repository.Core
     public interface IUnit : IDisposable
     {
         IUserRepository User { get; set; }
+        IOrderRepository Order { get; set; }
+        ICustomerRepository Customer { get; set; }
         int Complete();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Repository.Model
 {
@@ -9,8 +10,11 @@ namespace Repository.Model
             // Default Constructor
         }
 
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Username { get; set; }
+        public int AccessLevel { get; set; }
 
 
     }

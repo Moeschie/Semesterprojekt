@@ -17,9 +17,14 @@ namespace Repository.Persistence
         {
             _context = context;
             User = new UserRepository(_context);
+            Order = new OrderRepository(_context);
+            Customer = new CustomerRepository(_context);
+            
         }
 
         public IUserRepository User { get; set; }
+        public IOrderRepository Order { get; set; }
+        public ICustomerRepository Customer { get; set; }
 
         public int Complete()
         {
