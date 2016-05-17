@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Repository.Model;
 
 namespace Repository.Core
 {
-    public interface IUnit : IDisposable
+    public interface IContractRepository : IRepository<Contract>
     {
-        IUserRepository User { get; set; }
-        IContractRepository Contract { get; set; }
-        int Complete();
+        Contract GetContractWithId(int id);
     }
 }
