@@ -29,24 +29,19 @@
         private void InitializeComponent()
         {
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.SecondLevelUpperTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.MaschineListGrpBox = new System.Windows.Forms.GroupBox();
-            this.MaschineEditGrpBox = new System.Windows.Forms.GroupBox();
             this.MaschineUsagesGrpBox = new System.Windows.Forms.GroupBox();
-            this.SecondLevelLowerTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.MachineUsageChart = new Braincase.GanttChart.Chart();
+            this.MaschineOptionGrpBox = new System.Windows.Forms.GroupBox();
             this.MainTableLayout.SuspendLayout();
-            this.SecondLevelUpperTableLayout.SuspendLayout();
             this.MaschineUsagesGrpBox.SuspendLayout();
-            this.SecondLevelLowerTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTableLayout
             // 
             this.MainTableLayout.ColumnCount = 1;
             this.MainTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.MainTableLayout.Controls.Add(this.SecondLevelUpperTableLayout, 0, 0);
             this.MainTableLayout.Controls.Add(this.MaschineUsagesGrpBox, 0, 1);
+            this.MainTableLayout.Controls.Add(this.MaschineOptionGrpBox, 0, 0);
             this.MainTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTableLayout.Location = new System.Drawing.Point(0, 0);
             this.MainTableLayout.Name = "MainTableLayout";
@@ -56,44 +51,9 @@
             this.MainTableLayout.Size = new System.Drawing.Size(1144, 626);
             this.MainTableLayout.TabIndex = 0;
             // 
-            // SecondLevelUpperTableLayout
-            // 
-            this.SecondLevelUpperTableLayout.ColumnCount = 2;
-            this.SecondLevelUpperTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SecondLevelUpperTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SecondLevelUpperTableLayout.Controls.Add(this.MaschineListGrpBox, 0, 0);
-            this.SecondLevelUpperTableLayout.Controls.Add(this.MaschineEditGrpBox, 1, 0);
-            this.SecondLevelUpperTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondLevelUpperTableLayout.Location = new System.Drawing.Point(3, 3);
-            this.SecondLevelUpperTableLayout.Name = "SecondLevelUpperTableLayout";
-            this.SecondLevelUpperTableLayout.RowCount = 1;
-            this.SecondLevelUpperTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SecondLevelUpperTableLayout.Size = new System.Drawing.Size(1138, 307);
-            this.SecondLevelUpperTableLayout.TabIndex = 1;
-            // 
-            // MaschineListGrpBox
-            // 
-            this.MaschineListGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MaschineListGrpBox.Location = new System.Drawing.Point(3, 3);
-            this.MaschineListGrpBox.Name = "MaschineListGrpBox";
-            this.MaschineListGrpBox.Size = new System.Drawing.Size(563, 301);
-            this.MaschineListGrpBox.TabIndex = 0;
-            this.MaschineListGrpBox.TabStop = false;
-            this.MaschineListGrpBox.Text = "Maschinen";
-            // 
-            // MaschineEditGrpBox
-            // 
-            this.MaschineEditGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MaschineEditGrpBox.Location = new System.Drawing.Point(572, 3);
-            this.MaschineEditGrpBox.Name = "MaschineEditGrpBox";
-            this.MaschineEditGrpBox.Size = new System.Drawing.Size(563, 301);
-            this.MaschineEditGrpBox.TabIndex = 1;
-            this.MaschineEditGrpBox.TabStop = false;
-            this.MaschineEditGrpBox.Text = "Maschinen Verwaltung";
-            // 
             // MaschineUsagesGrpBox
             // 
-            this.MaschineUsagesGrpBox.Controls.Add(this.SecondLevelLowerTableLayout);
+            this.MaschineUsagesGrpBox.Controls.Add(this.MachineUsageChart);
             this.MaschineUsagesGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MaschineUsagesGrpBox.Location = new System.Drawing.Point(3, 316);
             this.MaschineUsagesGrpBox.Name = "MaschineUsagesGrpBox";
@@ -102,28 +62,25 @@
             this.MaschineUsagesGrpBox.TabStop = false;
             this.MaschineUsagesGrpBox.Text = "Maschinen Nutzung";
             // 
-            // SecondLevelLowerTableLayout
-            // 
-            this.SecondLevelLowerTableLayout.ColumnCount = 1;
-            this.SecondLevelLowerTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SecondLevelLowerTableLayout.Controls.Add(this.MachineUsageChart, 0, 0);
-            this.SecondLevelLowerTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SecondLevelLowerTableLayout.Location = new System.Drawing.Point(3, 16);
-            this.SecondLevelLowerTableLayout.Name = "SecondLevelLowerTableLayout";
-            this.SecondLevelLowerTableLayout.RowCount = 1;
-            this.SecondLevelLowerTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SecondLevelLowerTableLayout.Size = new System.Drawing.Size(1132, 288);
-            this.SecondLevelLowerTableLayout.TabIndex = 1;
-            // 
             // MachineUsageChart
             // 
             this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MachineUsageChart.FullDateStringFormat = null;
-            this.MachineUsageChart.Location = new System.Drawing.Point(0, 0);
+            this.MachineUsageChart.Location = new System.Drawing.Point(3, 16);
             this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
             this.MachineUsageChart.Name = "MachineUsageChart";
             this.MachineUsageChart.Size = new System.Drawing.Size(1132, 288);
-            this.MachineUsageChart.TabIndex = 0;
+            this.MachineUsageChart.TabIndex = 1;
+            // 
+            // MaschineOptionGrpBox
+            // 
+            this.MaschineOptionGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MaschineOptionGrpBox.Location = new System.Drawing.Point(3, 3);
+            this.MaschineOptionGrpBox.Name = "MaschineOptionGrpBox";
+            this.MaschineOptionGrpBox.Size = new System.Drawing.Size(1138, 307);
+            this.MaschineOptionGrpBox.TabIndex = 3;
+            this.MaschineOptionGrpBox.TabStop = false;
+            this.MaschineOptionGrpBox.Text = "Maschinenverwaltung";
             // 
             // MaschineFrame
             // 
@@ -134,9 +91,7 @@
             this.Name = "MaschineFrame";
             this.Text = "MaschineFrame";
             this.MainTableLayout.ResumeLayout(false);
-            this.SecondLevelUpperTableLayout.ResumeLayout(false);
             this.MaschineUsagesGrpBox.ResumeLayout(false);
-            this.SecondLevelLowerTableLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -144,11 +99,8 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel MainTableLayout;
-        private System.Windows.Forms.TableLayoutPanel SecondLevelUpperTableLayout;
-        private System.Windows.Forms.GroupBox MaschineListGrpBox;
         private System.Windows.Forms.GroupBox MaschineUsagesGrpBox;
-        private System.Windows.Forms.TableLayoutPanel SecondLevelLowerTableLayout;
-        private System.Windows.Forms.GroupBox MaschineEditGrpBox;
         private Braincase.GanttChart.Chart MachineUsageChart;
+        private System.Windows.Forms.GroupBox MaschineOptionGrpBox;
     }
 }

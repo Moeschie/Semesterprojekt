@@ -1158,6 +1158,7 @@
             // 
             // OrderDataButton
             // 
+            this.OrderDataButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrderDataButton.Location = new System.Drawing.Point(3, 3);
             this.OrderDataButton.Name = "OrderDataButton";
             this.OrderDataButton.Size = new System.Drawing.Size(131, 35);
