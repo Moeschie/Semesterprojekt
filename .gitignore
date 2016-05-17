@@ -11,7 +11,7 @@
 *.userprefs
 
 App.config
-
+.Auftragsmanager/View/App.config
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
