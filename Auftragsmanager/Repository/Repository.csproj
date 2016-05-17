@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EdvActions\EdvActions.cs" />
+    <Compile Include="EdvActions\EdvActionsRepository.cs" />
+    <Compile Include="EdvActions\IEdvActionsRepository.cs" />
     <Compile Include="ContactPerson\ContactPerson.cs" />
     <Compile Include="ContactPerson\ContactPersonRepository.cs" />
     <Compile Include="ContactPerson\IContactPersonRepository.cs" />

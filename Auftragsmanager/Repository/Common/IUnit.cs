@@ -15,6 +15,7 @@ namespace Repository.Core
         IMachineRepository Machine { get; set; }
         IAdressRepository Adress { get; set; }
         IContactPersonRepository ContactPerson { get; set; }
+        IEdvActionsRepository EdvActions { get; set; }
         int Complete();
     }
 }

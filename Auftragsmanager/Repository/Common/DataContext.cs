@@ -18,7 +18,7 @@ namespace Repository.Persistence
         public virtual DbSet<Adress> Adresses { get; set; }
         public virtual DbSet<ContactPerson> ContactPersons { get; set; }
         public virtual DbSet<CustomerObject> CustomerObjects { get; set;  }
-
+        public virtual DbSet<EdvActions> EdvActions { get; set; }
 
     }
 }
