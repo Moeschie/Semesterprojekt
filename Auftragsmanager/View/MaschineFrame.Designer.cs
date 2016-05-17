@@ -34,9 +34,11 @@
             this.MaschineEditGrpBox = new System.Windows.Forms.GroupBox();
             this.MaschineUsagesGrpBox = new System.Windows.Forms.GroupBox();
             this.SecondLevelLowerTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MainTableLayout.SuspendLayout();
             this.SecondLevelUpperTableLayout.SuspendLayout();
             this.MaschineUsagesGrpBox.SuspendLayout();
+            this.SecondLevelLowerTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainTableLayout
@@ -102,17 +104,26 @@
             // 
             // SecondLevelLowerTableLayout
             // 
-            this.SecondLevelLowerTableLayout.ColumnCount = 2;
+            this.SecondLevelLowerTableLayout.ColumnCount = 1;
             this.SecondLevelLowerTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.SecondLevelLowerTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SecondLevelLowerTableLayout.Controls.Add(this.MachineUsageChart, 0, 0);
             this.SecondLevelLowerTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SecondLevelLowerTableLayout.Location = new System.Drawing.Point(3, 16);
             this.SecondLevelLowerTableLayout.Name = "SecondLevelLowerTableLayout";
-            this.SecondLevelLowerTableLayout.RowCount = 2;
-            this.SecondLevelLowerTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.SecondLevelLowerTableLayout.RowCount = 1;
             this.SecondLevelLowerTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.SecondLevelLowerTableLayout.Size = new System.Drawing.Size(1132, 288);
             this.SecondLevelLowerTableLayout.TabIndex = 1;
+            // 
+            // MachineUsageChart
+            // 
+            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineUsageChart.FullDateStringFormat = null;
+            this.MachineUsageChart.Location = new System.Drawing.Point(0, 0);
+            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
+            this.MachineUsageChart.Name = "MachineUsageChart";
+            this.MachineUsageChart.Size = new System.Drawing.Size(1132, 288);
+            this.MachineUsageChart.TabIndex = 0;
             // 
             // MaschineFrame
             // 
@@ -125,6 +136,7 @@
             this.MainTableLayout.ResumeLayout(false);
             this.SecondLevelUpperTableLayout.ResumeLayout(false);
             this.MaschineUsagesGrpBox.ResumeLayout(false);
+            this.SecondLevelLowerTableLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -137,5 +149,6 @@
         private System.Windows.Forms.GroupBox MaschineUsagesGrpBox;
         private System.Windows.Forms.TableLayoutPanel SecondLevelLowerTableLayout;
         private System.Windows.Forms.GroupBox MaschineEditGrpBox;
+        private Braincase.GanttChart.Chart MachineUsageChart;
     }
 }
