@@ -19,12 +19,19 @@ namespace Repository.Persistence
             User = new UserRepository(_context);
             Order = new OrderRepository(_context);
             Customer = new CustomerRepository(_context);
-            
+            CustomerObject = new CustomerObjectRepository(_context);
+            Machine = new MachineRepository(_context);
+            Adress = new AdressRepository(_context);
+            ContactPerson = new ContactPersonRepository(_context);
         }
 
         public IUserRepository User { get; set; }
         public IOrderRepository Order { get; set; }
         public ICustomerRepository Customer { get; set; }
+        public ICustomerObjectRepository CustomerObject { get; set; }
+        public IMachineRepository Machine { get; set; }
+        public IAdressRepository Adress { get; set;  }
+        public IContactPersonRepository ContactPerson { get; set; }
 
         public int Complete()
         {

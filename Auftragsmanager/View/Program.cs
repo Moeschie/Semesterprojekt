@@ -15,19 +15,17 @@ namespace View
         [STAThread]
         static void Main()
         {
-            using (var data = new Unit(new DataContext()))
+            using (var unit = new Unit(new DataContext()))
             {
-                var users = data.User.GetAll();
-             //   var oders = data.Order.GetOrderById();
-
+                var users = unit.User.GetAll();
+                //   var oders = unit.Order.GetOrderById();
+                // var adresses = unit.Adress.GetAll();
                 var albert = new Repository.Model.User();
-                    albert.Id = 1;
                     albert.Name = "Albert";
+                unit.User.Add(albert);
+                unit.Complete();
 
-                data.User.Add(albert);
-                data.Complete();
-
-                foreach(var user in users)
+                foreach(var user in unit.User.GetAll())
                     Console.Write(user.Name);
 
                 Application.EnableVisualStyles();
