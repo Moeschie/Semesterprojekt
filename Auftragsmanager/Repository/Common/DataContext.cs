@@ -12,7 +12,6 @@ namespace Repository.Persistence
         }
 
         public virtual DbSet<User> Users { get; set; }
-        public  virtual DbSet<Contract> Contracts { get; set; }
 
     }
 }

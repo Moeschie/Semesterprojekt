@@ -9,7 +9,6 @@ namespace Repository.Core
     public interface IUnit : IDisposable
     {
         IUserRepository User { get; set; }
-        IContractRepository Contract { get; set; }
         int Complete();
     }
 }

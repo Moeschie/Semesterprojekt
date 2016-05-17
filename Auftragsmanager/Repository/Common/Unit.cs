@@ -17,11 +17,9 @@ namespace Repository.Persistence
         {
             _context = context;
             User = new UserRepository(_context);
-            Contract = new ContractRepository(_context);
         }
 
         public IUserRepository User { get; set; }
-        public IContractRepository Contract { get; set; }
 
         public int Complete()
         {

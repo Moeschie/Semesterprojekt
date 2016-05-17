@@ -49,9 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contract\IContractRepository.cs" />
-    <Compile Include="Contract\Contract.cs" />
-    <Compile Include="Contract\ContractRepository.cs" />
     <Compile Include="Common\DataContext.cs" />
     <Compile Include="Common\IRepository.cs" />
     <Compile Include="Common\IUnit.cs" />
