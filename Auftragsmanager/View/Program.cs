@@ -20,10 +20,22 @@ namespace View
                 var users = unit.User.GetAll();
                 //   var oders = unit.Order.GetOrderById();
                 // var adresses = unit.Adress.GetAll();
+                Random random = new Random();
+                int randomNumber = random.Next(0, 100);
+
                 var albert = new Repository.Model.User();
+                    albert.Id = Guid.NewGuid();
                     albert.Name = "Albert";
                 unit.User.Add(albert);
-                unit.Complete();
+                try
+                {
+                    unit.Complete();
+                }
+                catch (Exception ec)
+                {
+                    Console.WriteLine(ec.Message);
+                }
+                
 
                 foreach(var user in unit.User.GetAll())
                     Console.Write(user.Name);

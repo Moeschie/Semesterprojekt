@@ -245,3 +245,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Auftragsmanager/Repository/Migrations/201605172246396_hgjghj.cs
+/Auftragsmanager/Repository/Migrations/201605172246396_hgjghj.resx
+/Auftragsmanager/Repository/Migrations/201605172246396_hgjghj.Designer.cs

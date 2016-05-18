@@ -1,5 +1,6 @@
 ﻿using Repository.Model;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Repository.Persistence
 {
@@ -9,6 +10,11 @@ namespace Repository.Persistence
             : base("name=DataContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
+          //  this.Configuration.AutoDetectChangesEnabled = true;
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
 
         public virtual DbSet<User> Users { get; set; }
@@ -18,7 +24,7 @@ namespace Repository.Persistence
         public virtual DbSet<Adress> Adresses { get; set; }
         public virtual DbSet<ContactPerson> ContactPersons { get; set; }
         public virtual DbSet<CustomerObject> CustomerObjects { get; set;  }
-        public virtual DbSet<EdvActions> EdvActions { get; set; }
+        public virtual DbSet<EdvActions> EdvsActions { get; set; }
 
     }
 }
