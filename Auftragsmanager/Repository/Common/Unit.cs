@@ -22,6 +22,7 @@ namespace Repository.Persistence
             Machine = new MachineRepository(_context);
             Adress = new AdressRepository(_context);
             ContactPerson = new ContactPersonRepository(_context);
+            Session = new SessionRepository(_context);
 
         }
 
@@ -31,6 +32,7 @@ namespace Repository.Persistence
         public IMachineRepository Machine { get; set; }
         public IAdressRepository Adress { get; set;  }
         public IContactPersonRepository ContactPerson { get; set; }
+        public ISessionRepository Session { get; set; }
 
 
         public int Complete()

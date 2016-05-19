@@ -58,6 +58,7 @@
     <Compile Include="Models\ProductionActions.cs" />
     <Compile Include="Models\EdvActions.cs" />
     <Compile Include="Models\ContactPerson.cs" />
+    <Compile Include="Models\Session.cs" />
     <Compile Include="Repositories\ContactPerson\ContactPersonRepository.cs" />
     <Compile Include="Repositories\ContactPerson\IContactPersonRepository.cs" />
     <Compile Include="Common\DataContext.cs" />
@@ -79,6 +80,8 @@
     <Compile Include="Repositories\Order\IOrderRepository.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Repositories\Order\OrderRepository.cs" />
+    <Compile Include="Repositories\Session\ISessionRepository.cs" />
+    <Compile Include="Repositories\Session\SessionRepository.cs" />
     <Compile Include="Repositories\User\IUserRepository.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
@@ -91,6 +94,7 @@
       <DependentUpon>201605190627390_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
