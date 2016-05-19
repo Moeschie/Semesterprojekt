@@ -7,9 +7,9 @@ using Repository.Model;
 
 namespace Repository.Core
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUtilitiesRepository : IRepository<Utilities>
     {
-        User Login(string username, string password);
-        int GetAccessLevelByName(string v);
+        Utilities GetAdressById(Guid id);
+        int SetTaskDateTime(DateTime startMaschine, DateTime endMachine);
     }
 }

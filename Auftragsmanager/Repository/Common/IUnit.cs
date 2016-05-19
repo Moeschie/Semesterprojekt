@@ -15,6 +15,8 @@ namespace Repository.Core
         IAdressRepository Adress { get; set; }
         IContactPersonRepository ContactPerson { get; set; }
         ISessionRepository Session { get; set; }
+        IUtilitiesRepository Utilities { get; set; }
+
         int Complete();
     }
 }

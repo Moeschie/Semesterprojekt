@@ -42,7 +42,7 @@ namespace View
 
         private void TestMaschineFrameBtn_Click(object sender, EventArgs e)
         {
-            MaschineFrame maschine = new MaschineFrame();
+            MaschineFrame maschine = new MaschineFrame(_unit);
             maschine.Show();
         }
     }

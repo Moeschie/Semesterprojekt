@@ -30,11 +30,19 @@ namespace View
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            string Username = this.LoginNameInput.Text;
-            string Password = this.LoginPasswordInput.Text;
+
+
+
+
+            string Password = LoginPasswordInput.Text;
+            string Username = LoginNameInput.Text;
 
             if(_unit.User.Login(Username, Password) != null)
             {
+               Console.WriteLine(_unit.User.GetAccessLevelByName("admin"));
+
+               
+
                 MainFrame mainFrame = new MainFrame(_unit);
                 this.Hide();
             } else
