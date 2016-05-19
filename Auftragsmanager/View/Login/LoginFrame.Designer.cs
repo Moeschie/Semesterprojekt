@@ -1,4 +1,5 @@
-﻿namespace View
+﻿
+namespace View
 {
     partial class LoginFrame
     {
@@ -70,8 +71,10 @@
             this.LoginPasswordInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.LoginPasswordInput.Location = new System.Drawing.Point(102, 30);
             this.LoginPasswordInput.Name = "LoginPasswordInput";
+            this.LoginPasswordInput.PasswordChar = '*';
             this.LoginPasswordInput.Size = new System.Drawing.Size(115, 20);
             this.LoginPasswordInput.TabIndex = 3;
+            this.LoginPasswordInput.TextChanged += new System.EventHandler(this.LoginPasswordInput_TextChanged);
             // 
             // LoginButton
             // 
@@ -125,5 +128,6 @@
         private System.Windows.Forms.TextBox LoginPasswordInput;
         private System.Windows.Forms.Button LoginButton;
         private System.Windows.Forms.TableLayoutPanel LoginTableLayout;
+
     }
 }

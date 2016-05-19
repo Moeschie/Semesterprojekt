@@ -9,6 +9,7 @@ namespace Repository.Core
 {
     public interface IUserRepository : IRepository<User>
     {
-        User GetUserWithId(int id);
+        User GetUserById(int id);
+        bool Login(string username, string password);
     }
 }

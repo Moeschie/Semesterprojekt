@@ -17,10 +17,20 @@ namespace Repository.Persistence
         {
             return new User();
         }
-
-        public User GetUserWithId(int id)
+        
+        public bool LoginState()
         {
-            throw new NotImplementedException();
+            return true;
+        } 
+
+        public bool Login(string username, string password)
+        {
+            User checkUser = GetAll().Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+                
+            if(checkUser == null)
+                return false;
+
+            return true;
         }
 
         public DataContext DataContext

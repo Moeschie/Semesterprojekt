@@ -9,7 +9,8 @@ namespace Repository.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "Repository.Persistence.DataContext";
         }
 
         protected override void Seed(Repository.Persistence.DataContext context)

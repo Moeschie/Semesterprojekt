@@ -15,6 +15,7 @@ namespace View
         public OrderFrame()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void EDVTableLayout_Paint(object sender, PaintEventArgs e)

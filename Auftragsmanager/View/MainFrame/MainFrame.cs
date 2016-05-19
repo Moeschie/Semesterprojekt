@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Repository.Persistence;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,21 @@ namespace View
 {
     public partial class MainFrame : Form
     {
-        public MainFrame()
+        Unit _unit;
+        public MainFrame(Unit unit)
         {
+            _unit = unit;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormClosing += closeEvent;
+            this.Show();
         }
+
+        private void closeEvent(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void TestOrderFrameBtn_Click(object sender, EventArgs e)
         {
             OrderFrame order = new OrderFrame();
@@ -24,7 +36,7 @@ namespace View
 
         private void TestLoginFrameBtn_Click(object sender, EventArgs e)
         {
-            LoginFrame login = new LoginFrame();
+            LoginFrame login = new LoginFrame(_unit);
             login.Show();
         }
 

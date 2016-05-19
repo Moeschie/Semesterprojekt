@@ -17,7 +17,7 @@ namespace View
         public MaschineFrame()
         {
             InitializeComponent();
-
+            this.StartPosition = FormStartPosition.CenterScreen;
             GanttContent = new ProjectManager();
 
             DateTime StartMaschine = new DateTime(2016, 4,25);
