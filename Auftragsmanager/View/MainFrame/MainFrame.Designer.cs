@@ -137,6 +137,13 @@
             this.TestMaschineFrameBtn = new System.Windows.Forms.Button();
             this.TestLoginFrameBtn = new System.Windows.Forms.Button();
             this.TestOrderFrameBtn = new System.Windows.Forms.Button();
+            this.OrderSelectTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.CollumOneHeaderLabel = new System.Windows.Forms.Label();
+            this.CollumTwoHeaderLabel = new System.Windows.Forms.Label();
+            this.CollumThreeHeaderLabel = new System.Windows.Forms.Label();
+            this.CollumFourHeaderLabel = new System.Windows.Forms.Label();
+            this.CollumFiveHeaderLabel = new System.Windows.Forms.Label();
+            this.CollumSixHeaderLabel = new System.Windows.Forms.Label();
             this.MainFrameTabs.SuspendLayout();
             this.OrderTab.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
@@ -162,8 +169,10 @@
             this.PrintGrpBox.SuspendLayout();
             this.OrderRight2TableLayout.SuspendLayout();
             this.OrderTabLeftTableLayout.SuspendLayout();
+            this.ActiveOrderGrpBox.SuspendLayout();
             this.OrderTabLeftTopTableLayout.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.OrderSelectTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainFrameTabs
@@ -1291,6 +1300,7 @@
             // 
             // ActiveOrderGrpBox
             // 
+            this.ActiveOrderGrpBox.Controls.Add(this.OrderSelectTableLayout);
             this.ActiveOrderGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ActiveOrderGrpBox.Location = new System.Drawing.Point(3, 37);
             this.ActiveOrderGrpBox.Name = "ActiveOrderGrpBox";
@@ -1385,6 +1395,91 @@
             this.TestOrderFrameBtn.UseVisualStyleBackColor = true;
             this.TestOrderFrameBtn.Click += new System.EventHandler(this.TestOrderFrameBtn_Click_1);
             // 
+            // OrderSelectTableLayout
+            // 
+            this.OrderSelectTableLayout.ColumnCount = 6;
+            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.01591F));
+            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.32361F));
+            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.54642F));
+            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.11936F));
+            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.99735F));
+            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.7321F));
+            this.OrderSelectTableLayout.Controls.Add(this.CollumSixHeaderLabel, 5, 0);
+            this.OrderSelectTableLayout.Controls.Add(this.CollumFiveHeaderLabel, 4, 0);
+            this.OrderSelectTableLayout.Controls.Add(this.CollumFourHeaderLabel, 3, 0);
+            this.OrderSelectTableLayout.Controls.Add(this.CollumThreeHeaderLabel, 2, 0);
+            this.OrderSelectTableLayout.Controls.Add(this.CollumTwoHeaderLabel, 1, 0);
+            this.OrderSelectTableLayout.Controls.Add(this.CollumOneHeaderLabel, 0, 0);
+            this.OrderSelectTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OrderSelectTableLayout.Location = new System.Drawing.Point(3, 16);
+            this.OrderSelectTableLayout.Name = "OrderSelectTableLayout";
+            this.OrderSelectTableLayout.RowCount = 3;
+            this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.642024F));
+            this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.447471F));
+            this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.91051F));
+            this.OrderSelectTableLayout.Size = new System.Drawing.Size(377, 514);
+            this.OrderSelectTableLayout.TabIndex = 0;
+            // 
+            // CollumOneHeaderLabel
+            // 
+            this.CollumOneHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CollumOneHeaderLabel.AutoSize = true;
+            this.CollumOneHeaderLabel.Location = new System.Drawing.Point(18, 8);
+            this.CollumOneHeaderLabel.Name = "CollumOneHeaderLabel";
+            this.CollumOneHeaderLabel.Size = new System.Drawing.Size(46, 13);
+            this.CollumOneHeaderLabel.TabIndex = 0;
+            this.CollumOneHeaderLabel.Text = "Nummer";
+            // 
+            // CollumTwoHeaderLabel
+            // 
+            this.CollumTwoHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CollumTwoHeaderLabel.AutoSize = true;
+            this.CollumTwoHeaderLabel.Location = new System.Drawing.Point(92, 8);
+            this.CollumTwoHeaderLabel.Name = "CollumTwoHeaderLabel";
+            this.CollumTwoHeaderLabel.Size = new System.Drawing.Size(35, 13);
+            this.CollumTwoHeaderLabel.TabIndex = 1;
+            this.CollumTwoHeaderLabel.Text = "Name";
+            // 
+            // CollumThreeHeaderLabel
+            // 
+            this.CollumThreeHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CollumThreeHeaderLabel.AutoSize = true;
+            this.CollumThreeHeaderLabel.Location = new System.Drawing.Point(160, 8);
+            this.CollumThreeHeaderLabel.Name = "CollumThreeHeaderLabel";
+            this.CollumThreeHeaderLabel.Size = new System.Drawing.Size(38, 13);
+            this.CollumThreeHeaderLabel.TabIndex = 2;
+            this.CollumThreeHeaderLabel.Text = "triff ein";
+            // 
+            // CollumFourHeaderLabel
+            // 
+            this.CollumFourHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CollumFourHeaderLabel.AutoSize = true;
+            this.CollumFourHeaderLabel.Location = new System.Drawing.Point(237, 8);
+            this.CollumFourHeaderLabel.Name = "CollumFourHeaderLabel";
+            this.CollumFourHeaderLabel.Size = new System.Drawing.Size(27, 13);
+            this.CollumFourHeaderLabel.TabIndex = 3;
+            this.CollumFourHeaderLabel.Text = "PAL";
+            // 
+            // CollumFiveHeaderLabel
+            // 
+            this.CollumFiveHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CollumFiveHeaderLabel.AutoSize = true;
+            this.CollumFiveHeaderLabel.Location = new System.Drawing.Point(282, 8);
+            this.CollumFiveHeaderLabel.Name = "CollumFiveHeaderLabel";
+            this.CollumFiveHeaderLabel.Size = new System.Drawing.Size(43, 13);
+            this.CollumFiveHeaderLabel.TabIndex = 4;
+            this.CollumFiveHeaderLabel.Text = "Notizen";
+            // 
+            // CollumSixHeaderLabel
+            // 
+            this.CollumSixHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CollumSixHeaderLabel.AutoSize = true;
+            this.CollumSixHeaderLabel.Location = new System.Drawing.Point(334, 8);
+            this.CollumSixHeaderLabel.Name = "CollumSixHeaderLabel";
+            this.CollumSixHeaderLabel.Size = new System.Drawing.Size(37, 13);
+            this.CollumSixHeaderLabel.TabIndex = 5;
+            this.CollumSixHeaderLabel.Text = "Status";
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1426,9 +1521,12 @@
             this.PrintGrpBox.ResumeLayout(false);
             this.OrderRight2TableLayout.ResumeLayout(false);
             this.OrderTabLeftTableLayout.ResumeLayout(false);
+            this.ActiveOrderGrpBox.ResumeLayout(false);
             this.OrderTabLeftTopTableLayout.ResumeLayout(false);
             this.OrderTabLeftTopTableLayout.PerformLayout();
             this.tabPage1.ResumeLayout(false);
+            this.OrderSelectTableLayout.ResumeLayout(false);
+            this.OrderSelectTableLayout.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1544,6 +1642,13 @@
         private System.Windows.Forms.GroupBox ActiveOrderGrpBox;
         private System.Windows.Forms.TextBox OrderSelectFilterInput;
         private System.Windows.Forms.Label OrderSelectFilterLabel;
+        private System.Windows.Forms.TableLayoutPanel OrderSelectTableLayout;
+        private System.Windows.Forms.Label CollumSixHeaderLabel;
+        private System.Windows.Forms.Label CollumFiveHeaderLabel;
+        private System.Windows.Forms.Label CollumFourHeaderLabel;
+        private System.Windows.Forms.Label CollumThreeHeaderLabel;
+        private System.Windows.Forms.Label CollumTwoHeaderLabel;
+        private System.Windows.Forms.Label CollumOneHeaderLabel;
     }
 }
 
