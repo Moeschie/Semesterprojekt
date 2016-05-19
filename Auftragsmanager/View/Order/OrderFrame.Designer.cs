@@ -108,7 +108,7 @@
             this.PALLabel = new System.Windows.Forms.Label();
             this.OrderIncomeTimeInput = new System.Windows.Forms.TextBox();
             this.UhrzeitLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.TopRightTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.ImportantInfo2GrpBox = new System.Windows.Forms.GroupBox();
             this.OrderRight1TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.AuftragsNrLabel = new System.Windows.Forms.Label();
@@ -134,7 +134,7 @@
             this.AufteilungTableLayout.SuspendLayout();
             this.ImportantInfoGrpBox.SuspendLayout();
             this.OrderLeftTableLayout.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.TopRightTableLayout.SuspendLayout();
             this.ImportantInfo2GrpBox.SuspendLayout();
             this.OrderRight1TableLayout.SuspendLayout();
             this.FunctionGrpBox.SuspendLayout();
@@ -151,7 +151,7 @@
             this.MainTableLayout.Controls.Add(this.InfoGrpBox, 0, 2);
             this.MainTableLayout.Controls.Add(this.AuftragsdatenGrpBox, 0, 1);
             this.MainTableLayout.Controls.Add(this.ImportantInfoGrpBox, 0, 0);
-            this.MainTableLayout.Controls.Add(this.tableLayoutPanel1, 1, 0);
+            this.MainTableLayout.Controls.Add(this.TopRightTableLayout, 1, 0);
             this.MainTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTableLayout.Location = new System.Drawing.Point(0, 0);
             this.MainTableLayout.Name = "MainTableLayout";
@@ -1024,20 +1024,20 @@
             this.UhrzeitLabel.TabIndex = 16;
             this.UhrzeitLabel.Text = "Uhrzeit:";
             // 
-            // tableLayoutPanel1
+            // TopRightTableLayout
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.ImportantInfo2GrpBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.FunctionGrpBox, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(583, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(574, 107);
-            this.tableLayoutPanel1.TabIndex = 11;
+            this.TopRightTableLayout.ColumnCount = 2;
+            this.TopRightTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TopRightTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TopRightTableLayout.Controls.Add(this.ImportantInfo2GrpBox, 0, 0);
+            this.TopRightTableLayout.Controls.Add(this.FunctionGrpBox, 1, 0);
+            this.TopRightTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TopRightTableLayout.Location = new System.Drawing.Point(583, 3);
+            this.TopRightTableLayout.Name = "TopRightTableLayout";
+            this.TopRightTableLayout.RowCount = 1;
+            this.TopRightTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TopRightTableLayout.Size = new System.Drawing.Size(574, 107);
+            this.TopRightTableLayout.TabIndex = 11;
             // 
             // ImportantInfo2GrpBox
             // 
@@ -1204,7 +1204,7 @@
             this.ImportantInfoGrpBox.ResumeLayout(false);
             this.OrderLeftTableLayout.ResumeLayout(false);
             this.OrderLeftTableLayout.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.TopRightTableLayout.ResumeLayout(false);
             this.ImportantInfo2GrpBox.ResumeLayout(false);
             this.OrderRight1TableLayout.ResumeLayout(false);
             this.OrderRight1TableLayout.PerformLayout();
@@ -1287,7 +1287,7 @@
         private System.Windows.Forms.TextBox OrderEditorInput;
         private System.Windows.Forms.TextBox OrderQuantityInput;
         private System.Windows.Forms.GroupBox ImportantInfoGrpBox;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel TopRightTableLayout;
         private System.Windows.Forms.GroupBox ImportantInfo2GrpBox;
         private System.Windows.Forms.TableLayoutPanel OrderRight1TableLayout;
         private System.Windows.Forms.Label AuftragsNrLabel;

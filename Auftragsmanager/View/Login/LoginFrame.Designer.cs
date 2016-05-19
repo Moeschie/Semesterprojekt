@@ -74,6 +74,7 @@ namespace View
             this.LoginPasswordInput.PasswordChar = '*';
             this.LoginPasswordInput.Size = new System.Drawing.Size(115, 20);
             this.LoginPasswordInput.TabIndex = 3;
+            this.LoginPasswordInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPasswordInput_KeyDown);
             // 
             // LoginButton
             // 

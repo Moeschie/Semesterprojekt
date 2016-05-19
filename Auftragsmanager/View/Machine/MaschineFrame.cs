@@ -89,6 +89,11 @@ namespace View
         {
 
         }
+
+        private void MaschineOptionGrpBox_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
     public class MyResource
     {

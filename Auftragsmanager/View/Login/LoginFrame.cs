@@ -30,29 +30,34 @@ namespace View
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            LoginAction();
+        }
 
-
-
-
-            string Password = LoginPasswordInput.Text;
-            string Username = LoginNameInput.Text;
-
-            if(_unit.User.Login(Username, Password) != null)
+        private void LoginPasswordInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
             {
-               Console.WriteLine(_unit.User.GetAccessLevelByName("admin"));
+                LoginAction();
+            }
+        }
+        private void LoginAction()
+        {
+            string Username = LoginNameInput.Text;
+            string Password = LoginPasswordInput.Text;
 
-               
-
+            if (_unit.User.Login(Username, Password) != null)
+            {
                 MainFrame mainFrame = new MainFrame(_unit);
-                this.Hide();
-            } else
+                Hide();
+            }
+            else
             {
                 string messageText = "Password oder Benutzername sind nicht richtig!";
                 string messageTitle = "Falscher Login";
                 MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
+   
     }
 }

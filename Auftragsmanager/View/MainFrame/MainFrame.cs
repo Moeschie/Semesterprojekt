@@ -27,20 +27,19 @@ namespace View
         {
             Application.Exit();
         }
-
-        private void TestOrderFrameBtn_Click(object sender, EventArgs e)
+        private void TestOrderFrameBtn_Click_1(object sender, EventArgs e)
         {
             OrderFrame order = new OrderFrame();
             order.Show();
         }
 
-        private void TestLoginFrameBtn_Click(object sender, EventArgs e)
+        private void TestLoginFrameBtn_Click_1(object sender, EventArgs e)
         {
             LoginFrame login = new LoginFrame(_unit);
             login.Show();
         }
 
-        private void TestMaschineFrameBtn_Click(object sender, EventArgs e)
+        private void TestMaschineFrameBtn_Click_1(object sender, EventArgs e)
         {
             MaschineFrame maschine = new MaschineFrame(_unit);
             maschine.Show();
