@@ -13,9 +13,7 @@ namespace Repository.Model
         public Guid Id { get; set; }
         public string Name { get; set; }
         public DateTime UsageStart { get; set; }
-        public DateTime UsageEnd { get; set; }
+        public DateTime UsageEnd { get; set; }     
         
-
-
     }
 }
