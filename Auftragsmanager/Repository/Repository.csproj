@@ -58,7 +58,6 @@
       <DependentUpon>201605191139016_asdadafasd.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Utilities.cs" />
     <Compile Include="Models\MachineTasks.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\ProductionActions.cs" />

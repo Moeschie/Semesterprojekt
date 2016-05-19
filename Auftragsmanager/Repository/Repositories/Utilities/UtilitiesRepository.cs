@@ -6,16 +6,12 @@ using System;
 
 namespace Repository.Persistence
 {
-    public class UtilitiesRepository : Repository<Utilities>, IUtilitiesRepository
+    public class UtilitiesRepository :  IUtilitiesRepository
     {
     
-        public UtilitiesRepository(DataContext context) : base(context)
+        public UtilitiesRepository()
         {
-        }
 
-        public Utilities GetAdressById(Guid id)
-        {
-            return new Utilities();
         }
 
         public int SetTaskDateTime(DateTime start, DateTime end)
@@ -24,9 +20,6 @@ namespace Repository.Persistence
 
         }
 
-        public DataContext DataContext
-        {
-            get { return Context as DataContext; }
-        }
+ 
     }
 }

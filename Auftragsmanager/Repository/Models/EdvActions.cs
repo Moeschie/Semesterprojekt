@@ -14,8 +14,6 @@ namespace Repository.Model
         public string[] Actions { get; set; }
         public List<Machine> Machines { get; set; }
 
-        
-
 
     }
 }

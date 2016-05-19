@@ -23,7 +23,7 @@ namespace Repository.Persistence
             Adress = new AdressRepository(_context);
             ContactPerson = new ContactPersonRepository(_context);
             Session = new SessionRepository(_context);
-            Utilities = new UtilitiesRepository(_context);
+            Utilities = new UtilitiesRepository();
 
         }
 
@@ -35,8 +35,6 @@ namespace Repository.Persistence
         public IContactPersonRepository ContactPerson { get; set; }
         public ISessionRepository Session { get; set; }
         public IUtilitiesRepository Utilities { get; set; }
-
-
 
         public int Complete()
         {
