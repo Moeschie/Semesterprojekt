@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class MaschineFrame : Form
+    public partial class OrderFrame : Form
     {
-        public MaschineFrame()
+        public OrderFrame()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
+
+        private void EDVTableLayout_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

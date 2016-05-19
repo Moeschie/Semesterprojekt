@@ -6,19 +6,19 @@ using System;
 
 namespace Repository.Persistence
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class OrderRepository : Repository<Order>, IOrderRepository
     {
     
-        public UserRepository(DataContext context) : base(context)
+        public OrderRepository(DataContext context) : base(context)
         {
         }
 
-        public User GetUserById(int id)
+        public Order GetOrderById(Guid id)
         {
-            return new User();
+            return new Order();
         }
 
-        public User GetUserWithId(int id)
+        public Order GetUserWithId(int id)
         {
             throw new NotImplementedException();
         }

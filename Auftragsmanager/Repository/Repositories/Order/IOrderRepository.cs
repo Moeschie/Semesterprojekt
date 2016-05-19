@@ -7,8 +7,8 @@ using Repository.Model;
 
 namespace Repository.Core
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IOrderRepository : IRepository<Order>
     {
-        User GetUserWithId(int id);
+        Order GetOrderById(Guid id);
     }
 }

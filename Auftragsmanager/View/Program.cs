@@ -7,6 +7,7 @@ using Repository.Persistence;
 
 namespace View
 {
+
     static class Program
     {
         /// <summary>
@@ -15,24 +16,29 @@ namespace View
         [STAThread]
         static void Main()
         {
-            using (var data = new Unit(new DataContext()))
+            using (var unit = new Unit(new DataContext()))
             {
-                var users = data.User.GetAll();
+                /*
+                 *  To Initialize an Admin-Account (HardCoded in DB)
 
-                var albert = new Repository.Model.User();
-                    albert.Id = 1;
-                    albert.Name = "Albert";
+                    var admin = new Repository.Model.User();
+                    admin.Password = "admin";
+                    admin.Username = "admin";
+                    admin.Name = "Admin";
+                    admin.LastName = "Istrator";
+                    unit.User.Add(admin);
+                    unit.Complete();
 
-                data.User.Add(albert);
-                data.Complete();
+                */
 
-                foreach(var user in users)
-                    Console.Write(user.Name);
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MainFrame());
+                LoginFrame login = new LoginFrame(unit);
+                Application.Run();
+
             }
         }
+
     }
 }
