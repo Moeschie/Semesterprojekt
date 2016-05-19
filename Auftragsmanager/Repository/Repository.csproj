@@ -53,12 +53,20 @@
     <Compile Include="Migrations\201605190627390_InitialCreate.Designer.cs">
       <DependentUpon>201605190627390_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605191139016_asdadafasd.cs" />
+    <Compile Include="Migrations\201605191139016_asdadafasd.Designer.cs">
+      <DependentUpon>201605191139016_asdadafasd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Utilities.cs" />
+    <Compile Include="Models\MachineTasks.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\ProductionActions.cs" />
     <Compile Include="Models\EdvActions.cs" />
     <Compile Include="Models\ContactPerson.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Repositories\Utilities\UtilitiesRepository.cs" />
+    <Compile Include="Repositories\Utilities\IUtilitiesRepository.cs" />
     <Compile Include="Repositories\ContactPerson\ContactPersonRepository.cs" />
     <Compile Include="Repositories\ContactPerson\IContactPersonRepository.cs" />
     <Compile Include="Common\DataContext.cs" />
@@ -92,6 +100,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605190627390_InitialCreate.resx">
       <DependentUpon>201605190627390_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605191139016_asdadafasd.resx">
+      <DependentUpon>201605191139016_asdadafasd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

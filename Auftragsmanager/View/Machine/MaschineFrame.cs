@@ -8,20 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Braincase.GanttChart;
+using Repository.Persistence;
+
 namespace View
 {
     public partial class MaschineFrame : Form
     {
         ProjectManager GanttContent;
+        Unit _unit;
 
-        public MaschineFrame()
+        public MaschineFrame(Unit unit)
         {
+            _unit = unit;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             GanttContent = new ProjectManager();
 
-            DateTime StartMaschine = new DateTime(2016, 4,25);
-            DateTime EndMachine = new DateTime(2016, 9, 7);
+            DateTime StartMaschine = new DateTime(2016, 1,1);
+            DateTime EndMachine = new DateTime(2016, 12, 12);
             DateTime StartWorkorder = new DateTime(2016, 5, 25);
             DateTime EndWorkOrder = new DateTime(2016, 8, 7);
             DateTime DateTimeNow = DateTime.Now;
@@ -40,16 +44,16 @@ namespace View
             var Auftrag_1ToolTip = new MyResource() { Name = "Auftrag 1" };
             GanttContent.Assign(Auftrag_1, Auftrag_1ToolTip);
 
-            GanttContent.SetDuration(Machine_1, SetTaskDateTime(StartMaschine, EndMachine));
-            GanttContent.SetStart(Machine_1, SetTaskDateTime(DateTimeNow, StartMaschine));
-            GanttContent.SetEnd(Machine_1, SetTaskDateTime(DateTimeNow, EndMachine));
+            GanttContent.SetDuration(Machine_1, _unit.Utilities.SetTaskDateTime(StartMaschine, EndMachine));
+            GanttContent.SetStart(Machine_1, _unit.Utilities.SetTaskDateTime(DateTimeNow, StartMaschine));
+            GanttContent.SetEnd(Machine_1, _unit.Utilities.SetTaskDateTime(DateTimeNow, EndMachine));
 
-            GanttContent.SetDuration(Auftrag_1, SetTaskDateTime(StartWorkorder, EndWorkOrder));
-            GanttContent.SetStart(Auftrag_1, SetTaskDateTime(DateTimeNow, StartWorkorder)-10);
-            GanttContent.SetEnd(Auftrag_1, SetTaskDateTime(DateTimeNow, EndWorkOrder));
+            GanttContent.SetDuration(Auftrag_1, _unit.Utilities.SetTaskDateTime(StartWorkorder, EndWorkOrder));
+            GanttContent.SetStart(Auftrag_1, _unit.Utilities.SetTaskDateTime(DateTimeNow, StartWorkorder)-10);
+            GanttContent.SetEnd(Auftrag_1, _unit.Utilities.SetTaskDateTime(DateTimeNow, EndWorkOrder));
 
             //COMPLETION PROGRESS
-            Auftrag_1.Complete = (SetTaskDateTime(StartMaschine,DateTimeNow)/100F);
+            Auftrag_1.Complete = (_unit.Utilities.SetTaskDateTime(StartMaschine,DateTimeNow)/100F);
 
             //CONNECT AUFTRAG 1 TOO MACHINE 1
             GanttContent.Group(Machine_1, Auftrag_1);
@@ -80,13 +84,13 @@ namespace View
 
         }
 
-        public int SetTaskDateTime(DateTime start, DateTime end)
+
+        private void MachineUsageChart_Load(object sender, EventArgs e)
         {
-            return (int)((end - start).Days);
 
         }
 
-        private void MachineUsageChart_Load(object sender, EventArgs e)
+        private void MaschineOptionGrpBox_Enter(object sender, EventArgs e)
         {
 
         }

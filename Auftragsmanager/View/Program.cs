@@ -24,6 +24,7 @@ namespace View
                     var admin = new Repository.Model.User();
                     admin.Password = "admin";
                     admin.Username = "admin";
+                    admin.AccessLevel = 4;
                     admin.Name = "Admin";
                     admin.LastName = "Istrator";
                     unit.User.Add(admin);
