@@ -19,8 +19,8 @@ namespace View
             using (var unit = new Unit(new DataContext()))
             {
                 /*
+                 * 
                  *  To Initialize an Admin-Account (HardCoded in DB)
-
                     var admin = new Repository.Model.User();
                     admin.Password = "admin";
                     admin.Username = "admin";
@@ -28,9 +28,7 @@ namespace View
                     admin.LastName = "Istrator";
                     unit.User.Add(admin);
                     unit.Complete();
-
                 */
-
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
