@@ -7,9 +7,8 @@ using Repository.Model;
 
 namespace Repository.Core
 {
-    public interface IUtilitiesRepository : IRepository<Utilities>
+    public interface IUtilitiesRepository 
     {
-        Utilities GetAdressById(Guid id);
         int SetTaskDateTime(DateTime startMaschine, DateTime endMachine);
     }
 }
