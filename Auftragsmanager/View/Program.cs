@@ -31,6 +31,14 @@ namespace View
                     unit.Complete();
                 */
 
+                //for (int i = 0; i < 10; i++)
+                //{
+                //    var order = new Repository.Model.Order();
+                //    order.Name = "Admin"+i+"!";
+                //    unit.Order.Add(order);
+                //    unit.Complete();
+                //}
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 LoginFrame login = new LoginFrame(unit);
