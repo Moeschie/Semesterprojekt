@@ -3,15 +3,16 @@ using System.Collections.Generic;
 
 namespace Repository.Model
 {
-    public class CustomerObject
+    public class Order
     {
-        public CustomerObject()
+        public Order()
         {
-            // Default Constructor
+            Id = Guid.NewGuid();
         }
 
         public Guid Id { get; set; }
         public string Name { get; set; }
+        
 
 
     }

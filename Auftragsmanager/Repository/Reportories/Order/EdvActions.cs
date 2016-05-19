@@ -7,7 +7,7 @@ namespace Repository.Model
     {
         public EdvActions()
         {
-            // Default Constructor
+            Id = Guid.NewGuid();
         }
 
         public Guid Id { get; set; }

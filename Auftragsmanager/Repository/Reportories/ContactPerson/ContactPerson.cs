@@ -7,7 +7,7 @@ namespace Repository.Model
     {
         public ContactPerson()
         {
-            // Default Constructor
+            Id = Guid.NewGuid();
         }
 
         public Guid Id { get; set; }

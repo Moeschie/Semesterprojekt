@@ -49,28 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EdvActions\EdvActions.cs" />
-    <Compile Include="EdvActions\EdvActionsRepository.cs" />
-    <Compile Include="EdvActions\IEdvActionsRepository.cs" />
-    <Compile Include="ContactPerson\ContactPerson.cs" />
-    <Compile Include="ContactPerson\ContactPersonRepository.cs" />
-    <Compile Include="ContactPerson\IContactPersonRepository.cs" />
+    <Compile Include="Reportories\Order\EdvActions.cs" />
+    <Compile Include="Reportories\ContactPerson\ContactPerson.cs" />
+    <Compile Include="Reportories\ContactPerson\ContactPersonRepository.cs" />
+    <Compile Include="Reportories\ContactPerson\IContactPersonRepository.cs" />
     <Compile Include="Common\DataContext.cs" />
     <Compile Include="Common\IRepository.cs" />
     <Compile Include="Common\IUnit.cs" />
     <Compile Include="Common\Unit.cs" />
-    <Compile Include="CustomerObject\CustomerObject.cs" />
-    <Compile Include="CustomerObject\CustomerObjectRepository.cs" />
-    <Compile Include="CustomerObject\ICustomerObjectRepository.cs" />
-    <Compile Include="Customer\ICustomerRepository.cs" />
-    <Compile Include="Customer\Customer.cs" />
-    <Compile Include="Customer\CustomerRepository.cs" />
-    <Compile Include="Machine\IMachineRepository.cs" />
-    <Compile Include="Machine\Machine.cs" />
-    <Compile Include="Machine\MachineRepository.cs" />
-    <Compile Include="Adress\IAdressRepository.cs" />
-    <Compile Include="Adress\Adress.cs" />
-    <Compile Include="Adress\AdressRepository.cs" />
+    <Compile Include="Reportories\Customer\CustomerObject.cs" />
+    <Compile Include="Reportories\Customer\ICustomerRepository.cs" />
+    <Compile Include="Reportories\Customer\Customer.cs" />
+    <Compile Include="Reportories\Customer\CustomerRepository.cs" />
+    <Compile Include="Reportories\Machine\IMachineRepository.cs" />
+    <Compile Include="Reportories\Machine\Machine.cs" />
+    <Compile Include="Reportories\Machine\MachineRepository.cs" />
+    <Compile Include="Reportories\Adress\IAdressRepository.cs" />
+    <Compile Include="Reportories\Adress\Adress.cs" />
+    <Compile Include="Reportories\Adress\AdressRepository.cs" />
     <Compile Include="Migrations\201605172246396_hgjghj.cs" />
     <Compile Include="Migrations\201605172246396_hgjghj.Designer.cs">
       <DependentUpon>201605172246396_hgjghj.cs</DependentUpon>
@@ -78,12 +74,12 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\Repository.cs" />
-    <Compile Include="Order\IOrderRepository.cs" />
-    <Compile Include="Order\Order.cs" />
-    <Compile Include="Order\OrderRepository.cs" />
-    <Compile Include="User\IUserRepository.cs" />
-    <Compile Include="User\User.cs" />
-    <Compile Include="User\UserRepository.cs" />
+    <Compile Include="Reportories\Order\IOrderRepository.cs" />
+    <Compile Include="Reportories\Order\Order.cs" />
+    <Compile Include="Reportories\Order\OrderRepository.cs" />
+    <Compile Include="Reportories\User\IUserRepository.cs" />
+    <Compile Include="Reportories\User\User.cs" />
+    <Compile Include="Reportories\User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

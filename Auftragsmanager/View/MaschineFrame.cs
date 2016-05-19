@@ -85,6 +85,11 @@ namespace View
             return (int)((end - start).Days);
 
         }
+
+        private void MachineUsageChart_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     public class MyResource
     {

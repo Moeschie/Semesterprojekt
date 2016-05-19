@@ -15,23 +15,26 @@ namespace View
         [STAThread]
         static void Main()
         {
-            //using (var unit = new Unit(new DataContext()))
-            //{
-            //    var users = unit.User.GetAll();
-            //    //   var oders = unit.Order.GetOrderById();
-            //    // var adresses = unit.Adress.GetAll();
-            //    var albert = new Repository.Model.User();
-            //        albert.Name = "Albert";
-            //    unit.User.Add(albert);
-            //    unit.Complete();
+            using (var unit = new Unit(new DataContext()))
+            {
 
-            //    foreach(var user in unit.User.GetAll())
-            //        Console.Write(user.Name);
+                //    var users = unit.User.GetAll();
+                //    //   var oders = unit.Order.GetOrderById();
+                //    // var adresses = unit.Adress.GetAll();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainFrame());
+                    var albert = new Repository.Model.User();
+                        albert.Name = "tester";
+                        unit.User.Add(albert);
+                        unit.Complete();
+
+                    foreach(var user in unit.User.GetAll())
+                        Console.WriteLine(user.Id);
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainFrame());
+            }
         
-    }
+        }
     }
 }

@@ -71,6 +71,7 @@
             this.MachineUsageChart.Name = "MachineUsageChart";
             this.MachineUsageChart.Size = new System.Drawing.Size(1132, 288);
             this.MachineUsageChart.TabIndex = 1;
+            this.MachineUsageChart.Load += new System.EventHandler(this.MachineUsageChart_Load);
             // 
             // MaschineOptionGrpBox
             // 
