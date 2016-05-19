@@ -33,10 +33,10 @@ namespace View
             string Username = this.LoginNameInput.Text;
             string Password = this.LoginPasswordInput.Text;
 
-            if(_unit.User.Login(Username, Password))
+            if(_unit.User.Login(Username, Password) != null)
             {
-                this.Hide();
                 MainFrame mainFrame = new MainFrame(_unit);
+                this.Hide();
             } else
             {
                 string messageText = "Password oder Benutzername sind nicht richtig!";
@@ -46,9 +46,5 @@ namespace View
 
         }
 
-        private void LoginPasswordInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

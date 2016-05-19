@@ -23,14 +23,9 @@ namespace Repository.Persistence
             return true;
         } 
 
-        public bool Login(string username, string password)
+        public User Login(string username, string password)
         {
-            User checkUser = GetAll().Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-                
-            if(checkUser == null)
-                return false;
-
-            return true;
+            return GetAll().Where(u => u.Username == username && u.Password == password).FirstOrDefault();       
         }
 
         public DataContext DataContext

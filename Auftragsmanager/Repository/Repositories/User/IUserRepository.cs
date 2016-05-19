@@ -10,6 +10,6 @@ namespace Repository.Core
     public interface IUserRepository : IRepository<User>
     {
         User GetUserById(int id);
-        bool Login(string username, string password);
+        User Login(string username, string password);
     }
 }
