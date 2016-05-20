@@ -8,24 +8,25 @@ namespace Repository.Persistence
 {
     public class UserRepository : Repository<User>, IUserRepository
     {
-    
+        private SessionRepository session;
         public UserRepository(DataContext context) : base(context)
         {
+           session  = new SessionRepository(context);
         }
         
         public User Login(string username, string password)
         {
             User user = GetAll().Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-
+            session.SetSession(user);
             return user;
-
-            //return GetAll().Where(u => u.Username == username && u.Password == password).FirstOrDefault();       
         }
 
         public int GetAccessLevelByName(string name)
         {
+
             return GetAll().Where(u => u.Username == name).FirstOrDefault().AccessLevel;
         }
+
 
         public DataContext DataContext
         {

@@ -12,31 +12,27 @@ namespace Repository.Persistence
 
         public SessionRepository(DataContext context) : base(context)
         {
-
+            
         }
 
-        private Session _session;
-
-        private int AccessLevel;
-        private string Username;
-        private string Name;
-        private string LastName;
+        private static User _session;
 
         public void SetSession(User usr)
         {
             if (_session == null)
-            {
-                _session.User = usr;
-                Username = usr.Username;
-                LastName = usr.LastName;
-                AccessLevel = usr.AccessLevel;
-                Name = usr.Name;
-            }
+                _session = usr;
+            
         }
 
-        public int GetAccessLevel()
+        public User GetSessionUser()
         {
-            return AccessLevel;
+            return _session;
+        }
+
+        public bool Access(int Level)
+        {
+            if (_session.AccessLevel >= Level) return true;
+            return false;
         }
 
         public DataContext DataContext

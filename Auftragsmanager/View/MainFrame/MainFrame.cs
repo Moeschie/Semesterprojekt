@@ -18,9 +18,15 @@ namespace View
         {
             _unit = unit;
             InitializeComponent();
+            this.OrderSelectFilterInput.Text = _unit.Session.GetSessionUser().Username;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += closeEvent;
             this.Show();
+
+            if (unit.Session.Access(2))
+                Console.WriteLine("Access");
+            {
+            }
         }
 
         private void closeEvent(object sender, FormClosingEventArgs e)
