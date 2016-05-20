@@ -149,12 +149,12 @@
             this.OrderTabLeftTopTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OrderSelectFilterInput = new System.Windows.Forms.TextBox();
             this.OrderSelectFilterLabel = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.neueMappeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainFrameMenu = new System.Windows.Forms.MenuStrip();
+            this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabs = new System.Windows.Forms.TabControl();
-            this.leereMappeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mappeKlonenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maschinenmonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1.SuspendLayout();
             this.OrderTab.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
@@ -183,7 +183,7 @@
             this.ActiveOrderGrpBox.SuspendLayout();
             this.OrderSelectTableLayout.SuspendLayout();
             this.OrderTabLeftTopTableLayout.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.MainFrameMenu.SuspendLayout();
             this.MainFrameTabs.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -243,7 +243,7 @@
             // OrderTab
             // 
             this.OrderTab.Controls.Add(this.MainTableLayout);
-            this.OrderTab.Controls.Add(this.menuStrip1);
+            this.OrderTab.Controls.Add(this.MainFrameMenu);
             this.OrderTab.Location = new System.Drawing.Point(4, 22);
             this.OrderTab.Name = "OrderTab";
             this.OrderTab.Padding = new System.Windows.Forms.Padding(3);
@@ -312,6 +312,7 @@
             // 
             // EDVTableLayout
             // 
+            this.EDVTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.EDVTableLayout.ColumnCount = 2;
             this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
             this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
@@ -349,7 +350,7 @@
             // OrderMaxProTimeInput
             // 
             this.OrderMaxProTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(157, 223);
+            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(159, 219);
             this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
             this.OrderMaxProTimeInput.Size = new System.Drawing.Size(248, 20);
             this.OrderMaxProTimeInput.TabIndex = 26;
@@ -368,7 +369,7 @@
             // 
             this.ProduktionszeitLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ProduktionszeitLabel.AutoSize = true;
-            this.ProduktionszeitLabel.Location = new System.Drawing.Point(44, 226);
+            this.ProduktionszeitLabel.Location = new System.Drawing.Point(44, 223);
             this.ProduktionszeitLabel.Name = "ProduktionszeitLabel";
             this.ProduktionszeitLabel.Size = new System.Drawing.Size(107, 13);
             this.ProduktionszeitLabel.TabIndex = 12;
@@ -378,7 +379,7 @@
             // 
             this.MaschineLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MaschineLabel.AutoSize = true;
-            this.MaschineLabel.Location = new System.Drawing.Point(51, 195);
+            this.MaschineLabel.Location = new System.Drawing.Point(51, 189);
             this.MaschineLabel.Name = "MaschineLabel";
             this.MaschineLabel.Size = new System.Drawing.Size(100, 13);
             this.MaschineLabel.TabIndex = 13;
@@ -388,7 +389,7 @@
             // 
             this.Taetigkeit2Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit2Label.AutoSize = true;
-            this.Taetigkeit2Label.Location = new System.Drawing.Point(91, 40);
+            this.Taetigkeit2Label.Location = new System.Drawing.Point(91, 39);
             this.Taetigkeit2Label.Name = "Taetigkeit2Label";
             this.Taetigkeit2Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit2Label.TabIndex = 14;
@@ -398,7 +399,7 @@
             // 
             this.Taetigkeit3Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit3Label.AutoSize = true;
-            this.Taetigkeit3Label.Location = new System.Drawing.Point(91, 71);
+            this.Taetigkeit3Label.Location = new System.Drawing.Point(91, 69);
             this.Taetigkeit3Label.Name = "Taetigkeit3Label";
             this.Taetigkeit3Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit3Label.TabIndex = 15;
@@ -408,7 +409,7 @@
             // 
             this.Taetigkeit4Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit4Label.AutoSize = true;
-            this.Taetigkeit4Label.Location = new System.Drawing.Point(91, 102);
+            this.Taetigkeit4Label.Location = new System.Drawing.Point(91, 99);
             this.Taetigkeit4Label.Name = "Taetigkeit4Label";
             this.Taetigkeit4Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit4Label.TabIndex = 16;
@@ -418,7 +419,7 @@
             // 
             this.Taetigkeit5Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit5Label.AutoSize = true;
-            this.Taetigkeit5Label.Location = new System.Drawing.Point(91, 133);
+            this.Taetigkeit5Label.Location = new System.Drawing.Point(91, 129);
             this.Taetigkeit5Label.Name = "Taetigkeit5Label";
             this.Taetigkeit5Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit5Label.TabIndex = 17;
@@ -428,7 +429,7 @@
             // 
             this.Taetigkeit6Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit6Label.AutoSize = true;
-            this.Taetigkeit6Label.Location = new System.Drawing.Point(91, 164);
+            this.Taetigkeit6Label.Location = new System.Drawing.Point(91, 159);
             this.Taetigkeit6Label.Name = "Taetigkeit6Label";
             this.Taetigkeit6Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit6Label.TabIndex = 18;
@@ -437,15 +438,15 @@
             // OrderEDVJob1Input
             // 
             this.OrderEDVJob1Input.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderEDVJob1Input.Location = new System.Drawing.Point(157, 0);
+            this.OrderEDVJob1Input.Location = new System.Drawing.Point(159, 2);
             this.OrderEDVJob1Input.Name = "OrderEDVJob1Input";
-            this.OrderEDVJob1Input.Size = new System.Drawing.Size(298, 31);
+            this.OrderEDVJob1Input.Size = new System.Drawing.Size(294, 28);
             this.OrderEDVJob1Input.TabIndex = 19;
             // 
             // OrderEDVJob2Input
             // 
             this.OrderEDVJob2Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob2Input.Location = new System.Drawing.Point(157, 36);
+            this.OrderEDVJob2Input.Location = new System.Drawing.Point(159, 36);
             this.OrderEDVJob2Input.Name = "OrderEDVJob2Input";
             this.OrderEDVJob2Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob2Input.TabIndex = 20;
@@ -453,7 +454,7 @@
             // OrderEDVJob3Input
             // 
             this.OrderEDVJob3Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob3Input.Location = new System.Drawing.Point(157, 67);
+            this.OrderEDVJob3Input.Location = new System.Drawing.Point(159, 66);
             this.OrderEDVJob3Input.Name = "OrderEDVJob3Input";
             this.OrderEDVJob3Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob3Input.TabIndex = 21;
@@ -461,7 +462,7 @@
             // OrderEDVJob4Input
             // 
             this.OrderEDVJob4Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob4Input.Location = new System.Drawing.Point(157, 98);
+            this.OrderEDVJob4Input.Location = new System.Drawing.Point(159, 96);
             this.OrderEDVJob4Input.Name = "OrderEDVJob4Input";
             this.OrderEDVJob4Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob4Input.TabIndex = 22;
@@ -469,7 +470,7 @@
             // OrderEDVJob5Input
             // 
             this.OrderEDVJob5Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob5Input.Location = new System.Drawing.Point(157, 129);
+            this.OrderEDVJob5Input.Location = new System.Drawing.Point(159, 126);
             this.OrderEDVJob5Input.Name = "OrderEDVJob5Input";
             this.OrderEDVJob5Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob5Input.TabIndex = 23;
@@ -477,7 +478,7 @@
             // OrderEDVJob6Input
             // 
             this.OrderEDVJob6Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob6Input.Location = new System.Drawing.Point(157, 160);
+            this.OrderEDVJob6Input.Location = new System.Drawing.Point(159, 156);
             this.OrderEDVJob6Input.Name = "OrderEDVJob6Input";
             this.OrderEDVJob6Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob6Input.TabIndex = 24;
@@ -485,7 +486,7 @@
             // MaschineSelectInput
             // 
             this.MaschineSelectInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MaschineSelectInput.Location = new System.Drawing.Point(157, 191);
+            this.MaschineSelectInput.Location = new System.Drawing.Point(159, 185);
             this.MaschineSelectInput.Name = "MaschineSelectInput";
             this.MaschineSelectInput.Size = new System.Drawing.Size(248, 21);
             this.MaschineSelectInput.TabIndex = 27;
@@ -503,6 +504,7 @@
             // 
             // ProduktionTableLayout
             // 
+            this.ProduktionTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.InsetDouble;
             this.ProduktionTableLayout.ColumnCount = 2;
             this.ProduktionTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.98953F));
             this.ProduktionTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.01047F));
@@ -543,7 +545,7 @@
             // OrderInsertKindInput
             // 
             this.OrderInsertKindInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderInsertKindInput.Location = new System.Drawing.Point(103, 200);
+            this.OrderInsertKindInput.Location = new System.Drawing.Point(107, 201);
             this.OrderInsertKindInput.Name = "OrderInsertKindInput";
             this.OrderInsertKindInput.Size = new System.Drawing.Size(292, 20);
             this.OrderInsertKindInput.TabIndex = 33;
@@ -551,7 +553,7 @@
             // OrderInsertInput
             // 
             this.OrderInsertInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderInsertInput.Location = new System.Drawing.Point(103, 172);
+            this.OrderInsertInput.Location = new System.Drawing.Point(107, 173);
             this.OrderInsertInput.Name = "OrderInsertInput";
             this.OrderInsertInput.Size = new System.Drawing.Size(292, 20);
             this.OrderInsertInput.TabIndex = 32;
@@ -559,7 +561,7 @@
             // OrderProJob6Input
             // 
             this.OrderProJob6Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderProJob6Input.Location = new System.Drawing.Point(103, 144);
+            this.OrderProJob6Input.Location = new System.Drawing.Point(107, 145);
             this.OrderProJob6Input.Name = "OrderProJob6Input";
             this.OrderProJob6Input.Size = new System.Drawing.Size(292, 20);
             this.OrderProJob6Input.TabIndex = 31;
@@ -567,7 +569,7 @@
             // OrderProJob5Input
             // 
             this.OrderProJob5Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderProJob5Input.Location = new System.Drawing.Point(103, 116);
+            this.OrderProJob5Input.Location = new System.Drawing.Point(107, 117);
             this.OrderProJob5Input.Name = "OrderProJob5Input";
             this.OrderProJob5Input.Size = new System.Drawing.Size(292, 20);
             this.OrderProJob5Input.TabIndex = 30;
@@ -575,7 +577,7 @@
             // OrderProJob4Input
             // 
             this.OrderProJob4Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderProJob4Input.Location = new System.Drawing.Point(103, 88);
+            this.OrderProJob4Input.Location = new System.Drawing.Point(107, 89);
             this.OrderProJob4Input.Name = "OrderProJob4Input";
             this.OrderProJob4Input.Size = new System.Drawing.Size(292, 20);
             this.OrderProJob4Input.TabIndex = 29;
@@ -583,7 +585,7 @@
             // OrderProJob3Input
             // 
             this.OrderProJob3Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderProJob3Input.Location = new System.Drawing.Point(103, 60);
+            this.OrderProJob3Input.Location = new System.Drawing.Point(107, 61);
             this.OrderProJob3Input.Name = "OrderProJob3Input";
             this.OrderProJob3Input.Size = new System.Drawing.Size(292, 20);
             this.OrderProJob3Input.TabIndex = 28;
@@ -591,7 +593,7 @@
             // OrderProJob2Input
             // 
             this.OrderProJob2Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderProJob2Input.Location = new System.Drawing.Point(103, 32);
+            this.OrderProJob2Input.Location = new System.Drawing.Point(107, 33);
             this.OrderProJob2Input.Name = "OrderProJob2Input";
             this.OrderProJob2Input.Size = new System.Drawing.Size(292, 20);
             this.OrderProJob2Input.TabIndex = 27;
@@ -599,7 +601,7 @@
             // OrderProJob1Input
             // 
             this.OrderProJob1Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderProJob1Input.Location = new System.Drawing.Point(103, 4);
+            this.OrderProJob1Input.Location = new System.Drawing.Point(107, 5);
             this.OrderProJob1Input.Name = "OrderProJob1Input";
             this.OrderProJob1Input.Size = new System.Drawing.Size(292, 20);
             this.OrderProJob1Input.TabIndex = 25;
@@ -608,7 +610,7 @@
             // 
             this.Taetigkeit12Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit12Label.AutoSize = true;
-            this.Taetigkeit12Label.Location = new System.Drawing.Point(37, 147);
+            this.Taetigkeit12Label.Location = new System.Drawing.Point(38, 149);
             this.Taetigkeit12Label.Name = "Taetigkeit12Label";
             this.Taetigkeit12Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit12Label.TabIndex = 22;
@@ -618,7 +620,7 @@
             // 
             this.Taetigkeit11Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit11Label.AutoSize = true;
-            this.Taetigkeit11Label.Location = new System.Drawing.Point(37, 119);
+            this.Taetigkeit11Label.Location = new System.Drawing.Point(38, 121);
             this.Taetigkeit11Label.Name = "Taetigkeit11Label";
             this.Taetigkeit11Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit11Label.TabIndex = 20;
@@ -628,7 +630,7 @@
             // 
             this.Taetigkeit10Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit10Label.AutoSize = true;
-            this.Taetigkeit10Label.Location = new System.Drawing.Point(37, 91);
+            this.Taetigkeit10Label.Location = new System.Drawing.Point(38, 93);
             this.Taetigkeit10Label.Name = "Taetigkeit10Label";
             this.Taetigkeit10Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit10Label.TabIndex = 18;
@@ -638,7 +640,7 @@
             // 
             this.Taetigkeit9Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit9Label.AutoSize = true;
-            this.Taetigkeit9Label.Location = new System.Drawing.Point(37, 63);
+            this.Taetigkeit9Label.Location = new System.Drawing.Point(38, 65);
             this.Taetigkeit9Label.Name = "Taetigkeit9Label";
             this.Taetigkeit9Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit9Label.TabIndex = 16;
@@ -648,7 +650,7 @@
             // 
             this.Taetigkeit8Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit8Label.AutoSize = true;
-            this.Taetigkeit8Label.Location = new System.Drawing.Point(37, 35);
+            this.Taetigkeit8Label.Location = new System.Drawing.Point(38, 37);
             this.Taetigkeit8Label.Name = "Taetigkeit8Label";
             this.Taetigkeit8Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit8Label.TabIndex = 14;
@@ -658,7 +660,7 @@
             // 
             this.Taetigkeit7Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit7Label.AutoSize = true;
-            this.Taetigkeit7Label.Location = new System.Drawing.Point(37, 7);
+            this.Taetigkeit7Label.Location = new System.Drawing.Point(38, 9);
             this.Taetigkeit7Label.Name = "Taetigkeit7Label";
             this.Taetigkeit7Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit7Label.TabIndex = 12;
@@ -674,11 +676,11 @@
             this.VerarbeitungTableLayout.Controls.Add(this.inkenCBInput, 1, 0);
             this.VerarbeitungTableLayout.Controls.Add(this.kuvertierenCBInput, 0, 0);
             this.VerarbeitungTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VerarbeitungTableLayout.Location = new System.Drawing.Point(103, 227);
+            this.VerarbeitungTableLayout.Location = new System.Drawing.Point(107, 230);
             this.VerarbeitungTableLayout.Name = "VerarbeitungTableLayout";
             this.VerarbeitungTableLayout.RowCount = 1;
             this.VerarbeitungTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.VerarbeitungTableLayout.Size = new System.Drawing.Size(352, 29);
+            this.VerarbeitungTableLayout.Size = new System.Drawing.Size(345, 23);
             this.VerarbeitungTableLayout.TabIndex = 0;
             // 
             // folierenCBInput
@@ -686,7 +688,7 @@
             this.folierenCBInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.folierenCBInput.AutoSize = true;
             this.folierenCBInput.Enabled = false;
-            this.folierenCBInput.Location = new System.Drawing.Point(237, 6);
+            this.folierenCBInput.Location = new System.Drawing.Point(233, 3);
             this.folierenCBInput.Name = "folierenCBInput";
             this.folierenCBInput.Size = new System.Drawing.Size(60, 17);
             this.folierenCBInput.TabIndex = 2;
@@ -698,7 +700,7 @@
             this.inkenCBInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.inkenCBInput.AutoSize = true;
             this.inkenCBInput.Enabled = false;
-            this.inkenCBInput.Location = new System.Drawing.Point(114, 6);
+            this.inkenCBInput.Location = new System.Drawing.Point(112, 3);
             this.inkenCBInput.Name = "inkenCBInput";
             this.inkenCBInput.Size = new System.Drawing.Size(52, 17);
             this.inkenCBInput.TabIndex = 1;
@@ -710,7 +712,7 @@
             this.kuvertierenCBInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.kuvertierenCBInput.AutoSize = true;
             this.kuvertierenCBInput.Enabled = false;
-            this.kuvertierenCBInput.Location = new System.Drawing.Point(3, 6);
+            this.kuvertierenCBInput.Location = new System.Drawing.Point(3, 3);
             this.kuvertierenCBInput.Name = "kuvertierenCBInput";
             this.kuvertierenCBInput.Size = new System.Drawing.Size(79, 17);
             this.kuvertierenCBInput.TabIndex = 0;
@@ -721,7 +723,7 @@
             // 
             this.VerarbeitungLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.VerarbeitungLabel.AutoSize = true;
-            this.VerarbeitungLabel.Location = new System.Drawing.Point(30, 235);
+            this.VerarbeitungLabel.Location = new System.Drawing.Point(31, 235);
             this.VerarbeitungLabel.Name = "VerarbeitungLabel";
             this.VerarbeitungLabel.Size = new System.Drawing.Size(67, 13);
             this.VerarbeitungLabel.TabIndex = 10;
@@ -731,7 +733,7 @@
             // 
             this.BeilagenLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BeilagenLabel.AutoSize = true;
-            this.BeilagenLabel.Location = new System.Drawing.Point(46, 175);
+            this.BeilagenLabel.Location = new System.Drawing.Point(47, 177);
             this.BeilagenLabel.Name = "BeilagenLabel";
             this.BeilagenLabel.Size = new System.Drawing.Size(51, 13);
             this.BeilagenLabel.TabIndex = 23;
@@ -741,7 +743,7 @@
             // 
             this.BeilagenartLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BeilagenartLabel.AutoSize = true;
-            this.BeilagenartLabel.Location = new System.Drawing.Point(34, 203);
+            this.BeilagenartLabel.Location = new System.Drawing.Point(35, 205);
             this.BeilagenartLabel.Name = "BeilagenartLabel";
             this.BeilagenartLabel.Size = new System.Drawing.Size(63, 13);
             this.BeilagenartLabel.TabIndex = 24;
@@ -760,6 +762,7 @@
             // 
             // ZusatzTableLayout
             // 
+            this.ZusatzTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.ZusatzTableLayout.ColumnCount = 2;
             this.ZusatzTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.82271F));
             this.ZusatzTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.17728F));
@@ -783,7 +786,7 @@
             // 
             this.MaterialLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MaterialLabel.AutoSize = true;
-            this.MaterialLabel.Location = new System.Drawing.Point(47, 209);
+            this.MaterialLabel.Location = new System.Drawing.Point(47, 208);
             this.MaterialLabel.Name = "MaterialLabel";
             this.MaterialLabel.Size = new System.Drawing.Size(47, 13);
             this.MaterialLabel.TabIndex = 11;
@@ -793,7 +796,7 @@
             // 
             this.Zusatz_InfosLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Zusatz_InfosLabel.AutoSize = true;
-            this.Zusatz_InfosLabel.Location = new System.Drawing.Point(26, 36);
+            this.Zusatz_InfosLabel.Location = new System.Drawing.Point(26, 37);
             this.Zusatz_InfosLabel.Name = "Zusatz_InfosLabel";
             this.Zusatz_InfosLabel.Size = new System.Drawing.Size(68, 13);
             this.Zusatz_InfosLabel.TabIndex = 9;
@@ -812,7 +815,7 @@
             // OrderInfoInput
             // 
             this.OrderInfoInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderInfoInput.Location = new System.Drawing.Point(100, 20);
+            this.OrderInfoInput.Location = new System.Drawing.Point(102, 21);
             this.OrderInfoInput.Name = "OrderInfoInput";
             this.OrderInfoInput.Size = new System.Drawing.Size(254, 45);
             this.OrderInfoInput.TabIndex = 13;
@@ -820,7 +823,7 @@
             // OrderBillInput
             // 
             this.OrderBillInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderBillInput.Location = new System.Drawing.Point(100, 106);
+            this.OrderBillInput.Location = new System.Drawing.Point(102, 106);
             this.OrderBillInput.Name = "OrderBillInput";
             this.OrderBillInput.Size = new System.Drawing.Size(254, 45);
             this.OrderBillInput.TabIndex = 14;
@@ -828,7 +831,7 @@
             // OrderMaterialInput
             // 
             this.OrderMaterialInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderMaterialInput.Location = new System.Drawing.Point(100, 192);
+            this.OrderMaterialInput.Location = new System.Drawing.Point(102, 191);
             this.OrderMaterialInput.Name = "OrderMaterialInput";
             this.OrderMaterialInput.Size = new System.Drawing.Size(254, 46);
             this.OrderMaterialInput.TabIndex = 15;
@@ -846,6 +849,7 @@
             // 
             // CustomerTableLayout
             // 
+            this.CustomerTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.CustomerTableLayout.ColumnCount = 2;
             this.CustomerTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.97784F));
             this.CustomerTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.02216F));
@@ -881,7 +885,7 @@
             // OrderRemainsInput
             // 
             this.OrderRemainsInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderRemainsInput.Location = new System.Drawing.Point(117, 222);
+            this.OrderRemainsInput.Location = new System.Drawing.Point(119, 221);
             this.OrderRemainsInput.Name = "OrderRemainsInput";
             this.OrderRemainsInput.Size = new System.Drawing.Size(239, 23);
             this.OrderRemainsInput.TabIndex = 20;
@@ -890,7 +894,7 @@
             // 
             this.KundeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.KundeLabel.AutoSize = true;
-            this.KundeLabel.Location = new System.Drawing.Point(70, 8);
+            this.KundeLabel.Location = new System.Drawing.Point(70, 9);
             this.KundeLabel.Name = "KundeLabel";
             this.KundeLabel.Size = new System.Drawing.Size(41, 13);
             this.KundeLabel.TabIndex = 3;
@@ -898,6 +902,7 @@
             // 
             // AufteilungTableLayout
             // 
+            this.AufteilungTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.AufteilungTableLayout.ColumnCount = 2;
             this.AufteilungTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.57143F));
             this.AufteilungTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.42857F));
@@ -906,18 +911,18 @@
             this.AufteilungTableLayout.Controls.Add(this.AuslandLabel, 0, 1);
             this.AufteilungTableLayout.Controls.Add(this.InlandLabel, 0, 0);
             this.AufteilungTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AufteilungTableLayout.Location = new System.Drawing.Point(117, 153);
+            this.AufteilungTableLayout.Location = new System.Drawing.Point(119, 155);
             this.AufteilungTableLayout.Name = "AufteilungTableLayout";
             this.AufteilungTableLayout.RowCount = 2;
             this.AufteilungTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.AufteilungTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.AufteilungTableLayout.Size = new System.Drawing.Size(288, 62);
+            this.AufteilungTableLayout.Size = new System.Drawing.Size(284, 58);
             this.AufteilungTableLayout.TabIndex = 0;
             // 
             // OrderForeignInput
             // 
             this.OrderForeignInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderForeignInput.Location = new System.Drawing.Point(70, 36);
+            this.OrderForeignInput.Location = new System.Drawing.Point(72, 33);
             this.OrderForeignInput.Name = "OrderForeignInput";
             this.OrderForeignInput.Size = new System.Drawing.Size(177, 20);
             this.OrderForeignInput.TabIndex = 19;
@@ -925,7 +930,7 @@
             // OrderInlandInput
             // 
             this.OrderInlandInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderInlandInput.Location = new System.Drawing.Point(70, 5);
+            this.OrderInlandInput.Location = new System.Drawing.Point(72, 5);
             this.OrderInlandInput.Name = "OrderInlandInput";
             this.OrderInlandInput.Size = new System.Drawing.Size(177, 20);
             this.OrderInlandInput.TabIndex = 18;
@@ -934,7 +939,7 @@
             // 
             this.AuslandLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AuslandLabel.AutoSize = true;
-            this.AuslandLabel.Location = new System.Drawing.Point(16, 40);
+            this.AuslandLabel.Location = new System.Drawing.Point(16, 36);
             this.AuslandLabel.Name = "AuslandLabel";
             this.AuslandLabel.Size = new System.Drawing.Size(48, 13);
             this.AuslandLabel.TabIndex = 10;
@@ -944,7 +949,7 @@
             // 
             this.InlandLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.InlandLabel.AutoSize = true;
-            this.InlandLabel.Location = new System.Drawing.Point(25, 9);
+            this.InlandLabel.Location = new System.Drawing.Point(25, 8);
             this.InlandLabel.Name = "InlandLabel";
             this.InlandLabel.Size = new System.Drawing.Size(39, 13);
             this.InlandLabel.TabIndex = 9;
@@ -954,7 +959,7 @@
             // 
             this.ObjektLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ObjektLabel.AutoSize = true;
-            this.ObjektLabel.Location = new System.Drawing.Point(70, 38);
+            this.ObjektLabel.Location = new System.Drawing.Point(70, 39);
             this.ObjektLabel.Name = "ObjektLabel";
             this.ObjektLabel.Size = new System.Drawing.Size(41, 13);
             this.ObjektLabel.TabIndex = 4;
@@ -964,7 +969,7 @@
             // 
             this.AnsprechpartnerLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AnsprechpartnerLabel.AutoSize = true;
-            this.AnsprechpartnerLabel.Location = new System.Drawing.Point(23, 68);
+            this.AnsprechpartnerLabel.Location = new System.Drawing.Point(23, 69);
             this.AnsprechpartnerLabel.Name = "AnsprechpartnerLabel";
             this.AnsprechpartnerLabel.Size = new System.Drawing.Size(88, 13);
             this.AnsprechpartnerLabel.TabIndex = 5;
@@ -974,7 +979,7 @@
             // 
             this.BearbeiterLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.BearbeiterLabel.AutoSize = true;
-            this.BearbeiterLabel.Location = new System.Drawing.Point(25, 98);
+            this.BearbeiterLabel.Location = new System.Drawing.Point(25, 99);
             this.BearbeiterLabel.Name = "BearbeiterLabel";
             this.BearbeiterLabel.Size = new System.Drawing.Size(86, 13);
             this.BearbeiterLabel.TabIndex = 6;
@@ -984,7 +989,7 @@
             // 
             this.GesamtmengeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.GesamtmengeLabel.AutoSize = true;
-            this.GesamtmengeLabel.Location = new System.Drawing.Point(33, 128);
+            this.GesamtmengeLabel.Location = new System.Drawing.Point(33, 129);
             this.GesamtmengeLabel.Name = "GesamtmengeLabel";
             this.GesamtmengeLabel.Size = new System.Drawing.Size(78, 13);
             this.GesamtmengeLabel.TabIndex = 7;
@@ -1004,7 +1009,7 @@
             // 
             this.ResteLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ResteLabel.AutoSize = true;
-            this.ResteLabel.Location = new System.Drawing.Point(58, 227);
+            this.ResteLabel.Location = new System.Drawing.Point(58, 226);
             this.ResteLabel.Name = "ResteLabel";
             this.ResteLabel.Size = new System.Drawing.Size(53, 13);
             this.ResteLabel.TabIndex = 9;
@@ -1013,7 +1018,7 @@
             // OrderCustomerInput
             // 
             this.OrderCustomerInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderCustomerInput.Location = new System.Drawing.Point(117, 5);
+            this.OrderCustomerInput.Location = new System.Drawing.Point(119, 6);
             this.OrderCustomerInput.Name = "OrderCustomerInput";
             this.OrderCustomerInput.Size = new System.Drawing.Size(239, 20);
             this.OrderCustomerInput.TabIndex = 13;
@@ -1021,7 +1026,7 @@
             // OrderObjectInput
             // 
             this.OrderObjectInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderObjectInput.Location = new System.Drawing.Point(117, 35);
+            this.OrderObjectInput.Location = new System.Drawing.Point(119, 36);
             this.OrderObjectInput.Name = "OrderObjectInput";
             this.OrderObjectInput.Size = new System.Drawing.Size(239, 20);
             this.OrderObjectInput.TabIndex = 14;
@@ -1029,7 +1034,7 @@
             // OrderConsultantInput
             // 
             this.OrderConsultantInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderConsultantInput.Location = new System.Drawing.Point(117, 65);
+            this.OrderConsultantInput.Location = new System.Drawing.Point(119, 66);
             this.OrderConsultantInput.Name = "OrderConsultantInput";
             this.OrderConsultantInput.Size = new System.Drawing.Size(239, 20);
             this.OrderConsultantInput.TabIndex = 15;
@@ -1037,7 +1042,7 @@
             // OrderEditorInput
             // 
             this.OrderEditorInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEditorInput.Location = new System.Drawing.Point(117, 95);
+            this.OrderEditorInput.Location = new System.Drawing.Point(119, 96);
             this.OrderEditorInput.Name = "OrderEditorInput";
             this.OrderEditorInput.Size = new System.Drawing.Size(239, 20);
             this.OrderEditorInput.TabIndex = 16;
@@ -1045,7 +1050,7 @@
             // OrderQuantityInput
             // 
             this.OrderQuantityInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderQuantityInput.Location = new System.Drawing.Point(117, 125);
+            this.OrderQuantityInput.Location = new System.Drawing.Point(119, 126);
             this.OrderQuantityInput.Name = "OrderQuantityInput";
             this.OrderQuantityInput.Size = new System.Drawing.Size(239, 20);
             this.OrderQuantityInput.TabIndex = 17;
@@ -1063,6 +1068,7 @@
             // 
             // OrderLeftTableLayout
             // 
+            this.OrderLeftTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.OrderLeftTableLayout.ColumnCount = 4;
             this.OrderLeftTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.00554F));
             this.OrderLeftTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.47091F));
@@ -1089,7 +1095,7 @@
             // 
             this.trifft_einLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trifft_einLabel.AutoSize = true;
-            this.trifft_einLabel.Location = new System.Drawing.Point(26, 17);
+            this.trifft_einLabel.Location = new System.Drawing.Point(26, 18);
             this.trifft_einLabel.Name = "trifft_einLabel";
             this.trifft_einLabel.Size = new System.Drawing.Size(44, 13);
             this.trifft_einLabel.TabIndex = 4;
@@ -1098,7 +1104,7 @@
             // OrderIncomeDateInput
             // 
             this.OrderIncomeDateInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderIncomeDateInput.Location = new System.Drawing.Point(76, 14);
+            this.OrderIncomeDateInput.Location = new System.Drawing.Point(78, 14);
             this.OrderIncomeDateInput.Name = "OrderIncomeDateInput";
             this.OrderIncomeDateInput.Size = new System.Drawing.Size(97, 20);
             this.OrderIncomeDateInput.TabIndex = 14;
@@ -1106,7 +1112,7 @@
             // OrderEditionInput
             // 
             this.OrderEditionInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEditionInput.Location = new System.Drawing.Point(263, 54);
+            this.OrderEditionInput.Location = new System.Drawing.Point(264, 53);
             this.OrderEditionInput.Name = "OrderEditionInput";
             this.OrderEditionInput.Size = new System.Drawing.Size(117, 37);
             this.OrderEditionInput.TabIndex = 13;
@@ -1115,7 +1121,7 @@
             // 
             this.AuflageLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AuflageLabel.AutoSize = true;
-            this.AuflageLabel.Location = new System.Drawing.Point(211, 66);
+            this.AuflageLabel.Location = new System.Drawing.Point(210, 65);
             this.AuflageLabel.Name = "AuflageLabel";
             this.AuflageLabel.Size = new System.Drawing.Size(46, 13);
             this.AuflageLabel.TabIndex = 9;
@@ -1124,7 +1130,7 @@
             // OrderDeadlineInput
             // 
             this.OrderDeadlineInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderDeadlineInput.Location = new System.Drawing.Point(263, 6);
+            this.OrderDeadlineInput.Location = new System.Drawing.Point(264, 6);
             this.OrderDeadlineInput.Name = "OrderDeadlineInput";
             this.OrderDeadlineInput.Size = new System.Drawing.Size(117, 36);
             this.OrderDeadlineInput.TabIndex = 5;
@@ -1133,7 +1139,7 @@
             // 
             this.PALLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.PALLabel.AutoSize = true;
-            this.PALLabel.Location = new System.Drawing.Point(227, 17);
+            this.PALLabel.Location = new System.Drawing.Point(226, 18);
             this.PALLabel.Name = "PALLabel";
             this.PALLabel.Size = new System.Drawing.Size(30, 13);
             this.PALLabel.TabIndex = 3;
@@ -1142,7 +1148,7 @@
             // OrderIncomeTimeInput
             // 
             this.OrderIncomeTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderIncomeTimeInput.Location = new System.Drawing.Point(76, 62);
+            this.OrderIncomeTimeInput.Location = new System.Drawing.Point(78, 62);
             this.OrderIncomeTimeInput.Name = "OrderIncomeTimeInput";
             this.OrderIncomeTimeInput.Size = new System.Drawing.Size(97, 20);
             this.OrderIncomeTimeInput.TabIndex = 17;
@@ -1151,7 +1157,7 @@
             // 
             this.UhrzeitLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.UhrzeitLabel.AutoSize = true;
-            this.UhrzeitLabel.Location = new System.Drawing.Point(27, 66);
+            this.UhrzeitLabel.Location = new System.Drawing.Point(27, 65);
             this.UhrzeitLabel.Name = "UhrzeitLabel";
             this.UhrzeitLabel.Size = new System.Drawing.Size(43, 13);
             this.UhrzeitLabel.TabIndex = 16;
@@ -1236,6 +1242,7 @@
             // 
             // OrderRight1TableLayout
             // 
+            this.OrderRight1TableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.OrderRight1TableLayout.ColumnCount = 2;
             this.OrderRight1TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.OrderRight1TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -1256,7 +1263,7 @@
             // 
             this.AuftragsNrLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AuftragsNrLabel.AutoSize = true;
-            this.AuftragsNrLabel.Location = new System.Drawing.Point(20, 61);
+            this.AuftragsNrLabel.Location = new System.Drawing.Point(19, 61);
             this.AuftragsNrLabel.Name = "AuftragsNrLabel";
             this.AuftragsNrLabel.Size = new System.Drawing.Size(66, 13);
             this.AuftragsNrLabel.TabIndex = 11;
@@ -1265,7 +1272,7 @@
             // OrderNumberInput
             // 
             this.OrderNumberInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderNumberInput.Location = new System.Drawing.Point(92, 58);
+            this.OrderNumberInput.Location = new System.Drawing.Point(93, 57);
             this.OrderNumberInput.Name = "OrderNumberInput";
             this.OrderNumberInput.Size = new System.Drawing.Size(49, 20);
             this.OrderNumberInput.TabIndex = 13;
@@ -1274,7 +1281,7 @@
             // 
             this.AuftragLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AuftragLabel.AutoSize = true;
-            this.AuftragLabel.Location = new System.Drawing.Point(42, 16);
+            this.AuftragLabel.Location = new System.Drawing.Point(41, 16);
             this.AuftragLabel.Name = "AuftragLabel";
             this.AuftragLabel.Size = new System.Drawing.Size(44, 13);
             this.AuftragLabel.TabIndex = 2;
@@ -1283,7 +1290,7 @@
             // OrderNameInput
             // 
             this.OrderNameInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderNameInput.Location = new System.Drawing.Point(92, 12);
+            this.OrderNameInput.Location = new System.Drawing.Point(93, 13);
             this.OrderNameInput.Name = "OrderNameInput";
             this.OrderNameInput.Size = new System.Drawing.Size(49, 20);
             this.OrderNameInput.TabIndex = 4;
@@ -1552,25 +1559,43 @@
             this.OrderSelectFilterLabel.TabIndex = 1;
             this.OrderSelectFilterLabel.Text = "Auftrag suchen:";
             // 
-            // menuStrip1
+            // MainFrameMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neueMappeToolStripMenuItem1,
-            this.maschinenmonitorToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.MainFrameMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewFolderMenuItem,
+            this.MachineMenuItem});
+            this.MainFrameMenu.Location = new System.Drawing.Point(3, 3);
+            this.MainFrameMenu.Name = "MainFrameMenu";
+            this.MainFrameMenu.Size = new System.Drawing.Size(1370, 24);
+            this.MainFrameMenu.TabIndex = 2;
+            this.MainFrameMenu.Text = "menuStrip1";
             // 
-            // neueMappeToolStripMenuItem1
+            // NewFolderMenuItem
             // 
-            this.neueMappeToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.leereMappeToolStripMenuItem1,
-            this.mappeKlonenToolStripMenuItem});
-            this.neueMappeToolStripMenuItem1.Name = "neueMappeToolStripMenuItem1";
-            this.neueMappeToolStripMenuItem1.Size = new System.Drawing.Size(124, 20);
-            this.neueMappeToolStripMenuItem1.Text = "Neue Arbeitsmappe";
+            this.NewFolderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EmptyFolderSubMenuItem,
+            this.ClonedFolderSubMenuItem});
+            this.NewFolderMenuItem.Name = "NewFolderMenuItem";
+            this.NewFolderMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.NewFolderMenuItem.Text = "Neue Arbeitsmappe";
+            // 
+            // EmptyFolderSubMenuItem
+            // 
+            this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
+            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
+            // 
+            // ClonedFolderSubMenuItem
+            // 
+            this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
+            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
+            // 
+            // MachineMenuItem
+            // 
+            this.MachineMenuItem.Name = "MachineMenuItem";
+            this.MachineMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.MachineMenuItem.Text = "Maschinenmonitor";
             // 
             // MainFrameTabs
             // 
@@ -1584,31 +1609,13 @@
             this.MainFrameTabs.Size = new System.Drawing.Size(1384, 761);
             this.MainFrameTabs.TabIndex = 0;
             // 
-            // leereMappeToolStripMenuItem1
-            // 
-            this.leereMappeToolStripMenuItem1.Name = "leereMappeToolStripMenuItem1";
-            this.leereMappeToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.leereMappeToolStripMenuItem1.Text = "Leere Mappe";
-            // 
-            // mappeKlonenToolStripMenuItem
-            // 
-            this.mappeKlonenToolStripMenuItem.Name = "mappeKlonenToolStripMenuItem";
-            this.mappeKlonenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.mappeKlonenToolStripMenuItem.Text = "Mappe klonen";
-            // 
-            // maschinenmonitorToolStripMenuItem
-            // 
-            this.maschinenmonitorToolStripMenuItem.Name = "maschinenmonitorToolStripMenuItem";
-            this.maschinenmonitorToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
-            this.maschinenmonitorToolStripMenuItem.Text = "Maschinenmonitor";
-            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 761);
             this.Controls.Add(this.MainFrameTabs);
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.MainFrameMenu;
             this.Name = "MainFrame";
             this.Text = "Auftragsmanager";
             this.tabPage1.ResumeLayout(false);
@@ -1650,8 +1657,8 @@
             this.OrderSelectTableLayout.PerformLayout();
             this.OrderTabLeftTopTableLayout.ResumeLayout(false);
             this.OrderTabLeftTopTableLayout.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MainFrameMenu.ResumeLayout(false);
+            this.MainFrameMenu.PerformLayout();
             this.MainFrameTabs.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1781,11 +1788,11 @@
         private System.Windows.Forms.TextBox OrderSelectFilterInput;
         private System.Windows.Forms.Label OrderSelectFilterLabel;
         private System.Windows.Forms.TabControl MainFrameTabs;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem neueMappeToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem leereMappeToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem mappeKlonenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maschinenmonitorToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip MainFrameMenu;
+        private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MachineMenuItem;
     }
 }
 
