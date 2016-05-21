@@ -272,6 +272,7 @@
             this.OrderSaveButton.TabIndex = 14;
             this.OrderSaveButton.Text = "Speichern";
             this.OrderSaveButton.UseVisualStyleBackColor = true;
+            this.OrderSaveButton.Click += new System.EventHandler(this.AddOrder);
             // 
             // OrderDataButton
             // 
