@@ -28,8 +28,8 @@ namespace View
 
             FormValidation order = new FormValidation();
 
-            order.AddRule(OrderNameInput, "Name ist mindestens 5 Zeichen lang", m => m.Text.Length >= 5);
-            order.AddRule(OrderNameInput, "Muss ausgefüllt werden.", m => m.Text.Length >= 10);
+            order.AddRule(OrderNameInput, "Name ist mindestens 5 Zeichen lang", order.MaxLength(5));
+            order.AddRule(OrderNameInput, "Muss ausgefüllt werden.", order.MinLength(3));
 
             if (order.Validate())
             {
