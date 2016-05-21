@@ -72,5 +72,11 @@ namespace View
             OrderFrame order = new OrderFrame(_unit);
             order.Show();
         }
+
+        private void newUser(object sender, EventArgs e)
+        {
+            NewUser newUser = new NewUser(_unit);
+            newUser.Show();
+        }
     }
 }

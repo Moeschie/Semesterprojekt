@@ -38,7 +38,7 @@
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.AdminMainTable = new System.Windows.Forms.TableLayoutPanel();
             this.OrderTab = new System.Windows.Forms.TabPage();
             this.MainFrameMenu = new System.Windows.Forms.MenuStrip();
             this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -240,7 +240,7 @@
             // 
             // AdminTab
             // 
-            this.AdminTab.Controls.Add(this.tableLayoutPanel1);
+            this.AdminTab.Controls.Add(this.AdminMainTable);
             this.AdminTab.Controls.Add(this.menuStrip1);
             this.AdminTab.Location = new System.Drawing.Point(4, 22);
             this.AdminTab.Name = "AdminTab";
@@ -260,7 +260,7 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Text = "AdminMenuStrip";
             // 
             // benutzerToolStripMenuItem
             // 
@@ -276,6 +276,7 @@
             this.neuenBenutzerAnlegenToolStripMenuItem.Name = "neuenBenutzerAnlegenToolStripMenuItem";
             this.neuenBenutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
             this.neuenBenutzerAnlegenToolStripMenuItem.Text = "Neuen Benutzer Anlegen";
+            this.neuenBenutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.newUser);
             // 
             // logToolStripMenuItem
             // 
@@ -289,19 +290,19 @@
             this.statistikToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.statistikToolStripMenuItem.Text = "Statistik";
             // 
-            // tableLayoutPanel1
+            // AdminMainTable
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1100F));
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 27);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1370, 685);
-            this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.AdminMainTable.ColumnCount = 2;
+            this.AdminMainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.AdminMainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1100F));
+            this.AdminMainTable.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AdminMainTable.Location = new System.Drawing.Point(3, 27);
+            this.AdminMainTable.Name = "AdminMainTable";
+            this.AdminMainTable.RowCount = 1;
+            this.AdminMainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.AdminMainTable.Size = new System.Drawing.Size(1370, 685);
+            this.AdminMainTable.TabIndex = 0;
+            this.AdminMainTable.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // OrderTab
             // 
@@ -1740,7 +1741,7 @@
         private System.Windows.Forms.Button TestLoginFrameBtn;
         private System.Windows.Forms.Button TestOrderFrameBtn;
         private System.Windows.Forms.TabPage AdminTab;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel AdminMainTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem benutzerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuenBenutzerAnlegenToolStripMenuItem;

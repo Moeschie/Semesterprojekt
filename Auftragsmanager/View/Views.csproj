@@ -87,6 +87,12 @@
     <Compile Include="Machine\MaschineFrame.Designer.cs">
       <DependentUpon>MaschineFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="User\NewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\NewUser.Designer.cs">
+      <DependentUpon>NewUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order\OrderFrame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Machine\MaschineFrame.resx">
       <DependentUpon>MaschineFrame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\NewUser.resx">
+      <DependentUpon>NewUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order\OrderFrame.resx">
       <DependentUpon>OrderFrame.cs</DependentUpon>

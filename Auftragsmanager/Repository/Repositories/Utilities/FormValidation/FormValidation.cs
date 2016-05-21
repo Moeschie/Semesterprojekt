@@ -14,11 +14,12 @@ namespace Repository.Persistence.Utilities
         public Func<TextBox, bool> IsInt = m =>
         {
             int value;
-            bool success = int.TryParse(m.Text, out value);
-            return success;
+            return int.TryParse(m.Text, out value);
         };
 
         public Func<TextBox, bool> MinLength(int length){ return m => m.Text.Length >= length; }
+        public Func<ComboBox, bool> ComboSelect(int length) { return m => m.Text.Length >= length; }
+
         public Func<TextBox, bool> MaxLength(int length){ return m => m.Text.Length < length; }
         public void AddRule(TextBox box, string message, Func<TextBox, bool> condition)
         {
@@ -26,10 +27,19 @@ namespace Repository.Persistence.Utilities
             {
                 validate = !validate;
                 errorMessage = message;
+            }
+        }
 
+        public void AddRule(ComboBox box, string message, Func<ComboBox, bool> condition)
+        {
+            if (!condition(box) && validate)
+            {
+                validate = !validate;
+                errorMessage = message;
             }
         }
         public void AddRule(TextBox box, string message){ AddRule(box, message, MinLength(1)); }
+        public void AddRule(ComboBox box, string message){ AddRule(box, message, ComboSelect(1)); }
 
         public bool Validate()
         {
