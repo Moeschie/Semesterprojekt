@@ -9,23 +9,33 @@ namespace View.ViewUtilities
 {
     class FormValidation
     {
-        private bool validate;
-     //   internal Func<TextBox, bool> isString = m => m.Text is string;
-      //  internal Func<TextBox, bool> isDateTime = m => m.Text is DateTime;
+        private bool validate = true;
+        private string errorMessage;
+        internal Func<TextBox, bool> IsInt = m =>
+        {
+            int value;
+            bool success = int.TryParse(m.Text, out value);
+            return success;
+        };
+
         internal Func<TextBox, bool> MinLength(int length){ return m => m.Text.Length >= length; }
         internal Func<TextBox, bool> MaxLength(int length){ return m => m.Text.Length < length; }
         internal void AddRule(TextBox box, string message, Func<TextBox, bool> condition)
         {
-            if (!condition(box))
-                MessageBox.Show(message, @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!condition(box) && validate)
+            {
+                validate = !validate;
+                errorMessage = message;
 
-
+            }
         }
         internal void AddRule(TextBox box, string message){ AddRule(box, message, MinLength(1)); }
 
         internal bool Validate()
         {
-         //   MessageBox.Show(message, @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if(!validate)
+                MessageBox.Show(errorMessage, @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             return validate;
         }
     }
