@@ -18,6 +18,13 @@ namespace View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        public void AddOrder()
+        {
+
+            Formular order = new Formular();
+            OrderNameInput.Text;
+        }
+
         private void EDVTableLayout_Paint(object sender, PaintEventArgs e)
         {
 
