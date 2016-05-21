@@ -23,7 +23,7 @@ namespace View
             this.FormClosing += closeEvent;
             this.Show();
 
-            if (unit.Session.Access(2))
+            if (_unit.Session.Access(2))
                 Console.WriteLine("Access");
             {
             }
@@ -35,7 +35,7 @@ namespace View
         }
         private void TestOrderFrameBtn_Click_1(object sender, EventArgs e)
         {
-            OrderFrame order = new OrderFrame();
+            OrderFrame order = new OrderFrame(_unit);
             order.Show();
         }
 
