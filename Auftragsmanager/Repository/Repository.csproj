@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,6 +65,8 @@
     <Compile Include="Models\EdvActions.cs" />
     <Compile Include="Models\ContactPerson.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Repositories\Utilities\FormValidation\FormValidation.cs" />
+    <Compile Include="Repositories\Utilities\TextStrings\TextStrings.cs" />
     <Compile Include="Repositories\Utilities\UtilitiesRepository.cs" />
     <Compile Include="Repositories\Utilities\IUtilitiesRepository.cs" />
     <Compile Include="Repositories\ContactPerson\ContactPersonRepository.cs" />

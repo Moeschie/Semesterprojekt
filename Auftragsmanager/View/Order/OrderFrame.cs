@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Repository.Persistence;
-using View.ViewUtilities;
+using Repository.Persistence.Utilities;
 
 namespace View
 {
@@ -26,14 +26,15 @@ namespace View
         private void AddOrder(object sender, EventArgs e)
         {
 
-            FormValidation order = new FormValidation();
+            FormValidation f = new FormValidation();
+            TextStrings t = new TextStrings();
 
-            order.AddRule(OrderNameInput, "Name ist mindestens 5 Zeichen lang", order.MaxLength(5));
-            order.AddRule(OrderNameInput, "Muss ausgefüllt werden.", order.MinLength(3));
+            f.AddRule(OrderNumberInput, t.ENTRY_REQUIRED);
+            f.AddRule(OrderNameInput, t.MIN_CHARS_REQUIRED("Auftrags Name", 5), f.MinLength(5));
 
-            if (order.Validate())
+            if (f.Validate())
             {
-                Console.WriteLine("test");
+                Console.WriteLine("ENTRY");
             }
              
 

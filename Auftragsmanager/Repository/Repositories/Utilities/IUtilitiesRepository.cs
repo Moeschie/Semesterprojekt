@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Repository.Model;
+using Repository.Persistence;
 
 namespace Repository.Core
 {
