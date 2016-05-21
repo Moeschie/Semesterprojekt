@@ -7,24 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Repository.Persistence;
 using View.ViewUtilities;
 
 namespace View
 {
     public partial class OrderFrame : Form
     {
-        public OrderFrame()
+        Unit _unit;
+     
+        public OrderFrame(Unit unit)
         {
+            _unit = unit;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        public void SaveOrder()
+        private void AddOrder(object sender, EventArgs e)
         {
-            Formular order = new Formular();
-            order.AddRule(OrderEDVJob1Input.Text,"EDV Job1", Formular.Rule.Equals(null));
-        }
 
+            FormValidation order = new FormValidation();
+
+            order.AddRule(OrderNameInput, "Name ist mindestens 5 Zeichen lang", m => m.Text.Length >= 5);
+            order.AddRule(OrderNameInput, "Muss ausgefüllt werden.");
+
+            if (order.Validate())
+            {
+                
+            }
+
+
+        }
 
     }
 }

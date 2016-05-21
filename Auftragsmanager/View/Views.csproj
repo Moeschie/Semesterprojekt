@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewUtilities\Formular.cs" />
+    <Compile Include="ViewUtilities\FormValidation.cs" />
     <EmbeddedResource Include="Filebrowser\FilebrowserFrame.resx">
       <DependentUpon>FilebrowserFrame.cs</DependentUpon>
     </EmbeddedResource>
