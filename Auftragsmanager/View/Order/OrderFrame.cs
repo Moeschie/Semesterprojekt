@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using View.ViewUtilities;
 
 namespace View
 {
@@ -18,9 +19,12 @@ namespace View
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void EDVTableLayout_Paint(object sender, PaintEventArgs e)
+        public void SaveOrder()
         {
-
+            Formular order = new Formular();
+            order.AddRule(OrderEDVJob1Input.Text,"EDV Job1", Formular.Rule.Equals(null));
         }
+
+
     }
 }

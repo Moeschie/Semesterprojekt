@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace View.ViewUtilities
 {
-    class Form
+    class Formular
     {
         private List<Rule> Rules;
-        public Form()
+        public Formular()
         {
             // Constructor
         }
 
-        public void AddRule(string value, string name)
+        public void AddRule(string value, string name, Rule rule)
         {
 
         }
