@@ -50,5 +50,27 @@ namespace View
             MaschineFrame maschine = new MaschineFrame(_unit);
             maschine.Show();
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void benutzerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MachineMenuItem_Click(object sender, EventArgs e)
+        {
+            MaschineFrame maschine = new MaschineFrame(_unit);
+            maschine.Show();
+        }
+
+        private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderFrame order = new OrderFrame(_unit);
+            order.Show();
+        }
     }
 }
