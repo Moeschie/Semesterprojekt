@@ -59,7 +59,7 @@
             this.NewUserTable.Controls.Add(this.UserRightsSelect, 1, 6);
             this.NewUserTable.Controls.Add(this.label4, 0, 6);
             this.NewUserTable.Controls.Add(this.AddNewUserButton, 1, 7);
-            this.NewUserTable.Dock = System.Windows.Forms.DockStyle.Left;
+            this.NewUserTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NewUserTable.Location = new System.Drawing.Point(0, 0);
             this.NewUserTable.Name = "NewUserTable";
             this.NewUserTable.RowCount = 8;
@@ -186,6 +186,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 274);
             this.Controls.Add(this.NewUserTable);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "NewUser";
             this.Text = "Neuen Benutzer erstellen";
             this.NewUserTable.ResumeLayout(false);
