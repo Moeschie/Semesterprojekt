@@ -16,13 +16,32 @@ namespace View
     public partial class NewUser : Form
     {
         Unit _unit;
-        public NewUser(Unit unit)
+        private static NewUser instance;
+        
+        private NewUser(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+        }
+        private void closeEvent(object sender, FormClosingEventArgs e)
+        {
+            instance = null;
+        }
+
+        public static NewUser Instance(Unit unit)
+        {
+       
+            if (instance == null )
+            {
+               instance = new NewUser(unit);
+            }
+            instance.BringToFront();
+            return instance;
+
         }
 
         private void AddNewUserButton_Click(object sender, EventArgs e)
@@ -33,13 +52,17 @@ namespace View
             f.AddRule(UsernameTextBox, t.ENTRY_REQUIRED);
             f.AddRule(NameTextBox, t.ENTRY_REQUIRED);
             f.AddRule(LastNameTextBox, t.ENTRY_REQUIRED);
-            f.AddRule(PasswordTextBox, t.ENTRY_REQUIRED);
+            f.AddRule(PasswordTextBox, t.MIN_CHARS_REQUIRED("Password", 5), f.MinLength(5));
 
             User newUser = new User();
             newUser.Username = UsernameTextBox.Text;
             newUser.Name = NameTextBox.Text;
             newUser.LastName = LastNameTextBox.Text;
             newUser.Password = PasswordTextBox.Text;
+
+            if (_unit.User.CheckUserExists(newUser.Username))
+                f.AddError("Der Benutzername ist bereits vergeben.");
+
 
             string UserAccess = UserRightsSelect.Text;
             newUser.AccessLevel = 0;
@@ -50,6 +73,7 @@ namespace View
             {
                 _unit.User.Add(newUser);
                 _unit.Complete();
+                Close();
             }
 
 

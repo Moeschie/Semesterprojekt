@@ -11,5 +11,6 @@ namespace Repository.Core
     {
         User Login(string username, string password);
         int GetAccessLevelByName(string v);
+        bool CheckUserExists(string username);
     }
 }

@@ -30,6 +30,12 @@ namespace Repository.Persistence.Utilities
             }
         }
 
+        public void AddError(string message)
+        {
+            validate = false;
+            errorMessage = message;
+        }
+
         public void AddRule(ComboBox box, string message, Func<ComboBox, bool> condition)
         {
             if (!condition(box) && validate)

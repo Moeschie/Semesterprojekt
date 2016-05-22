@@ -75,7 +75,7 @@ namespace View
 
         private void newUser(object sender, EventArgs e)
         {
-            NewUser newUser = new NewUser(_unit);
+            NewUser newUser = NewUser.Instance(_unit) ;
             newUser.Show();
         }
         

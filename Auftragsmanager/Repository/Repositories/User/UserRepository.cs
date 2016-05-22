@@ -27,6 +27,17 @@ namespace Repository.Persistence
             return GetAll().Where(u => u.Username == name).FirstOrDefault().AccessLevel;
         }
 
+        public bool CheckUserExists(string username)
+        {
+            bool exists = false;
+            User user = GetAll().Where(u => u.Username == username).FirstOrDefault();
+
+            if(user != null)
+                exists = true;
+     
+            return exists;
+
+        }
 
         public DataContext DataContext
         {
