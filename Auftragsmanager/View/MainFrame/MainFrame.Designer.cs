@@ -139,16 +139,6 @@
             this.PrintLaufzettelButton = new System.Windows.Forms.Button();
             this.OrderTabLeftTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.ActiveOrderGrpBox = new System.Windows.Forms.GroupBox();
-            this.OrderTabLeftTopTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.OrderSelectFilterInput = new System.Windows.Forms.TextBox();
-            this.OrderSelectFilterLabel = new System.Windows.Forms.Label();
-            this.MainFrameMenu = new System.Windows.Forms.MenuStrip();
-            this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainFrameTabs = new System.Windows.Forms.TabControl();
-            this.OrderScrollPanel = new System.Windows.Forms.Panel();
             this.OrderSelectTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.CollumSixHeaderLabel = new System.Windows.Forms.Label();
             this.CollumFiveHeaderLabel = new System.Windows.Forms.Label();
@@ -162,6 +152,22 @@
             this.OrderSelectOutLabel = new System.Windows.Forms.Label();
             this.OrderSelectNoteLabel = new System.Windows.Forms.Label();
             this.OrderSelectPreviewButton = new System.Windows.Forms.Button();
+            this.OrderTabLeftTopTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.OrderSelectFilterInput = new System.Windows.Forms.TextBox();
+            this.OrderSelectFilterLabel = new System.Windows.Forms.Label();
+            this.MainFrameMenu = new System.Windows.Forms.MenuStrip();
+            this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MainFrameTabs = new System.Windows.Forms.TabControl();
+            this.MachineTab = new System.Windows.Forms.TabPage();
+            this.MachineMenu = new System.Windows.Forms.MenuStrip();
+            this.NewMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewMachineCreateSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage1.SuspendLayout();
             this.AdminTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -190,11 +196,12 @@
             this.OrderRight2TableLayout.SuspendLayout();
             this.OrderTabLeftTableLayout.SuspendLayout();
             this.ActiveOrderGrpBox.SuspendLayout();
+            this.OrderSelectTableLayout.SuspendLayout();
             this.OrderTabLeftTopTableLayout.SuspendLayout();
             this.MainFrameMenu.SuspendLayout();
             this.MainFrameTabs.SuspendLayout();
-            this.OrderScrollPanel.SuspendLayout();
-            this.OrderSelectTableLayout.SuspendLayout();
+            this.MachineTab.SuspendLayout();
+            this.MachineMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage1
@@ -1427,7 +1434,7 @@
             // 
             // ActiveOrderGrpBox
             // 
-            this.ActiveOrderGrpBox.Controls.Add(this.OrderScrollPanel);
+            this.ActiveOrderGrpBox.Controls.Add(this.OrderSelectTableLayout);
             this.ActiveOrderGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ActiveOrderGrpBox.Location = new System.Drawing.Point(3, 44);
             this.ActiveOrderGrpBox.Name = "ActiveOrderGrpBox";
@@ -1436,104 +1443,8 @@
             this.ActiveOrderGrpBox.TabStop = false;
             this.ActiveOrderGrpBox.Text = "Aufträge";
             // 
-            // OrderTabLeftTopTableLayout
-            // 
-            this.OrderTabLeftTopTableLayout.ColumnCount = 2;
-            this.OrderTabLeftTopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.02089F));
-            this.OrderTabLeftTopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.97911F));
-            this.OrderTabLeftTopTableLayout.Controls.Add(this.OrderSelectFilterInput, 1, 0);
-            this.OrderTabLeftTopTableLayout.Controls.Add(this.OrderSelectFilterLabel, 0, 0);
-            this.OrderTabLeftTopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderTabLeftTopTableLayout.Location = new System.Drawing.Point(3, 3);
-            this.OrderTabLeftTopTableLayout.Name = "OrderTabLeftTopTableLayout";
-            this.OrderTabLeftTopTableLayout.RowCount = 1;
-            this.OrderTabLeftTopTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.OrderTabLeftTopTableLayout.Size = new System.Drawing.Size(456, 35);
-            this.OrderTabLeftTopTableLayout.TabIndex = 0;
-            // 
-            // OrderSelectFilterInput
-            // 
-            this.OrderSelectFilterInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderSelectFilterInput.Location = new System.Drawing.Point(112, 7);
-            this.OrderSelectFilterInput.Name = "OrderSelectFilterInput";
-            this.OrderSelectFilterInput.Size = new System.Drawing.Size(285, 20);
-            this.OrderSelectFilterInput.TabIndex = 0;
-            // 
-            // OrderSelectFilterLabel
-            // 
-            this.OrderSelectFilterLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.OrderSelectFilterLabel.AutoSize = true;
-            this.OrderSelectFilterLabel.Location = new System.Drawing.Point(24, 11);
-            this.OrderSelectFilterLabel.Name = "OrderSelectFilterLabel";
-            this.OrderSelectFilterLabel.Size = new System.Drawing.Size(82, 13);
-            this.OrderSelectFilterLabel.TabIndex = 1;
-            this.OrderSelectFilterLabel.Text = "Auftrag suchen:";
-            // 
-            // MainFrameMenu
-            // 
-            this.MainFrameMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewFolderMenuItem,
-            this.MachineMenuItem});
-            this.MainFrameMenu.Location = new System.Drawing.Point(3, 3);
-            this.MainFrameMenu.Name = "MainFrameMenu";
-            this.MainFrameMenu.Size = new System.Drawing.Size(1370, 24);
-            this.MainFrameMenu.TabIndex = 2;
-            this.MainFrameMenu.Text = "menuStrip1";
-            // 
-            // NewFolderMenuItem
-            // 
-            this.NewFolderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EmptyFolderSubMenuItem,
-            this.ClonedFolderSubMenuItem});
-            this.NewFolderMenuItem.Name = "NewFolderMenuItem";
-            this.NewFolderMenuItem.Size = new System.Drawing.Size(124, 20);
-            this.NewFolderMenuItem.Text = "Neue Arbeitsmappe";
-            // 
-            // EmptyFolderSubMenuItem
-            // 
-            this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
-            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
-            this.EmptyFolderSubMenuItem.Click += new System.EventHandler(this.EmptyFolderSubMenuItem_Click);
-            // 
-            // ClonedFolderSubMenuItem
-            // 
-            this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
-            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
-            // 
-            // MachineMenuItem
-            // 
-            this.MachineMenuItem.Name = "MachineMenuItem";
-            this.MachineMenuItem.Size = new System.Drawing.Size(120, 20);
-            this.MachineMenuItem.Text = "Maschinenmonitor";
-            this.MachineMenuItem.Click += new System.EventHandler(this.MachineMenuItem_Click);
-            // 
-            // MainFrameTabs
-            // 
-            this.MainFrameTabs.Controls.Add(this.OrderTab);
-            this.MainFrameTabs.Controls.Add(this.AdminTab);
-            this.MainFrameTabs.Controls.Add(this.tabPage1);
-            this.MainFrameTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainFrameTabs.Location = new System.Drawing.Point(0, 0);
-            this.MainFrameTabs.Name = "MainFrameTabs";
-            this.MainFrameTabs.SelectedIndex = 0;
-            this.MainFrameTabs.Size = new System.Drawing.Size(1384, 741);
-            this.MainFrameTabs.TabIndex = 0;
-            // 
-            // OrderScrollPanel
-            // 
-            this.OrderScrollPanel.AutoScroll = true;
-            this.OrderScrollPanel.Controls.Add(this.OrderSelectTableLayout);
-            this.OrderScrollPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderScrollPanel.Location = new System.Drawing.Point(3, 16);
-            this.OrderScrollPanel.Name = "OrderScrollPanel";
-            this.OrderScrollPanel.Size = new System.Drawing.Size(450, 613);
-            this.OrderScrollPanel.TabIndex = 0;
-            // 
             // OrderSelectTableLayout
             // 
-            this.OrderSelectTableLayout.AutoScroll = true;
             this.OrderSelectTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.OrderSelectTableLayout.ColumnCount = 6;
             this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.26667F));
@@ -1555,14 +1466,14 @@
             this.OrderSelectTableLayout.Controls.Add(this.OrderSelectNoteLabel, 4, 1);
             this.OrderSelectTableLayout.Controls.Add(this.OrderSelectPreviewButton, 5, 1);
             this.OrderSelectTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderSelectTableLayout.Location = new System.Drawing.Point(0, 0);
+            this.OrderSelectTableLayout.Location = new System.Drawing.Point(3, 16);
             this.OrderSelectTableLayout.Name = "OrderSelectTableLayout";
             this.OrderSelectTableLayout.RowCount = 3;
             this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.642024F));
             this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.447471F));
             this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.91051F));
             this.OrderSelectTableLayout.Size = new System.Drawing.Size(450, 613);
-            this.OrderSelectTableLayout.TabIndex = 2;
+            this.OrderSelectTableLayout.TabIndex = 0;
             // 
             // CollumSixHeaderLabel
             // 
@@ -1688,6 +1599,150 @@
             this.OrderSelectPreviewButton.Text = "anzeigen";
             this.OrderSelectPreviewButton.UseVisualStyleBackColor = false;
             // 
+            // OrderTabLeftTopTableLayout
+            // 
+            this.OrderTabLeftTopTableLayout.ColumnCount = 2;
+            this.OrderTabLeftTopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.02089F));
+            this.OrderTabLeftTopTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.97911F));
+            this.OrderTabLeftTopTableLayout.Controls.Add(this.OrderSelectFilterInput, 1, 0);
+            this.OrderTabLeftTopTableLayout.Controls.Add(this.OrderSelectFilterLabel, 0, 0);
+            this.OrderTabLeftTopTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OrderTabLeftTopTableLayout.Location = new System.Drawing.Point(3, 3);
+            this.OrderTabLeftTopTableLayout.Name = "OrderTabLeftTopTableLayout";
+            this.OrderTabLeftTopTableLayout.RowCount = 1;
+            this.OrderTabLeftTopTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.OrderTabLeftTopTableLayout.Size = new System.Drawing.Size(456, 35);
+            this.OrderTabLeftTopTableLayout.TabIndex = 0;
+            // 
+            // OrderSelectFilterInput
+            // 
+            this.OrderSelectFilterInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.OrderSelectFilterInput.Location = new System.Drawing.Point(112, 7);
+            this.OrderSelectFilterInput.Name = "OrderSelectFilterInput";
+            this.OrderSelectFilterInput.Size = new System.Drawing.Size(285, 20);
+            this.OrderSelectFilterInput.TabIndex = 0;
+            // 
+            // OrderSelectFilterLabel
+            // 
+            this.OrderSelectFilterLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.OrderSelectFilterLabel.AutoSize = true;
+            this.OrderSelectFilterLabel.Location = new System.Drawing.Point(24, 11);
+            this.OrderSelectFilterLabel.Name = "OrderSelectFilterLabel";
+            this.OrderSelectFilterLabel.Size = new System.Drawing.Size(82, 13);
+            this.OrderSelectFilterLabel.TabIndex = 1;
+            this.OrderSelectFilterLabel.Text = "Auftrag suchen:";
+            // 
+            // MainFrameMenu
+            // 
+            this.MainFrameMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewFolderMenuItem,
+            this.MachineMenuItem});
+            this.MainFrameMenu.Location = new System.Drawing.Point(3, 3);
+            this.MainFrameMenu.Name = "MainFrameMenu";
+            this.MainFrameMenu.Size = new System.Drawing.Size(1370, 24);
+            this.MainFrameMenu.TabIndex = 2;
+            this.MainFrameMenu.Text = "menuStrip1";
+            // 
+            // NewFolderMenuItem
+            // 
+            this.NewFolderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EmptyFolderSubMenuItem,
+            this.ClonedFolderSubMenuItem});
+            this.NewFolderMenuItem.Name = "NewFolderMenuItem";
+            this.NewFolderMenuItem.Size = new System.Drawing.Size(124, 20);
+            this.NewFolderMenuItem.Text = "Neue Arbeitsmappe";
+            // 
+            // EmptyFolderSubMenuItem
+            // 
+            this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
+            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
+            this.EmptyFolderSubMenuItem.Click += new System.EventHandler(this.EmptyFolderSubMenuItem_Click);
+            // 
+            // ClonedFolderSubMenuItem
+            // 
+            this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
+            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
+            // 
+            // MachineMenuItem
+            // 
+            this.MachineMenuItem.Name = "MachineMenuItem";
+            this.MachineMenuItem.Size = new System.Drawing.Size(120, 20);
+            this.MachineMenuItem.Text = "Maschinenmonitor";
+            this.MachineMenuItem.Click += new System.EventHandler(this.MachineMenuItem_Click);
+            // 
+            // MainFrameTabs
+            // 
+            this.MainFrameTabs.Controls.Add(this.OrderTab);
+            this.MainFrameTabs.Controls.Add(this.AdminTab);
+            this.MainFrameTabs.Controls.Add(this.MachineTab);
+            this.MainFrameTabs.Controls.Add(this.tabPage1);
+            this.MainFrameTabs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainFrameTabs.Location = new System.Drawing.Point(0, 0);
+            this.MainFrameTabs.Name = "MainFrameTabs";
+            this.MainFrameTabs.SelectedIndex = 0;
+            this.MainFrameTabs.Size = new System.Drawing.Size(1384, 741);
+            this.MainFrameTabs.TabIndex = 0;
+            // 
+            // MachineTab
+            // 
+            this.MachineTab.Controls.Add(this.MachineMenu);
+            this.MachineTab.Location = new System.Drawing.Point(4, 22);
+            this.MachineTab.Name = "MachineTab";
+            this.MachineTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MachineTab.Size = new System.Drawing.Size(1376, 715);
+            this.MachineTab.TabIndex = 4;
+            this.MachineTab.Text = "Maschinen";
+            this.MachineTab.UseVisualStyleBackColor = true;
+            // 
+            // MachineMenu
+            // 
+            this.MachineMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewMachineMenuItem,
+            this.EditMachineMenuItem});
+            this.MachineMenu.Location = new System.Drawing.Point(3, 3);
+            this.MachineMenu.Name = "MachineMenu";
+            this.MachineMenu.Size = new System.Drawing.Size(1370, 24);
+            this.MachineMenu.TabIndex = 0;
+            this.MachineMenu.Text = "menuStrip2";
+            // 
+            // NewMachineMenuItem
+            // 
+            this.NewMachineMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewMachineCreateSubMenuItem});
+            this.NewMachineMenuItem.Name = "NewMachineMenuItem";
+            this.NewMachineMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.NewMachineMenuItem.Text = "Neu";
+            // 
+            // NewMachineCreateSubMenuItem
+            // 
+            this.NewMachineCreateSubMenuItem.Name = "NewMachineCreateSubMenuItem";
+            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NewMachineCreateSubMenuItem.Text = "Hinzufügen";
+            this.NewMachineCreateSubMenuItem.Click += new System.EventHandler(this.newMachine);
+            // 
+            // EditMachineMenuItem
+            // 
+            this.EditMachineMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DefectMachineSubMenuItem,
+            this.EditMachineNameSubMenuItem});
+            this.EditMachineMenuItem.Name = "EditMachineMenuItem";
+            this.EditMachineMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.EditMachineMenuItem.Text = "Bearbeiten";
+            // 
+            // DefectMachineSubMenuItem
+            // 
+            this.DefectMachineSubMenuItem.Name = "DefectMachineSubMenuItem";
+            this.DefectMachineSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DefectMachineSubMenuItem.Text = "Defekte";
+            // 
+            // EditMachineNameSubMenuItem
+            // 
+            this.EditMachineNameSubMenuItem.Name = "EditMachineNameSubMenuItem";
+            this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.EditMachineNameSubMenuItem.Text = "Editieren";
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1736,14 +1791,17 @@
             this.OrderRight2TableLayout.ResumeLayout(false);
             this.OrderTabLeftTableLayout.ResumeLayout(false);
             this.ActiveOrderGrpBox.ResumeLayout(false);
+            this.OrderSelectTableLayout.ResumeLayout(false);
+            this.OrderSelectTableLayout.PerformLayout();
             this.OrderTabLeftTopTableLayout.ResumeLayout(false);
             this.OrderTabLeftTopTableLayout.PerformLayout();
             this.MainFrameMenu.ResumeLayout(false);
             this.MainFrameMenu.PerformLayout();
             this.MainFrameTabs.ResumeLayout(false);
-            this.OrderScrollPanel.ResumeLayout(false);
-            this.OrderSelectTableLayout.ResumeLayout(false);
-            this.OrderSelectTableLayout.PerformLayout();
+            this.MachineTab.ResumeLayout(false);
+            this.MachineTab.PerformLayout();
+            this.MachineMenu.ResumeLayout(false);
+            this.MachineMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1861,16 +1919,6 @@
         private System.Windows.Forms.Button PrintLaufzettelButton;
         private System.Windows.Forms.TableLayoutPanel OrderTabLeftTableLayout;
         private System.Windows.Forms.GroupBox ActiveOrderGrpBox;
-        private System.Windows.Forms.TableLayoutPanel OrderTabLeftTopTableLayout;
-        private System.Windows.Forms.TextBox OrderSelectFilterInput;
-        private System.Windows.Forms.Label OrderSelectFilterLabel;
-        private System.Windows.Forms.MenuStrip MainFrameMenu;
-        private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MachineMenuItem;
-        private System.Windows.Forms.TabControl MainFrameTabs;
-        private System.Windows.Forms.Panel OrderScrollPanel;
         private System.Windows.Forms.TableLayoutPanel OrderSelectTableLayout;
         private System.Windows.Forms.Label CollumSixHeaderLabel;
         private System.Windows.Forms.Label CollumFiveHeaderLabel;
@@ -1884,6 +1932,22 @@
         private System.Windows.Forms.Label OrderSelectOutLabel;
         private System.Windows.Forms.Label OrderSelectNoteLabel;
         private System.Windows.Forms.Button OrderSelectPreviewButton;
+        private System.Windows.Forms.TableLayoutPanel OrderTabLeftTopTableLayout;
+        private System.Windows.Forms.TextBox OrderSelectFilterInput;
+        private System.Windows.Forms.Label OrderSelectFilterLabel;
+        private System.Windows.Forms.MenuStrip MainFrameMenu;
+        private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MachineMenuItem;
+        private System.Windows.Forms.TabControl MainFrameTabs;
+        private System.Windows.Forms.TabPage MachineTab;
+        private System.Windows.Forms.MenuStrip MachineMenu;
+        private System.Windows.Forms.ToolStripMenuItem NewMachineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewMachineCreateSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditMachineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DefectMachineSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditMachineNameSubMenuItem;
     }
 }
 
