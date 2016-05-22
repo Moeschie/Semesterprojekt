@@ -78,12 +78,23 @@ namespace View
             NewUser newUser = NewUser.Instance(_unit) ;
             newUser.Show();
         }
-
-
+        
         private void newMachine(object sender, EventArgs e)
         {
-            NewMachine newUser = new NewMachine(_unit);
-            newUser.Show();
+            NewMachine newMachine = new NewMachine(_unit);
+            newMachine.Show();
+        }
+
+        private void addDefect(object sender, EventArgs e)
+        {
+            AddDefect addDefect = new AddDefect(_unit);
+            addDefect.Show();
+        }
+
+        private void editMaschine(object sender, EventArgs e)
+        {
+            EditMashine editMashine = new EditMashine(_unit);
+            editMashine.Show();
         }
     }
 }

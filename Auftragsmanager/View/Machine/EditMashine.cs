@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class NewMachine : Form
+    public partial class EditMashine : Form
     {
         private Unit _unit;
-        public NewMachine(Unit unit)
+        public EditMashine(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
