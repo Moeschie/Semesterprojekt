@@ -168,6 +168,7 @@
             this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.tabPage1.SuspendLayout();
             this.AdminTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -1687,6 +1688,7 @@
             // 
             // MachineTab
             // 
+            this.MachineTab.Controls.Add(this.MachineUsageChart);
             this.MachineTab.Controls.Add(this.MachineMenu);
             this.MachineTab.Location = new System.Drawing.Point(4, 22);
             this.MachineTab.Name = "MachineTab";
@@ -1736,12 +1738,24 @@
             this.DefectMachineSubMenuItem.Name = "DefectMachineSubMenuItem";
             this.DefectMachineSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.DefectMachineSubMenuItem.Text = "Defekte";
+            this.DefectMachineSubMenuItem.Click += new System.EventHandler(this.addDefect);
             // 
             // EditMachineNameSubMenuItem
             // 
             this.EditMachineNameSubMenuItem.Name = "EditMachineNameSubMenuItem";
             this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.EditMachineNameSubMenuItem.Text = "Editieren";
+            this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
+            // 
+            // MachineUsageChart
+            // 
+            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineUsageChart.FullDateStringFormat = null;
+            this.MachineUsageChart.Location = new System.Drawing.Point(3, 27);
+            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
+            this.MachineUsageChart.Name = "MachineUsageChart";
+            this.MachineUsageChart.Size = new System.Drawing.Size(1370, 685);
+            this.MachineUsageChart.TabIndex = 2;
             // 
             // MainFrame
             // 
@@ -1948,6 +1962,7 @@
         private System.Windows.Forms.ToolStripMenuItem EditMachineMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DefectMachineSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditMachineNameSubMenuItem;
+        private Braincase.GanttChart.Chart MachineUsageChart;
     }
 }
 

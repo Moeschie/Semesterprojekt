@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class NewMachine : Form
+    public partial class AddDefect : Form
     {
         private Unit _unit;
-        public NewMachine(Unit unit)
+        public AddDefect(Unit unit)
         {
             _unit = unit;
             InitializeComponent();

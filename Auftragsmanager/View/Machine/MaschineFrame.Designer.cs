@@ -31,29 +31,29 @@
             this.MachineControllTabControll = new System.Windows.Forms.TabControl();
             this.MachineMonitorTab = new System.Windows.Forms.TabPage();
             this.MaschineUsagesGrpBox = new System.Windows.Forms.GroupBox();
-            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineControllTab = new System.Windows.Forms.TabPage();
             this.MaschineOptionGrpBox = new System.Windows.Forms.GroupBox();
-            this.EditMachineDefectEndDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.EditMachineDefefctEndLabel = new System.Windows.Forms.Label();
-            this.EditMachineSaveChanegesButton = new System.Windows.Forms.Button();
-            this.EditMachineDefectStartDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.EditMachineDefefctStartLabel = new System.Windows.Forms.Label();
-            this.NewMachineNameTextBox = new System.Windows.Forms.TextBox();
-            this.NewMachineNameLabel = new System.Windows.Forms.Label();
-            this.EditMachineSelectMachineDropDown = new System.Windows.Forms.ComboBox();
-            this.dataSet1 = new System.Data.DataSet();
-            this.EditMachineGroupBox = new System.Windows.Forms.GroupBox();
             this.EditMachineCreateMachineGroupBox = new System.Windows.Forms.GroupBox();
             this.NewMachineSaveButton = new System.Windows.Forms.Button();
+            this.NewMachineNameTextBox = new System.Windows.Forms.TextBox();
+            this.NewMachineNameLabel = new System.Windows.Forms.Label();
+            this.EditMachineGroupBox = new System.Windows.Forms.GroupBox();
+            this.EditMachineSelectMachineDropDown = new System.Windows.Forms.ComboBox();
+            this.EditMachineDefectEndDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.EditMachineDefefctStartLabel = new System.Windows.Forms.Label();
+            this.EditMachineDefefctEndLabel = new System.Windows.Forms.Label();
+            this.EditMachineDefectStartDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.EditMachineSaveChanegesButton = new System.Windows.Forms.Button();
+            this.dataSet1 = new System.Data.DataSet();
+            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineControllTabControll.SuspendLayout();
             this.MachineMonitorTab.SuspendLayout();
             this.MaschineUsagesGrpBox.SuspendLayout();
             this.MachineControllTab.SuspendLayout();
             this.MaschineOptionGrpBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
-            this.EditMachineGroupBox.SuspendLayout();
             this.EditMachineCreateMachineGroupBox.SuspendLayout();
+            this.EditMachineGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // MachineControllTabControll
@@ -89,16 +89,6 @@
             this.MaschineUsagesGrpBox.TabStop = false;
             this.MaschineUsagesGrpBox.Text = "Maschinen Nutzung";
             // 
-            // MachineUsageChart
-            // 
-            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MachineUsageChart.FullDateStringFormat = null;
-            this.MachineUsageChart.Location = new System.Drawing.Point(3, 16);
-            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
-            this.MachineUsageChart.Name = "MachineUsageChart";
-            this.MachineUsageChart.Size = new System.Drawing.Size(1124, 575);
-            this.MachineUsageChart.TabIndex = 1;
-            // 
             // MachineControllTab
             // 
             this.MachineControllTab.Controls.Add(this.MaschineOptionGrpBox);
@@ -122,99 +112,6 @@
             this.MaschineOptionGrpBox.TabStop = false;
             this.MaschineOptionGrpBox.Text = "Maschinenverwaltung";
             // 
-            // EditMachineDefectEndDatePicker
-            // 
-            this.EditMachineDefectEndDatePicker.Location = new System.Drawing.Point(41, 132);
-            this.EditMachineDefectEndDatePicker.Name = "EditMachineDefectEndDatePicker";
-            this.EditMachineDefectEndDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.EditMachineDefectEndDatePicker.TabIndex = 10;
-            // 
-            // EditMachineDefefctEndLabel
-            // 
-            this.EditMachineDefefctEndLabel.AutoSize = true;
-            this.EditMachineDefefctEndLabel.Location = new System.Drawing.Point(38, 116);
-            this.EditMachineDefefctEndLabel.Name = "EditMachineDefefctEndLabel";
-            this.EditMachineDefefctEndLabel.Size = new System.Drawing.Size(132, 13);
-            this.EditMachineDefefctEndLabel.TabIndex = 9;
-            this.EditMachineDefefctEndLabel.Text = "Voraussichtlich Defekt bis:";
-            // 
-            // EditMachineSaveChanegesButton
-            // 
-            this.EditMachineSaveChanegesButton.Location = new System.Drawing.Point(166, 169);
-            this.EditMachineSaveChanegesButton.Name = "EditMachineSaveChanegesButton";
-            this.EditMachineSaveChanegesButton.Size = new System.Drawing.Size(75, 23);
-            this.EditMachineSaveChanegesButton.TabIndex = 8;
-            this.EditMachineSaveChanegesButton.Text = "Speichern";
-            this.EditMachineSaveChanegesButton.UseVisualStyleBackColor = true;
-            // 
-            // EditMachineDefectStartDatePicker
-            // 
-            this.EditMachineDefectStartDatePicker.Location = new System.Drawing.Point(41, 89);
-            this.EditMachineDefectStartDatePicker.Name = "EditMachineDefectStartDatePicker";
-            this.EditMachineDefectStartDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.EditMachineDefectStartDatePicker.TabIndex = 7;
-            // 
-            // EditMachineDefefctStartLabel
-            // 
-            this.EditMachineDefefctStartLabel.AutoSize = true;
-            this.EditMachineDefefctStartLabel.Location = new System.Drawing.Point(38, 73);
-            this.EditMachineDefefctStartLabel.Name = "EditMachineDefefctStartLabel";
-            this.EditMachineDefefctStartLabel.Size = new System.Drawing.Size(61, 13);
-            this.EditMachineDefefctStartLabel.TabIndex = 6;
-            this.EditMachineDefefctStartLabel.Text = "Defekt seit:";
-            // 
-            // NewMachineNameTextBox
-            // 
-            this.NewMachineNameTextBox.Location = new System.Drawing.Point(51, 57);
-            this.NewMachineNameTextBox.Name = "NewMachineNameTextBox";
-            this.NewMachineNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.NewMachineNameTextBox.TabIndex = 5;
-            // 
-            // NewMachineNameLabel
-            // 
-            this.NewMachineNameLabel.AutoSize = true;
-            this.NewMachineNameLabel.Location = new System.Drawing.Point(48, 41);
-            this.NewMachineNameLabel.Name = "NewMachineNameLabel";
-            this.NewMachineNameLabel.Size = new System.Drawing.Size(35, 13);
-            this.NewMachineNameLabel.TabIndex = 4;
-            this.NewMachineNameLabel.Text = "Name";
-            // 
-            // EditMachineSelectMachineDropDown
-            // 
-            this.EditMachineSelectMachineDropDown.DisplayMember = "Maschine 1";
-            this.EditMachineSelectMachineDropDown.FormattingEnabled = true;
-            this.EditMachineSelectMachineDropDown.Items.AddRange(new object[] {
-            "Maschine 1",
-            "Maschine 2",
-            "Maschine 3",
-            "Maschine 4",
-            "Maschine 5",
-            "Maschine 6",
-            "Maschine 7"});
-            this.EditMachineSelectMachineDropDown.Location = new System.Drawing.Point(41, 45);
-            this.EditMachineSelectMachineDropDown.Name = "EditMachineSelectMachineDropDown";
-            this.EditMachineSelectMachineDropDown.Size = new System.Drawing.Size(162, 21);
-            this.EditMachineSelectMachineDropDown.TabIndex = 3;
-            // 
-            // dataSet1
-            // 
-            this.dataSet1.DataSetName = "NewDataSet";
-            // 
-            // EditMachineGroupBox
-            // 
-            this.EditMachineGroupBox.Controls.Add(this.EditMachineSelectMachineDropDown);
-            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefectEndDatePicker);
-            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefefctStartLabel);
-            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefefctEndLabel);
-            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefectStartDatePicker);
-            this.EditMachineGroupBox.Controls.Add(this.EditMachineSaveChanegesButton);
-            this.EditMachineGroupBox.Location = new System.Drawing.Point(6, 19);
-            this.EditMachineGroupBox.Name = "EditMachineGroupBox";
-            this.EditMachineGroupBox.Size = new System.Drawing.Size(521, 569);
-            this.EditMachineGroupBox.TabIndex = 11;
-            this.EditMachineGroupBox.TabStop = false;
-            this.EditMachineGroupBox.Text = "Bearbeiten";
-            // 
             // EditMachineCreateMachineGroupBox
             // 
             this.EditMachineCreateMachineGroupBox.Controls.Add(this.NewMachineSaveButton);
@@ -236,6 +133,109 @@
             this.NewMachineSaveButton.Text = "Speichern";
             this.NewMachineSaveButton.UseVisualStyleBackColor = true;
             // 
+            // NewMachineNameTextBox
+            // 
+            this.NewMachineNameTextBox.Location = new System.Drawing.Point(51, 57);
+            this.NewMachineNameTextBox.Name = "NewMachineNameTextBox";
+            this.NewMachineNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.NewMachineNameTextBox.TabIndex = 5;
+            // 
+            // NewMachineNameLabel
+            // 
+            this.NewMachineNameLabel.AutoSize = true;
+            this.NewMachineNameLabel.Location = new System.Drawing.Point(48, 41);
+            this.NewMachineNameLabel.Name = "NewMachineNameLabel";
+            this.NewMachineNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.NewMachineNameLabel.TabIndex = 4;
+            this.NewMachineNameLabel.Text = "Name";
+            // 
+            // EditMachineGroupBox
+            // 
+            this.EditMachineGroupBox.Controls.Add(this.EditMachineSelectMachineDropDown);
+            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefectEndDatePicker);
+            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefefctStartLabel);
+            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefefctEndLabel);
+            this.EditMachineGroupBox.Controls.Add(this.EditMachineDefectStartDatePicker);
+            this.EditMachineGroupBox.Controls.Add(this.EditMachineSaveChanegesButton);
+            this.EditMachineGroupBox.Location = new System.Drawing.Point(6, 19);
+            this.EditMachineGroupBox.Name = "EditMachineGroupBox";
+            this.EditMachineGroupBox.Size = new System.Drawing.Size(521, 569);
+            this.EditMachineGroupBox.TabIndex = 11;
+            this.EditMachineGroupBox.TabStop = false;
+            this.EditMachineGroupBox.Text = "Bearbeiten";
+            // 
+            // EditMachineSelectMachineDropDown
+            // 
+            this.EditMachineSelectMachineDropDown.DisplayMember = "Maschine 1";
+            this.EditMachineSelectMachineDropDown.FormattingEnabled = true;
+            this.EditMachineSelectMachineDropDown.Items.AddRange(new object[] {
+            "Maschine 1",
+            "Maschine 2",
+            "Maschine 3",
+            "Maschine 4",
+            "Maschine 5",
+            "Maschine 6",
+            "Maschine 7"});
+            this.EditMachineSelectMachineDropDown.Location = new System.Drawing.Point(41, 45);
+            this.EditMachineSelectMachineDropDown.Name = "EditMachineSelectMachineDropDown";
+            this.EditMachineSelectMachineDropDown.Size = new System.Drawing.Size(162, 21);
+            this.EditMachineSelectMachineDropDown.TabIndex = 3;
+            // 
+            // EditMachineDefectEndDatePicker
+            // 
+            this.EditMachineDefectEndDatePicker.Location = new System.Drawing.Point(41, 132);
+            this.EditMachineDefectEndDatePicker.Name = "EditMachineDefectEndDatePicker";
+            this.EditMachineDefectEndDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.EditMachineDefectEndDatePicker.TabIndex = 10;
+            // 
+            // EditMachineDefefctStartLabel
+            // 
+            this.EditMachineDefefctStartLabel.AutoSize = true;
+            this.EditMachineDefefctStartLabel.Location = new System.Drawing.Point(38, 73);
+            this.EditMachineDefefctStartLabel.Name = "EditMachineDefefctStartLabel";
+            this.EditMachineDefefctStartLabel.Size = new System.Drawing.Size(61, 13);
+            this.EditMachineDefefctStartLabel.TabIndex = 6;
+            this.EditMachineDefefctStartLabel.Text = "Defekt seit:";
+            // 
+            // EditMachineDefefctEndLabel
+            // 
+            this.EditMachineDefefctEndLabel.AutoSize = true;
+            this.EditMachineDefefctEndLabel.Location = new System.Drawing.Point(38, 116);
+            this.EditMachineDefefctEndLabel.Name = "EditMachineDefefctEndLabel";
+            this.EditMachineDefefctEndLabel.Size = new System.Drawing.Size(132, 13);
+            this.EditMachineDefefctEndLabel.TabIndex = 9;
+            this.EditMachineDefefctEndLabel.Text = "Voraussichtlich Defekt bis:";
+            // 
+            // EditMachineDefectStartDatePicker
+            // 
+            this.EditMachineDefectStartDatePicker.Location = new System.Drawing.Point(41, 89);
+            this.EditMachineDefectStartDatePicker.Name = "EditMachineDefectStartDatePicker";
+            this.EditMachineDefectStartDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.EditMachineDefectStartDatePicker.TabIndex = 7;
+            // 
+            // EditMachineSaveChanegesButton
+            // 
+            this.EditMachineSaveChanegesButton.Location = new System.Drawing.Point(166, 169);
+            this.EditMachineSaveChanegesButton.Name = "EditMachineSaveChanegesButton";
+            this.EditMachineSaveChanegesButton.Size = new System.Drawing.Size(75, 23);
+            this.EditMachineSaveChanegesButton.TabIndex = 8;
+            this.EditMachineSaveChanegesButton.Text = "Speichern";
+            this.EditMachineSaveChanegesButton.UseVisualStyleBackColor = true;
+            // 
+            // dataSet1
+            // 
+            this.dataSet1.DataSetName = "NewDataSet";
+            // 
+            // MachineUsageChart
+            // 
+            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineUsageChart.FullDateStringFormat = null;
+            this.MachineUsageChart.Location = new System.Drawing.Point(3, 16);
+            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
+            this.MachineUsageChart.Name = "MachineUsageChart";
+            this.MachineUsageChart.Size = new System.Drawing.Size(1124, 575);
+            this.MachineUsageChart.TabIndex = 2;
+            // 
             // MaschineFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,11 +249,11 @@
             this.MaschineUsagesGrpBox.ResumeLayout(false);
             this.MachineControllTab.ResumeLayout(false);
             this.MaschineOptionGrpBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
-            this.EditMachineGroupBox.ResumeLayout(false);
-            this.EditMachineGroupBox.PerformLayout();
             this.EditMachineCreateMachineGroupBox.ResumeLayout(false);
             this.EditMachineCreateMachineGroupBox.PerformLayout();
+            this.EditMachineGroupBox.ResumeLayout(false);
+            this.EditMachineGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,7 +263,6 @@
         private System.Windows.Forms.TabControl MachineControllTabControll;
         private System.Windows.Forms.TabPage MachineMonitorTab;
         private System.Windows.Forms.GroupBox MaschineUsagesGrpBox;
-        private Braincase.GanttChart.Chart MachineUsageChart;
         private System.Windows.Forms.TabPage MachineControllTab;
         private System.Windows.Forms.GroupBox MaschineOptionGrpBox;
         private System.Windows.Forms.ComboBox EditMachineSelectMachineDropDown;
@@ -278,5 +277,6 @@
         private System.Windows.Forms.GroupBox EditMachineCreateMachineGroupBox;
         private System.Windows.Forms.Button NewMachineSaveButton;
         private System.Windows.Forms.GroupBox EditMachineGroupBox;
+        private Braincase.GanttChart.Chart MachineUsageChart;
     }
 }
