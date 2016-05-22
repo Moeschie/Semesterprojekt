@@ -186,6 +186,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(342, 274);
             this.Controls.Add(this.NewUserTable);
+            this.MaximizeBox = false;
             this.Name = "NewUser";
             this.Text = "Neuen Benutzer erstellen";
             this.NewUserTable.ResumeLayout(false);
