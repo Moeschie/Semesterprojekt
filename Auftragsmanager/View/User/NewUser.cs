@@ -30,16 +30,25 @@ namespace View
             f.AddRule(UsernameTextBox, t.ENTRY_REQUIRED);
             f.AddRule(NameTextBox, t.ENTRY_REQUIRED);
             f.AddRule(LastNameTextBox, t.ENTRY_REQUIRED);
-      
             f.AddRule(PasswordTextBox, t.ENTRY_REQUIRED);
+
+            User newUser = new User();
+            newUser.Username = UsernameTextBox.Text;
+            newUser.Name = NameTextBox.Text;
+            newUser.LastName = LastNameTextBox.Text;
+            newUser.Password = PasswordTextBox.Text;
+
+            string UserAccess = UserRightsSelect.Text;
+            newUser.AccessLevel = 0;
+            if (!UserAccess.Equals("Moderator"))
+                newUser.AccessLevel = 1000;
 
             if (f.Validate())
             {
-                User newUser = new User();
-                newUser.Username = UsernameTextBox.Text;
-
-                Console.WriteLine(UserRightsSelect.Text);
+                _unit.User.Add(newUser);
+                _unit.Complete();
             }
+
 
 
         }
