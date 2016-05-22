@@ -34,14 +34,12 @@ namespace View
 
         public static NewUser Instance(Unit unit)
         {
-       
-            if (instance == null )
+            if (instance == null)
             {
                instance = new NewUser(unit);
             }
             instance.BringToFront();
             return instance;
-
         }
 
         private void AddNewUserButton_Click(object sender, EventArgs e)
