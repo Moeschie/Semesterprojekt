@@ -125,6 +125,9 @@
     <EmbeddedResource Include="Login\LoginFrame.resx">
       <DependentUpon>LoginFrame.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Machine\AddDefect.resx">
+      <DependentUpon>AddDefect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Machine\EditMashine.resx">
       <DependentUpon>EditMashine.cs</DependentUpon>
     </EmbeddedResource>

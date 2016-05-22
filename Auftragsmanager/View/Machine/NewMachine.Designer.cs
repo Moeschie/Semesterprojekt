@@ -28,91 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
+            this.NewMashineTable1 = new System.Windows.Forms.TableLayoutPanel();
+            this.NewMashineTable2 = new System.Windows.Forms.TableLayoutPanel();
+            this.NewMashineNameTextBox = new System.Windows.Forms.TextBox();
+            this.NewMashineNameLabel = new System.Windows.Forms.Label();
+            this.AddNewMashineButton = new System.Windows.Forms.Button();
+            this.NewMashineTable1.SuspendLayout();
+            this.NewMashineTable2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // NewMashineTable1
             // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(257, 110);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.NewMashineTable1.ColumnCount = 1;
+            this.NewMashineTable1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.NewMashineTable1.Controls.Add(this.NewMashineTable2, 0, 0);
+            this.NewMashineTable1.Controls.Add(this.AddNewMashineButton, 0, 1);
+            this.NewMashineTable1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NewMashineTable1.Location = new System.Drawing.Point(0, 0);
+            this.NewMashineTable1.Name = "NewMashineTable1";
+            this.NewMashineTable1.RowCount = 2;
+            this.NewMashineTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.NewMashineTable1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.NewMashineTable1.Size = new System.Drawing.Size(257, 63);
+            this.NewMashineTable1.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // NewMashineTable2
             // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(251, 54);
-            this.tableLayoutPanel2.TabIndex = 0;
+            this.NewMashineTable2.ColumnCount = 2;
+            this.NewMashineTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.84064F));
+            this.NewMashineTable2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.15936F));
+            this.NewMashineTable2.Controls.Add(this.NewMashineNameTextBox, 1, 0);
+            this.NewMashineTable2.Controls.Add(this.NewMashineNameLabel, 0, 0);
+            this.NewMashineTable2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NewMashineTable2.Location = new System.Drawing.Point(3, 3);
+            this.NewMashineTable2.Name = "NewMashineTable2";
+            this.NewMashineTable2.RowCount = 1;
+            this.NewMashineTable2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.NewMashineTable2.Size = new System.Drawing.Size(251, 26);
+            this.NewMashineTable2.TabIndex = 0;
             // 
-            // textBox1
+            // NewMashineNameTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(128, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.NewMashineNameTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NewMashineNameTextBox.Location = new System.Drawing.Point(103, 3);
+            this.NewMashineNameTextBox.Name = "NewMashineNameTextBox";
+            this.NewMashineNameTextBox.Size = new System.Drawing.Size(145, 20);
+            this.NewMashineNameTextBox.TabIndex = 0;
             // 
-            // label1
+            // NewMashineNameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Maschinenname *";
+            this.NewMashineNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewMashineNameLabel.AutoSize = true;
+            this.NewMashineNameLabel.Location = new System.Drawing.Point(3, 6);
+            this.NewMashineNameLabel.Name = "NewMashineNameLabel";
+            this.NewMashineNameLabel.Size = new System.Drawing.Size(94, 13);
+            this.NewMashineNameLabel.TabIndex = 1;
+            this.NewMashineNameLabel.Text = "Maschinenname *";
             // 
-            // button1
+            // AddNewMashineButton
             // 
-            this.button1.Location = new System.Drawing.Point(3, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddNewMashineButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddNewMashineButton.Location = new System.Drawing.Point(179, 35);
+            this.AddNewMashineButton.Name = "AddNewMashineButton";
+            this.AddNewMashineButton.Size = new System.Drawing.Size(75, 23);
+            this.AddNewMashineButton.TabIndex = 1;
+            this.AddNewMashineButton.Text = "Anlegen";
+            this.AddNewMashineButton.UseVisualStyleBackColor = true;
             // 
             // NewMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 110);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(257, 63);
+            this.Controls.Add(this.NewMashineTable1);
             this.Name = "NewMachine";
             this.Text = "NewMachine";
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.NewMashineTable1.ResumeLayout(false);
+            this.NewMashineTable2.ResumeLayout(false);
+            this.NewMashineTable2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel NewMashineTable1;
+        private System.Windows.Forms.TableLayoutPanel NewMashineTable2;
+        private System.Windows.Forms.TextBox NewMashineNameTextBox;
+        private System.Windows.Forms.Label NewMashineNameLabel;
+        private System.Windows.Forms.Button AddNewMashineButton;
     }
 }

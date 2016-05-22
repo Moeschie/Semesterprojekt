@@ -22,6 +22,7 @@ namespace View
         {
             _unit = unit;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
