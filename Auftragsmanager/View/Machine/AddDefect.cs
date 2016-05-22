@@ -14,13 +14,37 @@ namespace View
     public partial class AddDefect : Form
     {
         private Unit _unit;
-        public AddDefect(Unit unit)
+        private static AddDefect instance;
+
+        private AddDefect(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+        }
+
+        private void closeEvent(object sender, FormClosingEventArgs e)
+        {
+            instance = null;
+        }
+
+        public static AddDefect Instance(Unit unit)
+        {
+            if (instance == null)
+            {
+                instance = new AddDefect(unit);
+            }
+            instance.BringToFront();
+            return instance;
+        }
+
+        private void AddDefectSubmitButton_Click(object sender, EventArgs e)
+        {
+            //TODO: Create Defect as Task in DB
         }
     }
 }

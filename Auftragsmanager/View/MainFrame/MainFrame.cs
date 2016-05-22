@@ -81,19 +81,19 @@ namespace View
         
         private void newMachine(object sender, EventArgs e)
         {
-            NewMachine newMachine = new NewMachine(_unit);
+            NewMachine newMachine = NewMachine.Instance(_unit);
             newMachine.Show();
         }
 
         private void addDefect(object sender, EventArgs e)
         {
-            AddDefect addDefect = new AddDefect(_unit);
+            AddDefect addDefect = AddDefect.Instance(_unit);
             addDefect.Show();
         }
 
         private void editMaschine(object sender, EventArgs e)
         {
-            EditMashine editMashine = new EditMashine(_unit);
+            EditMashine editMashine = EditMashine.Instance(_unit);
             editMashine.Show();
         }
     }

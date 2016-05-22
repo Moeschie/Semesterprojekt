@@ -126,6 +126,7 @@
             this.AddDefectSubmitButton.TabIndex = 8;
             this.AddDefectSubmitButton.Text = "Erstellen";
             this.AddDefectSubmitButton.UseVisualStyleBackColor = true;
+            this.AddDefectSubmitButton.Click += new System.EventHandler(this.AddDefectSubmitButton_Click);
             // 
             // AddDefect
             // 

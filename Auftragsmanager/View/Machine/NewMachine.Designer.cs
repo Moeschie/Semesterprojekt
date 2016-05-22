@@ -94,6 +94,7 @@
             this.AddNewMashineButton.TabIndex = 1;
             this.AddNewMashineButton.Text = "Anlegen";
             this.AddNewMashineButton.UseVisualStyleBackColor = true;
+            this.AddNewMashineButton.Click += new System.EventHandler(this.AddNewMashineButton_Click);
             // 
             // NewMachine
             // 

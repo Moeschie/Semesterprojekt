@@ -149,6 +149,7 @@
             this.EditMashineNameButton.TabIndex = 3;
             this.EditMashineNameButton.Text = "Ändern";
             this.EditMashineNameButton.UseVisualStyleBackColor = true;
+            this.EditMashineNameButton.Click += new System.EventHandler(this.EditMashineNameButton_Click);
             // 
             // EditMashine
             // 
