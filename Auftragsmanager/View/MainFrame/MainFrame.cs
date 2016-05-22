@@ -78,5 +78,12 @@ namespace View
             NewUser newUser = new NewUser(_unit);
             newUser.Show();
         }
+
+
+        private void newMachine(object sender, EventArgs e)
+        {
+            NewMachine newUser = new NewMachine(_unit);
+            newUser.Show();
+        }
     }
 }

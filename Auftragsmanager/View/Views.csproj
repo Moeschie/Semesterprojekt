@@ -75,6 +75,12 @@
     <Compile Include="Login\LoginFrame.Designer.cs">
       <DependentUpon>LoginFrame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Machine\NewMachine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Machine\NewMachine.Designer.cs">
+      <DependentUpon>NewMachine.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFrame\MainFrame.cs">
       <SubType>Form</SubType>
     </Compile>
