@@ -20,6 +20,9 @@ namespace View
         {
             _unit = unit;
             InitializeComponent();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void AddNewUserButton_Click(object sender, EventArgs e)
