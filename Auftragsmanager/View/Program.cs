@@ -18,26 +18,17 @@ namespace View
         {
             using (var unit = new Unit(new DataContext()))
             {
-                /*
-                 * 
-                 *  To Initialize an Admin-Account (HardCoded in DB)
+
+                if (!unit.User.CheckUserExists("admin"))
+                {
                     var admin = new Repository.Model.User();
                     admin.Password = "admin";
                     admin.Username = "admin";
-                    admin.AccessLevel = 4;
-                    admin.Name = "Admin";
-                    admin.LastName = "Istrator";
+                    admin.AccessLevel = 9999;
                     unit.User.Add(admin);
                     unit.Complete();
-                */
+                }
 
-                //for (int i = 0; i < 10; i++)
-                //{
-                //    var order = new Repository.Model.Order();
-                //    order.Name = "Admin"+i+"!";
-                //    unit.Order.Add(order);
-                //    unit.Complete();
-                //}
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
