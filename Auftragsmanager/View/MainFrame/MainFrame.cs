@@ -96,5 +96,11 @@ namespace View
             EditMashine editMashine = EditMashine.Instance(_unit);
             editMashine.Show();
         }
+
+        private void FileBrowserBtn_Click(object sender, EventArgs e)
+        {
+            FilebrowserFrame fframe = new FilebrowserFrame(_unit);
+            fframe.Show();
+        }
     }
 }

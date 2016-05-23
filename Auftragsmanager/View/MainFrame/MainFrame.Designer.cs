@@ -162,13 +162,14 @@
             this.MachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabs = new System.Windows.Forms.TabControl();
             this.MachineTab = new System.Windows.Forms.TabPage();
+            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineMenu = new System.Windows.Forms.MenuStrip();
             this.NewMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.NewMachineCreateSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MachineUsageChart = new Braincase.GanttChart.Chart();
+            this.FileBrowserBtn = new System.Windows.Forms.Button();
             this.tabPage1.SuspendLayout();
             this.AdminTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -207,6 +208,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.FileBrowserBtn);
             this.tabPage1.Controls.Add(this.TestMaschineFrameBtn);
             this.tabPage1.Controls.Add(this.TestLoginFrameBtn);
             this.tabPage1.Controls.Add(this.TestOrderFrameBtn);
@@ -1698,6 +1700,16 @@
             this.MachineTab.Text = "Maschinen";
             this.MachineTab.UseVisualStyleBackColor = true;
             // 
+            // MachineUsageChart
+            // 
+            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineUsageChart.FullDateStringFormat = null;
+            this.MachineUsageChart.Location = new System.Drawing.Point(3, 27);
+            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
+            this.MachineUsageChart.Name = "MachineUsageChart";
+            this.MachineUsageChart.Size = new System.Drawing.Size(1370, 685);
+            this.MachineUsageChart.TabIndex = 2;
+            // 
             // MachineMenu
             // 
             this.MachineMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1720,7 +1732,7 @@
             // NewMachineCreateSubMenuItem
             // 
             this.NewMachineCreateSubMenuItem.Name = "NewMachineCreateSubMenuItem";
-            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(136, 22);
             this.NewMachineCreateSubMenuItem.Text = "Hinzufügen";
             this.NewMachineCreateSubMenuItem.Click += new System.EventHandler(this.newMachine);
             // 
@@ -1736,26 +1748,26 @@
             // DefectMachineSubMenuItem
             // 
             this.DefectMachineSubMenuItem.Name = "DefectMachineSubMenuItem";
-            this.DefectMachineSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.DefectMachineSubMenuItem.Size = new System.Drawing.Size(120, 22);
             this.DefectMachineSubMenuItem.Text = "Defekte";
             this.DefectMachineSubMenuItem.Click += new System.EventHandler(this.addDefect);
             // 
             // EditMachineNameSubMenuItem
             // 
             this.EditMachineNameSubMenuItem.Name = "EditMachineNameSubMenuItem";
-            this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(120, 22);
             this.EditMachineNameSubMenuItem.Text = "Editieren";
             this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
             // 
-            // MachineUsageChart
+            // FileBrowserBtn
             // 
-            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MachineUsageChart.FullDateStringFormat = null;
-            this.MachineUsageChart.Location = new System.Drawing.Point(3, 27);
-            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
-            this.MachineUsageChart.Name = "MachineUsageChart";
-            this.MachineUsageChart.Size = new System.Drawing.Size(1370, 685);
-            this.MachineUsageChart.TabIndex = 2;
+            this.FileBrowserBtn.Location = new System.Drawing.Point(488, 339);
+            this.FileBrowserBtn.Name = "FileBrowserBtn";
+            this.FileBrowserBtn.Size = new System.Drawing.Size(185, 23);
+            this.FileBrowserBtn.TabIndex = 6;
+            this.FileBrowserBtn.Text = "Files";
+            this.FileBrowserBtn.UseVisualStyleBackColor = true;
+            this.FileBrowserBtn.Click += new System.EventHandler(this.FileBrowserBtn_Click);
             // 
             // MainFrame
             // 
@@ -1963,6 +1975,7 @@
         private System.Windows.Forms.ToolStripMenuItem DefectMachineSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditMachineNameSubMenuItem;
         private Braincase.GanttChart.Chart MachineUsageChart;
+        private System.Windows.Forms.Button FileBrowserBtn;
     }
 }
 
