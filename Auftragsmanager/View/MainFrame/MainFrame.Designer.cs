@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.TestMaschineFrameBtn = new System.Windows.Forms.Button();
-            this.TestLoginFrameBtn = new System.Windows.Forms.Button();
-            this.TestOrderFrameBtn = new System.Windows.Forms.Button();
+            this.FileArchivTab = new System.Windows.Forms.TabPage();
+            this.ArchivMainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.AdminTab = new System.Windows.Forms.TabPage();
             this.AdminMainTable = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -160,7 +158,7 @@
             this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MainFrameTabs = new System.Windows.Forms.TabControl();
+            this.MainFrameTabControl = new System.Windows.Forms.TabControl();
             this.MachineTab = new System.Windows.Forms.TabPage();
             this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineMenu = new System.Windows.Forms.MenuStrip();
@@ -169,8 +167,22 @@
             this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FileBrowserBtn = new System.Windows.Forms.Button();
-            this.tabPage1.SuspendLayout();
+            this.orderFileGrpBox = new System.Windows.Forms.GroupBox();
+            this.DirSearchTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.MainFrameDirListBox = new System.Windows.Forms.ListBox();
+            this.DirSearchLabel = new System.Windows.Forms.Label();
+            this.DirSearchFilterInput = new System.Windows.Forms.TextBox();
+            this.FileSeachTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.FileSeachLabel = new System.Windows.Forms.Label();
+            this.FileSeachFilterInput = new System.Windows.Forms.TextBox();
+            this.FileDisplayTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.FileBtnTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.filesFromOrderGrpbox = new System.Windows.Forms.GroupBox();
+            this.MainFrameFileListBox = new System.Windows.Forms.ListBox();
+            this.OpenFileButton = new System.Windows.Forms.Button();
+            this.DownloadFileButton = new System.Windows.Forms.Button();
+            this.FileArchivTab.SuspendLayout();
+            this.ArchivMainTableLayout.SuspendLayout();
             this.AdminTab.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.OrderTab.SuspendLayout();
@@ -201,54 +213,46 @@
             this.OrderSelectTableLayout.SuspendLayout();
             this.OrderTabLeftTopTableLayout.SuspendLayout();
             this.MainFrameMenu.SuspendLayout();
-            this.MainFrameTabs.SuspendLayout();
+            this.MainFrameTabControl.SuspendLayout();
             this.MachineTab.SuspendLayout();
             this.MachineMenu.SuspendLayout();
+            this.orderFileGrpBox.SuspendLayout();
+            this.DirSearchTableLayout.SuspendLayout();
+            this.FileSeachTableLayout.SuspendLayout();
+            this.FileDisplayTableLayout.SuspendLayout();
+            this.FileBtnTableLayout.SuspendLayout();
+            this.filesFromOrderGrpbox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabPage1
+            // FileArchivTab
             // 
-            this.tabPage1.Controls.Add(this.FileBrowserBtn);
-            this.tabPage1.Controls.Add(this.TestMaschineFrameBtn);
-            this.tabPage1.Controls.Add(this.TestLoginFrameBtn);
-            this.tabPage1.Controls.Add(this.TestOrderFrameBtn);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1376, 715);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "DEV TAB";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.FileArchivTab.Controls.Add(this.ArchivMainTableLayout);
+            this.FileArchivTab.Location = new System.Drawing.Point(4, 22);
+            this.FileArchivTab.Name = "FileArchivTab";
+            this.FileArchivTab.Padding = new System.Windows.Forms.Padding(3);
+            this.FileArchivTab.Size = new System.Drawing.Size(1376, 715);
+            this.FileArchivTab.TabIndex = 3;
+            this.FileArchivTab.Text = "Archiv";
+            this.FileArchivTab.UseVisualStyleBackColor = true;
             // 
-            // TestMaschineFrameBtn
+            // ArchivMainTableLayout
             // 
-            this.TestMaschineFrameBtn.Location = new System.Drawing.Point(488, 310);
-            this.TestMaschineFrameBtn.Name = "TestMaschineFrameBtn";
-            this.TestMaschineFrameBtn.Size = new System.Drawing.Size(185, 23);
-            this.TestMaschineFrameBtn.TabIndex = 5;
-            this.TestMaschineFrameBtn.Text = "MaschineFrame";
-            this.TestMaschineFrameBtn.UseVisualStyleBackColor = true;
-            this.TestMaschineFrameBtn.Click += new System.EventHandler(this.TestMaschineFrameBtn_Click_1);
-            // 
-            // TestLoginFrameBtn
-            // 
-            this.TestLoginFrameBtn.Location = new System.Drawing.Point(488, 281);
-            this.TestLoginFrameBtn.Name = "TestLoginFrameBtn";
-            this.TestLoginFrameBtn.Size = new System.Drawing.Size(185, 23);
-            this.TestLoginFrameBtn.TabIndex = 4;
-            this.TestLoginFrameBtn.Text = "LoginFrame";
-            this.TestLoginFrameBtn.UseVisualStyleBackColor = true;
-            this.TestLoginFrameBtn.Click += new System.EventHandler(this.TestLoginFrameBtn_Click_1);
-            // 
-            // TestOrderFrameBtn
-            // 
-            this.TestOrderFrameBtn.Location = new System.Drawing.Point(488, 252);
-            this.TestOrderFrameBtn.Name = "TestOrderFrameBtn";
-            this.TestOrderFrameBtn.Size = new System.Drawing.Size(185, 23);
-            this.TestOrderFrameBtn.TabIndex = 3;
-            this.TestOrderFrameBtn.Text = "OrderFrame";
-            this.TestOrderFrameBtn.UseVisualStyleBackColor = true;
-            this.TestOrderFrameBtn.Click += new System.EventHandler(this.TestOrderFrameBtn_Click_1);
+            this.ArchivMainTableLayout.ColumnCount = 3;
+            this.ArchivMainTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ArchivMainTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.ArchivMainTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.ArchivMainTableLayout.Controls.Add(this.FileSeachTableLayout, 1, 0);
+            this.ArchivMainTableLayout.Controls.Add(this.orderFileGrpBox, 0, 1);
+            this.ArchivMainTableLayout.Controls.Add(this.DirSearchTableLayout, 0, 0);
+            this.ArchivMainTableLayout.Controls.Add(this.FileDisplayTableLayout, 1, 1);
+            this.ArchivMainTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ArchivMainTableLayout.Location = new System.Drawing.Point(3, 3);
+            this.ArchivMainTableLayout.Name = "ArchivMainTableLayout";
+            this.ArchivMainTableLayout.RowCount = 2;
+            this.ArchivMainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.092716F));
+            this.ArchivMainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.90729F));
+            this.ArchivMainTableLayout.Size = new System.Drawing.Size(1370, 709);
+            this.ArchivMainTableLayout.TabIndex = 0;
             // 
             // AdminTab
             // 
@@ -274,7 +278,6 @@
             this.AdminMainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.AdminMainTable.Size = new System.Drawing.Size(1370, 685);
             this.AdminMainTable.TabIndex = 0;
-            this.AdminMainTable.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // menuStrip1
             // 
@@ -295,7 +298,6 @@
             this.benutzerToolStripMenuItem.Name = "benutzerToolStripMenuItem";
             this.benutzerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.benutzerToolStripMenuItem.Text = "Benutzer";
-            this.benutzerToolStripMenuItem.Click += new System.EventHandler(this.benutzerToolStripMenuItem_Click);
             // 
             // neuenBenutzerAnlegenToolStripMenuItem
             // 
@@ -1675,18 +1677,18 @@
             this.MachineMenuItem.Text = "Maschinenmonitor";
             this.MachineMenuItem.Click += new System.EventHandler(this.MachineMenuItem_Click);
             // 
-            // MainFrameTabs
+            // MainFrameTabControl
             // 
-            this.MainFrameTabs.Controls.Add(this.OrderTab);
-            this.MainFrameTabs.Controls.Add(this.AdminTab);
-            this.MainFrameTabs.Controls.Add(this.MachineTab);
-            this.MainFrameTabs.Controls.Add(this.tabPage1);
-            this.MainFrameTabs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainFrameTabs.Location = new System.Drawing.Point(0, 0);
-            this.MainFrameTabs.Name = "MainFrameTabs";
-            this.MainFrameTabs.SelectedIndex = 0;
-            this.MainFrameTabs.Size = new System.Drawing.Size(1384, 741);
-            this.MainFrameTabs.TabIndex = 0;
+            this.MainFrameTabControl.Controls.Add(this.OrderTab);
+            this.MainFrameTabControl.Controls.Add(this.AdminTab);
+            this.MainFrameTabControl.Controls.Add(this.MachineTab);
+            this.MainFrameTabControl.Controls.Add(this.FileArchivTab);
+            this.MainFrameTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainFrameTabControl.Location = new System.Drawing.Point(0, 0);
+            this.MainFrameTabControl.Name = "MainFrameTabControl";
+            this.MainFrameTabControl.SelectedIndex = 0;
+            this.MainFrameTabControl.Size = new System.Drawing.Size(1384, 741);
+            this.MainFrameTabControl.TabIndex = 0;
             // 
             // MachineTab
             // 
@@ -1759,26 +1761,173 @@
             this.EditMachineNameSubMenuItem.Text = "Editieren";
             this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
             // 
-            // FileBrowserBtn
+            // orderFileGrpBox
             // 
-            this.FileBrowserBtn.Location = new System.Drawing.Point(488, 339);
-            this.FileBrowserBtn.Name = "FileBrowserBtn";
-            this.FileBrowserBtn.Size = new System.Drawing.Size(185, 23);
-            this.FileBrowserBtn.TabIndex = 6;
-            this.FileBrowserBtn.Text = "Files";
-            this.FileBrowserBtn.UseVisualStyleBackColor = true;
-            this.FileBrowserBtn.Click += new System.EventHandler(this.FileBrowserBtn_Click);
+            this.orderFileGrpBox.Controls.Add(this.MainFrameDirListBox);
+            this.orderFileGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderFileGrpBox.Location = new System.Drawing.Point(3, 46);
+            this.orderFileGrpBox.Name = "orderFileGrpBox";
+            this.orderFileGrpBox.Size = new System.Drawing.Size(268, 660);
+            this.orderFileGrpBox.TabIndex = 5;
+            this.orderFileGrpBox.TabStop = false;
+            this.orderFileGrpBox.Text = "Auftrag";
+            // 
+            // DirSearchTableLayout
+            // 
+            this.DirSearchTableLayout.ColumnCount = 2;
+            this.DirSearchTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.44776F));
+            this.DirSearchTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.55224F));
+            this.DirSearchTableLayout.Controls.Add(this.DirSearchLabel, 0, 0);
+            this.DirSearchTableLayout.Controls.Add(this.DirSearchFilterInput, 1, 0);
+            this.DirSearchTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DirSearchTableLayout.Location = new System.Drawing.Point(3, 3);
+            this.DirSearchTableLayout.Name = "DirSearchTableLayout";
+            this.DirSearchTableLayout.RowCount = 1;
+            this.DirSearchTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.DirSearchTableLayout.Size = new System.Drawing.Size(268, 37);
+            this.DirSearchTableLayout.TabIndex = 7;
+            // 
+            // MainFrameDirListBox
+            // 
+            this.MainFrameDirListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainFrameDirListBox.FormattingEnabled = true;
+            this.MainFrameDirListBox.Location = new System.Drawing.Point(3, 16);
+            this.MainFrameDirListBox.Name = "MainFrameDirListBox";
+            this.MainFrameDirListBox.Size = new System.Drawing.Size(262, 641);
+            this.MainFrameDirListBox.TabIndex = 0;
+            // 
+            // DirSearchLabel
+            // 
+            this.DirSearchLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.DirSearchLabel.AutoSize = true;
+            this.DirSearchLabel.Location = new System.Drawing.Point(8, 12);
+            this.DirSearchLabel.Name = "DirSearchLabel";
+            this.DirSearchLabel.Size = new System.Drawing.Size(84, 13);
+            this.DirSearchLabel.TabIndex = 0;
+            this.DirSearchLabel.Text = "Auftrag Suchen:";
+            // 
+            // DirSearchFilterInput
+            // 
+            this.DirSearchFilterInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.DirSearchFilterInput.Location = new System.Drawing.Point(98, 8);
+            this.DirSearchFilterInput.Name = "DirSearchFilterInput";
+            this.DirSearchFilterInput.Size = new System.Drawing.Size(167, 20);
+            this.DirSearchFilterInput.TabIndex = 1;
+            // 
+            // FileSeachTableLayout
+            // 
+            this.FileSeachTableLayout.ColumnCount = 2;
+            this.FileSeachTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.44776F));
+            this.FileSeachTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.55224F));
+            this.FileSeachTableLayout.Controls.Add(this.FileSeachLabel, 0, 0);
+            this.FileSeachTableLayout.Controls.Add(this.FileSeachFilterInput, 1, 0);
+            this.FileSeachTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FileSeachTableLayout.Location = new System.Drawing.Point(277, 3);
+            this.FileSeachTableLayout.Name = "FileSeachTableLayout";
+            this.FileSeachTableLayout.RowCount = 1;
+            this.FileSeachTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FileSeachTableLayout.Size = new System.Drawing.Size(268, 37);
+            this.FileSeachTableLayout.TabIndex = 8;
+            // 
+            // FileSeachLabel
+            // 
+            this.FileSeachLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.FileSeachLabel.AutoSize = true;
+            this.FileSeachLabel.Location = new System.Drawing.Point(17, 12);
+            this.FileSeachLabel.Name = "FileSeachLabel";
+            this.FileSeachLabel.Size = new System.Drawing.Size(75, 13);
+            this.FileSeachLabel.TabIndex = 0;
+            this.FileSeachLabel.Text = "Datei Suchen:";
+            // 
+            // FileSeachFilterInput
+            // 
+            this.FileSeachFilterInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.FileSeachFilterInput.Location = new System.Drawing.Point(98, 8);
+            this.FileSeachFilterInput.Name = "FileSeachFilterInput";
+            this.FileSeachFilterInput.Size = new System.Drawing.Size(167, 20);
+            this.FileSeachFilterInput.TabIndex = 1;
+            // 
+            // FileDisplayTableLayout
+            // 
+            this.FileDisplayTableLayout.ColumnCount = 1;
+            this.FileDisplayTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FileDisplayTableLayout.Controls.Add(this.filesFromOrderGrpbox, 0, 1);
+            this.FileDisplayTableLayout.Controls.Add(this.FileBtnTableLayout, 0, 0);
+            this.FileDisplayTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FileDisplayTableLayout.Location = new System.Drawing.Point(277, 46);
+            this.FileDisplayTableLayout.Name = "FileDisplayTableLayout";
+            this.FileDisplayTableLayout.RowCount = 2;
+            this.FileDisplayTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.30303F));
+            this.FileDisplayTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.69697F));
+            this.FileDisplayTableLayout.Size = new System.Drawing.Size(268, 660);
+            this.FileDisplayTableLayout.TabIndex = 9;
+            // 
+            // FileBtnTableLayout
+            // 
+            this.FileBtnTableLayout.ColumnCount = 2;
+            this.FileBtnTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FileBtnTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FileBtnTableLayout.Controls.Add(this.DownloadFileButton, 1, 0);
+            this.FileBtnTableLayout.Controls.Add(this.OpenFileButton, 0, 0);
+            this.FileBtnTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FileBtnTableLayout.Location = new System.Drawing.Point(3, 3);
+            this.FileBtnTableLayout.Name = "FileBtnTableLayout";
+            this.FileBtnTableLayout.RowCount = 1;
+            this.FileBtnTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.FileBtnTableLayout.Size = new System.Drawing.Size(262, 29);
+            this.FileBtnTableLayout.TabIndex = 0;
+            // 
+            // filesFromOrderGrpbox
+            // 
+            this.filesFromOrderGrpbox.Controls.Add(this.MainFrameFileListBox);
+            this.filesFromOrderGrpbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.filesFromOrderGrpbox.Location = new System.Drawing.Point(3, 38);
+            this.filesFromOrderGrpbox.Name = "filesFromOrderGrpbox";
+            this.filesFromOrderGrpbox.Size = new System.Drawing.Size(262, 619);
+            this.filesFromOrderGrpbox.TabIndex = 11;
+            this.filesFromOrderGrpbox.TabStop = false;
+            this.filesFromOrderGrpbox.Text = "Dateien des Auftrags";
+            // 
+            // MainFrameFileListBox
+            // 
+            this.MainFrameFileListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainFrameFileListBox.FormattingEnabled = true;
+            this.MainFrameFileListBox.Location = new System.Drawing.Point(3, 16);
+            this.MainFrameFileListBox.Name = "MainFrameFileListBox";
+            this.MainFrameFileListBox.Size = new System.Drawing.Size(256, 600);
+            this.MainFrameFileListBox.TabIndex = 0;
+            // 
+            // OpenFileButton
+            // 
+            this.OpenFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OpenFileButton.Location = new System.Drawing.Point(3, 3);
+            this.OpenFileButton.Name = "OpenFileButton";
+            this.OpenFileButton.Size = new System.Drawing.Size(125, 23);
+            this.OpenFileButton.TabIndex = 0;
+            this.OpenFileButton.Text = "Datei Öffnen";
+            this.OpenFileButton.UseVisualStyleBackColor = true;
+            // 
+            // DownloadFileButton
+            // 
+            this.DownloadFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownloadFileButton.Location = new System.Drawing.Point(134, 3);
+            this.DownloadFileButton.Name = "DownloadFileButton";
+            this.DownloadFileButton.Size = new System.Drawing.Size(125, 23);
+            this.DownloadFileButton.TabIndex = 1;
+            this.DownloadFileButton.Text = "Datei herunterladen";
+            this.DownloadFileButton.UseVisualStyleBackColor = true;
             // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1384, 741);
-            this.Controls.Add(this.MainFrameTabs);
+            this.Controls.Add(this.MainFrameTabControl);
             this.MainMenuStrip = this.MainFrameMenu;
             this.Name = "MainFrame";
             this.Text = "Auftragsmanager";
-            this.tabPage1.ResumeLayout(false);
+            this.FileArchivTab.ResumeLayout(false);
+            this.ArchivMainTableLayout.ResumeLayout(false);
             this.AdminTab.ResumeLayout(false);
             this.AdminTab.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -1823,21 +1972,26 @@
             this.OrderTabLeftTopTableLayout.PerformLayout();
             this.MainFrameMenu.ResumeLayout(false);
             this.MainFrameMenu.PerformLayout();
-            this.MainFrameTabs.ResumeLayout(false);
+            this.MainFrameTabControl.ResumeLayout(false);
             this.MachineTab.ResumeLayout(false);
             this.MachineTab.PerformLayout();
             this.MachineMenu.ResumeLayout(false);
             this.MachineMenu.PerformLayout();
+            this.orderFileGrpBox.ResumeLayout(false);
+            this.DirSearchTableLayout.ResumeLayout(false);
+            this.DirSearchTableLayout.PerformLayout();
+            this.FileSeachTableLayout.ResumeLayout(false);
+            this.FileSeachTableLayout.PerformLayout();
+            this.FileDisplayTableLayout.ResumeLayout(false);
+            this.FileBtnTableLayout.ResumeLayout(false);
+            this.filesFromOrderGrpbox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button TestMaschineFrameBtn;
-        private System.Windows.Forms.Button TestLoginFrameBtn;
-        private System.Windows.Forms.Button TestOrderFrameBtn;
+        private System.Windows.Forms.TabPage FileArchivTab;
         private System.Windows.Forms.TabPage AdminTab;
         private System.Windows.Forms.TableLayoutPanel AdminMainTable;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -1966,7 +2120,7 @@
         private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem MachineMenuItem;
-        private System.Windows.Forms.TabControl MainFrameTabs;
+        private System.Windows.Forms.TabControl MainFrameTabControl;
         private System.Windows.Forms.TabPage MachineTab;
         private System.Windows.Forms.MenuStrip MachineMenu;
         private System.Windows.Forms.ToolStripMenuItem NewMachineMenuItem;
@@ -1975,7 +2129,21 @@
         private System.Windows.Forms.ToolStripMenuItem DefectMachineSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditMachineNameSubMenuItem;
         private Braincase.GanttChart.Chart MachineUsageChart;
-        private System.Windows.Forms.Button FileBrowserBtn;
+        private System.Windows.Forms.TableLayoutPanel ArchivMainTableLayout;
+        private System.Windows.Forms.TableLayoutPanel FileSeachTableLayout;
+        private System.Windows.Forms.Label FileSeachLabel;
+        private System.Windows.Forms.TextBox FileSeachFilterInput;
+        private System.Windows.Forms.GroupBox orderFileGrpBox;
+        private System.Windows.Forms.ListBox MainFrameDirListBox;
+        private System.Windows.Forms.TableLayoutPanel DirSearchTableLayout;
+        private System.Windows.Forms.Label DirSearchLabel;
+        private System.Windows.Forms.TextBox DirSearchFilterInput;
+        private System.Windows.Forms.TableLayoutPanel FileDisplayTableLayout;
+        private System.Windows.Forms.GroupBox filesFromOrderGrpbox;
+        private System.Windows.Forms.ListBox MainFrameFileListBox;
+        private System.Windows.Forms.TableLayoutPanel FileBtnTableLayout;
+        private System.Windows.Forms.Button DownloadFileButton;
+        private System.Windows.Forms.Button OpenFileButton;
     }
 }
 

@@ -22,11 +22,34 @@ namespace View
             this._unit = _unit;
             InitializeComponent();
             createFolder("test");
-            onload("test");
+            displayFiles("test","");
         }
-        private void createFolder(String name)
+        private void OpenFileButton_Click(object sender, EventArgs e)
         {
-            string path = @"" +ConfigurationSettings.AppSettings["Path"]+name;
+            openFile("Test");
+        }
+
+        private void FileDisplayListBox_DoubleClick(object sender, EventArgs e)
+        {
+            openFile("Test");
+        }
+        private void FileUploadButton_Click(object sender, EventArgs e)
+        {
+            uploadFile("test");
+        }
+
+        private void FileDownloadButton_Click(object sender, EventArgs e)
+        {
+            downloadFile("test");
+        }
+        private void FileSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            displayFiles("test", FileSearchFilterInput.Text);
+
+        }
+        private void createFolder(String OrderID)
+        {
+            string path = Path.Combine(ConfigurationSettings.AppSettings["Path"], OrderID);
             try
             {
                 if (Directory.Exists(path))
@@ -42,32 +65,59 @@ namespace View
             }
             finally { }
         }
-        private void onload(String OrderID)
+        private void displayFiles(String OrderID,String Filter)
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
-            FBD.SelectedPath = ConfigurationSettings.AppSettings["Path"]+ OrderID;
-
+            FBD.SelectedPath = Path.Combine(ConfigurationSettings.AppSettings["Path"],OrderID);
             FileDisplayListBox.Items.Clear();
             string[] files = Directory.GetFiles(FBD.SelectedPath);
             foreach (string file in files)
             {
-                FileDisplayListBox.Items.Add(Path.GetFileName(file));
+                if (file.Contains(Filter))
+                {
+                    FileDisplayListBox.Items.Add(Path.GetFileName(file));
+                }
             }         
-        }
-        private void OpenFileButton_Click(object sender, EventArgs e)
-        {
-            openFile("Test");
-        }
-
-        private void FileDisplayListBox_DoubleClick(object sender, EventArgs e)
-        {
-            openFile("Test");
         }
 
         private void openFile(String OrderID)
         {
-            String OpenFilePath = ConfigurationSettings.AppSettings["Path"] +OrderID+"\\" + FileDisplayListBox.SelectedItem.ToString();
-            System.Diagnostics.Process.Start(OpenFilePath);
+            if (FileDisplayListBox.SelectedItem != null)
+            {
+                String OpenFilePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], OrderID, FileDisplayListBox.SelectedItem.ToString());
+                System.Diagnostics.Process.Start(OpenFilePath);
+            } else
+            {
+                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void uploadFile(String OrderID)
+        {
+            String DestinationPath = "";
+            String SourcePath = "";
+            FileDialog.InitialDirectory=("C:\\");
+            if (FileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                DestinationPath = Path.Combine(ConfigurationSettings.AppSettings["Path"],OrderID,Path.GetFileName(FileDialog.FileName));
+                SourcePath = FileDialog.FileName;
+                File.Copy(SourcePath, DestinationPath);
+            }
+            displayFiles(OrderID,"");
+        }
+        private void downloadFile(String OrderID)
+        {
+            string pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            if (FileDisplayListBox.SelectedItem != null)
+            {
+                String SourcePath = Path.Combine(ConfigurationSettings.AppSettings["Path"],OrderID,FileDisplayListBox.SelectedItem.ToString());
+                string DestinationPath = Path.Combine(pathUser, "Downloads", FileDisplayListBox.SelectedItem.ToString());
+                File.Copy(SourcePath, DestinationPath);
+            }
+            else
+            {
+                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

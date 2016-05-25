@@ -283,6 +283,7 @@
             this.OrderDataButton.TabIndex = 15;
             this.OrderDataButton.Text = "Dateien";
             this.OrderDataButton.UseVisualStyleBackColor = true;
+            this.OrderDataButton.Click += new System.EventHandler(this.OrderDataButton_Click);
             // 
             // LaufzettelButton
             // 

@@ -28,79 +28,39 @@ namespace View
             {
             }
         }
-
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-        private void TestOrderFrameBtn_Click_1(object sender, EventArgs e)
-        {
-            OrderFrame order = new OrderFrame(_unit);
-            order.Show();
-        }
-
-        private void TestLoginFrameBtn_Click_1(object sender, EventArgs e)
-        {
-            LoginFrame login = new LoginFrame(_unit);
-            login.Show();
-        }
-
-        private void TestMaschineFrameBtn_Click_1(object sender, EventArgs e)
-        {
-            MaschineFrame maschine = new MaschineFrame(_unit);
-            maschine.Show();
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void benutzerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void MachineMenuItem_Click(object sender, EventArgs e)
         {
             MaschineFrame maschine = new MaschineFrame(_unit);
             maschine.Show();
         }
-
         private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
         {
             OrderFrame order = new OrderFrame(_unit);
             order.Show();
         }
-
         private void newUser(object sender, EventArgs e)
         {
             NewUser newUser = NewUser.Instance(_unit) ;
             newUser.Show();
-        }
-        
+        }        
         private void newMachine(object sender, EventArgs e)
         {
             NewMachine newMachine = NewMachine.Instance(_unit);
             newMachine.Show();
         }
-
         private void addDefect(object sender, EventArgs e)
         {
             AddDefect addDefect = AddDefect.Instance(_unit);
             addDefect.Show();
         }
-
         private void editMaschine(object sender, EventArgs e)
         {
             EditMashine editMashine = EditMashine.Instance(_unit);
             editMashine.Show();
-        }
-
-        private void FileBrowserBtn_Click(object sender, EventArgs e)
-        {
-            FilebrowserFrame fframe = new FilebrowserFrame(_unit);
-            fframe.Show();
         }
     }
 }
