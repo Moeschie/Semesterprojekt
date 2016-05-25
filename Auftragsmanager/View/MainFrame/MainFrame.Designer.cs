@@ -167,9 +167,7 @@
             this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.orderFileGrpBox = new System.Windows.Forms.GroupBox();
             this.DirSearchTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.MainFrameDirListBox = new System.Windows.Forms.ListBox();
             this.DirSearchLabel = new System.Windows.Forms.Label();
             this.DirSearchFilterInput = new System.Windows.Forms.TextBox();
             this.FileSeachTableLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -181,6 +179,10 @@
             this.MainFrameFileListBox = new System.Windows.Forms.ListBox();
             this.OpenFileButton = new System.Windows.Forms.Button();
             this.DownloadFileButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.DownloadDirButton = new System.Windows.Forms.Button();
+            this.orderFileGrpBox = new System.Windows.Forms.GroupBox();
+            this.MainFrameDirListBox = new System.Windows.Forms.ListBox();
             this.FileArchivTab.SuspendLayout();
             this.ArchivMainTableLayout.SuspendLayout();
             this.AdminTab.SuspendLayout();
@@ -216,12 +218,13 @@
             this.MainFrameTabControl.SuspendLayout();
             this.MachineTab.SuspendLayout();
             this.MachineMenu.SuspendLayout();
-            this.orderFileGrpBox.SuspendLayout();
             this.DirSearchTableLayout.SuspendLayout();
             this.FileSeachTableLayout.SuspendLayout();
             this.FileDisplayTableLayout.SuspendLayout();
             this.FileBtnTableLayout.SuspendLayout();
             this.filesFromOrderGrpbox.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.orderFileGrpBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileArchivTab
@@ -242,9 +245,9 @@
             this.ArchivMainTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.ArchivMainTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.ArchivMainTableLayout.Controls.Add(this.FileSeachTableLayout, 1, 0);
-            this.ArchivMainTableLayout.Controls.Add(this.orderFileGrpBox, 0, 1);
             this.ArchivMainTableLayout.Controls.Add(this.DirSearchTableLayout, 0, 0);
             this.ArchivMainTableLayout.Controls.Add(this.FileDisplayTableLayout, 1, 1);
+            this.ArchivMainTableLayout.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.ArchivMainTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ArchivMainTableLayout.Location = new System.Drawing.Point(3, 3);
             this.ArchivMainTableLayout.Name = "ArchivMainTableLayout";
@@ -1761,17 +1764,6 @@
             this.EditMachineNameSubMenuItem.Text = "Editieren";
             this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
             // 
-            // orderFileGrpBox
-            // 
-            this.orderFileGrpBox.Controls.Add(this.MainFrameDirListBox);
-            this.orderFileGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderFileGrpBox.Location = new System.Drawing.Point(3, 46);
-            this.orderFileGrpBox.Name = "orderFileGrpBox";
-            this.orderFileGrpBox.Size = new System.Drawing.Size(268, 660);
-            this.orderFileGrpBox.TabIndex = 5;
-            this.orderFileGrpBox.TabStop = false;
-            this.orderFileGrpBox.Text = "Auftrag";
-            // 
             // DirSearchTableLayout
             // 
             this.DirSearchTableLayout.ColumnCount = 2;
@@ -1786,15 +1778,6 @@
             this.DirSearchTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.DirSearchTableLayout.Size = new System.Drawing.Size(268, 37);
             this.DirSearchTableLayout.TabIndex = 7;
-            // 
-            // MainFrameDirListBox
-            // 
-            this.MainFrameDirListBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainFrameDirListBox.FormattingEnabled = true;
-            this.MainFrameDirListBox.Location = new System.Drawing.Point(3, 16);
-            this.MainFrameDirListBox.Name = "MainFrameDirListBox";
-            this.MainFrameDirListBox.Size = new System.Drawing.Size(262, 641);
-            this.MainFrameDirListBox.TabIndex = 0;
             // 
             // DirSearchLabel
             // 
@@ -1917,6 +1900,51 @@
             this.DownloadFileButton.Text = "Datei herunterladen";
             this.DownloadFileButton.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.orderFileGrpBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.DownloadDirButton, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 46);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.30303F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.69697F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 660);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // DownloadDirButton
+            // 
+            this.DownloadDirButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownloadDirButton.Location = new System.Drawing.Point(3, 3);
+            this.DownloadDirButton.Name = "DownloadDirButton";
+            this.DownloadDirButton.Size = new System.Drawing.Size(262, 29);
+            this.DownloadDirButton.TabIndex = 0;
+            this.DownloadDirButton.Text = "Ordner Herunterladen";
+            this.DownloadDirButton.UseVisualStyleBackColor = true;
+            // 
+            // orderFileGrpBox
+            // 
+            this.orderFileGrpBox.Controls.Add(this.MainFrameDirListBox);
+            this.orderFileGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderFileGrpBox.Location = new System.Drawing.Point(3, 38);
+            this.orderFileGrpBox.Name = "orderFileGrpBox";
+            this.orderFileGrpBox.Size = new System.Drawing.Size(262, 619);
+            this.orderFileGrpBox.TabIndex = 6;
+            this.orderFileGrpBox.TabStop = false;
+            this.orderFileGrpBox.Text = "Auftrag";
+            // 
+            // MainFrameDirListBox
+            // 
+            this.MainFrameDirListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainFrameDirListBox.FormattingEnabled = true;
+            this.MainFrameDirListBox.Location = new System.Drawing.Point(3, 16);
+            this.MainFrameDirListBox.Name = "MainFrameDirListBox";
+            this.MainFrameDirListBox.Size = new System.Drawing.Size(256, 600);
+            this.MainFrameDirListBox.TabIndex = 0;
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1977,7 +2005,6 @@
             this.MachineTab.PerformLayout();
             this.MachineMenu.ResumeLayout(false);
             this.MachineMenu.PerformLayout();
-            this.orderFileGrpBox.ResumeLayout(false);
             this.DirSearchTableLayout.ResumeLayout(false);
             this.DirSearchTableLayout.PerformLayout();
             this.FileSeachTableLayout.ResumeLayout(false);
@@ -1985,6 +2012,8 @@
             this.FileDisplayTableLayout.ResumeLayout(false);
             this.FileBtnTableLayout.ResumeLayout(false);
             this.filesFromOrderGrpbox.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.orderFileGrpBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2133,8 +2162,6 @@
         private System.Windows.Forms.TableLayoutPanel FileSeachTableLayout;
         private System.Windows.Forms.Label FileSeachLabel;
         private System.Windows.Forms.TextBox FileSeachFilterInput;
-        private System.Windows.Forms.GroupBox orderFileGrpBox;
-        private System.Windows.Forms.ListBox MainFrameDirListBox;
         private System.Windows.Forms.TableLayoutPanel DirSearchTableLayout;
         private System.Windows.Forms.Label DirSearchLabel;
         private System.Windows.Forms.TextBox DirSearchFilterInput;
@@ -2144,6 +2171,10 @@
         private System.Windows.Forms.TableLayoutPanel FileBtnTableLayout;
         private System.Windows.Forms.Button DownloadFileButton;
         private System.Windows.Forms.Button OpenFileButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox orderFileGrpBox;
+        private System.Windows.Forms.ListBox MainFrameDirListBox;
+        private System.Windows.Forms.Button DownloadDirButton;
     }
 }
 
