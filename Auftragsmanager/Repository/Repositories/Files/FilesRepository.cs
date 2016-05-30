@@ -53,12 +53,22 @@ namespace Repository.Persistence
             return files;
         }
 
+        public void DownloadDir(string dirname)
+        {
+            
+        }
+
         public void DownloadFile(string orderID, string filename)
         {
             string pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string SourcePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename);
             string DestinationPath = Path.Combine(pathUser, "Downloads", filename);
+            if (File.Exists(DestinationPath))
+            {   
+                DestinationPath = Path.Combine(pathUser, "Downloads", filename," - Kopie");
+            }
             File.Copy(SourcePath, DestinationPath);
+            
         }
 
         public void OpenFile(string orderID, string filename)

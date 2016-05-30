@@ -16,5 +16,6 @@ namespace Repository.Core
         void DownloadFile(string orderID, string filename);
         string[] DisplayFiles(string orderID);
         string[] DdisplayDirectories();
+        void DownloadDir(string dirname);
     }
 }

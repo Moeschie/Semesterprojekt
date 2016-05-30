@@ -26,10 +26,11 @@ namespace View
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
                 Console.WriteLine("Access");
-                        
-            DisplayDirectories(DirSearchFilterInput.Text,MainFrameDirListBox);
+
+            DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
             DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
         }
+      
         private void DirSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
@@ -105,7 +106,7 @@ namespace View
 
         private void DownloadDirButton_Click(object sender, EventArgs e)
         {
-
+            _unit.Files.DownloadDir("");
         }
 
         private void OpenFileButton_Click(object sender, EventArgs e)
@@ -116,6 +117,6 @@ namespace View
         private void DownloadFileButton_Click(object sender, EventArgs e)
         {
             _unit.Files.DownloadFile(MainFrameDirListBox.SelectedItem.ToString(), MainFrameFileListBox.SelectedItem.ToString());
-        }
+        }        
     }
 }
