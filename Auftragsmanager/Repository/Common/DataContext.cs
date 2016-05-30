@@ -10,7 +10,7 @@ namespace Repository.Persistence
             : base("name=DataContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
-          //  this.Configuration.AutoDetectChangesEnabled = true;
+            this.Configuration.AutoDetectChangesEnabled = true;
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

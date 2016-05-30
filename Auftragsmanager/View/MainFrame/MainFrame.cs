@@ -56,8 +56,9 @@ namespace View
         private void DisplayFiles(string filter, ListBox listBox)
         {
             listBox.Items.Clear();
-            if (true)
+            if (true && (MainFrameDirListBox.SelectedItem.ToString() != null))
             {
+                
                 string[] files = _unit.Files.DisplayFiles(MainFrameDirListBox.SelectedItem.ToString());
                 foreach (string file in files)
                 {
