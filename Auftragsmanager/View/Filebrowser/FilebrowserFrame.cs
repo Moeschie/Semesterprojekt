@@ -19,20 +19,26 @@ namespace View
 
         public FilebrowserFrame(Unit _unit)
         {
-            this._unit = _unit;
+            _unit = _unit;
             InitializeComponent();
             createFolder("test");
             displayFiles("test","");
+
+            // FIrst Psuh Failed
         }
         private void OpenFileButton_Click(object sender, EventArgs e)
         {
-            openFile("Test");
+            if (FileDisplayListBox.SelectedItem != null)
+            {
+                _unit.Files.OpenFile("test", FileDisplayListBox.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void FileDisplayListBox_DoubleClick(object sender, EventArgs e)
-        {
-            openFile("Test");
-        }
+ 
         private void FileUploadButton_Click(object sender, EventArgs e)
         {
             uploadFile("test");
@@ -78,18 +84,6 @@ namespace View
                     FileDisplayListBox.Items.Add(Path.GetFileName(file));
                 }
             }         
-        }
-
-        private void openFile(String OrderID)
-        {
-            if (FileDisplayListBox.SelectedItem != null)
-            {
-                String OpenFilePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], OrderID, FileDisplayListBox.SelectedItem.ToString());
-                System.Diagnostics.Process.Start(OpenFilePath);
-            } else
-            {
-                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void uploadFile(String OrderID)

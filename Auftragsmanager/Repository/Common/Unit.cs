@@ -24,6 +24,7 @@ namespace Repository.Persistence
             ContactPerson = new ContactPersonRepository(_context);
             Session = new SessionRepository(_context);
             Utilities = new UtilitiesRepository();
+            Files = new FilesRepository();
         }
 
         public IUserRepository User { get; set; }
@@ -34,6 +35,7 @@ namespace Repository.Persistence
         public IContactPersonRepository ContactPerson { get; set; }
         public ISessionRepository Session { get; set; }
         public IUtilitiesRepository Utilities { get; set; }
+        public IFilesRepository Files { get; set; }
 
         public int Complete()
         {

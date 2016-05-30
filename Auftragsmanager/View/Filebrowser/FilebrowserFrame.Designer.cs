@@ -68,7 +68,7 @@
             this.FileDisplayListBox.Name = "FileDisplayListBox";
             this.FileDisplayListBox.Size = new System.Drawing.Size(379, 371);
             this.FileDisplayListBox.TabIndex = 0;
-            this.FileDisplayListBox.DoubleClick += new System.EventHandler(this.FileDisplayListBox_DoubleClick);
+            this.FileDisplayListBox.DoubleClick += new System.EventHandler(this.OpenFileButton_Click);
             // 
             // FilterSearchTableLayout
             // 
