@@ -65,6 +65,8 @@
     <Compile Include="Models\EdvActions.cs" />
     <Compile Include="Models\ContactPerson.cs" />
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Repositories\Files\IFilesRepository.cs" />
+    <Compile Include="Repositories\Files\FilesRepository.cs" />
     <Compile Include="Repositories\Utilities\FormValidation\FormValidation.cs" />
     <Compile Include="Repositories\Utilities\TextStrings\TextStrings.cs" />
     <Compile Include="Repositories\Utilities\UtilitiesRepository.cs" />
