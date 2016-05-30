@@ -19,6 +19,9 @@ namespace View
             _unit = unit;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.FormClosing += closeEvent;
             this.Show();
         }

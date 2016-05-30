@@ -154,6 +154,10 @@
             this.OpenFileButton.UseVisualStyleBackColor = true;
             this.OpenFileButton.Click += new System.EventHandler(this.OpenFileButton_Click);
             // 
+            // FileDialog
+            // 
+            this.FileDialog.InitialDirectory = "C:\\\\";
+            // 
             // FilebrowserFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
