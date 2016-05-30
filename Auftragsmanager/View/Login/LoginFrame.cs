@@ -35,14 +35,6 @@ namespace View
         {
             LoginAction();
         }
-
-        private void LoginPasswordInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Return)
-            {
-                LoginAction();
-            }
-        }
         private void LoginAction()
         {
             string Username = LoginNameInput.Text;

@@ -74,7 +74,6 @@ namespace View
             this.LoginPasswordInput.PasswordChar = '*';
             this.LoginPasswordInput.Size = new System.Drawing.Size(115, 20);
             this.LoginPasswordInput.TabIndex = 3;
-            this.LoginPasswordInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LoginPasswordInput_KeyDown);
             // 
             // LoginButton
             // 
@@ -108,6 +107,7 @@ namespace View
             // 
             // LoginFrame
             // 
+            this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 83);
