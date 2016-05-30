@@ -1,4 +1,6 @@
-﻿using Repository.Persistence;
+﻿using Repository.Model;
+using Repository.Persistence;
+using Repository.Persistence.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,7 +46,17 @@ namespace View
 
         private void EditMashineNameButton_Click(object sender, EventArgs e)
         {
-            // TODO:  Update Mashine Name in DB
+            FormValidation f = new FormValidation();
+            f.AddRule(EditMashineNameTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
+
+            if (f.Validate())
+            {
+                Machine machine = new Machine();
+                
+                machine.Name = EditMashineNameTextBox.Text;
+                _unit.Machine.Add(machine);
+                _unit.Complete();
+            }
         }
     }
 }

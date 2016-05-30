@@ -9,6 +9,6 @@ namespace Repository.Core
 {
     public interface IMachineRepository : IRepository<Machine>
     {
-        Machine GetMachineById(Guid id);
+        bool MachineExists(string machinename);
     }
 }

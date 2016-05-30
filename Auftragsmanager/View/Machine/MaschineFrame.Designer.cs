@@ -31,6 +31,7 @@
             this.MachineControllTabControll = new System.Windows.Forms.TabControl();
             this.MachineMonitorTab = new System.Windows.Forms.TabPage();
             this.MaschineUsagesGrpBox = new System.Windows.Forms.GroupBox();
+            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineControllTab = new System.Windows.Forms.TabPage();
             this.MaschineOptionGrpBox = new System.Windows.Forms.GroupBox();
             this.EditMachineCreateMachineGroupBox = new System.Windows.Forms.GroupBox();
@@ -45,7 +46,6 @@
             this.EditMachineDefectStartDatePicker = new System.Windows.Forms.DateTimePicker();
             this.EditMachineSaveChanegesButton = new System.Windows.Forms.Button();
             this.dataSet1 = new System.Data.DataSet();
-            this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineControllTabControll.SuspendLayout();
             this.MachineMonitorTab.SuspendLayout();
             this.MaschineUsagesGrpBox.SuspendLayout();
@@ -88,6 +88,16 @@
             this.MaschineUsagesGrpBox.TabIndex = 3;
             this.MaschineUsagesGrpBox.TabStop = false;
             this.MaschineUsagesGrpBox.Text = "Maschinen Nutzung";
+            // 
+            // MachineUsageChart
+            // 
+            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineUsageChart.FullDateStringFormat = null;
+            this.MachineUsageChart.Location = new System.Drawing.Point(3, 16);
+            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
+            this.MachineUsageChart.Name = "MachineUsageChart";
+            this.MachineUsageChart.Size = new System.Drawing.Size(1124, 575);
+            this.MachineUsageChart.TabIndex = 2;
             // 
             // MachineControllTab
             // 
@@ -176,7 +186,7 @@
             "Maschine 5",
             "Maschine 6",
             "Maschine 7"});
-            this.EditMachineSelectMachineDropDown.Location = new System.Drawing.Point(41, 45);
+            this.EditMachineSelectMachineDropDown.Location = new System.Drawing.Point(41, 49);
             this.EditMachineSelectMachineDropDown.Name = "EditMachineSelectMachineDropDown";
             this.EditMachineSelectMachineDropDown.Size = new System.Drawing.Size(162, 21);
             this.EditMachineSelectMachineDropDown.TabIndex = 3;
@@ -215,7 +225,7 @@
             // 
             // EditMachineSaveChanegesButton
             // 
-            this.EditMachineSaveChanegesButton.Location = new System.Drawing.Point(166, 169);
+            this.EditMachineSaveChanegesButton.Location = new System.Drawing.Point(166, 158);
             this.EditMachineSaveChanegesButton.Name = "EditMachineSaveChanegesButton";
             this.EditMachineSaveChanegesButton.Size = new System.Drawing.Size(75, 23);
             this.EditMachineSaveChanegesButton.TabIndex = 8;
@@ -225,16 +235,6 @@
             // dataSet1
             // 
             this.dataSet1.DataSetName = "NewDataSet";
-            // 
-            // MachineUsageChart
-            // 
-            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MachineUsageChart.FullDateStringFormat = null;
-            this.MachineUsageChart.Location = new System.Drawing.Point(3, 16);
-            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
-            this.MachineUsageChart.Name = "MachineUsageChart";
-            this.MachineUsageChart.Size = new System.Drawing.Size(1124, 575);
-            this.MachineUsageChart.TabIndex = 2;
             // 
             // MaschineFrame
             // 

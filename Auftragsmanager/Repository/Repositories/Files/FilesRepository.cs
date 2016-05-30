@@ -24,7 +24,7 @@ namespace Repository.Persistence
         }
 
         public void CreateFolder(string orderID)
-        {
+        {            
             string path = Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID);
             try
             {
@@ -61,12 +61,19 @@ namespace Repository.Persistence
         public void DownloadDir(string dirname)
         {
             DirectoryInfo dir = new DirectoryInfo(Path.Combine(ConfigurationSettings.AppSettings["Path"], dirname));
-            Console.WriteLine(dir);
+
             List<string> path = new List<string>();
             path.Add(pathUser);
             path.Add("Downloads");
             path.Add(dirname);
-            Directory.CreateDirectory(GetDestination(path));
+            string dirDest = GetDestinationDirectory(path);
+            Directory.CreateDirectory(dirDest);
+            FileInfo[] files = dir.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                string temppath = Path.Combine(dirDest, file.Name);
+                file.CopyTo(temppath, false);
+            }
         }
 
 
@@ -78,10 +85,10 @@ namespace Repository.Persistence
             path.Add(pathUser);
             path.Add("Downloads");
             path.Add(filename);        
-            File.Copy(SourcePath, GetDestination(path));
+            File.Copy(SourcePath, GetDestinationFile(path));
         }
 
-        private string GetDestination(List<string> path)
+        private string GetDestinationFile(List<string> path)
         {
             bool free = true;
             int fileCount = 1;
@@ -108,7 +115,33 @@ namespace Repository.Persistence
             }
             return DestinationPath;
         }
-
+        private string GetDestinationDirectory(List<string> path)
+        {
+            bool free = true;
+            int fileCount = 1;
+            string DestinationPath = Path.Combine(path[0], path[1], path[2]);
+            if (Directory.Exists(DestinationPath))
+            {
+                if (!Directory.Exists(Path.Combine(path[0], path[1], "Kopie - " + path[2])))
+                {
+                    while (free)
+                    {
+                        if (!Directory.Exists(Path.Combine(path[0], path[1], "Kopie(" + fileCount + ") - " + path[2])))
+                        {
+                            path[2] = "Kopie(" + fileCount + ") - " + path[2];
+                            free = !free;
+                        }
+                        fileCount++;
+                    }
+                }
+                else
+                {
+                    path[2] = "Kopie - " + path[2];
+                }
+                DestinationPath = Path.Combine(path[0], path[1], path[2]);
+            }
+            return DestinationPath;
+        }
         public void OpenFile(string orderID, string filename)
         {
                 System.Diagnostics.Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename));
@@ -122,7 +155,7 @@ namespace Repository.Persistence
             path.Add(orderID);
             path.Add(filename);
 
-            File.Copy(sourcePath, GetDestination(path));
+            File.Copy(sourcePath, GetDestinationFile(path));
         }
     }
 }

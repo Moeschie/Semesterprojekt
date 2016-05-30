@@ -50,14 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201605190627390_InitialCreate.cs" />
-    <Compile Include="Migrations\201605190627390_InitialCreate.Designer.cs">
-      <DependentUpon>201605190627390_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605191139016_asdadafasd.cs" />
-    <Compile Include="Migrations\201605191139016_asdadafasd.Designer.cs">
-      <DependentUpon>201605191139016_asdadafasd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MachineTasks.cs" />
     <Compile Include="Models\OrderDetails.cs" />
@@ -100,14 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605190627390_InitialCreate.resx">
-      <DependentUpon>201605190627390_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605191139016_asdadafasd.resx">
-      <DependentUpon>201605191139016_asdadafasd.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

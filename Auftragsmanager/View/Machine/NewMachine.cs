@@ -1,4 +1,6 @@
-﻿using Repository.Persistence;
+﻿using Repository.Model;
+using Repository.Persistence;
+using Repository.Persistence.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,7 +47,25 @@ namespace View
 
         private void AddNewMashineButton_Click(object sender, EventArgs e)
         {
-            //TODO: Create new Machine in DB
+            FormValidation f = new FormValidation();
+            f.AddRule(NewMashineNameTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
+            Machine machine = new Machine();
+            machine.Id = new Guid();
+            machine.Name = NewMashineNameTextBox.Text;
+            if (f.Validate())
+            {
+                if (!_unit.Machine.MachineExists(NewMashineNameTextBox.Text))
+                {
+
+
+                    _unit.Machine.Add(machine);
+                    _unit.Complete();
+                }
+                else
+                {
+                    MessageBox.Show("Diese Maschine ist bereits vorhanden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

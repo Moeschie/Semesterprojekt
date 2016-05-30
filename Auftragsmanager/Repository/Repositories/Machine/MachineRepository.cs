@@ -13,9 +13,16 @@ namespace Repository.Persistence
         {
         }
 
-        public Machine GetMachineById(Guid id)
+
+        public bool MachineExists(string machinename)
         {
-            return new Machine();
+            bool exists = false;
+            Machine machine = GetAll().Where(m => m.Name == machinename).FirstOrDefault();
+
+            if (machine != null)
+                exists = true;
+
+            return exists;
         }
 
         public DataContext DataContext
