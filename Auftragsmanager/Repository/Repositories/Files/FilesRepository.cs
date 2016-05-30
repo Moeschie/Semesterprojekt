@@ -7,14 +7,19 @@ using System.Windows.Forms;
 using Repository.Persistence.Utilities;
 using System.IO;
 using System.Configuration;
+using System.Collections.Generic;
 
 namespace Repository.Persistence
 {
     public class FilesRepository : IFilesRepository
     {
+
+        private string pathUser;
+
     
         public FilesRepository()
         {
+            pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
         }
 
@@ -55,20 +60,53 @@ namespace Repository.Persistence
 
         public void DownloadDir(string dirname)
         {
-            
+            DirectoryInfo dir = new DirectoryInfo(Path.Combine(ConfigurationSettings.AppSettings["Path"], dirname));
+            Console.WriteLine(dir);
+            List<string> path = new List<string>();
+            path.Add(pathUser);
+            path.Add("Downloads");
+            path.Add(dirname);
+            Directory.CreateDirectory(GetDestination(path));
         }
+
 
         public void DownloadFile(string orderID, string filename)
         {
-            string pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
             string SourcePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename);
-            string DestinationPath = Path.Combine(pathUser, "Downloads", filename);
+
+            List<string> path = new List<string>();
+            path.Add(pathUser);
+            path.Add("Downloads");
+            path.Add(filename);        
+            File.Copy(SourcePath, GetDestination(path));
+        }
+
+        private string GetDestination(List<string> path)
+        {
+            bool free = true;
+            int fileCount = 1;
+            string DestinationPath = Path.Combine(path[0], path[1], path[2]);
             if (File.Exists(DestinationPath))
-            {   
-                DestinationPath = Path.Combine(pathUser, "Downloads", filename," - Kopie");
+            {
+                if (!File.Exists(Path.Combine(path[0], path[1], "Kopie - " + path[2])))
+                {
+                    while (free)
+                    {
+                        if (!File.Exists(Path.Combine(path[0], path[1], "Kopie(" + fileCount + ") - " + path[2])))
+                        {
+                            path[2] = "Kopie(" + fileCount + ") - " + path[2];
+                            free = !free;
+                        }
+                        fileCount++;
+                    }
+                }
+                else
+                {
+                    path[2] = "Kopie - " + path[2];
+                }
+                DestinationPath = Path.Combine(path[0], path[1], path[2]);
             }
-            File.Copy(SourcePath, DestinationPath);
-            
+            return DestinationPath;
         }
 
         public void OpenFile(string orderID, string filename)
@@ -78,8 +116,13 @@ namespace Repository.Persistence
 
         public void UploadFile(string orderID,String filename, String sourcePath)
         {
-            string destinationPath = Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename);
-            File.Copy(sourcePath, destinationPath);
+
+            List<string> path = new List<string>();
+            path.Add(ConfigurationSettings.AppSettings["Path"]);
+            path.Add(orderID);
+            path.Add(filename);
+
+            File.Copy(sourcePath, GetDestination(path));
         }
     }
 }

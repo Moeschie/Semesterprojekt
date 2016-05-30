@@ -106,7 +106,7 @@ namespace View
 
         private void DownloadDirButton_Click(object sender, EventArgs e)
         {
-            _unit.Files.DownloadDir("");
+            _unit.Files.DownloadDir(MainFrameDirListBox.SelectedItem.ToString());
         }
 
         private void OpenFileButton_Click(object sender, EventArgs e)
