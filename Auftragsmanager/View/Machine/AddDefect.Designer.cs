@@ -30,12 +30,12 @@
         {
             this.AddDefectTable = new System.Windows.Forms.TableLayoutPanel();
             this.AddDefectSelectLable = new System.Windows.Forms.Label();
-            this.AddDefectStartDateLabel = new System.Windows.Forms.Label();
-            this.AddDefektEndDateLable = new System.Windows.Forms.Label();
             this.AddDefectSelectMashineComboBox = new System.Windows.Forms.ComboBox();
-            this.AddDefectStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.AddDefectEndDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.AddDefectSubmitButton = new System.Windows.Forms.Button();
+            this.AddDefektEndDateLable = new System.Windows.Forms.Label();
+            this.AddDefectEndDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.AddDefectStartDateLabel = new System.Windows.Forms.Label();
+            this.AddDefectStartDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.AddDefectTitleLabel = new System.Windows.Forms.Label();
             this.AddDefectTitleTextBox = new System.Windows.Forms.TextBox();
             this.AddDefectTable.SuspendLayout();
@@ -77,26 +77,6 @@
             this.AddDefectSelectLable.TabIndex = 0;
             this.AddDefectSelectLable.Text = "Maschine";
             // 
-            // AddDefectStartDateLabel
-            // 
-            this.AddDefectStartDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddDefectStartDateLabel.AutoSize = true;
-            this.AddDefectStartDateLabel.Location = new System.Drawing.Point(3, 59);
-            this.AddDefectStartDateLabel.Name = "AddDefectStartDateLabel";
-            this.AddDefectStartDateLabel.Size = new System.Drawing.Size(90, 13);
-            this.AddDefectStartDateLabel.TabIndex = 1;
-            this.AddDefectStartDateLabel.Text = "Begin";
-            // 
-            // AddDefektEndDateLable
-            // 
-            this.AddDefektEndDateLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddDefektEndDateLable.AutoSize = true;
-            this.AddDefektEndDateLable.Location = new System.Drawing.Point(3, 84);
-            this.AddDefektEndDateLable.Name = "AddDefektEndDateLable";
-            this.AddDefektEndDateLable.Size = new System.Drawing.Size(90, 13);
-            this.AddDefektEndDateLable.TabIndex = 2;
-            this.AddDefektEndDateLable.Text = "Ende";
-            // 
             // AddDefectSelectMashineComboBox
             // 
             this.AddDefectSelectMashineComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -105,22 +85,6 @@
             this.AddDefectSelectMashineComboBox.Name = "AddDefectSelectMashineComboBox";
             this.AddDefectSelectMashineComboBox.Size = new System.Drawing.Size(182, 21);
             this.AddDefectSelectMashineComboBox.TabIndex = 4;
-            // 
-            // AddDefectStartDateTimePicker
-            // 
-            this.AddDefectStartDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.AddDefectStartDateTimePicker.Location = new System.Drawing.Point(99, 56);
-            this.AddDefectStartDateTimePicker.Name = "AddDefectStartDateTimePicker";
-            this.AddDefectStartDateTimePicker.Size = new System.Drawing.Size(182, 20);
-            this.AddDefectStartDateTimePicker.TabIndex = 5;
-            // 
-            // AddDefectEndDateTimePicker
-            // 
-            this.AddDefectEndDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddDefectEndDateTimePicker.Location = new System.Drawing.Point(99, 81);
-            this.AddDefectEndDateTimePicker.Name = "AddDefectEndDateTimePicker";
-            this.AddDefectEndDateTimePicker.Size = new System.Drawing.Size(182, 20);
-            this.AddDefectEndDateTimePicker.TabIndex = 6;
             // 
             // AddDefectSubmitButton
             // 
@@ -132,6 +96,42 @@
             this.AddDefectSubmitButton.Text = "Erstellen";
             this.AddDefectSubmitButton.UseVisualStyleBackColor = true;
             this.AddDefectSubmitButton.Click += new System.EventHandler(this.AddDefectSubmitButton_Click);
+            // 
+            // AddDefektEndDateLable
+            // 
+            this.AddDefektEndDateLable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddDefektEndDateLable.AutoSize = true;
+            this.AddDefektEndDateLable.Location = new System.Drawing.Point(3, 84);
+            this.AddDefektEndDateLable.Name = "AddDefektEndDateLable";
+            this.AddDefektEndDateLable.Size = new System.Drawing.Size(90, 13);
+            this.AddDefektEndDateLable.TabIndex = 2;
+            this.AddDefektEndDateLable.Text = "Ende";
+            // 
+            // AddDefectEndDateTimePicker
+            // 
+            this.AddDefectEndDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddDefectEndDateTimePicker.Location = new System.Drawing.Point(99, 81);
+            this.AddDefectEndDateTimePicker.Name = "AddDefectEndDateTimePicker";
+            this.AddDefectEndDateTimePicker.Size = new System.Drawing.Size(182, 20);
+            this.AddDefectEndDateTimePicker.TabIndex = 6;
+            // 
+            // AddDefectStartDateLabel
+            // 
+            this.AddDefectStartDateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddDefectStartDateLabel.AutoSize = true;
+            this.AddDefectStartDateLabel.Location = new System.Drawing.Point(3, 59);
+            this.AddDefectStartDateLabel.Name = "AddDefectStartDateLabel";
+            this.AddDefectStartDateLabel.Size = new System.Drawing.Size(90, 13);
+            this.AddDefectStartDateLabel.TabIndex = 1;
+            this.AddDefectStartDateLabel.Text = "Begin";
+            // 
+            // AddDefectStartDateTimePicker
+            // 
+            this.AddDefectStartDateTimePicker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.AddDefectStartDateTimePicker.Location = new System.Drawing.Point(99, 56);
+            this.AddDefectStartDateTimePicker.Name = "AddDefectStartDateTimePicker";
+            this.AddDefectStartDateTimePicker.Size = new System.Drawing.Size(182, 20);
+            this.AddDefectStartDateTimePicker.TabIndex = 5;
             // 
             // AddDefectTitleLabel
             // 

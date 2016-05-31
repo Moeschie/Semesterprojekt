@@ -21,6 +21,7 @@ namespace Repository.Persistence
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Machine> Machines { get; set; }
+        public virtual DbSet<MachineTask> MachineTasks { get; set; }
         public virtual DbSet<Adress> Adresses { get; set; }
         public virtual DbSet<ContactPerson> ContactPersons { get; set; }
         public virtual DbSet<CustomerObject> CustomerObjects { get; set;  }

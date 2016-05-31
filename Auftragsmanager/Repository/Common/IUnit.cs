@@ -12,6 +12,7 @@ namespace Repository.Core
         IOrderRepository Order { get; set; }
         ICustomerRepository Customer { get; set; }
         IMachineRepository Machine { get; set; }
+        IMachineTaskRepository MachineTask { get; set; }
         IAdressRepository Adress { get; set; }
         IContactPersonRepository ContactPerson { get; set; }
         ISessionRepository Session { get; set; }

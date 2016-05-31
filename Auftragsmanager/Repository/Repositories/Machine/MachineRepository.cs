@@ -12,10 +12,11 @@ namespace Repository.Persistence
     public class MachineRepository : Repository<Machine>, IMachineRepository
     {
         ProjectManager GanttContent;
-        MachineTask machineTasks;
+        MachineTaskRepository machineTasks;
         int rgb;
         public MachineRepository(DataContext context) : base(context)
         {
+            machineTasks = new MachineTaskRepository(context);
         }
 
 
@@ -46,14 +47,14 @@ namespace Repository.Persistence
                 GanttContent.SetStart(AddMachine, SetStartTaskDateTime(DateTime.Now, StartMaschine));
                 GanttContent.SetEnd(AddMachine, DateTime.Now.DayOfYear + 365);
                 usagesChart.SetToolTip(AddMachine, string.Join(", ", GanttContent.ResourcesOf(AddMachine).Select(x => (x as MyResource).Name)));
-                foreach (var machineTask in .GetAll().Where(m=>m.Machine == machine.Name).ToList()) 
+                foreach (var machineTask in machineTasks.GetAll().Where(m=>m.machine.Name == machine.Name).ToList()) 
                 {
-                    var AddTask = new MyTask(GanttContent) { Name = machineTask.Name };
+                    var AddTask = new MyTask(GanttContent) { Name = machineTask.title };
                     GanttContent.Add(AddTask);
                     var AddTaskToolTip = new MyResource() { Name = "Auftrag 1" };
                     GanttContent.Assign(AddTask, AddTaskToolTip);
                     GanttContent.Group(AddMachine, AddTask);
-                    usagesChart.SetToolTip(AddTask, "Auftrag: " + string.Join(", ", GanttContent.ResourcesOf(AddTask).Select(x => (x as MyResource).Name)) + " Zeitraum: " + string.Format("{0} to {1}", machineTask.UsageStart.ToLongDateString(), machineTask.UsageStart.ToLongDateString()));
+                    usagesChart.SetToolTip(AddTask, "Auftrag: " + string.Join(", ", GanttContent.ResourcesOf(AddTask).Select(x => (x as MyResource).Name)) + " Zeitraum: " + string.Format("{0} to {1}", machineTask.UsageStart, machineTask.UsageStart));
                 }
             }
             TimeSpan span = DateTime.Now - StartMaschine;

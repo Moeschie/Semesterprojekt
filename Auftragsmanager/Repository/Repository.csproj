@@ -63,6 +63,8 @@
     <Compile Include="Models\Session.cs" />
     <Compile Include="Repositories\Files\IFilesRepository.cs" />
     <Compile Include="Repositories\Files\FilesRepository.cs" />
+    <Compile Include="Repositories\Machine\IMachineTaskRepository.cs" />
+    <Compile Include="Repositories\Machine\MachineTaskRepository.cs" />
     <Compile Include="Repositories\Utilities\FormValidation\FormValidation.cs" />
     <Compile Include="Repositories\Utilities\TextStrings\TextStrings.cs" />
     <Compile Include="Repositories\Utilities\UtilitiesRepository.cs" />
@@ -97,7 +99,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

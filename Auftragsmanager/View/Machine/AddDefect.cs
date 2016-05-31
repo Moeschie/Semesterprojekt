@@ -1,4 +1,6 @@
-﻿using Repository.Persistence;
+﻿using Repository.Model;
+using Repository.Persistence;
+using Repository.Persistence.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +30,6 @@ namespace View
             foreach (var machine in _unit.Machine.GetAll().ToList())
             {
                 AddDefectSelectMashineComboBox.Items.Add(machine.Name);
-                AddDefectSelectMashineComboBox.SelectedItem = 1;
             }
         }
 
@@ -49,7 +50,20 @@ namespace View
 
         private void AddDefectSubmitButton_Click(object sender, EventArgs e)
         {
-            //TODO: Create Defect as Task in DB
+            FormValidation f = new FormValidation();
+            f.AddRule(AddDefectTitleTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
+            MachineTask machinetask = new MachineTask();
+            machinetask.title = AddDefectTitleTextBox.Text;
+            
+            machinetask.machine = new Machine();
+            machinetask.machine.Name = AddDefectSelectMashineComboBox.Text;
+            if (f.Validate())
+            {
+            _unit.MachineTask.Add(machinetask);
+            _unit.Complete();
+            Close();
+
+            }
         }
     }
 }
