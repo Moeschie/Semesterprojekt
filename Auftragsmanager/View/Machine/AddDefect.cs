@@ -54,7 +54,8 @@ namespace View
             f.AddRule(AddDefectTitleTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
             MachineTask machinetask = new MachineTask();
             machinetask.title = AddDefectTitleTextBox.Text;
-            
+            machinetask.UsageStart = AddDefectStartDateTimePicker.Text;
+            machinetask.UsageEnd = AddDefectEndDateTimePicker.Text;      
             machinetask.machine = new Machine();
             machinetask.machine.Name = AddDefectSelectMashineComboBox.Text;
             if (f.Validate())

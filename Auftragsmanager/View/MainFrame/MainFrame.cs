@@ -116,13 +116,6 @@ namespace View
         {
             _unit.Files.DownloadFile(MainFrameDirListBox.SelectedItem.ToString(), MainFrameFileListBox.SelectedItem.ToString());
         }        
-        
-         /*
-         * INIT GANT CHART
-         * CREATE MACHINE FIELDS
-         * CREATE MACHINE WORKORDER FIELDS
-         * 
-         */
          private void initGant()
         {
             _unit.Machine.CreateGantMachine(MachineUsageChart);
