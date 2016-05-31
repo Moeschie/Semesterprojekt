@@ -20,14 +20,5 @@ namespace Repository.Persistence
         {
             return new FormValidation();
         }
-
-        public int SetTaskDateTime(DateTime start, DateTime end)
-        {
-            return (int)((end - start).Days);
-
-        }
-
-
- 
     }
 }

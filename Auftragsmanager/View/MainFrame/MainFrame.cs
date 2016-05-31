@@ -1,4 +1,5 @@
-﻿using Repository.Persistence;
+﻿using Braincase.GanttChart;
+using Repository.Persistence;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace View
     public partial class MainFrame : Form
     {
         Unit _unit;
+
         public MainFrame(Unit unit)
         {
             _unit = unit;
@@ -26,9 +28,9 @@ namespace View
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
                 Console.WriteLine("Access");
-
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
             DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
+            initGant();
         }
       
         private void DirSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
@@ -74,11 +76,6 @@ namespace View
         {
             Application.Exit();
         }
-        private void MachineMenuItem_Click(object sender, EventArgs e)
-        {
-            MaschineFrame maschine = new MaschineFrame(_unit);
-            maschine.Show();
-        }
         private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
         {
             OrderFrame order = new OrderFrame(_unit);
@@ -101,7 +98,7 @@ namespace View
         }
         private void editMaschine(object sender, EventArgs e)
         {
-            EditMashine editMashine = EditMashine.Instance(_unit);
+            EditMachine editMashine = EditMachine.Instance(_unit);
             editMashine.Show();
         }
 
@@ -119,5 +116,20 @@ namespace View
         {
             _unit.Files.DownloadFile(MainFrameDirListBox.SelectedItem.ToString(), MainFrameFileListBox.SelectedItem.ToString());
         }        
+        
+         /*
+         * INIT GANT CHART
+         * CREATE MACHINE FIELDS
+         * CREATE MACHINE WORKORDER FIELDS
+         * 
+         */
+         private void initGant()
+        {
+            _unit.Machine.CreateGantMachine(MachineUsageChart);
+            MachineUsageChart.AllowTaskDragDrop = false;
+            MachineUsageChart.ScrollTo(DateTime.Now);
+            MachineUsageChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
+            MachineUsageChart.Invalidate();
+        }
     }
 }

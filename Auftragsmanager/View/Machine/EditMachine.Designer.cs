@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class EditMashine
+    partial class EditMachine
     {
         /// <summary>
         /// Required designer variable.

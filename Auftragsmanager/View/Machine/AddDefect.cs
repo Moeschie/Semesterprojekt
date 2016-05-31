@@ -25,6 +25,11 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {
+                AddDefectSelectMashineComboBox.Items.Add(machine.Name);
+                AddDefectSelectMashineComboBox.SelectedItem = 1;
+            }
         }
 
         private void closeEvent(object sender, FormClosingEventArgs e)

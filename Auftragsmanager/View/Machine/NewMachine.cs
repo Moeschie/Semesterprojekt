@@ -51,13 +51,13 @@ namespace View
             f.AddRule(NewMashineNameTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
             Machine machine = new Machine();
             machine.Name = NewMashineNameTextBox.Text;
-
             if (f.Validate())
             {
                 if (!_unit.Machine.MachineExists(machine.Name))
                 {
                     _unit.Machine.Add(machine);
                     _unit.Complete();
+                    Close();
                 }
                 else
                 {

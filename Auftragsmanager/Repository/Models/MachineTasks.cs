@@ -15,11 +15,6 @@ namespace Repository.Model
         public DateTime UsageStart { get; set; }
         public DateTime UsageEnd { get; set; }
         public string title { get; set; }
-        public string type { get; set; }
-
-
-        
-
-
+        public string type { get; set; }     
     }
 }

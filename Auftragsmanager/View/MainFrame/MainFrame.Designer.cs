@@ -173,7 +173,6 @@
             this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
             this.MachineTab = new System.Windows.Forms.TabPage();
             this.MachineUsageChart = new Braincase.GanttChart.Chart();
@@ -1831,8 +1830,7 @@
             // MainFrameMenu
             // 
             this.MainFrameMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewFolderMenuItem,
-            this.MachineMenuItem});
+            this.NewFolderMenuItem});
             this.MainFrameMenu.Location = new System.Drawing.Point(3, 3);
             this.MainFrameMenu.Name = "MainFrameMenu";
             this.MainFrameMenu.Size = new System.Drawing.Size(1370, 24);
@@ -1851,22 +1849,15 @@
             // EmptyFolderSubMenuItem
             // 
             this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
-            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
             this.EmptyFolderSubMenuItem.Click += new System.EventHandler(this.EmptyFolderSubMenuItem_Click);
             // 
             // ClonedFolderSubMenuItem
             // 
             this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
-            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
-            // 
-            // MachineMenuItem
-            // 
-            this.MachineMenuItem.Name = "MachineMenuItem";
-            this.MachineMenuItem.Size = new System.Drawing.Size(120, 20);
-            this.MachineMenuItem.Text = "Maschinenmonitor";
-            this.MachineMenuItem.Click += new System.EventHandler(this.MachineMenuItem_Click);
             // 
             // MainFrameTabControl
             // 
@@ -2155,7 +2146,6 @@
         private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem MachineMenuItem;
         private System.Windows.Forms.TabControl MainFrameTabControl;
         private System.Windows.Forms.TabPage MachineTab;
         private System.Windows.Forms.MenuStrip MachineMenu;

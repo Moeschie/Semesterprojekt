@@ -10,6 +10,5 @@ namespace Repository.Core
 {
     public interface IUtilitiesRepository 
     {
-        int SetTaskDateTime(DateTime startMaschine, DateTime endMachine);
     }
 }

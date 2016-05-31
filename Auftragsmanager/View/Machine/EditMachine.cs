@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class EditMashine : Form
+    public partial class EditMachine : Form
     {
         private Unit _unit;
-        private static EditMashine instance;
+        private static EditMachine instance;
 
-        private EditMashine(Unit unit)
+        private EditMachine(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
@@ -27,17 +27,22 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {     
+                EditMaschineSelectMaschineComboBox.Items.Add(machine.Name);
+                EditMaschineSelectMaschineComboBox.SelectedItem = 1;
+            }
         }
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             instance = null;
         }
-        public static EditMashine Instance(Unit unit)
+        public static EditMachine Instance(Unit unit)
         {
 
             if (instance == null)
             {
-                instance = new EditMashine(unit);
+                instance = new EditMachine(unit);
             }
             instance.BringToFront();
             return instance;
@@ -51,8 +56,7 @@ namespace View
 
             if (f.Validate())
             {
-                Machine machine = new Machine();
-                
+                Machine machine = new Machine();                
                 machine.Name = EditMashineNameTextBox.Text;
                 _unit.Machine.Add(machine);
                 _unit.Complete();
