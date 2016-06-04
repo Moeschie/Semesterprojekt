@@ -8,6 +8,7 @@ using Repository.Persistence.Utilities;
 using System.IO;
 using System.Configuration;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Repository.Persistence
 {
@@ -46,7 +47,11 @@ namespace Repository.Persistence
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
             FBD.SelectedPath = ConfigurationSettings.AppSettings["Path"];
-            string[] directories = Directory.GetDirectories(FBD.SelectedPath);
+            Debug.WriteLine(FBD.SelectedPath);
+            string[] directories = null;
+            if(FBD.SelectedPath != "")
+                 directories = Directory.GetDirectories(FBD.SelectedPath);
+
             return directories;
         }
 

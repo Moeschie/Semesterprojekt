@@ -44,21 +44,26 @@ namespace View
         private void DisplayDirectories(string filter, ListBox listBox)
         {
             listBox.Items.Clear();
-            string[] directories = _unit.Files.DdisplayDirectories();          
-            foreach (string dir in directories)
+            string[] directories = _unit.Files.DdisplayDirectories();
+            if (directories != null)
             {
-                if (dir.Contains(filter))
+                
+            
+                foreach (string dir in directories)
                 {
-                    listBox.Items.Add(Path.GetFileName(dir));
-                    if (listBox.Items.Count > 0)
-                        listBox.SetSelected(0, true);
+                    if (dir.Contains(filter))
+                    {
+                        listBox.Items.Add(Path.GetFileName(dir));
+                        if (listBox.Items.Count > 0)
+                            listBox.SetSelected(0, true);
+                    }
                 }
             }
         }
         private void DisplayFiles(string filter, ListBox listBox)
         {
             listBox.Items.Clear();
-            if (true && (MainFrameDirListBox.SelectedItem.ToString() != null))
+            if (MainFrameDirListBox.SelectedItem != null)
             {
                 
                 string[] files = _unit.Files.DisplayFiles(MainFrameDirListBox.SelectedItem.ToString());
