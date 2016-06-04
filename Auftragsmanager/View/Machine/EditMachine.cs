@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace View
 {
-    public partial class NewMachine : Form
+    public partial class EditMachine : Form
     {
         private Unit _unit;
-        private static NewMachine instance;
+        private static EditMachine instance;
 
-        private NewMachine(Unit unit)
+        private EditMachine(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
@@ -27,42 +27,39 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {     
+                EditMaschineSelectMaschineComboBox.Items.Add(machine.Name);
+                EditMaschineSelectMaschineComboBox.SelectedItem = 1;
+            }
         }
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             instance = null;
         }
-
-        public static NewMachine Instance(Unit unit)
+        public static EditMachine Instance(Unit unit)
         {
 
             if (instance == null)
             {
-                instance = new NewMachine(unit);
+                instance = new EditMachine(unit);
             }
             instance.BringToFront();
             return instance;
 
         }
 
-        private void AddNewMashineButton_Click(object sender, EventArgs e)
+        private void EditMashineNameButton_Click(object sender, EventArgs e)
         {
             FormValidation f = new FormValidation();
-            f.AddRule(NewMashineNameTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
-            Machine machine = new Machine();
-            machine.Name = NewMashineNameTextBox.Text;
+            f.AddRule(EditMashineNameTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
+
             if (f.Validate())
             {
-                if (!_unit.Machine.MachineExists(machine.Name))
-                {
-                    _unit.Machine.Add(machine);
-                    _unit.Complete();
-                    Close();
-                }
-                else
-                {
-                    MessageBox.Show("Diese Maschine ist bereits vorhanden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Machine machine = new Machine();                
+                machine.Name = EditMashineNameTextBox.Text;
+                _unit.Machine.Add(machine);
+                _unit.Complete();
             }
         }
     }

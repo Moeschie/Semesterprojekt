@@ -1,4 +1,6 @@
-﻿using Repository.Persistence;
+﻿using Repository.Model;
+using Repository.Persistence;
+using Repository.Persistence.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +27,10 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {
+                AddDefectSelectMashineComboBox.Items.Add(machine.Name);
+            }
         }
 
         private void closeEvent(object sender, FormClosingEventArgs e)
@@ -44,7 +50,22 @@ namespace View
 
         private void AddDefectSubmitButton_Click(object sender, EventArgs e)
         {
-            //TODO: Create Defect as Task in DB
+            FormValidation f = new FormValidation();
+            f.AddRule(AddDefectTitleTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
+            MachineTask machinetask = new MachineTask();
+            machinetask.title = AddDefectTitleTextBox.Text;
+            machinetask.UsageStart = AddDefectStartDateTimePicker.Text;
+            machinetask.UsageEnd = AddDefectEndDateTimePicker.Text;      
+            machinetask.machine = new Machine();
+            machinetask.machine.Name = AddDefectSelectMashineComboBox.Text;
+            if (f.Validate())
+            {
+            _unit.MachineTask.Add(machinetask);
+            _unit.Complete();
+            Close();
+
+            }
         }
     }
 }
+

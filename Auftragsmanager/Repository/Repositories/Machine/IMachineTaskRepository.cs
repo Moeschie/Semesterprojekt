@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Repository.Model;
-using Repository.Persistence;
+using Braincase.GanttChart;
+
 
 namespace Repository.Core
 {
-    public interface IUtilitiesRepository 
+    public interface IMachineTaskRepository : IRepository<MachineTask>
     {
+
     }
 }

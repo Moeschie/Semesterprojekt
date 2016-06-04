@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class EditMashine
+    partial class EditMachine
     {
         /// <summary>
         /// Required designer variable.
@@ -153,6 +153,7 @@
             // 
             // EditMashine
             // 
+            this.AcceptButton = this.EditMashineNameButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 99);

@@ -19,6 +19,9 @@ namespace View
             _unit = unit;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.FormClosing += closeEvent;
             this.Show();
         }
@@ -31,14 +34,6 @@ namespace View
         private void LoginButton_Click(object sender, EventArgs e)
         {
             LoginAction();
-        }
-
-        private void LoginPasswordInput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Return)
-            {
-                LoginAction();
-            }
         }
         private void LoginAction()
         {

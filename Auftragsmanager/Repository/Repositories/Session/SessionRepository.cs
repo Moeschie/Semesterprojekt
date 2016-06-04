@@ -9,7 +9,7 @@ namespace Repository.Persistence
     public class SessionRepository : Repository<Session>, ISessionRepository
     {
 
-
+        
         public SessionRepository(DataContext context) : base(context)
         {
             

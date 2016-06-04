@@ -16,108 +16,82 @@ namespace View
     public partial class FilebrowserFrame : Form
     {
         private Unit _unit;
-
-        public FilebrowserFrame(Unit _unit)
+        private static FilebrowserFrame instance;
+        private string orderID;
+        private FilebrowserFrame(Unit unit)
         {
-            this._unit = _unit;
+            _unit = unit;
+            orderID = "test"; //_unit.Order.Get.Name();
             InitializeComponent();
-            createFolder("test");
-            displayFiles("test","");
+            _unit.Files.CreateFolder("test");
+            DisplayFiles(FileSearchFilterInput.Text);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormClosing += closeEvent;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+        }   
+        private void closeEvent(object sender, FormClosingEventArgs e)
+        {
+            instance = null;
+        }
+
+        public static FilebrowserFrame Instance(Unit unit)
+        {
+            if (instance == null)
+            {
+                instance = new FilebrowserFrame(unit);
+            }
+            instance.BringToFront();
+            return instance;
         }
         private void OpenFileButton_Click(object sender, EventArgs e)
         {
-            openFile("Test");
-        }
-
-        private void FileDisplayListBox_DoubleClick(object sender, EventArgs e)
-        {
-            openFile("Test");
-        }
-        private void FileUploadButton_Click(object sender, EventArgs e)
-        {
-            uploadFile("test");
-        }
-
-        private void FileDownloadButton_Click(object sender, EventArgs e)
-        {
-            downloadFile("test");
-        }
-        private void FileSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
-        {
-            displayFiles("test", FileSearchFilterInput.Text);
-
-        }
-        private void createFolder(String OrderID)
-        {
-            string path = Path.Combine(ConfigurationSettings.AppSettings["Path"], OrderID);
-            try
-            {
-                if (Directory.Exists(path))
-                {
-                    Console.WriteLine("That path exists already.");
-                    return;
-                }
-                DirectoryInfo di = Directory.CreateDirectory(path);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("The process failed: {0}", e.ToString());
-            }
-            finally { }
-        }
-        private void displayFiles(String OrderID,String Filter)
-        {
-            FolderBrowserDialog FBD = new FolderBrowserDialog();
-            FBD.SelectedPath = Path.Combine(ConfigurationSettings.AppSettings["Path"],OrderID);
-            FileDisplayListBox.Items.Clear();
-            string[] files = Directory.GetFiles(FBD.SelectedPath);
-            foreach (string file in files)
-            {
-                if (file.Contains(Filter))
-                {
-                    FileDisplayListBox.Items.Add(Path.GetFileName(file));
-                }
-            }         
-        }
-
-        private void openFile(String OrderID)
-        {
             if (FileDisplayListBox.SelectedItem != null)
             {
-                String OpenFilePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], OrderID, FileDisplayListBox.SelectedItem.ToString());
-                System.Diagnostics.Process.Start(OpenFilePath);
-            } else
-            {
-                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void uploadFile(String OrderID)
-        {
-            String DestinationPath = "";
-            String SourcePath = "";
-            FileDialog.InitialDirectory=("C:\\");
-            if (FileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                DestinationPath = Path.Combine(ConfigurationSettings.AppSettings["Path"],OrderID,Path.GetFileName(FileDialog.FileName));
-                SourcePath = FileDialog.FileName;
-                File.Copy(SourcePath, DestinationPath);
-            }
-            displayFiles(OrderID,"");
-        }
-        private void downloadFile(String OrderID)
-        {
-            string pathUser = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-            if (FileDisplayListBox.SelectedItem != null)
-            {
-                String SourcePath = Path.Combine(ConfigurationSettings.AppSettings["Path"],OrderID,FileDisplayListBox.SelectedItem.ToString());
-                string DestinationPath = Path.Combine(pathUser, "Downloads", FileDisplayListBox.SelectedItem.ToString());
-                File.Copy(SourcePath, DestinationPath);
+                _unit.Files.OpenFile(orderID, FileDisplayListBox.SelectedItem.ToString());
             }
             else
             {
                 MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        } 
+        private void FileUploadButton_Click(object sender, EventArgs e)
+        {
+            if (FileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                _unit.Files.UploadFile(orderID, Path.GetFileName(FileDialog.FileName), FileDialog.FileName);
+            }
+            DisplayFiles(FileSearchFilterInput.Text);
+        }
+        private void FileDownloadButton_Click(object sender, EventArgs e)
+        {
+            if (FileDisplayListBox.SelectedItem != null)
+            {
+                _unit.Files.DownloadFile(orderID, FileDisplayListBox.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+        private void FileSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            DisplayFiles(FileSearchFilterInput.Text);
+
+        }
+        private void DisplayFiles(string filter)
+        {
+            FileDisplayListBox.Items.Clear();
+            string[] files = _unit.Files.DisplayFiles(orderID);
+            foreach (string file in files)
+            {
+                if (file.Contains(filter))
+                {
+                    FileDisplayListBox.Items.Add(Path.GetFileName(file));
+                }
+            }         
         }
     }
 }

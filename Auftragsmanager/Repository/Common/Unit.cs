@@ -20,20 +20,25 @@ namespace Repository.Persistence
             Order = new OrderRepository(_context);
             Customer = new CustomerRepository(_context);
             Machine = new MachineRepository(_context);
+            MachineTask = new MachineTaskRepository(_context);
             Adress = new AdressRepository(_context);
             ContactPerson = new ContactPersonRepository(_context);
             Session = new SessionRepository(_context);
             Utilities = new UtilitiesRepository();
+            Files = new FilesRepository();
         }
 
         public IUserRepository User { get; set; }
         public IOrderRepository Order { get; set; }
         public ICustomerRepository Customer { get; set; }
         public IMachineRepository Machine { get; set; }
+        public IMachineTaskRepository MachineTask { get; set; }
+
         public IAdressRepository Adress { get; set;  }
         public IContactPersonRepository ContactPerson { get; set; }
         public ISessionRepository Session { get; set; }
         public IUtilitiesRepository Utilities { get; set; }
+        public IFilesRepository Files { get; set; }
 
         public int Complete()
         {
