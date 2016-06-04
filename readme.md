@@ -1,23 +1,17 @@
 # Semester Project
 
-Work Branch "Dev"
-
-**Info**
-_(Terminal Command in .git - root dir)_
-
 #TODO:
-- Arbeitsmappe Objekt - In DB speichern
-- Machinen Monitor, Arbeitsmappe Tag für Machinennutzung angeben
-- Farben für Machinen / Farb Funktion
+- Arbeitsmappe Objekt - In DB  [Erledigt / Chris]
+- Machinen Monitor, Arbeitsmappe Tag fÃ¼r Machinennutzung angeben
+- Farben fÃ¼r Machinen / Farb Funktion [Erledigt / Chris]
 - DB-Context Update funktion
-- Update von DB spalten zB Namesänderung
-- MainFrame Admin Tab durch Menustrap mit Acces ändern
+- Update von DB spalten zB NamesÃ¤nderung
+- MainFrame Admin Tab durch Menustrap mit Acces Ã¤ndern
 - MainFrame Arbeitsmappen auflistung
 - MainFrame Arbeitsmappen Kommentare/Notizen
-- Belegung von Arbeitsmappe -> gerade in Bearbeitung - Warnung o.ä.
+- Belegung von Arbeitsmappe -> gerade in Bearbeitung - Warnung o.Ã¤.
 - Bug wenn keine arbeitsmappe vorhanden ist abfangen
 - Migration Table Bug untersuchen
-- App.Config verschlüsseln
+- App.Config verschlÃ¼sseln
 - Exportieren als PDF und Drucken von Arbeitsmappe und Laufzettel
 
->$ git checkout dev

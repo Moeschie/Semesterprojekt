@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Repository.Model;
 using Braincase.GanttChart;
-
+using System.Drawing;
 
 namespace Repository.Core
 {
@@ -13,5 +13,6 @@ namespace Repository.Core
     {
         bool MachineExists(string machinename);
         void CreateGantMachine(Chart usagesChart);
+        Color GetColorCode();
     }
 }

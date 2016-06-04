@@ -13,7 +13,7 @@ namespace Repository.Persistence
     {
         ProjectManager GanttContent;
         MachineTaskRepository machineTasks;
-        int rgb;
+        private List<Color> colorPalette = new List<Color>(); 
         public MachineRepository(DataContext context) : base(context)
         {
             machineTasks = new MachineTaskRepository(context);
@@ -29,6 +29,33 @@ namespace Repository.Persistence
             return exists;
         }
 
+        public Color GetColorCode()
+        {
+            if (colorPalette.Count() < 1)
+                 setColorPalette();
+
+            Color color = colorPalette[0];
+            colorPalette.Remove(color);
+
+            return color;
+        }
+
+        private void setColorPalette()
+        {
+            colorPalette.Add(Color.BlueViolet);
+            colorPalette.Add(Color.Aqua);
+            colorPalette.Add(Color.CadetBlue);
+            colorPalette.Add(Color.Chartreuse);
+            colorPalette.Add(Color.Chocolate);
+            colorPalette.Add(Color.Crimson);
+            colorPalette.Add(Color.DarkBlue);
+            colorPalette.Add(Color.DarkCyan);
+            colorPalette.Add(Color.DarkGoldenrod);
+            colorPalette.Add(Color.DarkGreen);
+            colorPalette.Add(Color.Yellow);
+            colorPalette.Add(Color.SteelBlue);
+            colorPalette.Add(Color.SandyBrown);
+        }
         public void CreateGantMachine(Chart usagesChart)
         {
             DateTime StartMaschine = new DateTime(2016, 1, 1);
@@ -36,8 +63,7 @@ namespace Repository.Persistence
             GanttContent = new ProjectManager();
             foreach (var machine in GetAll().ToList())
             {
-                rgb += 25;
-                var AddMachine = new MyTask(GanttContent) { Name = machine.Name, Color = Color.FromArgb(rgb,rgb,rgb,rgb)};
+                var AddMachine = new MyTask(GanttContent) { Name = machine.Name, Color = GetColorCode()};
                 GanttContent.Add(AddMachine);
 
                 var AddToolTip = new MyResource() { Name = machine.Name };

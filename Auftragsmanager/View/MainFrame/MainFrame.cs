@@ -129,5 +129,10 @@ namespace View
             MachineUsageChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
             MachineUsageChart.Invalidate();
         }
+
+        private void OrderSelectPreviewButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
