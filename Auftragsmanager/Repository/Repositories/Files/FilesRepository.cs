@@ -20,8 +20,8 @@ namespace Repository.Persistence
 
         public void OpenFile(string orderID, string filename)
         {
-                String OpenFilePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename);
-                System.Diagnostics.Process.Start(OpenFilePath);
+           //     String OpenFilePath = Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename);
+//System.Diagnostics.Process.Start(OpenFilePath);
         }
     }
 }

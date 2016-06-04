@@ -9,7 +9,7 @@ namespace Repository.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Repository.Persistence.DataContext";
         }
 
