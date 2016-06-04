@@ -22,5 +22,12 @@ namespace Repository.Model
         public string AdditionalInformation { get; set; }
         public string BillTo { get; set; }
         public string Material { get; set; }
+        public string IncomeDate { get; set; }
+        public string IncomeTime { get; set; }
+        public string Deadline { get; set; }
+        public string OrderEdition { get; set; }
+        public string OrderName { get; set; }
+        public string OrderNumber { get; set; }
+
     }
 }

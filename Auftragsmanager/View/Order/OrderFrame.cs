@@ -33,22 +33,46 @@ namespace View
             if (f.Validate())
             {
 
+                //OrderDetails
+                //EdvActions
+                //ProductionActions
+
+
                 //Linke Seite
                 OrderDetails od = new OrderDetails();
+                //Info
+                od.IncomeDate = OrderIncomeDateInput.Text;
+                od.IncomeTime = OrderIncomeTimeInput.Text;
+                od.Deadline = OrderDeadlineInput.Text;
+                od.OrderEdition = OrderEditionInput.Text;
+                od.OrderName = OrderNameInput.Text;
+                od.OrderNumber = OrderNumberInput.Text;
+
+                //Details
+                od.Customer = new Customer();
                 od.Customer.Name = OrderCustomerInput.Text;
                 od.Object = OrderObjectInput.Text;
+                od.Editor = new User();
                 od.Editor.Username = OrderEditorInput.Text;
-                od.OverallQuantity = int.Parse(OrderQuantityInput.Text);
+                int n;
+                bool isNumeric = int.TryParse(OrderQuantityInput.Text, out n);
+                if (isNumeric)
+                {
+                      od.OverallQuantity = n;
+                }
                 od.SplitForeinLand = OrderInlandInput.Text;
                 od.SplitHomeLand = OrderInlandInput.Text;
+                od.RemainsToo = new Adress();
                 od.RemainsToo.Name = OrderConsultantInput.Text;
                 od.Foreign = OrderForeignInput.Text;
                 od.AdditionalInformation = OrderInfoInput.Text;
                 od.BillTo = OrderBillInput.Text;
                 od.Material = OrderBillInput.Text;
+                
 
                 // Rechte Seite
                 EdvActions edv = new EdvActions();
+                edv.Actions = new string[6];
                 edv.Actions[0] = OrderEDVJob1Input.Text;
                 edv.Actions[1] = OrderEDVJob2Input.Text;
                 edv.Actions[2] = OrderEDVJob3Input.Text;
@@ -57,6 +81,7 @@ namespace View
                 edv.Actions[5] = OrderEDVJob6Input.Text;
 
                 ProductionActions pa = new ProductionActions();
+                pa.Value = new string[6];
                 pa.Value[0] = OrderProJob1Input.Text;
                 pa.Value[1] = OrderProJob2Input.Text;
                 pa.Value[2] = OrderProJob3Input.Text;
@@ -68,6 +93,15 @@ namespace View
                 pa.Kuvert = kuvertierenCBInput.Checked;
                 pa.Ink = inkenCBInput.Checked;
                 pa.folieren = folierenCBInput.Checked;
+
+                Order order = new Order();
+                order.ProductionActions = pa;
+                order.EdvActions = edv;
+                order.Details = od;
+
+                _unit.Order.Add(order);
+                _unit.Complete();
+                Close();
 
 
             }
