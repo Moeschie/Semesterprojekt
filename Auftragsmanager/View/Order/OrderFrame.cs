@@ -42,7 +42,7 @@ namespace View
         {
             if (MessageBox.Show("Wollen sie die Änderungen Speichern?", "",MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                AddOrder(sender,e);
+                AddOrder(sender, null);
             }
             instance = null;
         }

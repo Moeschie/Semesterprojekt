@@ -1,4 +1,6 @@
-﻿namespace View
+﻿using System.Data;
+
+namespace View
 {
     partial class MainFrame
     {
