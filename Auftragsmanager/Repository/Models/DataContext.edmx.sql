@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/07/2016 17:49:53
+-- Date Created: 06/07/2016 19:58:06
 -- Generated from EDMX file: C:\Users\mschl\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
 -- --------------------------------------------------
 
@@ -20,26 +20,26 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_ContactPerson_dbo_Adress_adress_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ContactPerson] DROP CONSTRAINT [FK_dbo_ContactPerson_dbo_Adress_adress_Id];
 GO
+IF OBJECT_ID(N'[dbo].[FK_dbo_OrderDetails_dbo_Adress_RemainsToo_Id]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_dbo_OrderDetails_dbo_Adress_RemainsToo_Id];
+GO
+IF OBJECT_ID(N'[dbo].[FK_dbo_OrderDetails_dbo_Customer_Customer_Id]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_dbo_OrderDetails_dbo_Customer_Customer_Id];
+GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_Machine_dbo_EdvActions_EdvActions_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Machine] DROP CONSTRAINT [FK_dbo_Machine_dbo_EdvActions_EdvActions_Id];
 GO
-IF OBJECT_ID(N'[dbo].[FK_dbo_MachineTask_dbo_Machine_machine_Id]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[MachineTask] DROP CONSTRAINT [FK_dbo_MachineTask_dbo_Machine_machine_Id];
-GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_Order_dbo_EdvActions_EdvActions_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_dbo_Order_dbo_EdvActions_EdvActions_Id];
+GO
+IF OBJECT_ID(N'[dbo].[FK_dbo_MachineTask_dbo_Machine_machine_Id]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[MachineTask] DROP CONSTRAINT [FK_dbo_MachineTask_dbo_Machine_machine_Id];
 GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_Order_dbo_OrderDetails_Details_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_dbo_Order_dbo_OrderDetails_Details_Id];
 GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_Order_dbo_ProductionActions_ProductionActions_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Order] DROP CONSTRAINT [FK_dbo_Order_dbo_ProductionActions_ProductionActions_Id];
-GO
-IF OBJECT_ID(N'[dbo].[FK_dbo_OrderDetails_dbo_Adress_RemainsToo_Id]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_dbo_OrderDetails_dbo_Adress_RemainsToo_Id];
-GO
-IF OBJECT_ID(N'[dbo].[FK_dbo_OrderDetails_dbo_Customer_Customer_Id]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_dbo_OrderDetails_dbo_Customer_Customer_Id];
 GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_OrderDetails_dbo_User_Editor_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_dbo_OrderDetails_dbo_User_Editor_Id];

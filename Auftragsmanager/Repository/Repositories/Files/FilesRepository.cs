@@ -47,7 +47,6 @@ namespace Repository.Persistence
         {
             FolderBrowserDialog FBD = new FolderBrowserDialog();
             FBD.SelectedPath = ConfigurationSettings.AppSettings["Path"];
-            Debug.WriteLine(FBD.SelectedPath);
             string[] directories = null;
             if(FBD.SelectedPath != "")
                  directories = Directory.GetDirectories(FBD.SelectedPath);

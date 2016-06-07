@@ -52,6 +52,7 @@ namespace View
             }
 
             instance = null;
+            MainFrame asda = new MainFrame(_unit);
         }
         public static OrderFrame Instance(Unit unit)
         {

@@ -17,7 +17,6 @@ namespace Repository.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Adress()
         {
-
             this.ContactPerson = new HashSet<ContactPerson>();
             this.OrderDetails = new HashSet<OrderDetails>();
         }

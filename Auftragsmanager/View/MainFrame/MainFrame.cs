@@ -1,4 +1,5 @@
 ﻿using Braincase.GanttChart;
+using Repository.Models;
 using Repository.Persistence;
 using System;
 using System.IO;
@@ -9,46 +10,113 @@ namespace View
     public partial class MainFrame : Form
     {
         Unit _unit;
-
         public MainFrame(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
-            this.OrderSelectFilterInput.Text = _unit.Session.GetSessionUser().Username;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += closeEvent;
             this.Show();
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
-                benutzerToolStripMenuItem.Visible = true;            
+                benutzerToolStripMenuItem.Visible = true;
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
             DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
-            initGant();
-
-            foreach (var item in _unit.Order.GetAll())
+            DisplayOrderFolder("");
+            if (SelectedOrderListBox.Items.Count > 0)
             {
-                //Console.WriteLine(item.Details.Id);
-                if (item.OrderDetails != null)
-                {
-                    Console.WriteLine("asda");
-                    SelectedOrderListBox.Items.Add(item.OrderDetails.OrderNumber);
-                }
+                SelectedOrderListBox.SetSelected(0, true);
+                DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
             }
+            
+            initGant();
         }
+        /*
+         DISPLAY SELECTED ORDER PART
+         */
+        private void DisplaySelectedOrder(string orderID)
+        {
+            string[] substring = orderID.Split('|');
+            //Order order = _unit.Order.Find(o => o.OrderDetails.OrderNumber == substring[0].ToString());
+            
+           
+            //TOP LEFT
+            OrderIncomeDateInput.Text = "";
+            OrderIncomeTimeInput.Text = "";
+            OrderDeadlineInput.Text = "";
+            OrderEditionInput.Text = "";
+            //TOP RIGHT
+            OrderNameInput.Text = substring[1].ToString();
+            OrderNumberInput.Text = substring[0].ToString();
+            //MID LEFT
+            OrderCustomerInput.Text = "";
+            OrderObjectInput.Text = "";
+            OrderConsultantInput.Text = "";
+            OrderEditorInput.Text = "";
+            OrderQuantityInput.Text = "";
+            OrderInlandInput.Text = "";
+            OrderForeignInput.Text = "";
+            OrderRemainsInput.Text = "";
+            //MID RIGHT
+            OrderEDVJob1Input.Text = "";
+            OrderEDVJob2Input.Text = "";
+            OrderEDVJob3Input.Text = "";
+            OrderEDVJob4Input.Text = "";
+            OrderEDVJob5Input.Text = "";
+            OrderEDVJob6Input.Text = "";
+            MaschineSelectInput.Text = "";
+            OrderMaxProTimeInput.Text = "";
+            StartLabelDisplay.Text = "";
+            endLabelDisplay.Text = "";
+            //BOT LEFT
+            OrderInfoInput.Text = "";
+            OrderBillInput.Text = "";
+            OrderMaterialInput.Text = "";
+            //BOT RIGHT
+            OrderProJob1Input.Text = "";
+            OrderProJob2Input.Text = "";
+            OrderProJob3Input.Text = "";
+            OrderProJob4Input.Text = "";
+            OrderProJob5Input.Text = "";
+            OrderProJob6Input.Text = "";
+            kuvertierenCBInput.Checked = true;
+            inkenCBInput.Checked = true;
+            folierenCBInput.Checked = true;
+        }
+
         /*
         ORDER PART
         */
+        private void OrderSelectFilterInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            DisplayOrderFolder(OrderSelectFilterInput.Text);
+        }
         private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
         {
             OrderFrame newOrder = OrderFrame.Instance(_unit);
             newOrder.Show();
-        }  
+        }
         private void ClonedFolderSubMenuItem_Click(object sender, EventArgs e)
         {
         }
+
+        private void DisplayOrderFolder(string Filter)
+        {
+            SelectedOrderListBox.Items.Clear();
+            if (_unit.Order.GetAll() != null)
+            {
+                foreach (var item in _unit.Order.GetAll())
+                {
+                    if (item.OrderDetails.OrderName.Contains(Filter) || item.OrderDetails.OrderNumber.Contains(Filter) || item.OrderDetails.Customer.Name.Contains(Filter))
+                    {
+                        SelectedOrderListBox.Items.Add(item.OrderDetails.OrderNumber + " | " + item.OrderDetails.OrderName);
+                    }
+                }
+            }
+        }
         /*
-         FILE PART
-         */
+        FILE PART
+        */
         private void DirSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
@@ -62,7 +130,7 @@ namespace View
             listBox.Items.Clear();
             string[] directories = _unit.Files.DdisplayDirectories();
             if (directories != null)
-            {             
+            {
                 foreach (string dir in directories)
                 {
                     if (dir.Contains(filter))
@@ -79,7 +147,7 @@ namespace View
             listBox.Items.Clear();
             if (MainFrameDirListBox.SelectedItem != null)
             {
-                
+
                 string[] files = _unit.Files.DisplayFiles(MainFrameDirListBox.SelectedItem.ToString());
                 foreach (string file in files)
                 {
@@ -89,7 +157,7 @@ namespace View
                     }
                 }
             }
-        }        
+        }
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
@@ -126,7 +194,7 @@ namespace View
             {
                 MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }        
+        }
         /*
          MACHINE PART             
          */
@@ -161,5 +229,6 @@ namespace View
             NewUser newUser = NewUser.Instance(_unit);
             newUser.Show();
         }
+
     }
 }
