@@ -149,7 +149,7 @@ namespace Repository.Persistence
         }
         public void OpenFile(string orderID, string filename)
         {
-                System.Diagnostics.Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename));
+                Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, filename));
         }
 
         public void UploadFile(string orderID,String filename, String sourcePath)

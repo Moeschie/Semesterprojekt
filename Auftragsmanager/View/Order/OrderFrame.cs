@@ -16,17 +16,47 @@ namespace View
     public partial class OrderFrame : Form
     {
         Unit _unit;
-     
-        public OrderFrame(Unit unit)
+        private static OrderFrame instance;
+
+        private OrderFrame(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormClosing += closeEvent;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            OrderNumberInput.Text = _unit.Order.orderIDgen();
+            StartMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
+            StartMachineUsagesDateTimeInput.Format = DateTimePickerFormat.Custom;
+            EndMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
+            EndMachineUsagesDateTimeInput.Format = DateTimePickerFormat.Custom;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {
+                MaschineSelectInput.Items.Add(machine.Name);
+                MaschineSelectInput.SelectedItem = 1;
+            }
+        }        
+        private void closeEvent(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Wollen sie die Änderungen Speichern?", "",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                AddOrder(sender,e);
+            }
+            instance = null;
         }
-
+        public static OrderFrame Instance(Unit unit)
+        {
+            if (instance == null)
+            {
+                instance = new OrderFrame(unit);
+            }
+            instance.BringToFront();
+            return instance;
+        }
         private void AddOrder(object sender, EventArgs e)
         {
-
             FormValidation f = new FormValidation();
             TextStrings t = new TextStrings();
 
@@ -101,14 +131,8 @@ namespace View
 
                 _unit.Order.Add(order);
                 _unit.Complete();
-                Close();
-
-
             }
-
-
         }
-
         private void OrderDataButton_Click(object sender, EventArgs e)
         {
             FilebrowserFrame filebrowserframe = FilebrowserFrame.Instance(_unit);

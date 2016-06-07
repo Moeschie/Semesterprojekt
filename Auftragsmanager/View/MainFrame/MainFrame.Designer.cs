@@ -46,20 +46,20 @@
             this.orderFileGrpBox = new System.Windows.Forms.GroupBox();
             this.MainFrameDirListBox = new System.Windows.Forms.ListBox();
             this.DownloadDirButton = new System.Windows.Forms.Button();
-            this.AdminTab = new System.Windows.Forms.TabPage();
-            this.AdminMainTable = new System.Windows.Forms.TableLayoutPanel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MachineTab = new System.Windows.Forms.TabPage();
+            this.MachineUsageChart = new Braincase.GanttChart.Chart();
+            this.MachineMenu = new System.Windows.Forms.MenuStrip();
+            this.NewMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewMachineCreateSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderTab = new System.Windows.Forms.TabPage();
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.PreviewOrderGrpBox = new System.Windows.Forms.GroupBox();
             this.OrderDisplayMainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.EDVGrpBox = new System.Windows.Forms.GroupBox();
             this.EDVTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.OrderMaxProTimeInput = new System.Windows.Forms.Label();
             this.Taetigkeit1Label = new System.Windows.Forms.Label();
             this.ProduktionszeitLabel = new System.Windows.Forms.Label();
             this.MaschineLabel = new System.Windows.Forms.Label();
@@ -75,6 +75,11 @@
             this.OrderEDVJob5Input = new System.Windows.Forms.Label();
             this.OrderEDVJob6Input = new System.Windows.Forms.Label();
             this.MaschineSelectInput = new System.Windows.Forms.Label();
+            this.ProudctionTimeTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.StartLabelDisplay = new System.Windows.Forms.Label();
+            this.EndMachineUsagesLabel = new System.Windows.Forms.Label();
+            this.endLabelDisplay = new System.Windows.Forms.Label();
+            this.StartMachineUsagesLabel = new System.Windows.Forms.Label();
             this.ProductionGrpBox = new System.Windows.Forms.GroupBox();
             this.ProduktionTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OrderInsertKindInput = new System.Windows.Forms.Label();
@@ -173,15 +178,10 @@
             this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
-            this.MachineTab = new System.Windows.Forms.TabPage();
-            this.MachineUsageChart = new Braincase.GanttChart.Chart();
-            this.MachineMenu = new System.Windows.Forms.MenuStrip();
-            this.NewMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewMachineCreateSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrderMaxProTimeInput = new System.Windows.Forms.Label();
             this.FileArchivTab.SuspendLayout();
             this.ArchivMainTableLayout.SuspendLayout();
             this.FileSeachTableLayout.SuspendLayout();
@@ -191,14 +191,15 @@
             this.FileBtnTableLayout.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.orderFileGrpBox.SuspendLayout();
-            this.AdminTab.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.MachineTab.SuspendLayout();
+            this.MachineMenu.SuspendLayout();
             this.OrderTab.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
             this.PreviewOrderGrpBox.SuspendLayout();
             this.OrderDisplayMainTableLayout.SuspendLayout();
             this.EDVGrpBox.SuspendLayout();
             this.EDVTableLayout.SuspendLayout();
+            this.ProudctionTimeTableLayout.SuspendLayout();
             this.ProductionGrpBox.SuspendLayout();
             this.ProduktionTableLayout.SuspendLayout();
             this.VerarbeitungTableLayout.SuspendLayout();
@@ -222,8 +223,6 @@
             this.OrderTabLeftTopTableLayout.SuspendLayout();
             this.MainFrameMenu.SuspendLayout();
             this.MainFrameTabControl.SuspendLayout();
-            this.MachineTab.SuspendLayout();
-            this.MachineMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileArchivTab
@@ -232,7 +231,7 @@
             this.FileArchivTab.Location = new System.Drawing.Point(4, 22);
             this.FileArchivTab.Name = "FileArchivTab";
             this.FileArchivTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FileArchivTab.Size = new System.Drawing.Size(1376, 715);
+            this.FileArchivTab.Size = new System.Drawing.Size(1354, 715);
             this.FileArchivTab.TabIndex = 3;
             this.FileArchivTab.Text = "Archiv";
             this.FileArchivTab.UseVisualStyleBackColor = true;
@@ -253,7 +252,7 @@
             this.ArchivMainTableLayout.RowCount = 2;
             this.ArchivMainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.092716F));
             this.ArchivMainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.90729F));
-            this.ArchivMainTableLayout.Size = new System.Drawing.Size(1370, 709);
+            this.ArchivMainTableLayout.Size = new System.Drawing.Size(1348, 709);
             this.ArchivMainTableLayout.TabIndex = 0;
             // 
             // FileSeachTableLayout
@@ -264,18 +263,18 @@
             this.FileSeachTableLayout.Controls.Add(this.FileSeachLabel, 0, 0);
             this.FileSeachTableLayout.Controls.Add(this.FileSeachFilterInput, 1, 0);
             this.FileSeachTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FileSeachTableLayout.Location = new System.Drawing.Point(277, 3);
+            this.FileSeachTableLayout.Location = new System.Drawing.Point(272, 3);
             this.FileSeachTableLayout.Name = "FileSeachTableLayout";
             this.FileSeachTableLayout.RowCount = 1;
             this.FileSeachTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.FileSeachTableLayout.Size = new System.Drawing.Size(268, 37);
+            this.FileSeachTableLayout.Size = new System.Drawing.Size(263, 37);
             this.FileSeachTableLayout.TabIndex = 8;
             // 
             // FileSeachLabel
             // 
             this.FileSeachLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.FileSeachLabel.AutoSize = true;
-            this.FileSeachLabel.Location = new System.Drawing.Point(17, 12);
+            this.FileSeachLabel.Location = new System.Drawing.Point(15, 12);
             this.FileSeachLabel.Name = "FileSeachLabel";
             this.FileSeachLabel.Size = new System.Drawing.Size(75, 13);
             this.FileSeachLabel.TabIndex = 0;
@@ -284,11 +283,10 @@
             // FileSeachFilterInput
             // 
             this.FileSeachFilterInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.FileSeachFilterInput.Location = new System.Drawing.Point(98, 8);
+            this.FileSeachFilterInput.Location = new System.Drawing.Point(96, 8);
             this.FileSeachFilterInput.Name = "FileSeachFilterInput";
-            this.FileSeachFilterInput.Size = new System.Drawing.Size(167, 20);
+            this.FileSeachFilterInput.Size = new System.Drawing.Size(164, 20);
             this.FileSeachFilterInput.TabIndex = 1;
-            this.FileSeachFilterInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainFrameDirListBox_Click);
             // 
             // DirSearchTableLayout
             // 
@@ -302,14 +300,14 @@
             this.DirSearchTableLayout.Name = "DirSearchTableLayout";
             this.DirSearchTableLayout.RowCount = 1;
             this.DirSearchTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.DirSearchTableLayout.Size = new System.Drawing.Size(268, 37);
+            this.DirSearchTableLayout.Size = new System.Drawing.Size(263, 37);
             this.DirSearchTableLayout.TabIndex = 7;
             // 
             // DirSearchLabel
             // 
             this.DirSearchLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.DirSearchLabel.AutoSize = true;
-            this.DirSearchLabel.Location = new System.Drawing.Point(8, 12);
+            this.DirSearchLabel.Location = new System.Drawing.Point(6, 12);
             this.DirSearchLabel.Name = "DirSearchLabel";
             this.DirSearchLabel.Size = new System.Drawing.Size(84, 13);
             this.DirSearchLabel.TabIndex = 0;
@@ -318,9 +316,9 @@
             // DirSearchFilterInput
             // 
             this.DirSearchFilterInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.DirSearchFilterInput.Location = new System.Drawing.Point(98, 8);
+            this.DirSearchFilterInput.Location = new System.Drawing.Point(96, 8);
             this.DirSearchFilterInput.Name = "DirSearchFilterInput";
-            this.DirSearchFilterInput.Size = new System.Drawing.Size(167, 20);
+            this.DirSearchFilterInput.Size = new System.Drawing.Size(164, 20);
             this.DirSearchFilterInput.TabIndex = 1;
             this.DirSearchFilterInput.KeyUp += new System.Windows.Forms.KeyEventHandler(this.DirSearchFilterInput_KeyUp);
             // 
@@ -331,12 +329,12 @@
             this.FileDisplayTableLayout.Controls.Add(this.filesFromOrderGrpbox, 0, 1);
             this.FileDisplayTableLayout.Controls.Add(this.FileBtnTableLayout, 0, 0);
             this.FileDisplayTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FileDisplayTableLayout.Location = new System.Drawing.Point(277, 46);
+            this.FileDisplayTableLayout.Location = new System.Drawing.Point(272, 46);
             this.FileDisplayTableLayout.Name = "FileDisplayTableLayout";
             this.FileDisplayTableLayout.RowCount = 2;
             this.FileDisplayTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.30303F));
             this.FileDisplayTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.69697F));
-            this.FileDisplayTableLayout.Size = new System.Drawing.Size(268, 660);
+            this.FileDisplayTableLayout.Size = new System.Drawing.Size(263, 660);
             this.FileDisplayTableLayout.TabIndex = 9;
             // 
             // filesFromOrderGrpbox
@@ -345,7 +343,7 @@
             this.filesFromOrderGrpbox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.filesFromOrderGrpbox.Location = new System.Drawing.Point(3, 37);
             this.filesFromOrderGrpbox.Name = "filesFromOrderGrpbox";
-            this.filesFromOrderGrpbox.Size = new System.Drawing.Size(262, 620);
+            this.filesFromOrderGrpbox.Size = new System.Drawing.Size(257, 620);
             this.filesFromOrderGrpbox.TabIndex = 11;
             this.filesFromOrderGrpbox.TabStop = false;
             this.filesFromOrderGrpbox.Text = "Dateien des Auftrags";
@@ -356,7 +354,7 @@
             this.MainFrameFileListBox.FormattingEnabled = true;
             this.MainFrameFileListBox.Location = new System.Drawing.Point(3, 16);
             this.MainFrameFileListBox.Name = "MainFrameFileListBox";
-            this.MainFrameFileListBox.Size = new System.Drawing.Size(256, 601);
+            this.MainFrameFileListBox.Size = new System.Drawing.Size(251, 601);
             this.MainFrameFileListBox.TabIndex = 0;
             this.MainFrameFileListBox.DoubleClick += new System.EventHandler(this.OpenFileButton_Click);
             // 
@@ -372,15 +370,15 @@
             this.FileBtnTableLayout.Name = "FileBtnTableLayout";
             this.FileBtnTableLayout.RowCount = 1;
             this.FileBtnTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.FileBtnTableLayout.Size = new System.Drawing.Size(262, 28);
+            this.FileBtnTableLayout.Size = new System.Drawing.Size(257, 28);
             this.FileBtnTableLayout.TabIndex = 0;
             // 
             // DownloadFileButton
             // 
             this.DownloadFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DownloadFileButton.Location = new System.Drawing.Point(134, 3);
+            this.DownloadFileButton.Location = new System.Drawing.Point(131, 3);
             this.DownloadFileButton.Name = "DownloadFileButton";
-            this.DownloadFileButton.Size = new System.Drawing.Size(125, 22);
+            this.DownloadFileButton.Size = new System.Drawing.Size(123, 22);
             this.DownloadFileButton.TabIndex = 1;
             this.DownloadFileButton.Text = "Datei herunterladen";
             this.DownloadFileButton.UseVisualStyleBackColor = true;
@@ -391,7 +389,7 @@
             this.OpenFileButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OpenFileButton.Location = new System.Drawing.Point(3, 3);
             this.OpenFileButton.Name = "OpenFileButton";
-            this.OpenFileButton.Size = new System.Drawing.Size(125, 22);
+            this.OpenFileButton.Size = new System.Drawing.Size(122, 22);
             this.OpenFileButton.TabIndex = 0;
             this.OpenFileButton.Text = "Datei Öffnen";
             this.OpenFileButton.UseVisualStyleBackColor = true;
@@ -409,7 +407,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.30303F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.69697F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(268, 660);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(263, 660);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // orderFileGrpBox
@@ -418,7 +416,7 @@
             this.orderFileGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orderFileGrpBox.Location = new System.Drawing.Point(3, 37);
             this.orderFileGrpBox.Name = "orderFileGrpBox";
-            this.orderFileGrpBox.Size = new System.Drawing.Size(262, 620);
+            this.orderFileGrpBox.Size = new System.Drawing.Size(257, 620);
             this.orderFileGrpBox.TabIndex = 6;
             this.orderFileGrpBox.TabStop = false;
             this.orderFileGrpBox.Text = "Auftrag";
@@ -429,7 +427,7 @@
             this.MainFrameDirListBox.FormattingEnabled = true;
             this.MainFrameDirListBox.Location = new System.Drawing.Point(3, 16);
             this.MainFrameDirListBox.Name = "MainFrameDirListBox";
-            this.MainFrameDirListBox.Size = new System.Drawing.Size(256, 601);
+            this.MainFrameDirListBox.Size = new System.Drawing.Size(251, 601);
             this.MainFrameDirListBox.TabIndex = 0;
             this.MainFrameDirListBox.Click += new System.EventHandler(this.MainFrameDirListBox_Click);
             // 
@@ -438,75 +436,82 @@
             this.DownloadDirButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DownloadDirButton.Location = new System.Drawing.Point(3, 3);
             this.DownloadDirButton.Name = "DownloadDirButton";
-            this.DownloadDirButton.Size = new System.Drawing.Size(262, 28);
+            this.DownloadDirButton.Size = new System.Drawing.Size(257, 28);
             this.DownloadDirButton.TabIndex = 0;
             this.DownloadDirButton.Text = "Ordner Herunterladen";
             this.DownloadDirButton.UseVisualStyleBackColor = true;
             this.DownloadDirButton.Click += new System.EventHandler(this.DownloadDirButton_Click);
             // 
-            // AdminTab
+            // MachineTab
             // 
-            this.AdminTab.Controls.Add(this.AdminMainTable);
-            this.AdminTab.Controls.Add(this.menuStrip1);
-            this.AdminTab.Location = new System.Drawing.Point(4, 22);
-            this.AdminTab.Name = "AdminTab";
-            this.AdminTab.Padding = new System.Windows.Forms.Padding(3);
-            this.AdminTab.Size = new System.Drawing.Size(1376, 715);
-            this.AdminTab.TabIndex = 2;
-            this.AdminTab.Text = "Admin";
-            this.AdminTab.UseVisualStyleBackColor = true;
+            this.MachineTab.Controls.Add(this.MachineUsageChart);
+            this.MachineTab.Controls.Add(this.MachineMenu);
+            this.MachineTab.Location = new System.Drawing.Point(4, 22);
+            this.MachineTab.Name = "MachineTab";
+            this.MachineTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MachineTab.Size = new System.Drawing.Size(1354, 715);
+            this.MachineTab.TabIndex = 4;
+            this.MachineTab.Text = "Maschinen";
+            this.MachineTab.UseVisualStyleBackColor = true;
             // 
-            // AdminMainTable
+            // MachineUsageChart
             // 
-            this.AdminMainTable.ColumnCount = 2;
-            this.AdminMainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.AdminMainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1100F));
-            this.AdminMainTable.Dock = System.Windows.Forms.DockStyle.Top;
-            this.AdminMainTable.Location = new System.Drawing.Point(3, 27);
-            this.AdminMainTable.Name = "AdminMainTable";
-            this.AdminMainTable.RowCount = 1;
-            this.AdminMainTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.AdminMainTable.Size = new System.Drawing.Size(1370, 685);
-            this.AdminMainTable.TabIndex = 0;
+            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MachineUsageChart.FullDateStringFormat = null;
+            this.MachineUsageChart.Location = new System.Drawing.Point(3, 27);
+            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
+            this.MachineUsageChart.Name = "MachineUsageChart";
+            this.MachineUsageChart.Size = new System.Drawing.Size(1348, 685);
+            this.MachineUsageChart.TabIndex = 2;
             // 
-            // menuStrip1
+            // MachineMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.benutzerToolStripMenuItem,
-            this.logToolStripMenuItem,
-            this.statistikToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "AdminMenuStrip";
+            this.MachineMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewMachineMenuItem,
+            this.EditMachineMenuItem});
+            this.MachineMenu.Location = new System.Drawing.Point(3, 3);
+            this.MachineMenu.Name = "MachineMenu";
+            this.MachineMenu.Size = new System.Drawing.Size(1348, 24);
+            this.MachineMenu.TabIndex = 0;
+            this.MachineMenu.Text = "menuStrip2";
             // 
-            // benutzerToolStripMenuItem
+            // NewMachineMenuItem
             // 
-            this.benutzerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuenBenutzerAnlegenToolStripMenuItem});
-            this.benutzerToolStripMenuItem.Name = "benutzerToolStripMenuItem";
-            this.benutzerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.benutzerToolStripMenuItem.Text = "Benutzer";
+            this.NewMachineMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewMachineCreateSubMenuItem});
+            this.NewMachineMenuItem.Name = "NewMachineMenuItem";
+            this.NewMachineMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.NewMachineMenuItem.Text = "Neu";
             // 
-            // neuenBenutzerAnlegenToolStripMenuItem
+            // NewMachineCreateSubMenuItem
             // 
-            this.neuenBenutzerAnlegenToolStripMenuItem.Name = "neuenBenutzerAnlegenToolStripMenuItem";
-            this.neuenBenutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-            this.neuenBenutzerAnlegenToolStripMenuItem.Text = "Neuen Benutzer Anlegen";
-            this.neuenBenutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.newUser);
+            this.NewMachineCreateSubMenuItem.Name = "NewMachineCreateSubMenuItem";
+            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.NewMachineCreateSubMenuItem.Text = "Hinzufügen";
+            this.NewMachineCreateSubMenuItem.Click += new System.EventHandler(this.newMachine);
             // 
-            // logToolStripMenuItem
+            // EditMachineMenuItem
             // 
-            this.logToolStripMenuItem.Name = "logToolStripMenuItem";
-            this.logToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.logToolStripMenuItem.Text = "Log";
+            this.EditMachineMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DefectMachineSubMenuItem,
+            this.EditMachineNameSubMenuItem});
+            this.EditMachineMenuItem.Name = "EditMachineMenuItem";
+            this.EditMachineMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.EditMachineMenuItem.Text = "Bearbeiten";
             // 
-            // statistikToolStripMenuItem
+            // DefectMachineSubMenuItem
             // 
-            this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
-            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.statistikToolStripMenuItem.Text = "Statistik";
+            this.DefectMachineSubMenuItem.Name = "DefectMachineSubMenuItem";
+            this.DefectMachineSubMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.DefectMachineSubMenuItem.Text = "Maschinen Belegung";
+            this.DefectMachineSubMenuItem.Click += new System.EventHandler(this.addDefect);
+            // 
+            // EditMachineNameSubMenuItem
+            // 
+            this.EditMachineNameSubMenuItem.Name = "EditMachineNameSubMenuItem";
+            this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.EditMachineNameSubMenuItem.Text = "Maschinen Editieren";
+            this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
             // 
             // OrderTab
             // 
@@ -582,9 +587,8 @@
             // 
             this.EDVTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.EDVTableLayout.ColumnCount = 2;
-            this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.70166F));
-            this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.29834F));
-            this.EDVTableLayout.Controls.Add(this.OrderMaxProTimeInput, 1, 7);
+            this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.01786F));
+            this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.98214F));
             this.EDVTableLayout.Controls.Add(this.Taetigkeit1Label, 0, 0);
             this.EDVTableLayout.Controls.Add(this.ProduktionszeitLabel, 0, 7);
             this.EDVTableLayout.Controls.Add(this.MaschineLabel, 0, 6);
@@ -600,6 +604,7 @@
             this.EDVTableLayout.Controls.Add(this.OrderEDVJob5Input, 1, 4);
             this.EDVTableLayout.Controls.Add(this.OrderEDVJob6Input, 1, 5);
             this.EDVTableLayout.Controls.Add(this.MaschineSelectInput, 1, 6);
+            this.EDVTableLayout.Controls.Add(this.ProudctionTimeTableLayout, 1, 7);
             this.EDVTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EDVTableLayout.Location = new System.Drawing.Point(3, 16);
             this.EDVTableLayout.Name = "EDVTableLayout";
@@ -615,19 +620,11 @@
             this.EDVTableLayout.Size = new System.Drawing.Size(450, 241);
             this.EDVTableLayout.TabIndex = 4;
             // 
-            // OrderMaxProTimeInput
-            // 
-            this.OrderMaxProTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(156, 212);
-            this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
-            this.OrderMaxProTimeInput.Size = new System.Drawing.Size(248, 20);
-            this.OrderMaxProTimeInput.TabIndex = 26;
-            // 
             // Taetigkeit1Label
             // 
             this.Taetigkeit1Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit1Label.AutoSize = true;
-            this.Taetigkeit1Label.Location = new System.Drawing.Point(88, 9);
+            this.Taetigkeit1Label.Location = new System.Drawing.Point(67, 9);
             this.Taetigkeit1Label.Name = "Taetigkeit1Label";
             this.Taetigkeit1Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit1Label.TabIndex = 9;
@@ -637,7 +634,7 @@
             // 
             this.ProduktionszeitLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ProduktionszeitLabel.AutoSize = true;
-            this.ProduktionszeitLabel.Location = new System.Drawing.Point(41, 215);
+            this.ProduktionszeitLabel.Location = new System.Drawing.Point(20, 215);
             this.ProduktionszeitLabel.Name = "ProduktionszeitLabel";
             this.ProduktionszeitLabel.Size = new System.Drawing.Size(107, 13);
             this.ProduktionszeitLabel.TabIndex = 12;
@@ -647,7 +644,7 @@
             // 
             this.MaschineLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.MaschineLabel.AutoSize = true;
-            this.MaschineLabel.Location = new System.Drawing.Point(48, 183);
+            this.MaschineLabel.Location = new System.Drawing.Point(27, 183);
             this.MaschineLabel.Name = "MaschineLabel";
             this.MaschineLabel.Size = new System.Drawing.Size(100, 13);
             this.MaschineLabel.TabIndex = 13;
@@ -657,7 +654,7 @@
             // 
             this.Taetigkeit2Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit2Label.AutoSize = true;
-            this.Taetigkeit2Label.Location = new System.Drawing.Point(88, 38);
+            this.Taetigkeit2Label.Location = new System.Drawing.Point(67, 38);
             this.Taetigkeit2Label.Name = "Taetigkeit2Label";
             this.Taetigkeit2Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit2Label.TabIndex = 14;
@@ -667,7 +664,7 @@
             // 
             this.Taetigkeit3Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit3Label.AutoSize = true;
-            this.Taetigkeit3Label.Location = new System.Drawing.Point(88, 67);
+            this.Taetigkeit3Label.Location = new System.Drawing.Point(67, 67);
             this.Taetigkeit3Label.Name = "Taetigkeit3Label";
             this.Taetigkeit3Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit3Label.TabIndex = 15;
@@ -677,7 +674,7 @@
             // 
             this.Taetigkeit4Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit4Label.AutoSize = true;
-            this.Taetigkeit4Label.Location = new System.Drawing.Point(88, 96);
+            this.Taetigkeit4Label.Location = new System.Drawing.Point(67, 96);
             this.Taetigkeit4Label.Name = "Taetigkeit4Label";
             this.Taetigkeit4Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit4Label.TabIndex = 16;
@@ -687,7 +684,7 @@
             // 
             this.Taetigkeit5Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit5Label.AutoSize = true;
-            this.Taetigkeit5Label.Location = new System.Drawing.Point(88, 125);
+            this.Taetigkeit5Label.Location = new System.Drawing.Point(67, 125);
             this.Taetigkeit5Label.Name = "Taetigkeit5Label";
             this.Taetigkeit5Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit5Label.TabIndex = 17;
@@ -697,7 +694,7 @@
             // 
             this.Taetigkeit6Label.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.Taetigkeit6Label.AutoSize = true;
-            this.Taetigkeit6Label.Location = new System.Drawing.Point(88, 154);
+            this.Taetigkeit6Label.Location = new System.Drawing.Point(67, 154);
             this.Taetigkeit6Label.Name = "Taetigkeit6Label";
             this.Taetigkeit6Label.Size = new System.Drawing.Size(60, 13);
             this.Taetigkeit6Label.TabIndex = 18;
@@ -706,15 +703,15 @@
             // OrderEDVJob1Input
             // 
             this.OrderEDVJob1Input.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderEDVJob1Input.Location = new System.Drawing.Point(156, 2);
+            this.OrderEDVJob1Input.Location = new System.Drawing.Point(135, 2);
             this.OrderEDVJob1Input.Name = "OrderEDVJob1Input";
-            this.OrderEDVJob1Input.Size = new System.Drawing.Size(289, 27);
+            this.OrderEDVJob1Input.Size = new System.Drawing.Size(310, 27);
             this.OrderEDVJob1Input.TabIndex = 19;
             // 
             // OrderEDVJob2Input
             // 
             this.OrderEDVJob2Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob2Input.Location = new System.Drawing.Point(156, 34);
+            this.OrderEDVJob2Input.Location = new System.Drawing.Point(135, 34);
             this.OrderEDVJob2Input.Name = "OrderEDVJob2Input";
             this.OrderEDVJob2Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob2Input.TabIndex = 20;
@@ -722,7 +719,7 @@
             // OrderEDVJob3Input
             // 
             this.OrderEDVJob3Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob3Input.Location = new System.Drawing.Point(156, 63);
+            this.OrderEDVJob3Input.Location = new System.Drawing.Point(135, 63);
             this.OrderEDVJob3Input.Name = "OrderEDVJob3Input";
             this.OrderEDVJob3Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob3Input.TabIndex = 21;
@@ -730,7 +727,7 @@
             // OrderEDVJob4Input
             // 
             this.OrderEDVJob4Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob4Input.Location = new System.Drawing.Point(156, 92);
+            this.OrderEDVJob4Input.Location = new System.Drawing.Point(135, 92);
             this.OrderEDVJob4Input.Name = "OrderEDVJob4Input";
             this.OrderEDVJob4Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob4Input.TabIndex = 22;
@@ -738,7 +735,7 @@
             // OrderEDVJob5Input
             // 
             this.OrderEDVJob5Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob5Input.Location = new System.Drawing.Point(156, 121);
+            this.OrderEDVJob5Input.Location = new System.Drawing.Point(135, 121);
             this.OrderEDVJob5Input.Name = "OrderEDVJob5Input";
             this.OrderEDVJob5Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob5Input.TabIndex = 23;
@@ -746,7 +743,7 @@
             // OrderEDVJob6Input
             // 
             this.OrderEDVJob6Input.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderEDVJob6Input.Location = new System.Drawing.Point(156, 150);
+            this.OrderEDVJob6Input.Location = new System.Drawing.Point(135, 150);
             this.OrderEDVJob6Input.Name = "OrderEDVJob6Input";
             this.OrderEDVJob6Input.Size = new System.Drawing.Size(248, 20);
             this.OrderEDVJob6Input.TabIndex = 24;
@@ -754,10 +751,69 @@
             // MaschineSelectInput
             // 
             this.MaschineSelectInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.MaschineSelectInput.Location = new System.Drawing.Point(156, 179);
+            this.MaschineSelectInput.Location = new System.Drawing.Point(135, 179);
             this.MaschineSelectInput.Name = "MaschineSelectInput";
             this.MaschineSelectInput.Size = new System.Drawing.Size(248, 21);
             this.MaschineSelectInput.TabIndex = 27;
+            // 
+            // ProudctionTimeTableLayout
+            // 
+            this.ProudctionTimeTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
+            this.ProudctionTimeTableLayout.ColumnCount = 5;
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.83683F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.19355F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.53247F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.53247F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.4026F));
+            this.ProudctionTimeTableLayout.Controls.Add(this.EndMachineUsagesLabel, 3, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.endLabelDisplay, 4, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.OrderMaxProTimeInput, 0, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.StartLabelDisplay, 2, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.StartMachineUsagesLabel, 1, 0);
+            this.ProudctionTimeTableLayout.Location = new System.Drawing.Point(135, 208);
+            this.ProudctionTimeTableLayout.Name = "ProudctionTimeTableLayout";
+            this.ProudctionTimeTableLayout.RowCount = 1;
+            this.ProudctionTimeTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ProudctionTimeTableLayout.Size = new System.Drawing.Size(310, 28);
+            this.ProudctionTimeTableLayout.TabIndex = 29;
+            // 
+            // StartLabelDisplay
+            // 
+            this.StartLabelDisplay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.StartLabelDisplay.AutoSize = true;
+            this.StartLabelDisplay.Location = new System.Drawing.Point(137, 7);
+            this.StartLabelDisplay.Name = "StartLabelDisplay";
+            this.StartLabelDisplay.Size = new System.Drawing.Size(0, 13);
+            this.StartLabelDisplay.TabIndex = 31;
+            // 
+            // EndMachineUsagesLabel
+            // 
+            this.EndMachineUsagesLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.EndMachineUsagesLabel.AutoSize = true;
+            this.EndMachineUsagesLabel.Location = new System.Drawing.Point(200, 7);
+            this.EndMachineUsagesLabel.Name = "EndMachineUsagesLabel";
+            this.EndMachineUsagesLabel.Size = new System.Drawing.Size(35, 13);
+            this.EndMachineUsagesLabel.TabIndex = 29;
+            this.EndMachineUsagesLabel.Text = "Ende:";
+            // 
+            // endLabelDisplay
+            // 
+            this.endLabelDisplay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.endLabelDisplay.AutoSize = true;
+            this.endLabelDisplay.Location = new System.Drawing.Point(243, 7);
+            this.endLabelDisplay.Name = "endLabelDisplay";
+            this.endLabelDisplay.Size = new System.Drawing.Size(0, 13);
+            this.endLabelDisplay.TabIndex = 28;
+            // 
+            // StartMachineUsagesLabel
+            // 
+            this.StartMachineUsagesLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.StartMachineUsagesLabel.AutoSize = true;
+            this.StartMachineUsagesLabel.Location = new System.Drawing.Point(97, 7);
+            this.StartMachineUsagesLabel.Name = "StartMachineUsagesLabel";
+            this.StartMachineUsagesLabel.Size = new System.Drawing.Size(32, 13);
+            this.StartMachineUsagesLabel.TabIndex = 30;
+            this.StartMachineUsagesLabel.Text = "Start:";
             // 
             // ProductionGrpBox
             // 
@@ -1793,7 +1849,6 @@
             this.OrderSelectPreviewButton.TabIndex = 11;
             this.OrderSelectPreviewButton.Text = "anzeigen";
             this.OrderSelectPreviewButton.UseVisualStyleBackColor = false;
-            this.OrderSelectPreviewButton.Click += new System.EventHandler(this.OrderSelectPreviewButton_Click);
             // 
             // OrderTabLeftTopTableLayout
             // 
@@ -1831,7 +1886,8 @@
             // MainFrameMenu
             // 
             this.MainFrameMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewFolderMenuItem});
+            this.NewFolderMenuItem,
+            this.benutzerToolStripMenuItem});
             this.MainFrameMenu.Location = new System.Drawing.Point(3, 3);
             this.MainFrameMenu.Name = "MainFrameMenu";
             this.MainFrameMenu.Size = new System.Drawing.Size(1348, 24);
@@ -1859,11 +1915,27 @@
             this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
             this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
             this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
+            this.ClonedFolderSubMenuItem.Click += new System.EventHandler(this.ClonedFolderSubMenuItem_Click);
+            // 
+            // benutzerToolStripMenuItem
+            // 
+            this.benutzerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuenBenutzerAnlegenToolStripMenuItem});
+            this.benutzerToolStripMenuItem.Name = "benutzerToolStripMenuItem";
+            this.benutzerToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.benutzerToolStripMenuItem.Text = "Benutzer";
+            this.benutzerToolStripMenuItem.Visible = false;
+            // 
+            // neuenBenutzerAnlegenToolStripMenuItem
+            // 
+            this.neuenBenutzerAnlegenToolStripMenuItem.Name = "neuenBenutzerAnlegenToolStripMenuItem";
+            this.neuenBenutzerAnlegenToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+            this.neuenBenutzerAnlegenToolStripMenuItem.Text = "Neuen Benutzer Anlegen";
+            this.neuenBenutzerAnlegenToolStripMenuItem.Click += new System.EventHandler(this.neuenBenutzerAnlegenToolStripMenuItem_Click);
             // 
             // MainFrameTabControl
             // 
             this.MainFrameTabControl.Controls.Add(this.OrderTab);
-            this.MainFrameTabControl.Controls.Add(this.AdminTab);
             this.MainFrameTabControl.Controls.Add(this.MachineTab);
             this.MainFrameTabControl.Controls.Add(this.FileArchivTab);
             this.MainFrameTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1873,76 +1945,14 @@
             this.MainFrameTabControl.Size = new System.Drawing.Size(1362, 741);
             this.MainFrameTabControl.TabIndex = 0;
             // 
-            // MachineTab
+            // OrderMaxProTimeInput
             // 
-            this.MachineTab.Controls.Add(this.MachineUsageChart);
-            this.MachineTab.Controls.Add(this.MachineMenu);
-            this.MachineTab.Location = new System.Drawing.Point(4, 22);
-            this.MachineTab.Name = "MachineTab";
-            this.MachineTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MachineTab.Size = new System.Drawing.Size(1376, 715);
-            this.MachineTab.TabIndex = 4;
-            this.MachineTab.Text = "Maschinen";
-            this.MachineTab.UseVisualStyleBackColor = true;
-            // 
-            // MachineUsageChart
-            // 
-            this.MachineUsageChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MachineUsageChart.FullDateStringFormat = null;
-            this.MachineUsageChart.Location = new System.Drawing.Point(3, 27);
-            this.MachineUsageChart.Margin = new System.Windows.Forms.Padding(0);
-            this.MachineUsageChart.Name = "MachineUsageChart";
-            this.MachineUsageChart.Size = new System.Drawing.Size(1370, 685);
-            this.MachineUsageChart.TabIndex = 2;
-            // 
-            // MachineMenu
-            // 
-            this.MachineMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewMachineMenuItem,
-            this.EditMachineMenuItem});
-            this.MachineMenu.Location = new System.Drawing.Point(3, 3);
-            this.MachineMenu.Name = "MachineMenu";
-            this.MachineMenu.Size = new System.Drawing.Size(1370, 24);
-            this.MachineMenu.TabIndex = 0;
-            this.MachineMenu.Text = "menuStrip2";
-            // 
-            // NewMachineMenuItem
-            // 
-            this.NewMachineMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NewMachineCreateSubMenuItem});
-            this.NewMachineMenuItem.Name = "NewMachineMenuItem";
-            this.NewMachineMenuItem.Size = new System.Drawing.Size(41, 20);
-            this.NewMachineMenuItem.Text = "Neu";
-            // 
-            // NewMachineCreateSubMenuItem
-            // 
-            this.NewMachineCreateSubMenuItem.Name = "NewMachineCreateSubMenuItem";
-            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.NewMachineCreateSubMenuItem.Text = "Hinzufügen";
-            this.NewMachineCreateSubMenuItem.Click += new System.EventHandler(this.newMachine);
-            // 
-            // EditMachineMenuItem
-            // 
-            this.EditMachineMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DefectMachineSubMenuItem,
-            this.EditMachineNameSubMenuItem});
-            this.EditMachineMenuItem.Name = "EditMachineMenuItem";
-            this.EditMachineMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.EditMachineMenuItem.Text = "Bearbeiten";
-            // 
-            // DefectMachineSubMenuItem
-            // 
-            this.DefectMachineSubMenuItem.Name = "DefectMachineSubMenuItem";
-            this.DefectMachineSubMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.DefectMachineSubMenuItem.Text = "Defekte";
-            this.DefectMachineSubMenuItem.Click += new System.EventHandler(this.addDefect);
-            // 
-            // EditMachineNameSubMenuItem
-            // 
-            this.EditMachineNameSubMenuItem.Name = "EditMachineNameSubMenuItem";
-            this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.EditMachineNameSubMenuItem.Text = "Editieren";
-            this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
+            this.OrderMaxProTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.OrderMaxProTimeInput.AutoSize = true;
+            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(5, 7);
+            this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
+            this.OrderMaxProTimeInput.Size = new System.Drawing.Size(0, 13);
+            this.OrderMaxProTimeInput.TabIndex = 32;
             // 
             // MainFrame
             // 
@@ -1964,10 +1974,10 @@
             this.FileBtnTableLayout.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.orderFileGrpBox.ResumeLayout(false);
-            this.AdminTab.ResumeLayout(false);
-            this.AdminTab.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.MachineTab.ResumeLayout(false);
+            this.MachineTab.PerformLayout();
+            this.MachineMenu.ResumeLayout(false);
+            this.MachineMenu.PerformLayout();
             this.OrderTab.ResumeLayout(false);
             this.OrderTab.PerformLayout();
             this.MainTableLayout.ResumeLayout(false);
@@ -1976,6 +1986,8 @@
             this.EDVGrpBox.ResumeLayout(false);
             this.EDVTableLayout.ResumeLayout(false);
             this.EDVTableLayout.PerformLayout();
+            this.ProudctionTimeTableLayout.ResumeLayout(false);
+            this.ProudctionTimeTableLayout.PerformLayout();
             this.ProductionGrpBox.ResumeLayout(false);
             this.ProduktionTableLayout.ResumeLayout(false);
             this.ProduktionTableLayout.PerformLayout();
@@ -2009,10 +2021,6 @@
             this.MainFrameMenu.ResumeLayout(false);
             this.MainFrameMenu.PerformLayout();
             this.MainFrameTabControl.ResumeLayout(false);
-            this.MachineTab.ResumeLayout(false);
-            this.MachineTab.PerformLayout();
-            this.MachineMenu.ResumeLayout(false);
-            this.MachineMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2020,20 +2028,37 @@
         #endregion
 
         private System.Windows.Forms.TabPage FileArchivTab;
-        private System.Windows.Forms.TabPage AdminTab;
-        private System.Windows.Forms.TableLayoutPanel AdminMainTable;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem benutzerToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neuenBenutzerAnlegenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem logToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statistikToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel ArchivMainTableLayout;
+        private System.Windows.Forms.TableLayoutPanel FileSeachTableLayout;
+        private System.Windows.Forms.Label FileSeachLabel;
+        private System.Windows.Forms.TextBox FileSeachFilterInput;
+        private System.Windows.Forms.TableLayoutPanel DirSearchTableLayout;
+        private System.Windows.Forms.Label DirSearchLabel;
+        private System.Windows.Forms.TextBox DirSearchFilterInput;
+        private System.Windows.Forms.TableLayoutPanel FileDisplayTableLayout;
+        private System.Windows.Forms.GroupBox filesFromOrderGrpbox;
+        private System.Windows.Forms.ListBox MainFrameFileListBox;
+        private System.Windows.Forms.TableLayoutPanel FileBtnTableLayout;
+        private System.Windows.Forms.Button DownloadFileButton;
+        private System.Windows.Forms.Button OpenFileButton;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox orderFileGrpBox;
+        private System.Windows.Forms.ListBox MainFrameDirListBox;
+        private System.Windows.Forms.Button DownloadDirButton;
+        private System.Windows.Forms.TabPage MachineTab;
+        private Braincase.GanttChart.Chart MachineUsageChart;
+        private System.Windows.Forms.MenuStrip MachineMenu;
+        private System.Windows.Forms.ToolStripMenuItem NewMachineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NewMachineCreateSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditMachineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DefectMachineSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditMachineNameSubMenuItem;
         private System.Windows.Forms.TabPage OrderTab;
         private System.Windows.Forms.TableLayoutPanel MainTableLayout;
         private System.Windows.Forms.GroupBox PreviewOrderGrpBox;
         private System.Windows.Forms.TableLayoutPanel OrderDisplayMainTableLayout;
         private System.Windows.Forms.GroupBox EDVGrpBox;
         private System.Windows.Forms.TableLayoutPanel EDVTableLayout;
-        private System.Windows.Forms.Label OrderMaxProTimeInput;
         private System.Windows.Forms.Label Taetigkeit1Label;
         private System.Windows.Forms.Label ProduktionszeitLabel;
         private System.Windows.Forms.Label MaschineLabel;
@@ -2147,32 +2172,15 @@
         private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem benutzerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neuenBenutzerAnlegenToolStripMenuItem;
         private System.Windows.Forms.TabControl MainFrameTabControl;
-        private System.Windows.Forms.TabPage MachineTab;
-        private System.Windows.Forms.MenuStrip MachineMenu;
-        private System.Windows.Forms.ToolStripMenuItem NewMachineMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem NewMachineCreateSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EditMachineMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DefectMachineSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EditMachineNameSubMenuItem;
-        private Braincase.GanttChart.Chart MachineUsageChart;
-        private System.Windows.Forms.TableLayoutPanel ArchivMainTableLayout;
-        private System.Windows.Forms.TableLayoutPanel FileSeachTableLayout;
-        private System.Windows.Forms.Label FileSeachLabel;
-        private System.Windows.Forms.TextBox FileSeachFilterInput;
-        private System.Windows.Forms.TableLayoutPanel DirSearchTableLayout;
-        private System.Windows.Forms.Label DirSearchLabel;
-        private System.Windows.Forms.TextBox DirSearchFilterInput;
-        private System.Windows.Forms.TableLayoutPanel FileDisplayTableLayout;
-        private System.Windows.Forms.GroupBox filesFromOrderGrpbox;
-        private System.Windows.Forms.ListBox MainFrameFileListBox;
-        private System.Windows.Forms.TableLayoutPanel FileBtnTableLayout;
-        private System.Windows.Forms.Button DownloadFileButton;
-        private System.Windows.Forms.Button OpenFileButton;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox orderFileGrpBox;
-        private System.Windows.Forms.ListBox MainFrameDirListBox;
-        private System.Windows.Forms.Button DownloadDirButton;
+        private System.Windows.Forms.TableLayoutPanel ProudctionTimeTableLayout;
+        private System.Windows.Forms.Label StartLabelDisplay;
+        private System.Windows.Forms.Label StartMachineUsagesLabel;
+        private System.Windows.Forms.Label EndMachineUsagesLabel;
+        private System.Windows.Forms.Label endLabelDisplay;
+        private System.Windows.Forms.Label OrderMaxProTimeInput;
     }
 }
 

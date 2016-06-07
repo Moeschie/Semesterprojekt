@@ -10,5 +10,6 @@ namespace Repository.Core
     public interface IOrderRepository : IRepository<Order>
     {
         Order GetOrderById(Guid id);
+        string orderIDgen();
     }
 }

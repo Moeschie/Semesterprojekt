@@ -141,7 +141,7 @@
             this.AddDefectTitleLabel.Name = "AddDefectTitleLabel";
             this.AddDefectTitleLabel.Size = new System.Drawing.Size(90, 13);
             this.AddDefectTitleLabel.TabIndex = 9;
-            this.AddDefectTitleLabel.Text = "Defekt";
+            this.AddDefectTitleLabel.Text = "Name";
             // 
             // AddDefectTitleTextBox
             // 

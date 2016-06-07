@@ -58,8 +58,6 @@ namespace Repository.Persistence
         }
         public void CreateGantMachine(Chart usagesChart)
         {
-            DateTime StartMaschine = new DateTime(2016, 1, 1);
-            int EndMachine = DateTime.Now.DayOfYear + 365;
             GanttContent = new ProjectManager();
             foreach (var machine in GetAll().ToList())
             {
@@ -70,26 +68,30 @@ namespace Repository.Persistence
                 GanttContent.Assign(AddMachine, AddToolTip);
 
                 usagesChart.SetToolTip(AddMachine, string.Join(", ", GanttContent.ResourcesOf(AddMachine).Select(x => (x as MyResource).Name)));
+
                 foreach (var machineTask in machineTasks.GetAll().Where(m=>m.machine.Id == machine.Id).ToList())
                 {   
                     DateTime machineTaskSart = DateTime.Parse(machineTask.UsageStart);
                     DateTime machineTaskEnd = DateTime.Parse(machineTask.UsageEnd);
-                    
-                    var AddTask = new MyTask(GanttContent) { Name = machineTask.title };
-                    GanttContent.Add(AddTask);
-                    var AddTaskToolTip = new MyResource() { Name = machineTask.title };
-                    GanttContent.Assign(AddTask, AddTaskToolTip);
+                    if (machineTaskSart >= DateTime.Now ||machineTaskEnd >= DateTime.Now)
+                    {
+                        var AddTask = new MyTask(GanttContent) { Name = machineTask.title, Color = Color.LightGray };
+                        GanttContent.Add(AddTask);
+                        var AddTaskToolTip = new MyResource() { Name = machineTask.title };
+                        GanttContent.Assign(AddTask, AddTaskToolTip);
+                        GanttContent.SetStart(AddTask, setDateTime(machineTaskSart));
+                        GanttContent.SetEnd(AddTask, setDateTime(machineTaskEnd));
+                        GanttContent.Group(AddMachine, AddTask);
 
-                    GanttContent.SetStart(AddTask, machineTaskSart.DayOfYear);
-                    GanttContent.SetEnd(AddTask, machineTaskEnd.DayOfYear);
-                    GanttContent.Group(AddMachine, AddTask);
-
-                    usagesChart.SetToolTip(AddTask, "Auftrag: " + string.Join(", ", GanttContent.ResourcesOf(AddTask).Select(x => (x as MyResource).Name)) + " Zeitraum: " + string.Format("{0} bis {1}", machineTaskSart, machineTaskEnd));
+                        usagesChart.SetToolTip(AddTask, "Auftrag: " + string.Join(", ", GanttContent.ResourcesOf(AddTask).Select(x => (x as MyResource).Name)) + " Zeitraum: " + string.Format("{0} bis {1}", machineTaskSart.ToString("dd/MM/yyyy"), machineTaskEnd.ToString("dd/MM/yyyy")));
+                    }
                 }
             }
-            TimeSpan span = DateTime.Now - StartMaschine;
-            GanttContent.Now = span.Days;
-            GanttContent.Start = StartMaschine;
+            //TimeSpan span = DateTime.Now - DateTime.Now.AddDays(-5);
+            //GanttContent.Now = span.Days;
+            //DateTime test = DateTime.Now;
+            //GanttContent.Start = test.AddDays(-5);
+            GanttContent.Start = DateTime.Now;
             GanttContent.TimeScale = TimeScale.Day;
             usagesChart.Init(GanttContent);
             usagesChart.PaintTask += (s, e) =>
@@ -103,6 +105,10 @@ namespace Repository.Persistence
                     e.Format = format;
                 }
             };
+        }
+        private int setDateTime(DateTime dateTime)
+        {
+            return dateTime.DayOfYear-DateTime.Now.DayOfYear;
         }
 
         public DataContext DataContext

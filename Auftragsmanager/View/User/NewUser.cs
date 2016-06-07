@@ -32,7 +32,6 @@ namespace View
         {
             instance = null;
         }
-
         public static NewUser Instance(Unit unit)
         {
             if (instance == null)
@@ -42,7 +41,6 @@ namespace View
             instance.BringToFront();
             return instance;
         }
-
         private void AddNewUserButton_Click(object sender, EventArgs e)
         {
             FormValidation f = new FormValidation();
@@ -74,9 +72,6 @@ namespace View
                 _unit.Complete();
                 Close();
             }
-
-
-
         }
     }
 }

@@ -27,12 +27,25 @@ namespace View
             this.Show();
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
-                Console.WriteLine("Access");
+                benutzerToolStripMenuItem.Visible = true;            
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
             DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
             initGant();
         }
-      
+        /*
+        ORDER PART
+        */
+        private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderFrame newOrder = OrderFrame.Instance(_unit);
+            newOrder.Show();
+        }  
+        private void ClonedFolderSubMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+        /*
+         FILE PART
+         */
         private void DirSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
@@ -46,9 +59,7 @@ namespace View
             listBox.Items.Clear();
             string[] directories = _unit.Files.DdisplayDirectories();
             if (directories != null)
-            {
-                
-            
+            {             
                 foreach (string dir in directories)
                 {
                     if (dir.Contains(filter))
@@ -75,22 +86,47 @@ namespace View
                     }
                 }
             }
-        }
-        
+        }        
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
-        private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
+        private void DownloadDirButton_Click(object sender, EventArgs e)
         {
-            OrderFrame order = new OrderFrame(_unit);
-            order.Show();
+            if (MainFrameDirListBox.SelectedItem != null)
+            {
+                _unit.Files.DownloadDir(MainFrameDirListBox.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Es muss erst ein Ordner ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        private void newUser(object sender, EventArgs e)
+        private void OpenFileButton_Click(object sender, EventArgs e)
         {
-            NewUser newUser = NewUser.Instance(_unit) ;
-            newUser.Show();
+            if (MainFrameFileListBox.SelectedItem != null)
+            {
+                _unit.Files.OpenFile(MainFrameDirListBox.SelectedItem.ToString(), MainFrameFileListBox.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void DownloadFileButton_Click(object sender, EventArgs e)
+        {
+            if (MainFrameFileListBox.SelectedItem != null)
+            {
+                _unit.Files.DownloadFile(MainFrameDirListBox.SelectedItem.ToString(), MainFrameFileListBox.SelectedItem.ToString());
+            }
+            else
+            {
+                MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }        
+        /*
+         MACHINE PART             
+         */
         private void newMachine(object sender, EventArgs e)
         {
             NewMachine newMachine = NewMachine.Instance(_unit);
@@ -106,22 +142,7 @@ namespace View
             EditMachine editMashine = EditMachine.Instance(_unit);
             editMashine.Show();
         }
-
-        private void DownloadDirButton_Click(object sender, EventArgs e)
-        {
-            _unit.Files.DownloadDir(MainFrameDirListBox.SelectedItem.ToString());
-        }
-
-        private void OpenFileButton_Click(object sender, EventArgs e)
-        {
-            _unit.Files.OpenFile(MainFrameDirListBox.SelectedItem.ToString(),MainFrameFileListBox.SelectedItem.ToString());
-        }
-
-        private void DownloadFileButton_Click(object sender, EventArgs e)
-        {
-            _unit.Files.DownloadFile(MainFrameDirListBox.SelectedItem.ToString(), MainFrameFileListBox.SelectedItem.ToString());
-        }        
-         private void initGant()
+        private void initGant()
         {
             _unit.Machine.CreateGantMachine(MachineUsageChart);
             MachineUsageChart.AllowTaskDragDrop = false;
@@ -129,10 +150,13 @@ namespace View
             MachineUsageChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
             MachineUsageChart.Invalidate();
         }
-
-        private void OrderSelectPreviewButton_Click(object sender, EventArgs e)
+        /*
+         USER PART - ONLY ADMIN
+         */
+        private void neuenBenutzerAnlegenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            NewUser newUser = NewUser.Instance(_unit);
+            newUser.Show();
         }
     }
 }

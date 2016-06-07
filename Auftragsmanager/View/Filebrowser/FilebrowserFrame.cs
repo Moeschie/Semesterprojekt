@@ -23,7 +23,7 @@ namespace View
             _unit = unit;
             orderID = "test"; //_unit.Order.Get.Name();
             InitializeComponent();
-            _unit.Files.CreateFolder("test");
+            //_unit.Files.CreateFolder("test");
             DisplayFiles(FileSearchFilterInput.Text);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

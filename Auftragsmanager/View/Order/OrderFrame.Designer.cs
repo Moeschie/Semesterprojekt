@@ -32,7 +32,6 @@
             this.ImportantInfo2GrpBox = new System.Windows.Forms.GroupBox();
             this.OrderRight1TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.AuftragsNrLabel = new System.Windows.Forms.Label();
-            this.OrderNumberInput = new System.Windows.Forms.TextBox();
             this.AuftragLabel = new System.Windows.Forms.Label();
             this.OrderNameInput = new System.Windows.Forms.TextBox();
             this.FunctionGrpBox = new System.Windows.Forms.GroupBox();
@@ -104,7 +103,6 @@
             this.BeilagenartLabel = new System.Windows.Forms.Label();
             this.EDVGrpBox = new System.Windows.Forms.GroupBox();
             this.EDVTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.OrderMaxProTimeInput = new System.Windows.Forms.TextBox();
             this.Taetigkeit1Label = new System.Windows.Forms.Label();
             this.ProduktionszeitLabel = new System.Windows.Forms.Label();
             this.MaschineLabel = new System.Windows.Forms.Label();
@@ -120,7 +118,14 @@
             this.OrderEDVJob5Input = new System.Windows.Forms.TextBox();
             this.OrderEDVJob6Input = new System.Windows.Forms.TextBox();
             this.MaschineSelectInput = new System.Windows.Forms.ComboBox();
+            this.ProudctionTimeTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.EndMachineUsagesDateTimeInput = new System.Windows.Forms.DateTimePicker();
+            this.OrderMaxProTimeInput = new System.Windows.Forms.TextBox();
+            this.StartMachineUsagesLabel = new System.Windows.Forms.Label();
+            this.EndMachineUsagesLabel = new System.Windows.Forms.Label();
+            this.StartMachineUsagesDateTimeInput = new System.Windows.Forms.DateTimePicker();
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.OrderNumberInput = new System.Windows.Forms.Label();
             this.TopRightTableLayout.SuspendLayout();
             this.ImportantInfo2GrpBox.SuspendLayout();
             this.OrderRight1TableLayout.SuspendLayout();
@@ -138,6 +143,7 @@
             this.VerarbeitungTableLayout.SuspendLayout();
             this.EDVGrpBox.SuspendLayout();
             this.EDVTableLayout.SuspendLayout();
+            this.ProudctionTimeTableLayout.SuspendLayout();
             this.MainTableLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -173,9 +179,9 @@
             this.OrderRight1TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.OrderRight1TableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.OrderRight1TableLayout.Controls.Add(this.AuftragsNrLabel, 0, 1);
-            this.OrderRight1TableLayout.Controls.Add(this.OrderNumberInput, 1, 1);
             this.OrderRight1TableLayout.Controls.Add(this.AuftragLabel, 0, 0);
             this.OrderRight1TableLayout.Controls.Add(this.OrderNameInput, 1, 0);
+            this.OrderRight1TableLayout.Controls.Add(this.OrderNumberInput, 1, 1);
             this.OrderRight1TableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OrderRight1TableLayout.Location = new System.Drawing.Point(3, 16);
             this.OrderRight1TableLayout.Name = "OrderRight1TableLayout";
@@ -195,14 +201,6 @@
             this.AuftragsNrLabel.TabIndex = 11;
             this.AuftragsNrLabel.Text = "Auftrags-Nr.:";
             // 
-            // OrderNumberInput
-            // 
-            this.OrderNumberInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderNumberInput.Location = new System.Drawing.Point(140, 44);
-            this.OrderNumberInput.Name = "OrderNumberInput";
-            this.OrderNumberInput.Size = new System.Drawing.Size(132, 20);
-            this.OrderNumberInput.TabIndex = 13;
-            // 
             // AuftragLabel
             // 
             this.AuftragLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -215,8 +213,8 @@
             // 
             // OrderNameInput
             // 
-            this.OrderNameInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderNameInput.Location = new System.Drawing.Point(140, 3);
+            this.OrderNameInput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OrderNameInput.Location = new System.Drawing.Point(140, 10);
             this.OrderNameInput.Name = "OrderNameInput";
             this.OrderNameInput.Size = new System.Drawing.Size(132, 20);
             this.OrderNameInput.TabIndex = 4;
@@ -332,9 +330,9 @@
             // 
             // trifft_einLabel
             // 
-            this.trifft_einLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.trifft_einLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.trifft_einLabel.AutoSize = true;
-            this.trifft_einLabel.Location = new System.Drawing.Point(26, 0);
+            this.trifft_einLabel.Location = new System.Drawing.Point(26, 15);
             this.trifft_einLabel.Name = "trifft_einLabel";
             this.trifft_einLabel.Size = new System.Drawing.Size(44, 13);
             this.trifft_einLabel.TabIndex = 4;
@@ -342,8 +340,8 @@
             // 
             // OrderIncomeDateInput
             // 
-            this.OrderIncomeDateInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderIncomeDateInput.Location = new System.Drawing.Point(76, 3);
+            this.OrderIncomeDateInput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OrderIncomeDateInput.Location = new System.Drawing.Point(76, 12);
             this.OrderIncomeDateInput.Name = "OrderIncomeDateInput";
             this.OrderIncomeDateInput.Size = new System.Drawing.Size(200, 20);
             this.OrderIncomeDateInput.TabIndex = 14;
@@ -388,17 +386,17 @@
             // 
             // OrderIncomeTimeInput
             // 
-            this.OrderIncomeTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderIncomeTimeInput.Location = new System.Drawing.Point(76, 47);
+            this.OrderIncomeTimeInput.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.OrderIncomeTimeInput.Location = new System.Drawing.Point(76, 56);
             this.OrderIncomeTimeInput.Name = "OrderIncomeTimeInput";
             this.OrderIncomeTimeInput.Size = new System.Drawing.Size(200, 20);
             this.OrderIncomeTimeInput.TabIndex = 17;
             // 
             // UhrzeitLabel
             // 
-            this.UhrzeitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.UhrzeitLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.UhrzeitLabel.AutoSize = true;
-            this.UhrzeitLabel.Location = new System.Drawing.Point(27, 44);
+            this.UhrzeitLabel.Location = new System.Drawing.Point(27, 59);
             this.UhrzeitLabel.Name = "UhrzeitLabel";
             this.UhrzeitLabel.Size = new System.Drawing.Size(43, 13);
             this.UhrzeitLabel.TabIndex = 16;
@@ -981,7 +979,6 @@
             this.EDVTableLayout.ColumnCount = 2;
             this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.44689F));
             this.EDVTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.55311F));
-            this.EDVTableLayout.Controls.Add(this.OrderMaxProTimeInput, 1, 7);
             this.EDVTableLayout.Controls.Add(this.Taetigkeit1Label, 0, 0);
             this.EDVTableLayout.Controls.Add(this.ProduktionszeitLabel, 0, 7);
             this.EDVTableLayout.Controls.Add(this.MaschineLabel, 0, 6);
@@ -997,6 +994,7 @@
             this.EDVTableLayout.Controls.Add(this.OrderEDVJob5Input, 1, 4);
             this.EDVTableLayout.Controls.Add(this.OrderEDVJob6Input, 1, 5);
             this.EDVTableLayout.Controls.Add(this.MaschineSelectInput, 1, 6);
+            this.EDVTableLayout.Controls.Add(this.ProudctionTimeTableLayout, 1, 7);
             this.EDVTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EDVTableLayout.Location = new System.Drawing.Point(3, 16);
             this.EDVTableLayout.Name = "EDVTableLayout";
@@ -1011,14 +1009,6 @@
             this.EDVTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.EDVTableLayout.Size = new System.Drawing.Size(568, 223);
             this.EDVTableLayout.TabIndex = 4;
-            // 
-            // OrderMaxProTimeInput
-            // 
-            this.OrderMaxProTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(136, 192);
-            this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
-            this.OrderMaxProTimeInput.Size = new System.Drawing.Size(429, 20);
-            this.OrderMaxProTimeInput.TabIndex = 26;
             // 
             // Taetigkeit1Label
             // 
@@ -1157,6 +1147,69 @@
             this.MaschineSelectInput.Size = new System.Drawing.Size(429, 21);
             this.MaschineSelectInput.TabIndex = 27;
             // 
+            // ProudctionTimeTableLayout
+            // 
+            this.ProudctionTimeTableLayout.ColumnCount = 5;
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.83683F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.79021F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.77622F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.02331F));
+            this.ProudctionTimeTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
+            this.ProudctionTimeTableLayout.Controls.Add(this.EndMachineUsagesDateTimeInput, 4, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.OrderMaxProTimeInput, 0, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.StartMachineUsagesLabel, 1, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.EndMachineUsagesLabel, 3, 0);
+            this.ProudctionTimeTableLayout.Controls.Add(this.StartMachineUsagesDateTimeInput, 2, 0);
+            this.ProudctionTimeTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ProudctionTimeTableLayout.Location = new System.Drawing.Point(136, 192);
+            this.ProudctionTimeTableLayout.Name = "ProudctionTimeTableLayout";
+            this.ProudctionTimeTableLayout.RowCount = 1;
+            this.ProudctionTimeTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.ProudctionTimeTableLayout.Size = new System.Drawing.Size(429, 28);
+            this.ProudctionTimeTableLayout.TabIndex = 28;
+            // 
+            // EndMachineUsagesDateTimeInput
+            // 
+            this.EndMachineUsagesDateTimeInput.Location = new System.Drawing.Point(314, 3);
+            this.EndMachineUsagesDateTimeInput.Name = "EndMachineUsagesDateTimeInput";
+            this.EndMachineUsagesDateTimeInput.Size = new System.Drawing.Size(112, 20);
+            this.EndMachineUsagesDateTimeInput.TabIndex = 31;
+            // 
+            // OrderMaxProTimeInput
+            // 
+            this.OrderMaxProTimeInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(3, 3);
+            this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
+            this.OrderMaxProTimeInput.Size = new System.Drawing.Size(121, 20);
+            this.OrderMaxProTimeInput.TabIndex = 27;
+            // 
+            // StartMachineUsagesLabel
+            // 
+            this.StartMachineUsagesLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.StartMachineUsagesLabel.AutoSize = true;
+            this.StartMachineUsagesLabel.Location = new System.Drawing.Point(133, 7);
+            this.StartMachineUsagesLabel.Name = "StartMachineUsagesLabel";
+            this.StartMachineUsagesLabel.Size = new System.Drawing.Size(32, 13);
+            this.StartMachineUsagesLabel.TabIndex = 28;
+            this.StartMachineUsagesLabel.Text = "Start:";
+            // 
+            // EndMachineUsagesLabel
+            // 
+            this.EndMachineUsagesLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.EndMachineUsagesLabel.AutoSize = true;
+            this.EndMachineUsagesLabel.Location = new System.Drawing.Point(273, 7);
+            this.EndMachineUsagesLabel.Name = "EndMachineUsagesLabel";
+            this.EndMachineUsagesLabel.Size = new System.Drawing.Size(35, 13);
+            this.EndMachineUsagesLabel.TabIndex = 29;
+            this.EndMachineUsagesLabel.Text = "Ende:";
+            // 
+            // StartMachineUsagesDateTimeInput
+            // 
+            this.StartMachineUsagesDateTimeInput.Location = new System.Drawing.Point(171, 3);
+            this.StartMachineUsagesDateTimeInput.Name = "StartMachineUsagesDateTimeInput";
+            this.StartMachineUsagesDateTimeInput.Size = new System.Drawing.Size(95, 20);
+            this.StartMachineUsagesDateTimeInput.TabIndex = 30;
+            // 
             // MainTableLayout
             // 
             this.MainTableLayout.ColumnCount = 2;
@@ -1177,6 +1230,15 @@
             this.MainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 273F));
             this.MainTableLayout.Size = new System.Drawing.Size(1160, 635);
             this.MainTableLayout.TabIndex = 0;
+            // 
+            // OrderNumberInput
+            // 
+            this.OrderNumberInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.OrderNumberInput.AutoSize = true;
+            this.OrderNumberInput.Location = new System.Drawing.Point(140, 55);
+            this.OrderNumberInput.Name = "OrderNumberInput";
+            this.OrderNumberInput.Size = new System.Drawing.Size(0, 13);
+            this.OrderNumberInput.TabIndex = 12;
             // 
             // OrderFrame
             // 
@@ -1211,6 +1273,8 @@
             this.EDVGrpBox.ResumeLayout(false);
             this.EDVTableLayout.ResumeLayout(false);
             this.EDVTableLayout.PerformLayout();
+            this.ProudctionTimeTableLayout.ResumeLayout(false);
+            this.ProudctionTimeTableLayout.PerformLayout();
             this.MainTableLayout.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1222,7 +1286,6 @@
         private System.Windows.Forms.GroupBox ImportantInfo2GrpBox;
         private System.Windows.Forms.TableLayoutPanel OrderRight1TableLayout;
         private System.Windows.Forms.Label AuftragsNrLabel;
-        private System.Windows.Forms.TextBox OrderNumberInput;
         private System.Windows.Forms.Label AuftragLabel;
         private System.Windows.Forms.TextBox OrderNameInput;
         private System.Windows.Forms.GroupBox FunctionGrpBox;
@@ -1294,7 +1357,6 @@
         private System.Windows.Forms.Label BeilagenartLabel;
         private System.Windows.Forms.GroupBox EDVGrpBox;
         private System.Windows.Forms.TableLayoutPanel EDVTableLayout;
-        private System.Windows.Forms.TextBox OrderMaxProTimeInput;
         private System.Windows.Forms.Label Taetigkeit1Label;
         private System.Windows.Forms.Label ProduktionszeitLabel;
         private System.Windows.Forms.Label MaschineLabel;
@@ -1311,5 +1373,12 @@
         private System.Windows.Forms.TextBox OrderEDVJob6Input;
         private System.Windows.Forms.ComboBox MaschineSelectInput;
         private System.Windows.Forms.TableLayoutPanel MainTableLayout;
+        private System.Windows.Forms.TableLayoutPanel ProudctionTimeTableLayout;
+        private System.Windows.Forms.TextBox OrderMaxProTimeInput;
+        private System.Windows.Forms.Label StartMachineUsagesLabel;
+        private System.Windows.Forms.Label EndMachineUsagesLabel;
+        private System.Windows.Forms.DateTimePicker StartMachineUsagesDateTimeInput;
+        private System.Windows.Forms.DateTimePicker EndMachineUsagesDateTimeInput;
+        private System.Windows.Forms.Label OrderNumberInput;
     }
 }

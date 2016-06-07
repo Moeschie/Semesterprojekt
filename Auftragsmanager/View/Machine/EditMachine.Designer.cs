@@ -151,14 +151,14 @@
             this.EditMashineNameButton.UseVisualStyleBackColor = true;
             this.EditMashineNameButton.Click += new System.EventHandler(this.EditMashineNameButton_Click);
             // 
-            // EditMashine
+            // EditMachine
             // 
             this.AcceptButton = this.EditMashineNameButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 99);
             this.Controls.Add(this.EditMashineTable1);
-            this.Name = "EditMashine";
+            this.Name = "EditMachine";
             this.Text = "EditMashine";
             this.EditMashineTable1.ResumeLayout(false);
             this.EditMashineTable2.ResumeLayout(false);
