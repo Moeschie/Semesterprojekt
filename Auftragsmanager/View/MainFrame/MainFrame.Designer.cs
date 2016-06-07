@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using Repository.Models;
+using System.Collections.Generic;
+using System.Data;
 
 namespace View
 {
@@ -78,9 +80,10 @@ namespace View
             this.OrderEDVJob6Input = new System.Windows.Forms.Label();
             this.MaschineSelectInput = new System.Windows.Forms.Label();
             this.ProudctionTimeTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.StartLabelDisplay = new System.Windows.Forms.Label();
             this.EndMachineUsagesLabel = new System.Windows.Forms.Label();
             this.endLabelDisplay = new System.Windows.Forms.Label();
+            this.OrderMaxProTimeInput = new System.Windows.Forms.Label();
+            this.StartLabelDisplay = new System.Windows.Forms.Label();
             this.StartMachineUsagesLabel = new System.Windows.Forms.Label();
             this.ProductionGrpBox = new System.Windows.Forms.GroupBox();
             this.ProduktionTableLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -160,19 +163,6 @@ namespace View
             this.PrintLaufzettelButton = new System.Windows.Forms.Button();
             this.OrderTabLeftTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.ActiveOrderGrpBox = new System.Windows.Forms.GroupBox();
-            this.OrderSelectTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.CollumSixHeaderLabel = new System.Windows.Forms.Label();
-            this.CollumFiveHeaderLabel = new System.Windows.Forms.Label();
-            this.CollumFourHeaderLabel = new System.Windows.Forms.Label();
-            this.CollumThreeHeaderLabel = new System.Windows.Forms.Label();
-            this.CollumTwoHeaderLabel = new System.Windows.Forms.Label();
-            this.CollumOneHeaderLabel = new System.Windows.Forms.Label();
-            this.OrderSelectNumberLabel = new System.Windows.Forms.Label();
-            this.OrderSelectNameLabel = new System.Windows.Forms.Label();
-            this.OrderSelectIncomeLabel = new System.Windows.Forms.Label();
-            this.OrderSelectOutLabel = new System.Windows.Forms.Label();
-            this.OrderSelectNoteLabel = new System.Windows.Forms.Label();
-            this.OrderSelectPreviewButton = new System.Windows.Forms.Button();
             this.OrderTabLeftTopTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.OrderSelectFilterInput = new System.Windows.Forms.TextBox();
             this.OrderSelectFilterLabel = new System.Windows.Forms.Label();
@@ -183,7 +173,7 @@ namespace View
             this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
-            this.OrderMaxProTimeInput = new System.Windows.Forms.Label();
+            this.SelectedOrderListBox = new System.Windows.Forms.ListBox();
             this.FileArchivTab.SuspendLayout();
             this.ArchivMainTableLayout.SuspendLayout();
             this.FileSeachTableLayout.SuspendLayout();
@@ -221,7 +211,6 @@ namespace View
             this.OrderRight2TableLayout.SuspendLayout();
             this.OrderTabLeftTableLayout.SuspendLayout();
             this.ActiveOrderGrpBox.SuspendLayout();
-            this.OrderSelectTableLayout.SuspendLayout();
             this.OrderTabLeftTopTableLayout.SuspendLayout();
             this.MainFrameMenu.SuspendLayout();
             this.MainFrameTabControl.SuspendLayout();
@@ -779,15 +768,6 @@ namespace View
             this.ProudctionTimeTableLayout.Size = new System.Drawing.Size(310, 28);
             this.ProudctionTimeTableLayout.TabIndex = 29;
             // 
-            // StartLabelDisplay
-            // 
-            this.StartLabelDisplay.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.StartLabelDisplay.AutoSize = true;
-            this.StartLabelDisplay.Location = new System.Drawing.Point(137, 7);
-            this.StartLabelDisplay.Name = "StartLabelDisplay";
-            this.StartLabelDisplay.Size = new System.Drawing.Size(0, 13);
-            this.StartLabelDisplay.TabIndex = 31;
-            // 
             // EndMachineUsagesLabel
             // 
             this.EndMachineUsagesLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -806,6 +786,24 @@ namespace View
             this.endLabelDisplay.Name = "endLabelDisplay";
             this.endLabelDisplay.Size = new System.Drawing.Size(0, 13);
             this.endLabelDisplay.TabIndex = 28;
+            // 
+            // OrderMaxProTimeInput
+            // 
+            this.OrderMaxProTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.OrderMaxProTimeInput.AutoSize = true;
+            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(5, 7);
+            this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
+            this.OrderMaxProTimeInput.Size = new System.Drawing.Size(0, 13);
+            this.OrderMaxProTimeInput.TabIndex = 32;
+            // 
+            // StartLabelDisplay
+            // 
+            this.StartLabelDisplay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.StartLabelDisplay.AutoSize = true;
+            this.StartLabelDisplay.Location = new System.Drawing.Point(137, 7);
+            this.StartLabelDisplay.Name = "StartLabelDisplay";
+            this.StartLabelDisplay.Size = new System.Drawing.Size(0, 13);
+            this.StartLabelDisplay.TabIndex = 31;
             // 
             // StartMachineUsagesLabel
             // 
@@ -1687,7 +1685,7 @@ namespace View
             // 
             // ActiveOrderGrpBox
             // 
-            this.ActiveOrderGrpBox.Controls.Add(this.OrderSelectTableLayout);
+            this.ActiveOrderGrpBox.Controls.Add(this.SelectedOrderListBox);
             this.ActiveOrderGrpBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ActiveOrderGrpBox.Location = new System.Drawing.Point(3, 44);
             this.ActiveOrderGrpBox.Name = "ActiveOrderGrpBox";
@@ -1695,162 +1693,6 @@ namespace View
             this.ActiveOrderGrpBox.TabIndex = 4;
             this.ActiveOrderGrpBox.TabStop = false;
             this.ActiveOrderGrpBox.Text = "Aufträge";
-            // 
-            // OrderSelectTableLayout
-            // 
-            this.OrderSelectTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
-            this.OrderSelectTableLayout.ColumnCount = 6;
-            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.26667F));
-            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.06667F));
-            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.46667F));
-            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.2F));
-            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.86667F));
-            this.OrderSelectTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.33333F));
-            this.OrderSelectTableLayout.Controls.Add(this.CollumSixHeaderLabel, 5, 0);
-            this.OrderSelectTableLayout.Controls.Add(this.CollumFiveHeaderLabel, 4, 0);
-            this.OrderSelectTableLayout.Controls.Add(this.CollumFourHeaderLabel, 3, 0);
-            this.OrderSelectTableLayout.Controls.Add(this.CollumThreeHeaderLabel, 2, 0);
-            this.OrderSelectTableLayout.Controls.Add(this.CollumTwoHeaderLabel, 1, 0);
-            this.OrderSelectTableLayout.Controls.Add(this.CollumOneHeaderLabel, 0, 0);
-            this.OrderSelectTableLayout.Controls.Add(this.OrderSelectNumberLabel, 0, 1);
-            this.OrderSelectTableLayout.Controls.Add(this.OrderSelectNameLabel, 1, 1);
-            this.OrderSelectTableLayout.Controls.Add(this.OrderSelectIncomeLabel, 2, 1);
-            this.OrderSelectTableLayout.Controls.Add(this.OrderSelectOutLabel, 3, 1);
-            this.OrderSelectTableLayout.Controls.Add(this.OrderSelectNoteLabel, 4, 1);
-            this.OrderSelectTableLayout.Controls.Add(this.OrderSelectPreviewButton, 5, 1);
-            this.OrderSelectTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderSelectTableLayout.Location = new System.Drawing.Point(3, 16);
-            this.OrderSelectTableLayout.Name = "OrderSelectTableLayout";
-            this.OrderSelectTableLayout.RowCount = 3;
-            this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.642024F));
-            this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.447471F));
-            this.OrderSelectTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.91051F));
-            this.OrderSelectTableLayout.Size = new System.Drawing.Size(443, 613);
-            this.OrderSelectTableLayout.TabIndex = 0;
-            // 
-            // CollumSixHeaderLabel
-            // 
-            this.CollumSixHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CollumSixHeaderLabel.AutoSize = true;
-            this.CollumSixHeaderLabel.Location = new System.Drawing.Point(383, 12);
-            this.CollumSixHeaderLabel.Name = "CollumSixHeaderLabel";
-            this.CollumSixHeaderLabel.Size = new System.Drawing.Size(37, 13);
-            this.CollumSixHeaderLabel.TabIndex = 5;
-            this.CollumSixHeaderLabel.Text = "Status";
-            // 
-            // CollumFiveHeaderLabel
-            // 
-            this.CollumFiveHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CollumFiveHeaderLabel.AutoSize = true;
-            this.CollumFiveHeaderLabel.Location = new System.Drawing.Point(309, 12);
-            this.CollumFiveHeaderLabel.Name = "CollumFiveHeaderLabel";
-            this.CollumFiveHeaderLabel.Size = new System.Drawing.Size(43, 13);
-            this.CollumFiveHeaderLabel.TabIndex = 4;
-            this.CollumFiveHeaderLabel.Text = "Notizen";
-            // 
-            // CollumFourHeaderLabel
-            // 
-            this.CollumFourHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CollumFourHeaderLabel.AutoSize = true;
-            this.CollumFourHeaderLabel.Location = new System.Drawing.Point(253, 12);
-            this.CollumFourHeaderLabel.Name = "CollumFourHeaderLabel";
-            this.CollumFourHeaderLabel.Size = new System.Drawing.Size(27, 13);
-            this.CollumFourHeaderLabel.TabIndex = 3;
-            this.CollumFourHeaderLabel.Text = "PAL";
-            // 
-            // CollumThreeHeaderLabel
-            // 
-            this.CollumThreeHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CollumThreeHeaderLabel.AutoSize = true;
-            this.CollumThreeHeaderLabel.Location = new System.Drawing.Point(180, 12);
-            this.CollumThreeHeaderLabel.Name = "CollumThreeHeaderLabel";
-            this.CollumThreeHeaderLabel.Size = new System.Drawing.Size(38, 13);
-            this.CollumThreeHeaderLabel.TabIndex = 2;
-            this.CollumThreeHeaderLabel.Text = "triff ein";
-            // 
-            // CollumTwoHeaderLabel
-            // 
-            this.CollumTwoHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CollumTwoHeaderLabel.AutoSize = true;
-            this.CollumTwoHeaderLabel.Location = new System.Drawing.Point(110, 12);
-            this.CollumTwoHeaderLabel.Name = "CollumTwoHeaderLabel";
-            this.CollumTwoHeaderLabel.Size = new System.Drawing.Size(35, 13);
-            this.CollumTwoHeaderLabel.TabIndex = 1;
-            this.CollumTwoHeaderLabel.Text = "Name";
-            // 
-            // CollumOneHeaderLabel
-            // 
-            this.CollumOneHeaderLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CollumOneHeaderLabel.AutoSize = true;
-            this.CollumOneHeaderLabel.Location = new System.Drawing.Point(22, 12);
-            this.CollumOneHeaderLabel.Name = "CollumOneHeaderLabel";
-            this.CollumOneHeaderLabel.Size = new System.Drawing.Size(46, 13);
-            this.CollumOneHeaderLabel.TabIndex = 0;
-            this.CollumOneHeaderLabel.Text = "Nummer";
-            // 
-            // OrderSelectNumberLabel
-            // 
-            this.OrderSelectNumberLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OrderSelectNumberLabel.AutoSize = true;
-            this.OrderSelectNumberLabel.Location = new System.Drawing.Point(12, 47);
-            this.OrderSelectNumberLabel.Name = "OrderSelectNumberLabel";
-            this.OrderSelectNumberLabel.Size = new System.Drawing.Size(67, 13);
-            this.OrderSelectNumberLabel.TabIndex = 6;
-            this.OrderSelectNumberLabel.Text = "2016-01-999";
-            // 
-            // OrderSelectNameLabel
-            // 
-            this.OrderSelectNameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OrderSelectNameLabel.AutoSize = true;
-            this.OrderSelectNameLabel.Location = new System.Drawing.Point(106, 47);
-            this.OrderSelectNameLabel.Name = "OrderSelectNameLabel";
-            this.OrderSelectNameLabel.Size = new System.Drawing.Size(42, 13);
-            this.OrderSelectNameLabel.TabIndex = 9;
-            this.OrderSelectNameLabel.Text = "Spiegel";
-            // 
-            // OrderSelectIncomeLabel
-            // 
-            this.OrderSelectIncomeLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OrderSelectIncomeLabel.AutoSize = true;
-            this.OrderSelectIncomeLabel.Location = new System.Drawing.Point(174, 47);
-            this.OrderSelectIncomeLabel.Name = "OrderSelectIncomeLabel";
-            this.OrderSelectIncomeLabel.Size = new System.Drawing.Size(49, 13);
-            this.OrderSelectIncomeLabel.TabIndex = 8;
-            this.OrderSelectIncomeLabel.Text = "01.01.16";
-            // 
-            // OrderSelectOutLabel
-            // 
-            this.OrderSelectOutLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OrderSelectOutLabel.AutoSize = true;
-            this.OrderSelectOutLabel.Location = new System.Drawing.Point(242, 47);
-            this.OrderSelectOutLabel.Name = "OrderSelectOutLabel";
-            this.OrderSelectOutLabel.Size = new System.Drawing.Size(49, 13);
-            this.OrderSelectOutLabel.TabIndex = 7;
-            this.OrderSelectOutLabel.Text = "02.01.16";
-            // 
-            // OrderSelectNoteLabel
-            // 
-            this.OrderSelectNoteLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.OrderSelectNoteLabel.AutoSize = true;
-            this.OrderSelectNoteLabel.Location = new System.Drawing.Point(324, 47);
-            this.OrderSelectNoteLabel.Name = "OrderSelectNoteLabel";
-            this.OrderSelectNoteLabel.Size = new System.Drawing.Size(13, 13);
-            this.OrderSelectNoteLabel.TabIndex = 10;
-            this.OrderSelectNoteLabel.Text = "2";
-            // 
-            // OrderSelectPreviewButton
-            // 
-            this.OrderSelectPreviewButton.BackColor = System.Drawing.Color.Red;
-            this.OrderSelectPreviewButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OrderSelectPreviewButton.FlatAppearance.BorderSize = 0;
-            this.OrderSelectPreviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OrderSelectPreviewButton.Location = new System.Drawing.Point(362, 38);
-            this.OrderSelectPreviewButton.Margin = new System.Windows.Forms.Padding(0);
-            this.OrderSelectPreviewButton.Name = "OrderSelectPreviewButton";
-            this.OrderSelectPreviewButton.Size = new System.Drawing.Size(79, 32);
-            this.OrderSelectPreviewButton.TabIndex = 11;
-            this.OrderSelectPreviewButton.Text = "anzeigen";
-            this.OrderSelectPreviewButton.UseVisualStyleBackColor = false;
             // 
             // OrderTabLeftTopTableLayout
             // 
@@ -1947,14 +1789,14 @@ namespace View
             this.MainFrameTabControl.Size = new System.Drawing.Size(1362, 741);
             this.MainFrameTabControl.TabIndex = 0;
             // 
-            // OrderMaxProTimeInput
+            // SelectedOrderListBox
             // 
-            this.OrderMaxProTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderMaxProTimeInput.AutoSize = true;
-            this.OrderMaxProTimeInput.Location = new System.Drawing.Point(5, 7);
-            this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
-            this.OrderMaxProTimeInput.Size = new System.Drawing.Size(0, 13);
-            this.OrderMaxProTimeInput.TabIndex = 32;
+            this.SelectedOrderListBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SelectedOrderListBox.FormattingEnabled = true;
+            this.SelectedOrderListBox.Location = new System.Drawing.Point(3, 16);
+            this.SelectedOrderListBox.Name = "SelectedOrderListBox";
+            this.SelectedOrderListBox.Size = new System.Drawing.Size(443, 613);
+            this.SelectedOrderListBox.TabIndex = 0;
             // 
             // MainFrame
             // 
@@ -2016,8 +1858,6 @@ namespace View
             this.OrderRight2TableLayout.ResumeLayout(false);
             this.OrderTabLeftTableLayout.ResumeLayout(false);
             this.ActiveOrderGrpBox.ResumeLayout(false);
-            this.OrderSelectTableLayout.ResumeLayout(false);
-            this.OrderSelectTableLayout.PerformLayout();
             this.OrderTabLeftTopTableLayout.ResumeLayout(false);
             this.OrderTabLeftTopTableLayout.PerformLayout();
             this.MainFrameMenu.ResumeLayout(false);
@@ -2154,19 +1994,6 @@ namespace View
         private System.Windows.Forms.Button PrintLaufzettelButton;
         private System.Windows.Forms.TableLayoutPanel OrderTabLeftTableLayout;
         private System.Windows.Forms.GroupBox ActiveOrderGrpBox;
-        private System.Windows.Forms.TableLayoutPanel OrderSelectTableLayout;
-        private System.Windows.Forms.Label CollumSixHeaderLabel;
-        private System.Windows.Forms.Label CollumFiveHeaderLabel;
-        private System.Windows.Forms.Label CollumFourHeaderLabel;
-        private System.Windows.Forms.Label CollumThreeHeaderLabel;
-        private System.Windows.Forms.Label CollumTwoHeaderLabel;
-        private System.Windows.Forms.Label CollumOneHeaderLabel;
-        private System.Windows.Forms.Label OrderSelectNumberLabel;
-        private System.Windows.Forms.Label OrderSelectNameLabel;
-        private System.Windows.Forms.Label OrderSelectIncomeLabel;
-        private System.Windows.Forms.Label OrderSelectOutLabel;
-        private System.Windows.Forms.Label OrderSelectNoteLabel;
-        private System.Windows.Forms.Button OrderSelectPreviewButton;
         private System.Windows.Forms.TableLayoutPanel OrderTabLeftTopTableLayout;
         private System.Windows.Forms.TextBox OrderSelectFilterInput;
         private System.Windows.Forms.Label OrderSelectFilterLabel;
@@ -2183,6 +2010,7 @@ namespace View
         private System.Windows.Forms.Label EndMachineUsagesLabel;
         private System.Windows.Forms.Label endLabelDisplay;
         private System.Windows.Forms.Label OrderMaxProTimeInput;
+        private System.Windows.Forms.ListBox SelectedOrderListBox;
     }
 }
 

@@ -1,14 +1,7 @@
 ﻿using Braincase.GanttChart;
 using Repository.Persistence;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
@@ -31,6 +24,16 @@ namespace View
             DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
             DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
             initGant();
+
+            foreach (var item in _unit.Order.GetAll())
+            {
+                //Console.WriteLine(item.Details.Id);
+                if (item.OrderDetails != null)
+                {
+                    Console.WriteLine("asda");
+                    SelectedOrderListBox.Items.Add(item.OrderDetails.OrderNumber);
+                }
+            }
         }
         /*
         ORDER PART

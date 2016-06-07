@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c691365ca4ba41ea9a9495e796ad0790" Name="Diagram1">
+        <EntityTypeShape EntityType="DataContextModel.Adress" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.ContactPerson" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.Customer" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.CustomerObject" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.EdvActions" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.Machine" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.MachineTask" Width="1.5" PointX="10.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.Order" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.OrderDetails" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.ProductionActions" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.User" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_ContactPerson_dbo_Adress_adress_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_OrderDetails_dbo_Adress_RemainsToo_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_OrderDetails_dbo_Customer_Customer_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_Machine_dbo_EdvActions_EdvActions_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_Order_dbo_EdvActions_EdvActions_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_MachineTask_dbo_Machine_machine_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_Order_dbo_OrderDetails_Details_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_Order_dbo_ProductionActions_ProductionActions_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="DataContextModel.FK_dbo_OrderDetails_dbo_User_Editor_Id" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

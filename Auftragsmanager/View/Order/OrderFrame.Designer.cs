@@ -34,6 +34,7 @@
             this.AuftragsNrLabel = new System.Windows.Forms.Label();
             this.AuftragLabel = new System.Windows.Forms.Label();
             this.OrderNameInput = new System.Windows.Forms.TextBox();
+            this.OrderNumberInput = new System.Windows.Forms.Label();
             this.FunctionGrpBox = new System.Windows.Forms.GroupBox();
             this.OrderRight2TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.ExportButton = new System.Windows.Forms.Button();
@@ -125,7 +126,6 @@
             this.EndMachineUsagesLabel = new System.Windows.Forms.Label();
             this.StartMachineUsagesDateTimeInput = new System.Windows.Forms.DateTimePicker();
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
-            this.OrderNumberInput = new System.Windows.Forms.Label();
             this.TopRightTableLayout.SuspendLayout();
             this.ImportantInfo2GrpBox.SuspendLayout();
             this.OrderRight1TableLayout.SuspendLayout();
@@ -218,6 +218,15 @@
             this.OrderNameInput.Name = "OrderNameInput";
             this.OrderNameInput.Size = new System.Drawing.Size(132, 20);
             this.OrderNameInput.TabIndex = 4;
+            // 
+            // OrderNumberInput
+            // 
+            this.OrderNumberInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.OrderNumberInput.AutoSize = true;
+            this.OrderNumberInput.Location = new System.Drawing.Point(140, 55);
+            this.OrderNumberInput.Name = "OrderNumberInput";
+            this.OrderNumberInput.Size = new System.Drawing.Size(0, 13);
+            this.OrderNumberInput.TabIndex = 12;
             // 
             // FunctionGrpBox
             // 
@@ -1230,15 +1239,6 @@
             this.MainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 273F));
             this.MainTableLayout.Size = new System.Drawing.Size(1160, 635);
             this.MainTableLayout.TabIndex = 0;
-            // 
-            // OrderNumberInput
-            // 
-            this.OrderNumberInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.OrderNumberInput.AutoSize = true;
-            this.OrderNumberInput.Location = new System.Drawing.Point(140, 55);
-            this.OrderNumberInput.Name = "OrderNumberInput";
-            this.OrderNumberInput.Size = new System.Drawing.Size(0, 13);
-            this.OrderNumberInput.TabIndex = 12;
             // 
             // OrderFrame
             // 

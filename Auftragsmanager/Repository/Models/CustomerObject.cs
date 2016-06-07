@@ -12,20 +12,9 @@ namespace Repository.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Machine
+    public partial class CustomerObject
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Machine()
-        {
-            this.MachineTask = new HashSet<MachineTask>();
-        }
-    
         public System.Guid Id { get; set; }
         public string Name { get; set; }
-        public Nullable<System.Guid> EdvActions_Id { get; set; }
-    
-        public virtual EdvActions EdvActions { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MachineTask> MachineTask { get; set; }
     }
 }

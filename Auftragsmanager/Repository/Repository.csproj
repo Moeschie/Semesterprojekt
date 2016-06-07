@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Repository</RootNamespace>
     <AssemblyName>Repository</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -45,6 +46,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,13 +57,56 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\MachineTasks.cs" />
-    <Compile Include="Models\OrderDetails.cs" />
-    <Compile Include="Models\ProductionActions.cs" />
-    <Compile Include="Models\EdvActions.cs" />
-    <Compile Include="Models\ContactPerson.cs" />
+    <Compile Include="Migrations\Configuartion.cs" />
+    <Compile Include="Models\Adress.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContactPerson.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomerObject.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EdvActions.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Machine.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MachineTask.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderDetails.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductionActions.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Session.cs" />
+    <Compile Include="Models\User.cs">
+      <DependentUpon>DataContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\Files\IFilesRepository.cs" />
     <Compile Include="Repositories\Files\FilesRepository.cs" />
     <Compile Include="Repositories\Machine\IMachineTaskRepository.cs" />
@@ -71,33 +117,50 @@
     <Compile Include="Repositories\Utilities\IUtilitiesRepository.cs" />
     <Compile Include="Repositories\ContactPerson\ContactPersonRepository.cs" />
     <Compile Include="Repositories\ContactPerson\IContactPersonRepository.cs" />
-    <Compile Include="Common\DataContext.cs" />
     <Compile Include="Common\IRepository.cs" />
     <Compile Include="Common\IUnit.cs" />
     <Compile Include="Common\Unit.cs" />
-    <Compile Include="Repositories\Customer\CustomerObject.cs" />
     <Compile Include="Repositories\Customer\ICustomerRepository.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Repositories\Customer\CustomerRepository.cs" />
     <Compile Include="Repositories\Machine\IMachineRepository.cs" />
-    <Compile Include="Models\Machine.cs" />
     <Compile Include="Repositories\Machine\MachineRepository.cs" />
     <Compile Include="Repositories\Adress\IAdressRepository.cs" />
-    <Compile Include="Models\Adress.cs" />
     <Compile Include="Repositories\Adress\AdressRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\Repository.cs" />
     <Compile Include="Repositories\Order\IOrderRepository.cs" />
-    <Compile Include="Models\Order.cs" />
     <Compile Include="Repositories\Order\OrderRepository.cs" />
     <Compile Include="Repositories\Session\ISessionRepository.cs" />
     <Compile Include="Repositories\Session\SessionRepository.cs" />
     <Compile Include="Repositories\User\IUserRepository.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Models\DataContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\DataContext.edmx.diagram">
+      <DependentUpon>DataContext.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\DataContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataContext.edmx</DependentUpon>
+      <LastGenOutput>DataContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataContext.edmx.sql" />
+    <Content Include="Models\DataContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataContext.edmx</DependentUpon>
+      <LastGenOutput>DataContext.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

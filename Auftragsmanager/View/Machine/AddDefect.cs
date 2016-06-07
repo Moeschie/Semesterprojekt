@@ -1,4 +1,4 @@
-﻿using Repository.Model;
+﻿using Repository.Models;
 using Repository.Persistence;
 using Repository.Persistence.Utilities;
 using System;
@@ -56,8 +56,8 @@ namespace View
             machinetask.title = AddDefectTitleTextBox.Text;
             machinetask.UsageStart = AddDefectStartDateTimePicker.Text;
             machinetask.UsageEnd = AddDefectEndDateTimePicker.Text;      
-            machinetask.machine = new Machine();
-            machinetask.machine.Name = AddDefectSelectMashineComboBox.Text;
+            machinetask.Machine = new Machine();
+            machinetask.Machine.Name = AddDefectSelectMashineComboBox.Text;
             if (f.Validate())
             {
             _unit.MachineTask.Add(machinetask);

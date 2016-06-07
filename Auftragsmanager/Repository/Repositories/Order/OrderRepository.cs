@@ -1,5 +1,5 @@
 ﻿using Repository.Core;
-using Repository.Model;
+using Repository.Models;
 using System.Data.Entity;
 using System.Linq;
 using System;
@@ -32,7 +32,7 @@ namespace Repository.Persistence
         public string orderIDgen()
         {
             string timeString = DateTime.Now.ToString("yyyy-MM");
-            count = GetAll().Count(o => o.Details.OrderNumber.StartsWith(timeString))+1;
+            count = GetAll().Count(o => o.OrderDetails.OrderNumber.StartsWith(timeString)) + 1;
             string orderID = timeString + "-" + count; 
             return orderID;
         }

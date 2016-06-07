@@ -1,11 +1,11 @@
-namespace Repository.Migrations
+﻿namespace Repository.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Repository.Persistence.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Repository.Models.DataContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@ namespace Repository.Migrations
             ContextKey = "Repository.Persistence.DataContext";
         }
 
-        protected override void Seed(Repository.Persistence.DataContext context)
+        protected override void Seed(Repository.Models.DataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

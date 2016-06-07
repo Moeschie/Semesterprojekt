@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Repository.Persistence;
+using Repository.Models;
 
 namespace View
 {
@@ -21,7 +22,7 @@ namespace View
 
                 if (!unit.User.CheckUserExists("admin"))
                 {
-                    var admin = new Repository.Model.User();
+                    var admin = new Repository.Models.User();
                     admin.Password = "admin";
                     admin.Username = "admin";
                     admin.AccessLevel = 9999;

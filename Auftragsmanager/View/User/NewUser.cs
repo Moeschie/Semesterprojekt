@@ -1,6 +1,6 @@
 ﻿using Repository.Persistence;
 using Repository.Persistence.Utilities;
-using Repository.Model;
+using Repository.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

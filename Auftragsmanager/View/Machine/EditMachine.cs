@@ -1,4 +1,4 @@
-﻿using Repository.Model;
+﻿using Repository.Models;
 using Repository.Persistence;
 using Repository.Persistence.Utilities;
 using System;

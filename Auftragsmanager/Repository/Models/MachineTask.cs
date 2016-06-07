@@ -12,18 +12,15 @@ namespace Repository.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class MachineTask
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
-        {
-            this.OrderDetails = new HashSet<OrderDetails>();
-        }
-    
         public System.Guid Id { get; set; }
-        public string Name { get; set; }
+        public string UsageStart { get; set; }
+        public string UsageEnd { get; set; }
+        public string title { get; set; }
+        public string type { get; set; }
+        public Nullable<System.Guid> machine_Id { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
+        public virtual Machine Machine { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Repository.Core;
-using Repository.Model;
+using Repository.Models;
 using System.Data.Entity;
 using System.Linq;
 using System;

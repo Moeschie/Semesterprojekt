@@ -35,7 +35,7 @@ namespace View
         {
             instance = null;
         }
-
+        
         public static FilebrowserFrame Instance(Unit unit)
         {
             if (instance == null)

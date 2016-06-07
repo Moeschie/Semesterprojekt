@@ -1,5 +1,5 @@
 ﻿using Repository.Core;
-using Repository.Model;
+using Repository.Models;
 using System.Data.Entity;
 using System.Linq;
 using System;
@@ -69,7 +69,7 @@ namespace Repository.Persistence
 
                 usagesChart.SetToolTip(AddMachine, string.Join(", ", GanttContent.ResourcesOf(AddMachine).Select(x => (x as MyResource).Name)));
 
-                foreach (var machineTask in machineTasks.GetAll().Where(m=>m.machine.Id == machine.Id).ToList())
+                foreach (var machineTask in machineTasks.GetAll().Where(m=>m.Machine.Id == machine.Id).ToList())
                 {   
                     DateTime machineTaskSart = DateTime.Parse(machineTask.UsageStart);
                     DateTime machineTaskEnd = DateTime.Parse(machineTask.UsageEnd);
