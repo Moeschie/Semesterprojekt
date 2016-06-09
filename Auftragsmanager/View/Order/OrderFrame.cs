@@ -22,6 +22,7 @@ namespace View
       //  List<Guid> guidList = new List<Guid>();
 
         private static OrderFrame instance;
+        private static bool UpdateState;
 
         private OrderFrame(Unit unit)
         {
@@ -32,7 +33,8 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            OrderNumberInput.Text = _unit.Order.orderIDgen();
+            if(!UpdateState)
+                OrderNumberInput.Text = _unit.Order.orderIDgen();
             StartMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
             StartMachineUsagesDateTimeInput.Format = DateTimePickerFormat.Custom;
             EndMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
@@ -63,6 +65,26 @@ namespace View
             instance.BringToFront();
             return instance;
         }
+
+        internal static OrderFrame Instance(Unit unit, string v)
+        {
+            if (instance == null)
+            {
+                instance = new OrderFrame(unit);
+            }
+            instance.BringToFront();
+            instance.EditFields(v);
+            return instance;
+        }
+
+        private void EditFields(string v)
+        {
+            Order editOrder = _unit.Order.GetOrderById(v);
+            OrderNumberInput.Text = editOrder.OrderDetails.OrderNumber;
+            UpdateState = true;
+
+        }
+
         private void AddOrder(object sender, EventArgs e)
         {
 
@@ -142,9 +164,6 @@ namespace View
 
             if (!save)
                 SaveOrder();
-            
-
-
 
             if (save)
                 UpdateOrder();
@@ -213,5 +232,7 @@ namespace View
             filebrowserframe.Show();
 
         }
+
+
     }
 }

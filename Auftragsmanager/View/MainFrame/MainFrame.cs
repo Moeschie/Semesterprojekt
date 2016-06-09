@@ -246,5 +246,11 @@ namespace View
         {
             DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
         }
+
+        private void Editbutton_Click(object sender, EventArgs e)
+        {
+            OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
+            newOrder.Show();
+        }
     }
 }

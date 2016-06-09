@@ -1542,6 +1542,7 @@ namespace View
             this.Editbutton.TabIndex = 15;
             this.Editbutton.Text = "Bearbeiten";
             this.Editbutton.UseVisualStyleBackColor = true;
+            this.Editbutton.Click += new System.EventHandler(this.Editbutton_Click);
             // 
             // StatusChangeButton
             // 
