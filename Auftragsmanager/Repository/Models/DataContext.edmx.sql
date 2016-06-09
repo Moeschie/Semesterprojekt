@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/07/2016 19:58:06
--- Generated from EDMX file: C:\Users\mschl\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
+-- Date Created: 06/09/2016 22:58:32
+-- Generated from EDMX file: C:\Users\Chris\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -155,7 +155,8 @@ CREATE TABLE [dbo].[Order] (
     [Id] uniqueidentifier  NOT NULL,
     [Details_Id] uniqueidentifier  NULL,
     [EdvActions_Id] uniqueidentifier  NULL,
-    [ProductionActions_Id] uniqueidentifier  NULL
+    [ProductionActions_Id] uniqueidentifier  NULL,
+    [Versionierung] int  NULL
 );
 GO
 

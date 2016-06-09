@@ -22,7 +22,7 @@ namespace View
       //  List<Guid> guidList = new List<Guid>();
 
         private static OrderFrame instance;
-        private static bool UpdateState;
+        private bool UpdateState;
 
         private OrderFrame(Unit unit)
         {
@@ -35,6 +35,7 @@ namespace View
             this.MinimizeBox = false;
             if(!UpdateState)
                 OrderNumberInput.Text = _unit.Order.orderIDgen();
+
             StartMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
             StartMachineUsagesDateTimeInput.Format = DateTimePickerFormat.Custom;
             EndMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
@@ -217,6 +218,8 @@ namespace View
 
                 if (f.Validate())
                 {
+                order.Versionierung =  _unit.Order.Find(o => o.OrderDetails.OrderNumber == OrderNumberInput.Text).Count() + 1;
+
                 save = true;
                 order.Id = Guid.NewGuid();
                 OrderNumber = order.Id;

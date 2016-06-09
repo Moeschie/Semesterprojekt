@@ -32,7 +32,7 @@ namespace Repository.Persistence
         public string orderIDgen()
         {
             string timeString = DateTime.Now.ToString("yyyy-MM");
-            count = GetAll().Count(o => o.OrderDetails.OrderNumber.StartsWith(timeString)) + 1;
+            count = GetAllByGroup().Count(o => o.OrderDetails.OrderNumber.StartsWith(timeString)) + 1;
             string orderID = timeString + "-" + count; 
             return orderID;
         }
@@ -41,7 +41,7 @@ namespace Repository.Persistence
         {
             string[] substring = orderID.Split('|');
             orderID = substring[0].Replace(" ", string.Empty);
-            return GetAll().Where(u => u.OrderDetails.OrderNumber == orderID).First();
+            return GetAllByGroup().Where(u => u.OrderDetails.OrderNumber == orderID).First();
 
         }
 
@@ -58,7 +58,8 @@ namespace Repository.Persistence
             {
                 string kw = i.keyword;
                 List<Order> nOList = GetAll().Where(u => u.OrderDetails.OrderNumber == kw).ToList();
-                GroupOrders.Add(nOList.Last());
+                Order newest = nOList.Where(u => u.Versionierung == nOList.Count).Single();
+                GroupOrders.Add(newest);
             }
             return SortList(GroupOrders);
         }
