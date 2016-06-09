@@ -1706,6 +1706,7 @@ namespace View
             this.SelectedOrderListBox.Name = "SelectedOrderListBox";
             this.SelectedOrderListBox.Size = new System.Drawing.Size(338, 613);
             this.SelectedOrderListBox.TabIndex = 0;
+            this.SelectedOrderListBox.SelectedIndexChanged += new System.EventHandler(this.SelectedOrderListBox_SelectedIndexChanged);
             // 
             // OrderTabLeftTopTableLayout
             // 

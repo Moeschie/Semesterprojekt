@@ -242,5 +242,9 @@ namespace View
             newUser.Show();
         }
 
+        private void SelectedOrderListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
+        }
     }
 }
