@@ -48,33 +48,52 @@ namespace Repository.Persistence
         public List<Order> GetAllByGroup()
         {
             List<Order> GroupOrders = new List<Order>();
-
             var Groups = GetAll().GroupBy(w => w.OrderDetails.OrderNumber)
-            .Select(g => new
-            {
-                keyword = g.Key,
-                RecordIDs = g.Select(c => c.Id)
-            }).ToList();
-
+                .Select(g => new
+                {
+                    keyword = g.Key,
+                    RecordIDs = g.Select(c => c.Id)
+                }).ToList();
             foreach(var i in Groups)
             {
-                Debug.WriteLine(i.keyword);
-                foreach(var n in i.RecordIDs.ToList())
+                string kw = i.keyword;
+                List<Order> nOList = GetAll().Where(u => u.OrderDetails.OrderNumber == kw).ToList();
+                GroupOrders.Add(nOList.Last());
+            }
+            return SortList(GroupOrders);
+        }
+
+        public List<Order> SortList(List<Order> list)
+        {
+            List<Order> tempList = list;
+            Dictionary<int, Order> dic = new Dictionary<int, Order>();
+            foreach (var tl in list)
+            {
+                string s = tl.OrderDetails.OrderNumber.Replace(" ", string.Empty);
+                Debug.WriteLine(s);
+
+                var lastnum = s.Split('-');
+                int x;
+                if(lastnum.Length >= 3)
                 {
-                    Order nO = GetAll().Where(u => u.Id ==  n).Last();
-                    bool test = false;
-                    foreach(var go in GroupOrders)
+                    if(Int32.TryParse(lastnum[2], out x))
                     {
-                        if (go.OrderDetails.OrderNumber == nO.OrderDetails.OrderNumber)
-                            test = true;
+                        dic.Add(x, tl);
                     }
-                    if(!test)
-                        GroupOrders.Add(nO);
                 }
+
+
+            }
+            var sortedDict = from entry in dic orderby entry.Key ascending select entry;
+            Debug.WriteLine(sortedDict.Count());
+            list.Clear();
+            foreach (KeyValuePair<int, Order> entry in sortedDict)
+            {
+                list.Add(entry.Value);
             }
 
-
-            return GroupOrders;
+            return list;
         }
+
     }
 }
