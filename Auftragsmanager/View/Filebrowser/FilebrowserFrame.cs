@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Repository.Persistence;
-using System.Configuration;
 
 namespace View
 {
@@ -30,12 +22,12 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-        }   
+        }
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             instance = null;
         }
-        
+
         public static FilebrowserFrame Instance(Unit unit)
         {
             if (instance == null)
@@ -55,7 +47,7 @@ namespace View
             {
                 MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
         private void FileUploadButton_Click(object sender, EventArgs e)
         {
             if (FileDialog.ShowDialog(this) == DialogResult.OK)
@@ -74,7 +66,7 @@ namespace View
             {
                 MessageBox.Show("Es muss erst eine Datei ausgewählt werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
         }
         private void FileSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
@@ -91,7 +83,7 @@ namespace View
                 {
                     FileDisplayListBox.Items.Add(Path.GetFileName(file));
                 }
-            }         
+            }
         }
     }
 }
