@@ -2,6 +2,7 @@
 using Repository.Models;
 using Repository.Persistence;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
@@ -115,9 +116,10 @@ namespace View
         private void DisplayOrderFolder(string Filter)
         {
             SelectedOrderListBox.Items.Clear();
-            if (_unit.Order.GetAll() != null)
+            List<Order> orders = _unit.Order.GetAllByGroup();
+            if (orders != null)
             {
-                foreach (var item in _unit.Order.GetAll())
+                foreach (var item in orders)
                 {
                     if (item.OrderDetails.OrderName.Contains(Filter) || item.OrderDetails.OrderNumber.Contains(Filter) || item.OrderDetails.Customer.Name.Contains(Filter))
                     {

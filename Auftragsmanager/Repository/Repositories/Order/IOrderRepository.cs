@@ -12,5 +12,6 @@ namespace Repository.Core
         Order GetOrderById(Guid id);
         string orderIDgen();
         Order GetOrderById(string orderID);
+        List<Order> GetAllByGroup();
     }
 }

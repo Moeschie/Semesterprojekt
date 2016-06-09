@@ -44,5 +44,37 @@ namespace Repository.Persistence
             return GetAll().Where(u => u.OrderDetails.OrderNumber == orderID).First();
 
         }
+
+        public List<Order> GetAllByGroup()
+        {
+            List<Order> GroupOrders = new List<Order>();
+
+            var Groups = GetAll().GroupBy(w => w.OrderDetails.OrderNumber)
+            .Select(g => new
+            {
+                keyword = g.Key,
+                RecordIDs = g.Select(c => c.Id)
+            }).ToList();
+
+            foreach(var i in Groups)
+            {
+                Debug.WriteLine(i.keyword);
+                foreach(var n in i.RecordIDs.ToList())
+                {
+                    Order nO = GetAll().Where(u => u.Id ==  n).Last();
+                    bool test = false;
+                    foreach(var go in GroupOrders)
+                    {
+                        if (go.OrderDetails.OrderNumber == nO.OrderDetails.OrderNumber)
+                            test = true;
+                    }
+                    if(!test)
+                        GroupOrders.Add(nO);
+                }
+            }
+
+
+            return GroupOrders;
+        }
     }
 }
