@@ -2,6 +2,7 @@
 using Repository.Models;
 using Repository.Persistence;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -14,6 +15,7 @@ namespace View
         {
             _unit = unit;
             InitializeComponent();
+
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += closeEvent;
             this.Show();
@@ -28,7 +30,7 @@ namespace View
                 SelectedOrderListBox.SetSelected(0, true);
                 DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
             }
-            
+
             initGant();
         }
         /*
@@ -36,18 +38,24 @@ namespace View
          */
         private void DisplaySelectedOrder(string orderID)
         {
-            string[] substring = orderID.Split('|');
-            //Order order = _unit.Order.Find(o => o.OrderDetails.OrderNumber == substring[0].ToString());
+
             
-           
+
+
+            Order order = _unit.Order.GetOrderById(orderID);
+
+
+            if(order != null)
+            {
+
             //TOP LEFT
-            OrderIncomeDateInput.Text = "";
-            OrderIncomeTimeInput.Text = "";
-            OrderDeadlineInput.Text = "";
-            OrderEditionInput.Text = "";
+            //  OrderIncomeDateInput.Text = order.OrderDetails.OrderNumber;
+            OrderIncomeTimeInput.Text = order.OrderDetails.IncomeTime;
+            OrderDeadlineInput.Text = order.OrderDetails.Deadline;
+            OrderEditionInput.Text = order.OrderDetails.OrderEdition;
             //TOP RIGHT
-            OrderNameInput.Text = substring[1].ToString();
-            OrderNumberInput.Text = substring[0].ToString();
+            OrderNameInput.Text = order.OrderDetails.OrderName;
+            OrderNumberInput.Text = order.OrderDetails.OrderNumber;
             //MID LEFT
             OrderCustomerInput.Text = "";
             OrderObjectInput.Text = "";
@@ -57,31 +65,35 @@ namespace View
             OrderInlandInput.Text = "";
             OrderForeignInput.Text = "";
             OrderRemainsInput.Text = "";
-            //MID RIGHT
-            OrderEDVJob1Input.Text = "";
-            OrderEDVJob2Input.Text = "";
-            OrderEDVJob3Input.Text = "";
-            OrderEDVJob4Input.Text = "";
-            OrderEDVJob5Input.Text = "";
-            OrderEDVJob6Input.Text = "";
-            MaschineSelectInput.Text = "";
-            OrderMaxProTimeInput.Text = "";
-            StartLabelDisplay.Text = "";
-            endLabelDisplay.Text = "";
+                //MID RIGHT
+            string[] edvActions = order.EdvActions.Actions.Split('|');
+            OrderEDVJob1Input.Text = edvActions[0];
+            OrderEDVJob2Input.Text = edvActions[1];
+            OrderEDVJob3Input.Text = edvActions[2];
+            OrderEDVJob4Input.Text = edvActions[3];
+            OrderEDVJob5Input.Text = edvActions[4];
+            OrderEDVJob6Input.Text = edvActions[5];
+            MaschineSelectInput.Text = "Machine";
+            OrderMaxProTimeInput.Text = "OrderMaxProTime";
+            StartLabelDisplay.Text = "startLabel";
+            endLabelDisplay.Text = "endLabel";
             //BOT LEFT
-            OrderInfoInput.Text = "";
-            OrderBillInput.Text = "";
-            OrderMaterialInput.Text = "";
-            //BOT RIGHT
-            OrderProJob1Input.Text = "";
-            OrderProJob2Input.Text = "";
-            OrderProJob3Input.Text = "";
-            OrderProJob4Input.Text = "";
-            OrderProJob5Input.Text = "";
-            OrderProJob6Input.Text = "";
+            OrderInfoInput.Text = order.OrderDetails.AdditionalInformation;
+            OrderBillInput.Text = order.OrderDetails.BillTo;
+            OrderMaterialInput.Text = order.OrderDetails.Material;
+                //BOT RIGHT
+            string[] actions = order.ProductionActions.value.Split('|');
+            OrderProJob1Input.Text = actions[0];
+            OrderProJob2Input.Text = actions[1];
+            OrderProJob3Input.Text = actions[2];
+            OrderProJob4Input.Text = actions[3];
+            OrderProJob5Input.Text = actions[4];
+            OrderProJob6Input.Text = actions[5];
             kuvertierenCBInput.Checked = true;
             inkenCBInput.Checked = true;
             folierenCBInput.Checked = true;
+            }
+
         }
 
         /*

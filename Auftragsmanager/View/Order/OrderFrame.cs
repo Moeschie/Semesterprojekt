@@ -95,9 +95,7 @@ namespace View
             od.SplitForeinLand = OrderInlandInput.Text;
             od.SplitHomeLand = OrderInlandInput.Text;
             od.Adress = new Adress();
-
             od.Adress.Id = Guid.NewGuid();
-
             od.Adress.Name = OrderConsultantInput.Text;
             od.Foreign = OrderForeignInput.Text;
             od.AdditionalInformation = OrderInfoInput.Text;
@@ -117,12 +115,10 @@ namespace View
             data[3] = OrderEDVJob4Input.Text;
             data[4] = OrderEDVJob5Input.Text;
             data[5] = OrderEDVJob6Input.Text;
-            edv.Actions = data.ToString();
+            edv.Actions = data[0] + "|" + data[1] + "|" + data[2] + "|" + data[3] + "|" + data[4] + "|" + data[5];
 
             ProductionActions pa = new ProductionActions();
-
             pa.Id = Guid.NewGuid();
-
             string[] proData = new string[6];
             proData[0] = OrderProJob1Input.Text;
             proData[1] = OrderProJob2Input.Text;
@@ -130,7 +126,8 @@ namespace View
             proData[3] = OrderProJob4Input.Text;
             proData[4] = OrderProJob5Input.Text;
             proData[5] = OrderProJob6Input.Text;
-            pa.value = proData.ToString();
+            pa.value = proData[0]+"|"+ proData[1] + "|" + proData[2] + "|" + proData[3] + "|" + proData[4] + "|" + proData[5];
+
             pa.Insert = OrderInsertInput.Text;
             pa.InsertKind = OrderInsertKindInput.Text;
             pa.Kuvert = kuvertierenCBInput.Checked;

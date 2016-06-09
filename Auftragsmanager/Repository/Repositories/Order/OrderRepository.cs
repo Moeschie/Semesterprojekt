@@ -36,5 +36,13 @@ namespace Repository.Persistence
             string orderID = timeString + "-" + count; 
             return orderID;
         }
+
+        public Order GetOrderById(string orderID)
+        {
+            string[] substring = orderID.Split('|');
+            orderID = substring[0].Replace(" ", string.Empty);
+            return GetAll().Where(u => u.OrderDetails.OrderNumber == orderID).First();
+
+        }
     }
 }
