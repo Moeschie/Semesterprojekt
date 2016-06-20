@@ -1,4 +1,8 @@
 # Semester Project
+#ABSCHLUSS:
+- Zeitplanungs Tabelle, Meilensteine etc
+- Allgememeine Bedinungsanleitung
+- Architektur Dokumentation
 
 #TODO:
 - Arbeitsmappe Objekt - In DB [Erledigt / Chris]
