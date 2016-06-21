@@ -33,15 +33,13 @@ namespace Repository.Persistence
 
         public void PrintOrder(String orderID)
         {
-            string[] substring = orderID.Split('|');
-            orderID = substring[0].Replace(" ", string.Empty);
+            orderID = SplitOrderID(orderID);
             HtmlToPdf converter = new HtmlToPdf();
             converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
             Order o = GetOrderById(orderID);
             PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(o), null);
             doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, "Laufzettel_"+orderID+".pdf"));
             doc.Close();
-            Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"],orderID, "Laufzettel_" + orderID + ".pdf"));
         }
 
         public DataContext DataContext
@@ -57,10 +55,8 @@ namespace Repository.Persistence
         }
         public Order GetOrderById(string orderID)
         {
-            string[] substring = orderID.Split('|');
-            orderID = substring[0].Replace(" ", string.Empty);
+            orderID = SplitOrderID(orderID);
             return GetAllByGroup().Where(u => u.OrderDetails.OrderNumber == orderID).First();
-
         }
 
         public List<Order> GetAllByGroup()
@@ -116,6 +112,12 @@ namespace Repository.Persistence
         {
             GetOrderById(orderID).Occupied = !GetOrderById(orderID).Occupied;
             _context.SaveChanges();   
+        }
+
+        public string SplitOrderID(string orderID)
+        {
+            string[] substring = orderID.Split('|');
+            return substring[0].Replace(" ", string.Empty);
         }
     }
 }

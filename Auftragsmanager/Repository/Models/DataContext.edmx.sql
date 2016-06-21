@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/21/2016 22:25:54
+-- Date Created: 06/22/2016 00:07:13
 -- Generated from EDMX file: C:\Users\mschl\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
 -- --------------------------------------------------
 
@@ -164,7 +164,7 @@ GO
 -- Creating table 'OrderDetails'
 CREATE TABLE [dbo].[OrderDetails] (
     [Id] uniqueidentifier  NOT NULL,
-    [Object] nvarchar(max)  NULL,
+    [ObjectTitel] nvarchar(max)  NULL,
     [OverallQuantity] int  NOT NULL,
     [Foreign] nvarchar(max)  NULL,
     [SplitForeinLand] nvarchar(max)  NULL,
@@ -184,7 +184,8 @@ CREATE TABLE [dbo].[OrderDetails] (
     [ProductionStart] nvarchar(max)  NULL,
     [ProductionEnd] nvarchar(max)  NULL,
     [ProductionTimespan] nvarchar(max)  NULL,
-    [RemainsToo] nvarchar(max)  NOT NULL
+    [RemainsToo] nvarchar(max)  NOT NULL,
+    [Consultant] nvarchar(max)  NOT NULL
 );
 GO
 

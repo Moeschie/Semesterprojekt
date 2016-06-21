@@ -3,6 +3,7 @@ using Repository.Models;
 using Repository.Persistence;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -62,7 +63,7 @@ namespace View
 
                 //TOP LEFT
                 //  OrderIncomeDateInput.Text = order.OrderDetails.OrderNumber;
-                OrderIncomeTimeInput.Text = order.OrderDetails.IncomeTime;
+                OrderIncomeDateInput.Text = order.OrderDetails.IncomeDate;
                 OrderDeadlineInput.Text = order.OrderDetails.Deadline;
                 OrderEditionInput.Text = order.OrderDetails.OrderEdition;
                 //TOP RIGHT
@@ -70,9 +71,9 @@ namespace View
                 OrderNumberInput.Text = order.OrderDetails.OrderNumber;
                 //MID LEFT
                 OrderCustomerInput.Text = order.OrderDetails.Customer.Name;
-                OrderObjectInput.Text = order.OrderDetails.Object;
-                OrderConsultantInput.Text = order.OrderDetails.Customer.Name;
-                OrderEditorInput.Text = order.OrderDetails.OrderEdition;
+                OrderObjectInput.Text = order.OrderDetails.ObjectTitel;                
+                OrderConsultantInput.Text = order.OrderDetails.Consultant;
+                OrderEditorInput.Text = order.OrderDetails.User.Username;
                 OrderQuantityInput.Text = order.OrderDetails.OverallQuantity.ToString();
                 OrderInlandInput.Text = order.OrderDetails.SplitForeinLand;
                 OrderForeignInput.Text = order.OrderDetails.Foreign;
@@ -103,6 +104,8 @@ namespace View
                 OrderProJob4Input.Text = actions[3];
                 OrderProJob5Input.Text = actions[4];
                 OrderProJob6Input.Text = actions[5];
+                OrderInsertInput.Text = order.ProductionActions.Insert;
+                OrderInsertKindInput.Text = order.ProductionActions.InsertKind;
                 kuvertierenCBInput.Checked = order.ProductionActions.Kuvert;
                 inkenCBInput.Checked = order.ProductionActions.Ink;
                 folierenCBInput.Checked = order.ProductionActions.folieren;
@@ -271,14 +274,20 @@ namespace View
             {
                 if (!_unit.Order.Occupied(SelectedOrderListBox.SelectedItem.ToString()))
                 {
-                    _unit.Order.SetOccupied(SelectedOrderListBox.SelectedItem.ToString());
-                    OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
-                    newOrder.Show();
+                        _unit.Order.SetOccupied(SelectedOrderListBox.SelectedItem.ToString());
+                        OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
+                        newOrder.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Diese Mappe wird zur Zeit bearbeitet!", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (MessageBox.Show("Diese Mappe wird bearbeitet, wollen sie fortfahren?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        _unit.Order.SetOccupied(SelectedOrderListBox.SelectedItem.ToString());
+                        OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
+                        newOrder.Show();
+                    }
                 }
+
             }
         }
 
@@ -288,7 +297,9 @@ namespace View
 
         private void PrintLaufzettelButton_Click(object sender, EventArgs e)
         {
+            string v = _unit.Order.SplitOrderID(SelectedOrderListBox.SelectedItem.ToString());
             _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString());
+            Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], v, "Laufzettel_" + v + ".pdf"));
         }
     }
 }

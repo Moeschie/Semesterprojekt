@@ -16,5 +16,6 @@ namespace Repository.Core
         void PrintOrder(string orderID);
         bool Occupied(string orderID);
         void SetOccupied(string orderID);
+        string SplitOrderID(string orderID);
     }
 }

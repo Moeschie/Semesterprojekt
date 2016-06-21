@@ -133,7 +133,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Object" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ObjectTitel" Type="nvarchar(max)" Nullable="true" />
     <Property Name="OverallQuantity" Type="int" Nullable="false" />
     <Property Name="Foreign" Type="nvarchar(max)" Nullable="true" />
     <Property Name="SplitForeinLand" Type="nvarchar(max)" Nullable="true" />
@@ -154,6 +154,7 @@
     <Property Name="ProductionEnd" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ProductionTimespan" Type="nvarchar(max)" Nullable="true" />
     <Property Name="RemainsToo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Consultant" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductionActions">
     <Key>
@@ -381,7 +382,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Object" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ObjectTitel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="OverallQuantity" Type="Int32" Nullable="false" />
           <Property Name="Foreign" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SplitForeinLand" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -406,6 +407,7 @@
           <Property Name="ProductionEnd" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ProductionTimespan" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="RemainsToo" Type="String" Nullable="false" FixedLength="false" MaxLength="Max" Unicode="true" />
+          <Property Name="Consultant" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="ProductionActions">
           <Key>
@@ -681,7 +683,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(DataContextModel.OrderDetails)">
         <MappingFragment StoreEntitySet="OrderDetails">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Object" ColumnName="Object" />
+          <ScalarProperty Name="ObjectTitel" ColumnName="ObjectTitel" />
           <ScalarProperty Name="OverallQuantity" ColumnName="OverallQuantity" />
           <ScalarProperty Name="Foreign" ColumnName="Foreign" />
           <ScalarProperty Name="SplitForeinLand" ColumnName="SplitForeinLand" />
@@ -702,6 +704,7 @@
           <ScalarProperty Name="ProductionEnd" ColumnName="ProductionEnd" />
           <ScalarProperty Name="ProductionTimespan" ColumnName="ProductionTimespan" />
           <ScalarProperty Name="RemainsToo" ColumnName="RemainsToo" />
+          <ScalarProperty Name="Consultant" ColumnName="Consultant" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
