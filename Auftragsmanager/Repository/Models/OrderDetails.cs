@@ -41,6 +41,7 @@ namespace Repository.Models
         public string ProductionStart { get; set; }
         public string ProductionEnd { get; set; }
         public string ProductionTimespan { get; set; }
+        public string RemainsToo { get; set; }
     
         public virtual Adress Adress { get; set; }
         public virtual Customer Customer { get; set; }

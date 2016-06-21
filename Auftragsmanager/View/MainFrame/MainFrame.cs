@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace View
@@ -42,9 +43,9 @@ namespace View
 
 
             Order order = _unit.Order.GetOrderById(orderID);
+            string machineName = "";
 
-
-            if(order != null)
+            if (order != null)
             {
 
                 //TOP LEFT
@@ -63,7 +64,7 @@ namespace View
                 OrderQuantityInput.Text = order.OrderDetails.OverallQuantity.ToString();
                 OrderInlandInput.Text = order.OrderDetails.SplitForeinLand;
                 OrderForeignInput.Text = order.OrderDetails.Foreign;
-                OrderRemainsInput.Text = "NaN";
+                OrderRemainsInput.Text = order.OrderDetails.RemainsToo;
                 //MID RIGHT
                 string[] edvActions = order.EdvActions.Actions.Split('|');
                 OrderEDVJob1Input.Text = edvActions[0];
@@ -72,10 +73,12 @@ namespace View
                 OrderEDVJob4Input.Text = edvActions[3];
                 OrderEDVJob5Input.Text = edvActions[4];
                 OrderEDVJob6Input.Text = edvActions[5];
-                MaschineSelectInput.Text = "Machine";
-                OrderMaxProTimeInput.Text = "OrderMaxProTime";
-                StartLabelDisplay.Text = "startLabel";
-                endLabelDisplay.Text = "endLabel";
+                if (order.EdvActions.Machine.Count > 0) machineName = order.EdvActions.Machine.ToList().Single().Name;
+
+                MaschineSelectInput.Text = machineName;
+                OrderMaxProTimeInput.Text = order.OrderDetails.ProductionTimespan;
+                StartLabelDisplay.Text = order.OrderDetails.ProductionStart;
+                endLabelDisplay.Text = order.OrderDetails.ProductionEnd;
                 //BOT LEFT
                 OrderInfoInput.Text = order.OrderDetails.AdditionalInformation;
                 OrderBillInput.Text = order.OrderDetails.BillTo;

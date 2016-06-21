@@ -53,9 +53,7 @@ namespace View
             {
                 AddOrder(sender, null);
             }
-
-            instance = null;
-            MainFrame asda = new MainFrame(_unit);
+            instance = null; 
         }
         public static OrderFrame Instance(Unit unit)
         {
@@ -111,16 +109,14 @@ namespace View
             //od.User.Username = OrderEditorInput.Text;
             int n;
             bool isNumeric = int.TryParse(OrderQuantityInput.Text, out n);
-            if (isNumeric)
-            {
-                od.OverallQuantity = n;
-            }
+            if (isNumeric)od.OverallQuantity = n;            
             od.SplitForeinLand = OrderInlandInput.Text;
             od.SplitHomeLand = OrderInlandInput.Text;
             od.Adress = new Adress();
             od.Adress.Id = Guid.NewGuid();
             od.Adress.Name = OrderConsultantInput.Text;
             od.Foreign = OrderForeignInput.Text;
+            od.RemainsToo = OrderRemainsInput.Text;
             od.AdditionalInformation = OrderInfoInput.Text;
             od.BillTo = OrderBillInput.Text;
             od.Material = OrderBillInput.Text;
@@ -199,6 +195,7 @@ namespace View
             updateOrder.OrderDetails.OverallQuantity = order.OrderDetails.OverallQuantity;
             updateOrder.OrderDetails.SplitForeinLand = order.OrderDetails.SplitForeinLand;
             updateOrder.OrderDetails.SplitHomeLand = order.OrderDetails.SplitHomeLand;
+            updateOrder.OrderDetails.RemainsToo = order.OrderDetails.RemainsToo;
             //updateOrder.OrderDetails.User = order.OrderDetails.User;
 
             //Production

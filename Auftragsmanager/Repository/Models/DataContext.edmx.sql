@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/21/2016 20:38:50
+-- Date Created: 06/21/2016 21:40:19
 -- Generated from EDMX file: C:\Users\mschl\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
 -- --------------------------------------------------
 
@@ -182,7 +182,8 @@ CREATE TABLE [dbo].[OrderDetails] (
     [RemainsToo_Id] uniqueidentifier  NULL,
     [ProductionStart] nvarchar(max)  NULL,
     [ProductionEnd] nvarchar(max)  NULL,
-    [ProductionTimespan] nvarchar(max)  NULL
+    [ProductionTimespan] nvarchar(max)  NULL,
+    [RemainsToo] nvarchar(max)  NOT NULL
 );
 GO
 

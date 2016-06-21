@@ -22,3 +22,4 @@
 - Arbeitsmappe DatenTimePicker für Machinennutzung [Erledigt / Moritz]
 - Maschinen Workorders selectable[/]
 - HTML Template Arbeitsmappe[/]
+- REGEX Filter von allem DIR,FILES,MAPPEN[/]

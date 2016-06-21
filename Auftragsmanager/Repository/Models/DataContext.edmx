@@ -152,6 +152,7 @@
     <Property Name="ProductionStart" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ProductionEnd" Type="nvarchar(max)" Nullable="true" />
     <Property Name="ProductionTimespan" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RemainsToo" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductionActions">
     <Key>
@@ -402,6 +403,7 @@
           <Property Name="ProductionStart" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ProductionEnd" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="ProductionTimespan" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RemainsToo" Type="String" Nullable="false" FixedLength="false" MaxLength="Max" Unicode="true" />
         </EntityType>
         <EntityType Name="ProductionActions">
           <Key>
@@ -696,6 +698,7 @@
           <ScalarProperty Name="ProductionStart" ColumnName="ProductionStart" />
           <ScalarProperty Name="ProductionEnd" ColumnName="ProductionEnd" />
           <ScalarProperty Name="ProductionTimespan" ColumnName="ProductionTimespan" />
+          <ScalarProperty Name="RemainsToo" ColumnName="RemainsToo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
