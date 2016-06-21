@@ -25,6 +25,16 @@ namespace Repository.Persistence
             throw new NotImplementedException();
         }
 
+        public void PrintOrder()
+        {
+            SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
+            // SelectPdf.PdfDocument doc = converter.ConvertUrl("http://selectpdf.com");
+            SelectPdf.PdfDocument doc = converter.ConvertHtmlString("string", null); ;
+
+            doc.Save("test123.pdf");
+            doc.Close();
+        }
+
         public DataContext DataContext
         {
             get { return Context as DataContext; }

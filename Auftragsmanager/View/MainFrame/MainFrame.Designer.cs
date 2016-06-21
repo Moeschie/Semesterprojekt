@@ -1658,6 +1658,7 @@ namespace View
             this.PrintOrderFolderButton.TabIndex = 15;
             this.PrintOrderFolderButton.Text = "Auftragsmappe";
             this.PrintOrderFolderButton.UseVisualStyleBackColor = true;
+            this.PrintOrderFolderButton.Click += new System.EventHandler(this.PrintOrder);
             // 
             // PrintLaufzettelButton
             // 

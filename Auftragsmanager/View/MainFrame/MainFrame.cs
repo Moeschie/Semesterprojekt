@@ -252,5 +252,10 @@ namespace View
             OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
             newOrder.Show();
         }
+
+        private void PrintOrder(object sender, EventArgs e)
+        {
+            _unit.Order.PrintOrder();
+        }
     }
 }
