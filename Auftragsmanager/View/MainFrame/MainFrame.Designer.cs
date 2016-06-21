@@ -174,6 +174,9 @@ namespace View
             this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
+            this.anzeigeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maschinenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zeitraumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileArchivTab.SuspendLayout();
             this.ArchivMainTableLayout.SuspendLayout();
             this.FileSeachTableLayout.SuspendLayout();
@@ -459,7 +462,8 @@ namespace View
             // 
             this.MachineMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NewMachineMenuItem,
-            this.EditMachineMenuItem});
+            this.EditMachineMenuItem,
+            this.anzeigeToolStripMenuItem});
             this.MachineMenu.Location = new System.Drawing.Point(3, 3);
             this.MachineMenu.Name = "MachineMenu";
             this.MachineMenu.Size = new System.Drawing.Size(1348, 24);
@@ -1806,6 +1810,27 @@ namespace View
             this.MainFrameTabControl.Size = new System.Drawing.Size(1362, 741);
             this.MainFrameTabControl.TabIndex = 0;
             // 
+            // anzeigeToolStripMenuItem
+            // 
+            this.anzeigeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.maschinenToolStripMenuItem,
+            this.zeitraumToolStripMenuItem});
+            this.anzeigeToolStripMenuItem.Name = "anzeigeToolStripMenuItem";
+            this.anzeigeToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.anzeigeToolStripMenuItem.Text = "Anzeige";
+            // 
+            // maschinenToolStripMenuItem
+            // 
+            this.maschinenToolStripMenuItem.Name = "maschinenToolStripMenuItem";
+            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.maschinenToolStripMenuItem.Text = "Maschinen";
+            // 
+            // zeitraumToolStripMenuItem
+            // 
+            this.zeitraumToolStripMenuItem.Name = "zeitraumToolStripMenuItem";
+            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zeitraumToolStripMenuItem.Text = "Zeitraum";
+            // 
             // MainFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2019,6 +2044,9 @@ namespace View
         private System.Windows.Forms.Label endLabelDisplay;
         private System.Windows.Forms.Label OrderMaxProTimeInput;
         private System.Windows.Forms.ListBox SelectedOrderListBox;
+        private System.Windows.Forms.ToolStripMenuItem anzeigeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem maschinenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zeitraumToolStripMenuItem;
     }
 }
 

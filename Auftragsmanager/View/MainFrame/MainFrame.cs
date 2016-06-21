@@ -255,7 +255,7 @@ namespace View
 
         private void PrintOrder(object sender, EventArgs e)
         {
-            _unit.Order.PrintOrder();
+            _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString());
         }
     }
 }

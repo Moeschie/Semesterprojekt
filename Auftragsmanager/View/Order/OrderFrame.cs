@@ -124,8 +124,10 @@ namespace View
             od.AdditionalInformation = OrderInfoInput.Text;
             od.BillTo = OrderBillInput.Text;
             od.Material = OrderBillInput.Text;
-
-
+            
+            od.ProductionStart = StartMachineUsagesDateTimeInput.Text.ToString();
+            od.ProductionEnd = EndMachineUsagesDateTimeInput.Text.ToString();
+            od.ProductionTimespan = OrderMaxProTimeInput.Text.ToString();
             // Rechte Seite
             EdvActions edv = new EdvActions();
             string[] data = new string[6];
@@ -161,7 +163,7 @@ namespace View
             order.ProductionActions = pa;
             order.EdvActions = edv;
             order.OrderDetails = od;
-
+            
 
             if (!save)
                 SaveOrder();

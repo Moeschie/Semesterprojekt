@@ -38,6 +38,9 @@ namespace Repository.Models
         public Nullable<System.Guid> Customer_Id { get; set; }
         public Nullable<System.Guid> Editor_Id { get; set; }
         public Nullable<System.Guid> RemainsToo_Id { get; set; }
+        public string ProductionStart { get; set; }
+        public string ProductionEnd { get; set; }
+        public string ProductionTimespan { get; set; }
     
         public virtual Adress Adress { get; set; }
         public virtual Customer Customer { get; set; }

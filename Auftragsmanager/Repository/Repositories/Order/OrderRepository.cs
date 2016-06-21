@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Configuration;
 using SelectPdf;
 using Repository.Persistence.Templates;
+using System.IO;
 
 namespace Repository.Persistence
 {
@@ -28,13 +29,17 @@ namespace Repository.Persistence
             throw new NotImplementedException();
         }
 
-        public void PrintOrder()
+        public void PrintOrder(String orderID)
         {
+            string[] substring = orderID.Split('|');
+            orderID = substring[0].Replace(" ", string.Empty);
             HtmlToPdf converter = new HtmlToPdf();
             converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
-            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(), null);
-            doc.Save(ConfigurationSettings.AppSettings["Path"] + "test1234.pdf");
+            Order o = GetOrderById(orderID);
+            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(o), null);
+            doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, "Laufzettel_"+orderID+".pdf"));
             doc.Close();
+            Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"],orderID, "Laufzettel_" + orderID + ".pdf"));
         }
 
         public DataContext DataContext

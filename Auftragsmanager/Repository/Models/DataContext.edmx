@@ -149,6 +149,9 @@
     <Property Name="Customer_Id" Type="uniqueidentifier" Nullable="true" />
     <Property Name="Editor_Id" Type="uniqueidentifier" Nullable="true" />
     <Property Name="RemainsToo_Id" Type="uniqueidentifier" Nullable="true" />
+    <Property Name="ProductionStart" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ProductionEnd" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ProductionTimespan" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="ProductionActions">
     <Key>
@@ -396,6 +399,9 @@
           <NavigationProperty Name="Customer" Relationship="Self.FK_dbo_OrderDetails_dbo_Customer_Customer_Id" FromRole="OrderDetails" ToRole="Customer" />
           <NavigationProperty Name="Order" Relationship="Self.FK_dbo_Order_dbo_OrderDetails_Details_Id" FromRole="OrderDetails" ToRole="Order" />
           <NavigationProperty Name="User" Relationship="Self.FK_dbo_OrderDetails_dbo_User_Editor_Id" FromRole="OrderDetails" ToRole="User" />
+          <Property Name="ProductionStart" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ProductionEnd" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ProductionTimespan" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
         </EntityType>
         <EntityType Name="ProductionActions">
           <Key>
@@ -687,6 +693,9 @@
           <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
           <ScalarProperty Name="Editor_Id" ColumnName="Editor_Id" />
           <ScalarProperty Name="RemainsToo_Id" ColumnName="RemainsToo_Id" />
+          <ScalarProperty Name="ProductionStart" ColumnName="ProductionStart" />
+          <ScalarProperty Name="ProductionEnd" ColumnName="ProductionEnd" />
+          <ScalarProperty Name="ProductionTimespan" ColumnName="ProductionTimespan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
