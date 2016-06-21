@@ -71,8 +71,6 @@ namespace Repository.Persistence
             foreach (var tl in list)
             {
                 string s = tl.OrderDetails.OrderNumber.Replace(" ", string.Empty);
-                Debug.WriteLine(s);
-
                 var lastnum = s.Split('-');
                 int x;
                 if(lastnum.Length >= 3)
@@ -82,8 +80,6 @@ namespace Repository.Persistence
                         dic.Add(x, tl);
                     }
                 }
-
-
             }
             var sortedDict = from entry in dic orderby entry.Key ascending select entry;
             Debug.WriteLine(sortedDict.Count());
@@ -92,7 +88,6 @@ namespace Repository.Persistence
             {
                 list.Add(entry.Value);
             }
-
             return list;
         }
 

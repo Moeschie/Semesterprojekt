@@ -15,7 +15,7 @@
         <EntityTypeShape EntityType="DataContextModel.Order" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.OrderDetails" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.ProductionActions" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataContextModel.User" Width="1.5" PointX="4.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.User" Width="1.5" PointX="3.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="DataContextModel.FK_dbo_ContactPerson_dbo_Adress_adress_Id" ManuallyRouted="false" />
         <AssociationConnector Association="DataContextModel.FK_dbo_OrderDetails_dbo_Adress_RemainsToo_Id" ManuallyRouted="false" />
         <AssociationConnector Association="DataContextModel.FK_dbo_OrderDetails_dbo_Customer_Customer_Id" ManuallyRouted="false" />
