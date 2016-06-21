@@ -4,14 +4,179 @@
 </head>
 <style>
     body{
-        color:red;
+        margin: 0;
+        padding: 1cm;
+    }
+    h1{
+        position:relative;
+        float:left;
+        width: 100%;
+        text-align: center; 
+        padding: 0;
+        margin: 0;
+    }
+    .container{
+        position:relative;
+        float:left;
+        width: 100%;
+        height: 170mm;
+        border: 0.06cm solid #000;
+    }
+    .row{
+        position:relative;
+        float:left;
+        width: 100%;
+    }
+    .row.double{
+        height: 5cm;
+    }
+
+    .border-left{        border-left: 0.06cm solid #000;    }
+    .border-right{        border-right: 0.06cm solid #000;    }
+    .border-bottom{        border-bottom: 0.06cm solid #000;    }
+    .border-top{        border-top: 0.06cm solid #000;    }
+    .center {text-align: center;}
+    .background {background: #CCC;}
+
+    .cell_1{
+        position:relative;
+        float: left;
+        width: 5cm;
+        background: #CCC;
+        color: #000;
+        text-align: center;
+        padding-top: .35cm;
+        padding-bottom: .35cm;
+    }
+    .cell_1.double{
+        padding-top: 1.35cm;
+        padding-bottom: 1.35cm;
+    }
+
+    .cell_2{
+        position:relative;
+        float: left;
+        padding-top: .35cm;
+        padding-bottom: .35cm;
+        padding-left: .35cm;
+    }
+    
+    .column_2{
+        position:relative;
+        float: left;
+        width: 50%;
+    }
+
+    .column_7{
+        position:relative;
+        float: left;
+        width: 2.4cm;
+        padding-left: .35cm;
+        padding-top: .35cm;
+        padding-bottom: .35cm;
+    }
+    .column_7.center{
+      padding-left: .0cm;
+
     }
 </style>
 <body>
-    <p>
-        TEST 123 123
+    <div class="container">
+        <div class="heading background">
+            <h1>Laufblatt Produktion<h1>
+        </div>
+        <div class="row border-top">
+            <div class="cell_1  border-right"><span>Auftrag<span></div>
+            <div class="cell_2"><span>{{NUMMER}}</span></div>
+        </div>
+        <div class="row border-top">
+            <div class="column_2">
+                <div class="cell_1 border-right">Produktionsstart</div>
+                <div class="cell_2">{{START}}</div>
+            </div>
+            <div class="column_2">            
+                <div class="cell_1 border-left border-right">Produktionsende</div>
+                <div class="cell_2">{{ENDE}}</div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="cell_1 border-right">Kunde</div>
+            <div class="cell_2">{{KUNDE}}</div>
+        </div>
+        <div class="row border-top">
+            <div class="column_2">
+                <div class="cell_1 border-right">Verarbeitung</div>
+                <div class="cell_2">{{verarbeitung}}</div>
+            </div>
+            <div class="column_2">
+                <div class="cell_1 border-right border-left">Beilage/n</div>
+                <div class="cell_2">{{beilagen}}</div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="cell_1 border-right">Maschine</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right background center"> St&uuml;ckzahl</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right  background center"> Personal</div>
+            <div class="column_7"> &nbsp;</div>
+        </div>
+        <div class="row border-top">
+            <div class="column_2">
+                <div class="cell_1 border-right">Material <small>(Folie, Umschl&auml;ge etc.)</small></div>
+                <div class="cell_2">{{verarbeitung}}</div>
+            </div>
+            <div class="column_2">
+                <div class="cell_1 border-left border-right">Zusatz Info</small></div>
+                <div class="cell_2">{{verarbeitung}}</div>
+            </div>
+        </div>
+        <div class="row border-top">
+            <div class="cell_1 border-right">Kontroll-Zeit</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right "> &nbsp;</div>
+            <div class="column_7"> &nbsp;</div>
+        </div>
+        <div class="row border-top">
+            <div class="cell_1 border-right">St&uuml;ckzahl Ist</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right "> &nbsp;</div>
+            <div class="column_7"> &nbsp;</div>
+        </div>
+        <div class="row border-top">
+            <div class="cell_1 border-right">Personal Ist</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right "> &nbsp;</div>
+            <div class="column_7"> &nbsp;</div>
+        </div>
+         <div class="row border-top">
+            <div class="cell_1 border-right"> Adress- /Beilagenkontrolle</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right"> &nbsp;</div>
+            <div class="column_7 border-right ">&nbsp;</div>
+            <div class="column_7"> &nbsp;</div>
+        </div>
+        <div class="row double border-top">
+            <div class="cell_1 border-right double"> Besonderheiten</div>
 
-
-    </p>
+        </div>
+    </div>
 </body>
 </html>
