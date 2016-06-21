@@ -14,5 +14,7 @@ namespace Repository.Core
         Order GetOrderById(string orderID);
         List<Order> GetAllByGroup();
         void PrintOrder(string orderID);
+        bool Occupied(string orderID);
+        void SetOccupied(string orderID);
     }
 }

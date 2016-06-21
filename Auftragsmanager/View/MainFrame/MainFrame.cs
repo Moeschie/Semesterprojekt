@@ -13,7 +13,9 @@ namespace View
     public partial class MainFrame : Form
     {
         Unit _unit;
-        public MainFrame(Unit unit)
+        private static MainFrame instance;
+
+        private MainFrame(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
@@ -34,6 +36,16 @@ namespace View
             }
 
             initGant();
+        }
+
+        public static MainFrame Instance(Unit unit)
+        {
+            if (instance == null)
+            {
+                instance = new MainFrame(unit);
+            }
+            instance.BringToFront();
+            return instance;
         }
         /*
          DISPLAY SELECTED ORDER PART
@@ -114,7 +126,7 @@ namespace View
         {
         }
 
-        private void DisplayOrderFolder(string Filter)
+        public void DisplayOrderFolder(string Filter)
         {
             SelectedOrderListBox.Items.Clear();
             List<Order> orders = _unit.Order.GetAllByGroup();
@@ -247,16 +259,34 @@ namespace View
 
         private void SelectedOrderListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
+            if (SelectedOrderListBox.SelectedItem != null)
+                DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
+            
         }
 
         private void Editbutton_Click(object sender, EventArgs e)
         {
-            OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
-            newOrder.Show();
+            _unit.RefreshAll();
+            if (SelectedOrderListBox.SelectedItem != null)
+            {
+                if (!_unit.Order.Occupied(SelectedOrderListBox.SelectedItem.ToString()))
+                {
+                    _unit.Order.SetOccupied(SelectedOrderListBox.SelectedItem.ToString());
+                    OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
+                    newOrder.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Diese Mappe wird zur Zeit bearbeitet!", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void PrintOrder(object sender, EventArgs e)
+        {
+        }
+
+        private void PrintLaufzettelButton_Click(object sender, EventArgs e)
         {
             _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString());
         }

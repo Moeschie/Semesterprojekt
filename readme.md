@@ -7,7 +7,7 @@
 #TODO:
 - Arbeitsmappe Objekt - In DB [Erledigt / Chris]
 - Farben für Machinen / Farb Funktion [Erledigt / Chris]
-- DB-Context Update funktion [ / ]
+- DB-Context Update funktion [Erledigt / Chris]
 - Update von DB spalten zB Namesänderung [ERLEDIGT / CHRIS]
 - MainFrame Admin Tab durch Menustrap mit Acces ändern [Erledigt / Moritz]
 - MainFrame Arbeitsmappen auflistung [ERLEDIGT / CHRIS,MORITZ]
@@ -23,3 +23,4 @@
 - Maschinen Workorders selectable[/]
 - HTML Template Arbeitsmappe[/]
 - REGEX Filter von allem DIR,FILES,MAPPEN[/]
+- Select order nach bearbeiten [/]

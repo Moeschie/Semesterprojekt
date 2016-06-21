@@ -126,6 +126,7 @@
     <Property Name="EdvActions_Id" Type="uniqueidentifier" Nullable="true" />
     <Property Name="ProductionActions_Id" Type="uniqueidentifier" Nullable="true" />
     <Property Name="Versionierung" Type="int" Nullable="true" />
+    <Property Name="Occupied" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="OrderDetails">
     <Key>
@@ -373,6 +374,7 @@
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_dbo_Order_dbo_OrderDetails_Details_Id" FromRole="Order" ToRole="OrderDetails" />
           <NavigationProperty Name="ProductionActions" Relationship="Self.FK_dbo_Order_dbo_ProductionActions_ProductionActions_Id" FromRole="Order" ToRole="ProductionActions" />
           <Property Name="Versionierung" Type="Int32" Nullable="true" />
+          <Property Name="Occupied" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="OrderDetails">
           <Key>
@@ -671,6 +673,7 @@
           <ScalarProperty Name="EdvActions_Id" ColumnName="EdvActions_Id" />
           <ScalarProperty Name="ProductionActions_Id" ColumnName="ProductionActions_Id" />
           <ScalarProperty Name="Versionierung" ColumnName="Versionierung" />
+          <ScalarProperty Name="Occupied" ColumnName="Occupied" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

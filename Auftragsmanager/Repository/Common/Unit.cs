@@ -40,9 +40,17 @@ namespace Repository.Persistence
         public IUtilitiesRepository Utilities { get; set; }
         public IFilesRepository Files { get; set; }
 
+        public void RefreshAll()
+        {
+            foreach (var entity in _context.ChangeTracker.Entries()) entity.Reload();
+
+        }
+
         public int Complete()
         {
-            return _context.SaveChanges();
+            int dc =  _context.SaveChanges();
+            RefreshAll();
+            return dc;
         }
 
         public void Dispose()

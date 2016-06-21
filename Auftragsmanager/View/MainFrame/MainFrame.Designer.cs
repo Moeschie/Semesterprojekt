@@ -58,6 +58,9 @@ namespace View
             this.EditMachineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DefectMachineSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMachineNameSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anzeigeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.maschinenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zeitraumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderTab = new System.Windows.Forms.TabPage();
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.PreviewOrderGrpBox = new System.Windows.Forms.GroupBox();
@@ -174,9 +177,6 @@ namespace View
             this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
-            this.anzeigeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maschinenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zeitraumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileArchivTab.SuspendLayout();
             this.ArchivMainTableLayout.SuspendLayout();
             this.FileSeachTableLayout.SuspendLayout();
@@ -507,6 +507,27 @@ namespace View
             this.EditMachineNameSubMenuItem.Size = new System.Drawing.Size(185, 22);
             this.EditMachineNameSubMenuItem.Text = "Maschinen Editieren";
             this.EditMachineNameSubMenuItem.Click += new System.EventHandler(this.editMaschine);
+            // 
+            // anzeigeToolStripMenuItem
+            // 
+            this.anzeigeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.maschinenToolStripMenuItem,
+            this.zeitraumToolStripMenuItem});
+            this.anzeigeToolStripMenuItem.Name = "anzeigeToolStripMenuItem";
+            this.anzeigeToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.anzeigeToolStripMenuItem.Text = "Anzeige";
+            // 
+            // maschinenToolStripMenuItem
+            // 
+            this.maschinenToolStripMenuItem.Name = "maschinenToolStripMenuItem";
+            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.maschinenToolStripMenuItem.Text = "Maschinen";
+            // 
+            // zeitraumToolStripMenuItem
+            // 
+            this.zeitraumToolStripMenuItem.Name = "zeitraumToolStripMenuItem";
+            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.zeitraumToolStripMenuItem.Text = "Zeitraum";
             // 
             // OrderTab
             // 
@@ -1673,6 +1694,7 @@ namespace View
             this.PrintLaufzettelButton.TabIndex = 16;
             this.PrintLaufzettelButton.Text = "Laufzettel";
             this.PrintLaufzettelButton.UseVisualStyleBackColor = true;
+            this.PrintLaufzettelButton.Click += new System.EventHandler(this.PrintLaufzettelButton_Click);
             // 
             // OrderTabLeftTableLayout
             // 
@@ -1809,27 +1831,6 @@ namespace View
             this.MainFrameTabControl.SelectedIndex = 0;
             this.MainFrameTabControl.Size = new System.Drawing.Size(1362, 741);
             this.MainFrameTabControl.TabIndex = 0;
-            // 
-            // anzeigeToolStripMenuItem
-            // 
-            this.anzeigeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.maschinenToolStripMenuItem,
-            this.zeitraumToolStripMenuItem});
-            this.anzeigeToolStripMenuItem.Name = "anzeigeToolStripMenuItem";
-            this.anzeigeToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.anzeigeToolStripMenuItem.Text = "Anzeige";
-            // 
-            // maschinenToolStripMenuItem
-            // 
-            this.maschinenToolStripMenuItem.Name = "maschinenToolStripMenuItem";
-            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.maschinenToolStripMenuItem.Text = "Maschinen";
-            // 
-            // zeitraumToolStripMenuItem
-            // 
-            this.zeitraumToolStripMenuItem.Name = "zeitraumToolStripMenuItem";
-            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.zeitraumToolStripMenuItem.Text = "Zeitraum";
             // 
             // MainFrame
             // 

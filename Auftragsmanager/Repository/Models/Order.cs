@@ -19,6 +19,7 @@ namespace Repository.Models
         public Nullable<System.Guid> EdvActions_Id { get; set; }
         public Nullable<System.Guid> ProductionActions_Id { get; set; }
         public Nullable<int> Versionierung { get; set; }
+        public bool Occupied { get; set; }
     
         public virtual EdvActions EdvActions { get; set; }
         public virtual OrderDetails OrderDetails { get; set; }

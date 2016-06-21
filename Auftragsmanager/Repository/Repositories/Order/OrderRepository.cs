@@ -15,8 +15,10 @@ namespace Repository.Persistence
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
         int count = 0;
+        DataContext _context;
         public OrderRepository(DataContext context) : base(context)
         {
+            _context = context;
         }
 
         public Order GetOrderById(Guid id)
@@ -53,7 +55,6 @@ namespace Repository.Persistence
             string orderID = timeString + "-" + count; 
             return orderID;
         }
-
         public Order GetOrderById(string orderID)
         {
             string[] substring = orderID.Split('|');
@@ -98,7 +99,7 @@ namespace Repository.Persistence
                     }
                 }
             }
-            var sortedDict = from entry in dic orderby entry.Key ascending select entry;
+            var sortedDict = from entry in dic orderby entry.Key descending select entry;
             Debug.WriteLine(sortedDict.Count());
             list.Clear();
             foreach (KeyValuePair<int, Order> entry in sortedDict)
@@ -107,6 +108,14 @@ namespace Repository.Persistence
             }
             return list;
         }
-
+        public bool Occupied(string orderID)
+        {       
+            return GetOrderById(orderID).Occupied;
+        }
+        public void SetOccupied(string orderID)
+        {
+            GetOrderById(orderID).Occupied = !GetOrderById(orderID).Occupied;
+            _context.SaveChanges();   
+        }
     }
 }

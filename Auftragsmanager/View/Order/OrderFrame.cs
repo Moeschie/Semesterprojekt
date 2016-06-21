@@ -19,10 +19,12 @@ namespace View
         Guid OrderNumber;
         bool save;
         Order order;
+        
       //  List<Guid> guidList = new List<Guid>();
 
         private static OrderFrame instance;
         private bool UpdateState;
+        static string orderID;
 
         private OrderFrame(Unit unit)
         {
@@ -36,6 +38,7 @@ namespace View
             if(!UpdateState)
                 OrderNumberInput.Text = _unit.Order.orderIDgen();
 
+            orderID = OrderNumberInput.Text;
             StartMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
             StartMachineUsagesDateTimeInput.Format = DateTimePickerFormat.Custom;
             EndMachineUsagesDateTimeInput.CustomFormat = "dd/MM/yyyy";
@@ -53,7 +56,10 @@ namespace View
             {
                 AddOrder(sender, null);
             }
-            instance = null; 
+            instance = null;
+            _unit.Order.PrintOrder(orderID);
+            _unit.Order.SetOccupied(orderID);
+            MainFrame.Instance(_unit).DisplayOrderFolder("");
         }
         public static OrderFrame Instance(Unit unit)
         {
@@ -71,6 +77,7 @@ namespace View
             {
                 instance = new OrderFrame(unit);
             }
+            orderID = v; 
             instance.BringToFront();
             instance.EditFields(v);
             return instance;
@@ -78,6 +85,7 @@ namespace View
 
         private void EditFields(string v)
         {
+
             Order editOrder = _unit.Order.GetOrderById(v);
             OrderNumberInput.Text = editOrder.OrderDetails.OrderNumber;
             UpdateState = true;
@@ -208,6 +216,8 @@ namespace View
             updateOrder.ProductionActions.value = order.ProductionActions.value;
 
             _unit.Complete();
+            MainFrame.Instance(_unit).DisplayOrderFolder("");
+
         }
 
         private void SaveOrder()
@@ -224,8 +234,10 @@ namespace View
                 OrderNumber = order.Id;
                 _unit.Order.Add(order);
                     _unit.Complete();
-                }
-         } 
+                MainFrame.Instance(_unit).DisplayOrderFolder("");
+
+            }
+        } 
 
 
         private void OrderDataButton_Click(object sender, EventArgs e)

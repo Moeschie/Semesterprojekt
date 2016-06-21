@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/21/2016 21:40:19
+-- Date Created: 06/21/2016 22:25:54
 -- Generated from EDMX file: C:\Users\mschl\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
 -- --------------------------------------------------
 
@@ -156,7 +156,8 @@ CREATE TABLE [dbo].[Order] (
     [Details_Id] uniqueidentifier  NULL,
     [EdvActions_Id] uniqueidentifier  NULL,
     [ProductionActions_Id] uniqueidentifier  NULL,
-    [Versionierung] int  NULL
+    [Versionierung] int  NULL,
+    [Occupied] bit  NOT NULL
 );
 GO
 
