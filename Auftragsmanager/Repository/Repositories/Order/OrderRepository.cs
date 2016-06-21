@@ -5,6 +5,9 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Configuration;
+using SelectPdf;
+using Repository.Persistence.Templates;
 
 namespace Repository.Persistence
 {
@@ -27,11 +30,10 @@ namespace Repository.Persistence
 
         public void PrintOrder()
         {
-            SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
-            // SelectPdf.PdfDocument doc = converter.ConvertUrl("http://selectpdf.com");
-            SelectPdf.PdfDocument doc = converter.ConvertHtmlString("string", null); ;
-
-            doc.Save("test123.pdf");
+            HtmlToPdf converter = new HtmlToPdf();
+            converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
+            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(), null);
+            doc.Save(ConfigurationSettings.AppSettings["Path"] + "test1234.pdf");
             doc.Close();
         }
 

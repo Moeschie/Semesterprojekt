@@ -117,6 +117,7 @@
     <Compile Include="Repositories\Files\FilesRepository.cs" />
     <Compile Include="Repositories\Machine\IMachineTaskRepository.cs" />
     <Compile Include="Repositories\Machine\MachineTaskRepository.cs" />
+    <Compile Include="Repositories\Order\OrderPrintTemplate.cs" />
     <Compile Include="Repositories\Utilities\FormValidation\FormValidation.cs" />
     <Compile Include="Repositories\Utilities\TextStrings\TextStrings.cs" />
     <Compile Include="Repositories\Utilities\UtilitiesRepository.cs" />
