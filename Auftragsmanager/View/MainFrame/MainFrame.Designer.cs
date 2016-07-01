@@ -61,6 +61,7 @@ namespace View
             this.anzeigeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maschinenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zeitraumToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gesammtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrderTab = new System.Windows.Forms.TabPage();
             this.MainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.PreviewOrderGrpBox = new System.Windows.Forms.GroupBox();
@@ -520,14 +521,24 @@ namespace View
             // maschinenToolStripMenuItem
             // 
             this.maschinenToolStripMenuItem.Name = "maschinenToolStripMenuItem";
-            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.maschinenToolStripMenuItem.Text = "Maschinen";
             // 
             // zeitraumToolStripMenuItem
             // 
+            this.zeitraumToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gesammtToolStripMenuItem});
             this.zeitraumToolStripMenuItem.Name = "zeitraumToolStripMenuItem";
-            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.zeitraumToolStripMenuItem.Text = "Zeitraum";
+            // 
+            // gesammtToolStripMenuItem
+            // 
+            this.gesammtToolStripMenuItem.Enabled = false;
+            this.gesammtToolStripMenuItem.Name = "gesammtToolStripMenuItem";
+            this.gesammtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gesammtToolStripMenuItem.Text = "Gesamt";
+            this.gesammtToolStripMenuItem.Click += new System.EventHandler(this.switchScrollTO);
             // 
             // OrderTab
             // 
@@ -2048,6 +2059,7 @@ namespace View
         private System.Windows.Forms.ToolStripMenuItem anzeigeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maschinenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zeitraumToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gesammtToolStripMenuItem;
     }
 }
 

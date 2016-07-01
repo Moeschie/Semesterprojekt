@@ -53,11 +53,11 @@ namespace View
             FormValidation f = new FormValidation();
             f.AddRule(AddDefectTitleTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
             MachineTask machinetask = new MachineTask();
+            machinetask.Id = Guid.NewGuid();
             machinetask.title = AddDefectTitleTextBox.Text;
             machinetask.UsageStart = AddDefectStartDateTimePicker.Text;
-            machinetask.UsageEnd = AddDefectEndDateTimePicker.Text;      
-            machinetask.Machine = new Machine();
-            machinetask.Machine.Name = AddDefectSelectMashineComboBox.Text;
+            machinetask.UsageEnd = AddDefectEndDateTimePicker.Text;
+            machinetask.Machine = _unit.Machine.GetAll().Where(u => u.Name == AddDefectSelectMashineComboBox.Text).FirstOrDefault();//Select(u => u.Name == AddDefectSelectMashineComboBox.Text).Single();
             if (f.Validate())
             {
             _unit.MachineTask.Add(machinetask);

@@ -19,8 +19,9 @@ namespace View
         Guid OrderNumber;
         bool save;
         Order order;
-        
-      //  List<Guid> guidList = new List<Guid>();
+
+        FormValidation f = new FormValidation();
+        TextStrings t = new TextStrings();
 
         private static OrderFrame instance;
         private bool UpdateState;
@@ -52,14 +53,22 @@ namespace View
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
 
-            if (MessageBox.Show("Wollen sie die Änderungen Speichern?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                AddOrder(sender, null);
-            }
-            instance = null;
-            _unit.Order.PrintOrder(orderID);
-            _unit.Order.SetOccupied(orderID);
-            MainFrame.Instance(_unit).DisplayOrderFolder("");
+
+                if (MessageBox.Show("Wollen sie die Änderungen Speichern?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    if (f.Validate())
+                    {
+                        AddOrder(sender, null);
+                    _unit.Order.PrintOrder(orderID);
+                    _unit.Order.SetOccupied(orderID);
+                }
+                }
+
+                instance = null;
+
+                MainFrame.Instance(_unit).DisplayOrderFolder("");
+            
+
         }
         public static OrderFrame Instance(Unit unit)
         {
@@ -140,6 +149,12 @@ namespace View
         private void AddOrder(object sender, EventArgs e)
         {
 
+
+            f.AddRule(OrderNameInput, t.ENTRY_REQUIRED);
+
+            if (f.Validate())
+            {
+
             //Linke Seite
             OrderDetails od = new OrderDetails();
 
@@ -219,6 +234,9 @@ namespace View
 
             if (save)
                 UpdateOrder();
+
+            }
+
         }
         private void UpdateOrder()
         {
@@ -246,7 +264,6 @@ namespace View
             updateOrder.OrderDetails.SplitForeinLand = order.OrderDetails.SplitForeinLand;
             updateOrder.OrderDetails.SplitHomeLand = order.OrderDetails.SplitHomeLand;
             updateOrder.OrderDetails.RemainsToo = order.OrderDetails.RemainsToo;
-            //updateOrder.OrderDetails.User = order.OrderDetails.User;
             //Production
             updateOrder.ProductionActions.folieren = order.ProductionActions.folieren;
             updateOrder.ProductionActions.Ink = order.ProductionActions.Ink;
@@ -283,7 +300,6 @@ namespace View
             filebrowserframe.Show();
 
         }
-
 
     }
 }

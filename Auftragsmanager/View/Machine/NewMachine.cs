@@ -50,6 +50,7 @@ namespace View
             FormValidation f = new FormValidation();
             f.AddRule(NewMashineNameTextBox, "Sie müssen einen Maschinennamen eintragen.", f.MinLength(1));
             Machine machine = new Machine();
+            machine.Id = Guid.NewGuid();
             machine.Name = NewMashineNameTextBox.Text;
             if (f.Validate())
             {

@@ -36,6 +36,7 @@ namespace View
                 DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
             }
 
+            initMenu();
             initGant();
         }
 
@@ -53,8 +54,6 @@ namespace View
          */
         private void DisplaySelectedOrder(string orderID)
         {
-
-
             Order order = _unit.Order.GetOrderById(orderID);
             string machineName = "";
 
@@ -62,7 +61,6 @@ namespace View
             {
 
                 //TOP LEFT
-                //  OrderIncomeDateInput.Text = order.OrderDetails.OrderNumber;
                 OrderIncomeDateInput.Text = order.OrderDetails.IncomeDate;
                 OrderDeadlineInput.Text = order.OrderDetails.Deadline;
                 OrderEditionInput.Text = order.OrderDetails.OrderEdition;
@@ -110,7 +108,6 @@ namespace View
                 inkenCBInput.Checked = order.ProductionActions.Ink;
                 folierenCBInput.Checked = order.ProductionActions.folieren;
             }
-
         }
 
         /*
@@ -249,7 +246,51 @@ namespace View
             MachineUsageChart.AllowTaskDragDrop = false;
             MachineUsageChart.ScrollTo(DateTime.Now);
             MachineUsageChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
+            MachineUsageChart.Invalidate();           
+        }
+        //FIXME: FIX SCROLL BUG
+        private void switchScrollTO(object sender, EventArgs e)
+        {
+            ProjectManager projectManager = _unit.Machine.getProjectManager();
+            if (gesammtToolStripMenuItem.Text =="Gesamt")
+            {
+                DateTime firstOrder = DateTime.Now;
+                foreach (var tasks in _unit.MachineTask.GetAll())
+                {
+                    if(DateTime.Compare(firstOrder,DateTime.Parse(tasks.UsageStart)) >0)
+                    {
+                        firstOrder = DateTime.Parse(tasks.UsageStart);
+                    }
+                }                                
+                gesammtToolStripMenuItem.Text = "Von Heute";
+                Console.WriteLine(firstOrder);
+                projectManager.Start=firstOrder;
+                MachineUsageChart.Init(projectManager);
+            }
+            else
+            {
+                gesammtToolStripMenuItem.Text = "Gesamt";
+                MachineUsageChart.ScrollTo(DateTime.Now);
+            }
             MachineUsageChart.Invalidate();
+        }
+        private void initMenu()
+        {
+            ToolStripMenuItem added;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {
+                added = new ToolStripMenuItem();
+                added.Text = machine.Name;
+                added.Name = machine.Name;
+                added.Checked = true;
+                added.Click += new EventHandler(MenuItemClickHandler);
+                maschinenToolStripMenuItem.DropDown.Items.Add(added);                
+            }
+        }
+        private void MenuItemClickHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            clickedItem.Checked = !clickedItem.Checked;
         }
         /*
          USER PART - ONLY ADMIN

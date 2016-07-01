@@ -96,7 +96,6 @@ namespace Repository.Persistence
                 }
             }
             var sortedDict = from entry in dic orderby entry.Key descending select entry;
-            Debug.WriteLine(sortedDict.Count());
             list.Clear();
             foreach (KeyValuePair<int, Order> entry in sortedDict)
             {

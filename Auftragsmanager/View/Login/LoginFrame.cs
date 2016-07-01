@@ -52,7 +52,7 @@ namespace View
                 MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
    
     }
 }

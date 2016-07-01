@@ -11,14 +11,13 @@ namespace Repository.Persistence
 {
     public class MachineRepository : Repository<Machine>, IMachineRepository
     {
-        ProjectManager GanttContent;
+        public ProjectManager GanttContent;
         MachineTaskRepository machineTasks;
         private List<Color> colorPalette = new List<Color>(); 
         public MachineRepository(DataContext context) : base(context)
         {
             machineTasks = new MachineTaskRepository(context);
         }
-
 
         public bool MachineExists(string machinename)
         {
@@ -39,7 +38,6 @@ namespace Repository.Persistence
 
             return color;
         }
-
         private void setColorPalette()
         {
             colorPalette.Add(Color.BlueViolet);
@@ -55,6 +53,10 @@ namespace Repository.Persistence
             colorPalette.Add(Color.Yellow);
             colorPalette.Add(Color.SteelBlue);
             colorPalette.Add(Color.SandyBrown);
+        }
+        public ProjectManager getProjectManager()
+        {
+            return GanttContent;
         }
         public void CreateGantMachine(Chart usagesChart)
         {
