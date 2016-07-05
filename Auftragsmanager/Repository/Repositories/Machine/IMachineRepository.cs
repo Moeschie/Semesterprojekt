@@ -14,5 +14,6 @@ namespace Repository.Core
         bool MachineExists(string machinename);
         void CreateGantMachine(Chart usagesChart);
         Color GetColorCode();
+        ProjectManager getProjectManager();
     }
 }

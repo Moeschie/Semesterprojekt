@@ -205,11 +205,11 @@
             // 
             this.AuftragLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.AuftragLabel.AutoSize = true;
-            this.AuftragLabel.Location = new System.Drawing.Point(90, 14);
+            this.AuftragLabel.Location = new System.Drawing.Point(86, 14);
             this.AuftragLabel.Name = "AuftragLabel";
-            this.AuftragLabel.Size = new System.Drawing.Size(44, 13);
+            this.AuftragLabel.Size = new System.Drawing.Size(48, 13);
             this.AuftragLabel.TabIndex = 2;
-            this.AuftragLabel.Text = "Auftrag:";
+            this.AuftragLabel.Text = "Auftrag*:";
             // 
             // OrderNameInput
             // 

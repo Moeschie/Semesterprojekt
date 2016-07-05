@@ -3,8 +3,10 @@ using Repository.Models;
 using Repository.Persistence;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace View
@@ -12,7 +14,9 @@ namespace View
     public partial class MainFrame : Form
     {
         Unit _unit;
-        public MainFrame(Unit unit)
+        private static MainFrame instance;
+
+        private MainFrame(Unit unit)
         {
             _unit = unit;
             InitializeComponent();
@@ -32,24 +36,32 @@ namespace View
                 DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
             }
 
+            initMenu();
             initGant();
+        }
+
+        public static MainFrame Instance(Unit unit)
+        {
+            if (instance == null)
+            {
+                instance = new MainFrame(unit);
+            }
+            instance.BringToFront();
+            return instance;
         }
         /*
          DISPLAY SELECTED ORDER PART
          */
         private void DisplaySelectedOrder(string orderID)
         {
-
-
             Order order = _unit.Order.GetOrderById(orderID);
+            string machineName = "";
 
-
-            if(order != null)
+            if (order != null)
             {
 
                 //TOP LEFT
-                //  OrderIncomeDateInput.Text = order.OrderDetails.OrderNumber;
-                OrderIncomeTimeInput.Text = order.OrderDetails.IncomeTime;
+                OrderIncomeDateInput.Text = order.OrderDetails.IncomeDate;
                 OrderDeadlineInput.Text = order.OrderDetails.Deadline;
                 OrderEditionInput.Text = order.OrderDetails.OrderEdition;
                 //TOP RIGHT
@@ -57,13 +69,13 @@ namespace View
                 OrderNumberInput.Text = order.OrderDetails.OrderNumber;
                 //MID LEFT
                 OrderCustomerInput.Text = order.OrderDetails.Customer.Name;
-                OrderObjectInput.Text = order.OrderDetails.Object;
-                OrderConsultantInput.Text = order.OrderDetails.Customer.Name;
-                OrderEditorInput.Text = order.OrderDetails.OrderEdition;
+                OrderObjectInput.Text = order.OrderDetails.ObjectTitel;                
+                OrderConsultantInput.Text = order.OrderDetails.Consultant;
+                OrderEditorInput.Text = order.OrderDetails.User.Username;
                 OrderQuantityInput.Text = order.OrderDetails.OverallQuantity.ToString();
                 OrderInlandInput.Text = order.OrderDetails.SplitForeinLand;
                 OrderForeignInput.Text = order.OrderDetails.Foreign;
-                OrderRemainsInput.Text = "NaN";
+                OrderRemainsInput.Text = order.OrderDetails.RemainsToo;
                 //MID RIGHT
                 string[] edvActions = order.EdvActions.Actions.Split('|');
                 OrderEDVJob1Input.Text = edvActions[0];
@@ -72,10 +84,12 @@ namespace View
                 OrderEDVJob4Input.Text = edvActions[3];
                 OrderEDVJob5Input.Text = edvActions[4];
                 OrderEDVJob6Input.Text = edvActions[5];
-                MaschineSelectInput.Text = "Machine";
-                OrderMaxProTimeInput.Text = "OrderMaxProTime";
-                StartLabelDisplay.Text = "startLabel";
-                endLabelDisplay.Text = "endLabel";
+                if (order.EdvActions.Machine.Count > 0) machineName = order.EdvActions.Machine.ToList().Single().Name;
+
+                MaschineSelectInput.Text = machineName;
+                OrderMaxProTimeInput.Text = order.OrderDetails.ProductionTimespan;
+                StartLabelDisplay.Text = order.OrderDetails.ProductionStart;
+                endLabelDisplay.Text = order.OrderDetails.ProductionEnd;
                 //BOT LEFT
                 OrderInfoInput.Text = order.OrderDetails.AdditionalInformation;
                 OrderBillInput.Text = order.OrderDetails.BillTo;
@@ -88,11 +102,12 @@ namespace View
                 OrderProJob4Input.Text = actions[3];
                 OrderProJob5Input.Text = actions[4];
                 OrderProJob6Input.Text = actions[5];
+                OrderInsertInput.Text = order.ProductionActions.Insert;
+                OrderInsertKindInput.Text = order.ProductionActions.InsertKind;
                 kuvertierenCBInput.Checked = order.ProductionActions.Kuvert;
                 inkenCBInput.Checked = order.ProductionActions.Ink;
                 folierenCBInput.Checked = order.ProductionActions.folieren;
             }
-
         }
 
         /*
@@ -111,7 +126,7 @@ namespace View
         {
         }
 
-        private void DisplayOrderFolder(string Filter)
+        public void DisplayOrderFolder(string Filter)
         {
             SelectedOrderListBox.Items.Clear();
             List<Order> orders = _unit.Order.GetAllByGroup();
@@ -231,7 +246,51 @@ namespace View
             MachineUsageChart.AllowTaskDragDrop = false;
             MachineUsageChart.ScrollTo(DateTime.Now);
             MachineUsageChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
+            MachineUsageChart.Invalidate();           
+        }
+        //FIXME: FIX SCROLL BUG
+        private void switchScrollTO(object sender, EventArgs e)
+        {
+            ProjectManager projectManager = _unit.Machine.getProjectManager();
+            if (gesammtToolStripMenuItem.Text =="Gesamt")
+            {
+                DateTime firstOrder = DateTime.Now;
+                foreach (var tasks in _unit.MachineTask.GetAll())
+                {
+                    if(DateTime.Compare(firstOrder,DateTime.Parse(tasks.UsageStart)) >0)
+                    {
+                        firstOrder = DateTime.Parse(tasks.UsageStart);
+                    }
+                }                                
+                gesammtToolStripMenuItem.Text = "Von Heute";
+                Console.WriteLine(firstOrder);
+                projectManager.Start=firstOrder;
+                MachineUsageChart.Init(projectManager);
+            }
+            else
+            {
+                gesammtToolStripMenuItem.Text = "Gesamt";
+                MachineUsageChart.ScrollTo(DateTime.Now);
+            }
             MachineUsageChart.Invalidate();
+        }
+        private void initMenu()
+        {
+            ToolStripMenuItem added;
+            foreach (var machine in _unit.Machine.GetAll().ToList())
+            {
+                added = new ToolStripMenuItem();
+                added.Text = machine.Name;
+                added.Name = machine.Name;
+                added.Checked = true;
+                added.Click += new EventHandler(MenuItemClickHandler);
+                maschinenToolStripMenuItem.DropDown.Items.Add(added);                
+            }
+        }
+        private void MenuItemClickHandler(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+            clickedItem.Checked = !clickedItem.Checked;
         }
         /*
          USER PART - ONLY ADMIN
@@ -244,18 +303,44 @@ namespace View
 
         private void SelectedOrderListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
+            if (SelectedOrderListBox.SelectedItem != null)
+                DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
+            
         }
 
         private void Editbutton_Click(object sender, EventArgs e)
         {
-            OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
-            newOrder.Show();
+            _unit.RefreshAll();
+            if (SelectedOrderListBox.SelectedItem != null)
+            {
+                if (!_unit.Order.Occupied(SelectedOrderListBox.SelectedItem.ToString()))
+                {
+                        _unit.Order.SetOccupied(SelectedOrderListBox.SelectedItem.ToString());
+                        OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
+                        newOrder.Show();
+                }
+                else
+                {
+                    if (MessageBox.Show("Diese Mappe wird bearbeitet, wollen sie fortfahren?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        _unit.Order.SetOccupied(SelectedOrderListBox.SelectedItem.ToString());
+                        OrderFrame newOrder = OrderFrame.Instance(_unit, SelectedOrderListBox.SelectedItem.ToString());
+                        newOrder.Show();
+                    }
+                }
+
+            }
         }
 
         private void PrintOrder(object sender, EventArgs e)
         {
-            _unit.Order.PrintOrder();
+        }
+
+        private void PrintLaufzettelButton_Click(object sender, EventArgs e)
+        {
+            string v = _unit.Order.SplitOrderID(SelectedOrderListBox.SelectedItem.ToString());
+            _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString());
+            Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], v, "Laufzettel_" + v + ".pdf"));
         }
     }
 }

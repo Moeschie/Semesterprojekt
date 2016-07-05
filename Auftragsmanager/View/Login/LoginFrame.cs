@@ -42,7 +42,7 @@ namespace View
 
             if (_unit.User.Login(Username, Password) != null)
             {
-                MainFrame mainFrame = new MainFrame(_unit);
+                MainFrame mainFrame = MainFrame.Instance(_unit);
                 Hide();
             }
             else
@@ -52,7 +52,7 @@ namespace View
                 MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        
    
     }
 }

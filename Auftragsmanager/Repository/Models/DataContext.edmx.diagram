@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="DataContextModel.Adress" Width="1.5" PointX="2.25" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.ContactPerson" Width="1.5" PointX="4.25" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.Customer" Width="1.5" PointX="3.875" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataContextModel.CustomerObject" Width="1.5" PointX="2.125" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DataContextModel.EdvActions" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.CustomerObject" Width="1.5" PointX="1.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DataContextModel.EdvActions" Width="1.5" PointX="6" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.Machine" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.MachineTask" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DataContextModel.Order" Width="1.5" PointX="8.25" PointY="3.25" IsExpanded="true" />

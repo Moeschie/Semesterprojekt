@@ -8,14 +8,17 @@ using System.Diagnostics;
 using System.Configuration;
 using SelectPdf;
 using Repository.Persistence.Templates;
+using System.IO;
 
 namespace Repository.Persistence
 {
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
         int count = 0;
+        DataContext _context;
         public OrderRepository(DataContext context) : base(context)
         {
+            _context = context;
         }
 
         public Order GetOrderById(Guid id)
@@ -28,12 +31,14 @@ namespace Repository.Persistence
             throw new NotImplementedException();
         }
 
-        public void PrintOrder()
+        public void PrintOrder(String orderID)
         {
+            orderID = SplitOrderID(orderID);
             HtmlToPdf converter = new HtmlToPdf();
             converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
-            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(), null);
-            doc.Save(ConfigurationSettings.AppSettings["Path"] + "test1234.pdf");
+            Order o = GetOrderById(orderID);
+            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(o), null);
+            doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, "Laufzettel_"+orderID+".pdf"));
             doc.Close();
         }
 
@@ -48,13 +53,10 @@ namespace Repository.Persistence
             string orderID = timeString + "-" + count; 
             return orderID;
         }
-
         public Order GetOrderById(string orderID)
         {
-            string[] substring = orderID.Split('|');
-            orderID = substring[0].Replace(" ", string.Empty);
+            orderID = SplitOrderID(orderID);
             return GetAllByGroup().Where(u => u.OrderDetails.OrderNumber == orderID).First();
-
         }
 
         public List<Order> GetAllByGroup()
@@ -93,8 +95,7 @@ namespace Repository.Persistence
                     }
                 }
             }
-            var sortedDict = from entry in dic orderby entry.Key ascending select entry;
-            Debug.WriteLine(sortedDict.Count());
+            var sortedDict = from entry in dic orderby entry.Key descending select entry;
             list.Clear();
             foreach (KeyValuePair<int, Order> entry in sortedDict)
             {
@@ -102,6 +103,20 @@ namespace Repository.Persistence
             }
             return list;
         }
+        public bool Occupied(string orderID)
+        {       
+            return GetOrderById(orderID).Occupied;
+        }
+        public void SetOccupied(string orderID)
+        {
+            GetOrderById(orderID).Occupied = !GetOrderById(orderID).Occupied;
+            _context.SaveChanges();   
+        }
 
+        public string SplitOrderID(string orderID)
+        {
+            string[] substring = orderID.Split('|');
+            return substring[0].Replace(" ", string.Empty);
+        }
     }
 }
