@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Repository.Core;
 using Repository.Models;
-
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 
 namespace Repository.Persistence
 {
@@ -43,6 +44,11 @@ namespace Repository.Persistence
         public int Complete()
         {
             return _context.SaveChanges();
+        }
+
+        public void RefreshAll()
+        {
+            foreach (var entity in _context.ChangeTracker.Entries()) entity.Reload();
         }
 
         public void Dispose()
