@@ -54,11 +54,6 @@ namespace Repository.Persistence
             return dc;
         }
 
-        public void RefreshAll()
-        {
-            foreach (var entity in _context.ChangeTracker.Entries()) entity.Reload();
-        }
-
         public void Dispose()
         {
             _context.Dispose();
