@@ -33,7 +33,8 @@ namespace Repository.Persistence.Templates
             htmlString = htmlString.Replace("MATERIAL".setBrackets(), o.OrderDetails.Material);
             htmlString = htmlString.Replace("VERARBEITUNG".setBrackets(), o.ProductionActions.getProductiontype());
             htmlString = htmlString.Replace("BEILAGEN".setBrackets(), o.ProductionActions.Insert);
-            htmlString = htmlString.Replace("OBJECT".setBrackets(), o.OrderDetails.ObjectTitel);
+            htmlString = htmlString.Replace("RECHNUNG".setBrackets(), o.OrderDetails.ObjectTitel);
+            htmlString = htmlString.Replace("OBJECT".setBrackets(), o.OrderDetails.OrderName);
             htmlString = htmlString.Replace("ANSPRECHPARTNER".setBrackets(), o.OrderDetails.Consultant);
             htmlString = htmlString.Replace("EDVBEARBEITER".setBrackets(), o.OrderDetails.User.Name);
             htmlString = htmlString.Replace("MENGE".setBrackets(), o.OrderDetails.OverallQuantity.ToString());
@@ -53,6 +54,10 @@ namespace Repository.Persistence.Templates
             htmlString = htmlString.Replace("ProduktionAction5".setBrackets(), o.ProductionActions.value.splitAction(4));
             htmlString = htmlString.Replace("ProduktionAction6".setBrackets(), o.ProductionActions.value.splitAction(5));
 
+            htmlString = htmlString.Replace("kuvert".setBrackets(), o.ProductionActions.Kuvert.checkbox());
+            htmlString = htmlString.Replace("inken".setBrackets(), o.ProductionActions.Ink.checkbox());
+            htmlString = htmlString.Replace("folieren".setBrackets(), o.ProductionActions.folieren.checkbox());
+
             htmlString = htmlString.Replace("RESTE".setBrackets(), o.OrderDetails.RemainsToo);
             if (o.EdvActions.Machine.Count > 0)
             {
@@ -67,6 +72,12 @@ namespace Repository.Persistence.Templates
 
             return htmlString;
         }
+         
+        private static string checkbox(this bool state)
+        {
+            if (state) return "Ja"; 
+            return "Nein";
+        } 
 
         private static string splitAction(this string s, int number)
         {
