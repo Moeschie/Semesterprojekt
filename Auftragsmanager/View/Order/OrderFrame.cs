@@ -88,15 +88,29 @@ namespace View
             }
             orderID = v; 
             instance.BringToFront();
-            instance.EditFields(v);
+            instance.EditFields(v, false);
             return instance;
         }
 
-        private void EditFields(string v)
+
+        internal static OrderFrame InstanceClone(Unit unit, string v)
+        {
+            if (instance == null)
+            {
+                instance = new OrderFrame(unit);
+            }
+            orderID = v;
+            instance.BringToFront();
+            instance.EditFields(v, true);
+            return instance;
+        }
+
+        private void EditFields(string v, bool clone)
         {
 
             Order editOrder = _unit.Order.GetOrderById(v);
-            OrderNumberInput.Text = editOrder.OrderDetails.OrderNumber;
+            if (!clone) OrderNumberInput.Text = editOrder.OrderDetails.OrderNumber;
+            else OrderNumberInput.Text = _unit.Order.orderIDgen();
 
             OrderIncomeDateInput.Text = editOrder.OrderDetails.IncomeDate;
             OrderIncomeTimeInput.Text = editOrder.OrderDetails.IncomeTime;

@@ -521,7 +521,7 @@ namespace View
             // maschinenToolStripMenuItem
             // 
             this.maschinenToolStripMenuItem.Name = "maschinenToolStripMenuItem";
-            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.maschinenToolStripMenuItem.Text = "Maschinen";
             // 
             // zeitraumToolStripMenuItem
@@ -529,14 +529,14 @@ namespace View
             this.zeitraumToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gesammtToolStripMenuItem});
             this.zeitraumToolStripMenuItem.Name = "zeitraumToolStripMenuItem";
-            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.zeitraumToolStripMenuItem.Text = "Zeitraum";
             // 
             // gesammtToolStripMenuItem
             // 
             this.gesammtToolStripMenuItem.Enabled = false;
             this.gesammtToolStripMenuItem.Name = "gesammtToolStripMenuItem";
-            this.gesammtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gesammtToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.gesammtToolStripMenuItem.Text = "Gesamt";
             this.gesammtToolStripMenuItem.Click += new System.EventHandler(this.switchScrollTO);
             // 
@@ -1587,8 +1587,9 @@ namespace View
             this.StatusChangeButton.Name = "StatusChangeButton";
             this.StatusChangeButton.Size = new System.Drawing.Size(122, 38);
             this.StatusChangeButton.TabIndex = 16;
-            this.StatusChangeButton.Text = "Status";
+            this.StatusChangeButton.Text = "Klonen";
             this.StatusChangeButton.UseVisualStyleBackColor = true;
+            this.StatusChangeButton.Click += new System.EventHandler(this.CloneOrder);
             // 
             // ImportantInfo2GrpBox
             // 

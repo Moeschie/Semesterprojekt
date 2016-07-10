@@ -342,5 +342,14 @@ namespace View
             _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString());
             Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], v, "Laufzettel_" + v + ".pdf"));
         }
+
+
+
+        private void CloneOrder(object sender, EventArgs e)
+        {
+            OrderFrame newOrder = OrderFrame.InstanceClone(_unit, SelectedOrderListBox.SelectedItem.ToString());
+            newOrder.Show();
+
+        }
     }
 }
