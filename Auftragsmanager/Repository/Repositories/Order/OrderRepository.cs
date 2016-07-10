@@ -31,14 +31,19 @@ namespace Repository.Persistence
             throw new NotImplementedException();
         }
 
-        public void PrintOrder(String orderID)
+        public void PrintOrder(String orderID, bool type)
         {
+            string file = "";
+            if (type) file = "Laufzettel";
+            else file = "Auftrag";
+
+
             orderID = SplitOrderID(orderID);
             HtmlToPdf converter = new HtmlToPdf();
             converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
             Order o = GetOrderById(orderID);
-            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(o), null);
-            doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, "Laufzettel_"+orderID+".pdf"));
+            PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(o, type), null);
+            doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, file+"_"+orderID+".pdf"));
             doc.Close();
         }
 

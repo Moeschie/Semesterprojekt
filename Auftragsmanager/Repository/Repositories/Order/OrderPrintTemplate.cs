@@ -4,19 +4,22 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Repository.Persistence.Templates
 {
     public static class OrderPrintTemplate
     {
- 
-        public static string GetHtmlTemplate(Order o)
+
+        public static string GetHtmlTemplate(Order o, bool type)
         {
             string htmlString = File.ReadAllText("./printTemplate.html");
 
-            htmlString = htmlString.Replace("NUMMER".setBrackets(), o.OrderDetails.OrderNumber);
+            if (!type) htmlString = File.ReadAllText("./printTemplateFolder.html");
 
+
+            htmlString = htmlString.Replace("NUMMER".setBrackets(), o.OrderDetails.OrderNumber);
             htmlString = htmlString.Replace("START".setBrackets(), o.OrderDetails.ProductionStart);
             htmlString = htmlString.Replace("ENDE".setBrackets(), o.OrderDetails.ProductionEnd);
             htmlString = htmlString.Replace("KUNDE".setBrackets(), o.OrderDetails.Customer.Name);
@@ -31,13 +34,21 @@ namespace Repository.Persistence.Templates
             {
                 htmlString = htmlString.Replace("MASCHINE".setBrackets(), "");
             }
+
+            htmlString = htmlString.tidyUp();
             return htmlString;
         }
 
+        private static string tidyUp(this string s){
+            var myRegex = new Regex(@"(?<={{)(.*)(?=}})");
+            s = myRegex.Replace(s, "");
+            s = s.Replace("{{}}", "");
+            return s;
+        }
 
         private static string setBrackets(this string s)
         {
-            return "{{" + s + "}}";            
+            return "{ {" + s + "}}";            
         }
         private static string getProductiontype(this ProductionActions pa)
         {

@@ -334,12 +334,15 @@ namespace View
 
         private void PrintOrder(object sender, EventArgs e)
         {
+            string v = _unit.Order.SplitOrderID(SelectedOrderListBox.SelectedItem.ToString());
+            _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString(), false);
+            Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], v, "Auftrag_" + v + ".pdf"));
         }
 
         private void PrintLaufzettelButton_Click(object sender, EventArgs e)
         {
             string v = _unit.Order.SplitOrderID(SelectedOrderListBox.SelectedItem.ToString());
-            _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString());
+            _unit.Order.PrintOrder(SelectedOrderListBox.SelectedItem.ToString(), true);
             Process.Start(Path.Combine(ConfigurationSettings.AppSettings["Path"], v, "Laufzettel_" + v + ".pdf"));
         }
 

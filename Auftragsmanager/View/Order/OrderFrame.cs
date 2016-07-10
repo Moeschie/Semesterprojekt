@@ -59,7 +59,7 @@ namespace View
                     if (f.Validate())
                     {
                         AddOrder(sender, null);
-                    _unit.Order.PrintOrder(orderID);
+                   // _unit.Order.PrintOrder(orderID);
                     _unit.Order.SetOccupied(orderID);
                 }
                 }
