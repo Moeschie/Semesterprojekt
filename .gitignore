@@ -13,10 +13,10 @@
 App.config
 .Auftragsmanager/View/App.config
 # Build results
-##[Dd]ebug/
-##[Dd]ebugPublic/
-##[Rr]elease/
-##[Rr]eleases/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
 [Xx]64/
 [Xx]86/
 [Bb]uild/
