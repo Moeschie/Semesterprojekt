@@ -154,7 +154,7 @@ namespace View
             this.FunctionGrpBox = new System.Windows.Forms.GroupBox();
             this.TopRight3rdTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.Editbutton = new System.Windows.Forms.Button();
-            this.CloneButton = new System.Windows.Forms.Button();
+            this.StatusChangeButton = new System.Windows.Forms.Button();
             this.ImportantInfo2GrpBox = new System.Windows.Forms.GroupBox();
             this.OrderRight1TableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.AuftragsNrLabel = new System.Windows.Forms.Label();
@@ -174,6 +174,7 @@ namespace View
             this.MainFrameMenu = new System.Windows.Forms.MenuStrip();
             this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
@@ -481,7 +482,7 @@ namespace View
             // NewMachineCreateSubMenuItem
             // 
             this.NewMachineCreateSubMenuItem.Name = "NewMachineCreateSubMenuItem";
-            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.NewMachineCreateSubMenuItem.Size = new System.Drawing.Size(136, 22);
             this.NewMachineCreateSubMenuItem.Text = "Hinzufügen";
             this.NewMachineCreateSubMenuItem.Click += new System.EventHandler(this.newMachine);
             // 
@@ -520,7 +521,7 @@ namespace View
             // maschinenToolStripMenuItem
             // 
             this.maschinenToolStripMenuItem.Name = "maschinenToolStripMenuItem";
-            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.maschinenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.maschinenToolStripMenuItem.Text = "Maschinen";
             // 
             // zeitraumToolStripMenuItem
@@ -528,14 +529,14 @@ namespace View
             this.zeitraumToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gesammtToolStripMenuItem});
             this.zeitraumToolStripMenuItem.Name = "zeitraumToolStripMenuItem";
-            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.zeitraumToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.zeitraumToolStripMenuItem.Text = "Zeitraum";
             // 
             // gesammtToolStripMenuItem
             // 
             this.gesammtToolStripMenuItem.Enabled = false;
             this.gesammtToolStripMenuItem.Name = "gesammtToolStripMenuItem";
-            this.gesammtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gesammtToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.gesammtToolStripMenuItem.Text = "Gesamt";
             this.gesammtToolStripMenuItem.Click += new System.EventHandler(this.switchScrollTO);
             // 
@@ -1557,7 +1558,7 @@ namespace View
             this.TopRight3rdTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TopRight3rdTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TopRight3rdTableLayout.Controls.Add(this.Editbutton, 0, 0);
-            this.TopRight3rdTableLayout.Controls.Add(this.CloneButton, 0, 1);
+            this.TopRight3rdTableLayout.Controls.Add(this.StatusChangeButton, 0, 1);
             this.TopRight3rdTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TopRight3rdTableLayout.Location = new System.Drawing.Point(3, 16);
             this.TopRight3rdTableLayout.Name = "TopRight3rdTableLayout";
@@ -1579,15 +1580,16 @@ namespace View
             this.Editbutton.UseVisualStyleBackColor = true;
             this.Editbutton.Click += new System.EventHandler(this.Editbutton_Click);
             // 
-            // CloneButton
+            // StatusChangeButton
             // 
-            this.CloneButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CloneButton.Location = new System.Drawing.Point(3, 46);
-            this.CloneButton.Name = "CloneButton";
-            this.CloneButton.Size = new System.Drawing.Size(122, 38);
-            this.CloneButton.TabIndex = 16;
-            this.CloneButton.Text = "Mappe Klonen";
-            this.CloneButton.UseVisualStyleBackColor = true;
+            this.StatusChangeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StatusChangeButton.Location = new System.Drawing.Point(3, 46);
+            this.StatusChangeButton.Name = "StatusChangeButton";
+            this.StatusChangeButton.Size = new System.Drawing.Size(122, 38);
+            this.StatusChangeButton.TabIndex = 16;
+            this.StatusChangeButton.Text = "Klonen";
+            this.StatusChangeButton.UseVisualStyleBackColor = true;
+            this.StatusChangeButton.Click += new System.EventHandler(this.CloneOrder);
             // 
             // ImportantInfo2GrpBox
             // 
@@ -1794,7 +1796,8 @@ namespace View
             // NewFolderMenuItem
             // 
             this.NewFolderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EmptyFolderSubMenuItem});
+            this.EmptyFolderSubMenuItem,
+            this.ClonedFolderSubMenuItem});
             this.NewFolderMenuItem.Name = "NewFolderMenuItem";
             this.NewFolderMenuItem.Size = new System.Drawing.Size(124, 20);
             this.NewFolderMenuItem.Text = "Neue Arbeitsmappe";
@@ -1802,9 +1805,16 @@ namespace View
             // EmptyFolderSubMenuItem
             // 
             this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
-            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
             this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
             this.EmptyFolderSubMenuItem.Click += new System.EventHandler(this.EmptyFolderSubMenuItem_Click);
+            // 
+            // ClonedFolderSubMenuItem
+            // 
+            this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
+            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
+            this.ClonedFolderSubMenuItem.Click += new System.EventHandler(this.ClonedFolderSubMenuItem_Click);
             // 
             // benutzerToolStripMenuItem
             // 
@@ -2017,7 +2027,7 @@ namespace View
         private System.Windows.Forms.GroupBox FunctionGrpBox;
         private System.Windows.Forms.TableLayoutPanel TopRight3rdTableLayout;
         private System.Windows.Forms.Button Editbutton;
-        private System.Windows.Forms.Button CloneButton;
+        private System.Windows.Forms.Button StatusChangeButton;
         private System.Windows.Forms.GroupBox ImportantInfo2GrpBox;
         private System.Windows.Forms.TableLayoutPanel OrderRight1TableLayout;
         private System.Windows.Forms.Label AuftragsNrLabel;
@@ -2036,6 +2046,7 @@ namespace View
         private System.Windows.Forms.MenuStrip MainFrameMenu;
         private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benutzerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuenBenutzerAnlegenToolStripMenuItem;
         private System.Windows.Forms.TabControl MainFrameTabControl;

@@ -13,7 +13,7 @@ namespace Repository.Core
         string orderIDgen();
         Order GetOrderById(string orderID);
         List<Order> GetAllByGroup();
-        void PrintOrder(string orderID);
+        void PrintOrder(string orderID, bool type);
         bool Occupied(string orderID);
         void SetOccupied(string orderID);
         string SplitOrderID(string orderID);
