@@ -13,7 +13,7 @@ namespace View
         private FilebrowserFrame(Unit unit)
         {
             _unit = unit;
-            orderID = "test"; //_unit.Order.Get.Name();
+            orderID = "test";
             InitializeComponent();
             //_unit.Files.CreateFolder("test");
             DisplayFiles(FileSearchFilterInput.Text);
@@ -71,7 +71,6 @@ namespace View
         private void FileSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
             DisplayFiles(FileSearchFilterInput.Text);
-
         }
         private void DisplayFiles(string filter)
         {
