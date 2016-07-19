@@ -56,12 +56,22 @@ namespace Repository.Persistence
             string timeString = DateTime.Now.ToString("yyyy-MM");
             count = GetAllByGroup().Count(o => o.OrderDetails.OrderNumber.StartsWith(timeString)) + 1;
             string orderID = timeString + "-" + count;
+            string[] orderIDArr = orderID.Split('-');
+            if (orderIDArr[2].Length < 2) orderIDArr[2] = "0" + orderIDArr[2];
+            if (orderIDArr[2].Length < 3) orderIDArr[2] = "0" + orderIDArr[2];
+
+            orderID = orderIDArr[0] + "-" + orderIDArr[1] + "-" + orderIDArr[2];
+
             return orderID;
         }
         public Order GetOrderById(string orderID)
         {
             orderID = SplitOrderID(orderID);
-            return GetAllByGroup().Where(u => u.OrderDetails.OrderNumber == orderID).First();
+            if (orderExists(orderID))
+            {
+                return GetAllByGroup().Where(u => u.OrderDetails.OrderNumber == orderID).First();
+            }
+            return null;
         }
 
         public List<Order> GetAllByGroup()
@@ -109,13 +119,25 @@ namespace Repository.Persistence
             return list;
         }
         public bool Occupied(string orderID)
-        {       
-            return GetOrderById(orderID).Occupied;
+        {
+            if (orderExists(orderID))
+                return GetOrderById(orderID).Occupied;
+
+            return false;
         }
         public void SetOccupied(string orderID)
         {
-            GetOrderById(orderID).Occupied = !GetOrderById(orderID).Occupied;
-            _context.SaveChanges();   
+            if (orderExists(orderID))
+            { 
+                GetOrderById(orderID).Occupied = !GetOrderById(orderID).Occupied;
+                _context.SaveChanges();   
+            }
+        }
+        public bool orderExists(string orderID)
+        {
+            if (GetAll().Where(o => o.OrderDetails.OrderNumber == orderID).Count() > 0)
+                return true;
+            return false;
         }
 
         public string SplitOrderID(string orderID)

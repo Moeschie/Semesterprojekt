@@ -267,7 +267,7 @@
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(132, 35);
             this.ExportButton.TabIndex = 17;
-            this.ExportButton.Text = "Exportieren";
+            this.ExportButton.Text = "???????????";
             this.ExportButton.UseVisualStyleBackColor = true;
             // 
             // OrderSaveButton
@@ -299,7 +299,7 @@
             this.LaufzettelButton.Name = "LaufzettelButton";
             this.LaufzettelButton.Size = new System.Drawing.Size(131, 35);
             this.LaufzettelButton.TabIndex = 16;
-            this.LaufzettelButton.Text = "Laufzettel erzeugen";
+            this.LaufzettelButton.Text = "?????";
             this.LaufzettelButton.UseVisualStyleBackColor = true;
             // 
             // ImportantInfoGrpBox

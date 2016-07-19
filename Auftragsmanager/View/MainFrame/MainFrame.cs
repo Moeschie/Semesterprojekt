@@ -27,17 +27,21 @@ namespace View
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
                 benutzerToolStripMenuItem.Visible = true;
-            DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
-            DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
+            DisplayDirectories(DirSearchFilterInput.Text);
+            DisplayFiles(FileSeachFilterInput.Text);
             DisplayOrderFolder("");
+            setSelectedOrder();
+            _unit.Machine.CreateGantMachine(MachineUsageChart, getSelectedMachines());
+            _unit.Machine.InitGantt();
+            initMenu();
+        }
+
+        public void setSelectedOrder() {
             if (SelectedOrderListBox.Items.Count > 0)
             {
                 SelectedOrderListBox.SetSelected(0, true);
                 DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
             }
-            _unit.Machine.CreateGantMachine(MachineUsageChart, getSelectedMachines());
-            _unit.Machine.InitGantt();
-            initMenu();
         }
 
         public static MainFrame Instance(Unit unit)
@@ -84,8 +88,8 @@ namespace View
                 OrderEDVJob4Input.Text = edvActions[3];
                 OrderEDVJob5Input.Text = edvActions[4];
                 OrderEDVJob6Input.Text = edvActions[5];
-                if (order.EdvActions.Machine.Count > 0) machineName = order.EdvActions.Machine.ToList().First().Name;
-                Console.WriteLine(machineName);
+
+                if (order.OrderDetails.Machine != null) machineName = order.OrderDetails.Machine.Name;
                 MaschineSelectInput.Text = machineName;
                 OrderMaxProTimeInput.Text = order.OrderDetails.ProductionTimespan;
                 StartLabelDisplay.Text = order.OrderDetails.ProductionStart;
@@ -143,15 +147,15 @@ namespace View
         */
         private void DirSearchFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
-            DisplayDirectories(DirSearchFilterInput.Text, MainFrameDirListBox);
+            DisplayDirectories(DirSearchFilterInput.Text);
         }
         private void MainFrameDirListBox_Click(object sender, EventArgs e)
         {
-            DisplayFiles(FileSeachFilterInput.Text, MainFrameFileListBox);
+            DisplayFiles(FileSeachFilterInput.Text);
         }
-        private void DisplayDirectories(string filter, ListBox listBox)
+        public void DisplayDirectories(string filter)
         {
-            listBox.Items.Clear();
+            MainFrameDirListBox.Items.Clear();
             string[] directories = _unit.Files.DdisplayDirectories();
             if (directories != null)
             {
@@ -159,16 +163,16 @@ namespace View
                 {
                     if (dir.Contains(filter))
                     {
-                        listBox.Items.Add(Path.GetFileName(dir));
-                        if (listBox.Items.Count > 0)
-                            listBox.SetSelected(0, true);
+                        MainFrameDirListBox.Items.Add(Path.GetFileName(dir));
+                        if (MainFrameDirListBox.Items.Count > 0)
+                            MainFrameDirListBox.SetSelected(0, true);
                     }
                 }
             }
         }
-        private void DisplayFiles(string filter, ListBox listBox)
+        public void DisplayFiles(string filter)
         {
-            listBox.Items.Clear();
+            MainFrameFileListBox.Items.Clear();
             if (MainFrameDirListBox.SelectedItem != null)
             {
 
@@ -177,7 +181,7 @@ namespace View
                 {
                     if (file.Contains(filter))
                     {
-                        listBox.Items.Add(Path.GetFileName(file));
+                        MainFrameFileListBox.Items.Add(Path.GetFileName(file));
                     }
                 }
             }
@@ -362,6 +366,11 @@ namespace View
             {
                 MessageBox.Show("Wählen sie die Mappe aus welche geklont werden soll.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void refeshListButton_Click(object sender, EventArgs e)
+        {
+            DisplayDirectories("");
         }
     }
 }

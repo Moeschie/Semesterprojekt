@@ -6,12 +6,10 @@
 
 #Abgabe relevant:
 - Mappe speichern ohne maschine auswählen               [Erledigt/ Moritz]
-- Mappe schließen -> Speichern -> Form Validation bug   [/]
+- Mappe schließen -> Speichern -> Form Validation bug   [Erledigt/ Moritz]
 - Filebrwoser öffnen ohne mappe gespeichert zu haben    [Erledigt/ Moritz]
 	- ordner erstellen bei mappen erstellung nur mit ID [Erledigt/ Moritz]
-	- ergänzung des names der mappe im ordner namen     [Erledigt/ Moritz]
-- Machinen Task aus arbeitsmappe erstellen              [/]
-- REGEX Filter von allem DIR,FILES,MAPPEN               [/]
+- Machinen Task aus arbeitsmappe erstellen              [Erledigt/]
 - OrderDeatils Maschinen Spalten in Updaten & Bearabeiten einbringen [/]
 
 #TODO:

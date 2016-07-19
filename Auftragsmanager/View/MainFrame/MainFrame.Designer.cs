@@ -49,7 +49,6 @@ namespace View
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.orderFileGrpBox = new System.Windows.Forms.GroupBox();
             this.MainFrameDirListBox = new System.Windows.Forms.ListBox();
-            this.DownloadDirButton = new System.Windows.Forms.Button();
             this.MachineTab = new System.Windows.Forms.TabPage();
             this.MachineUsageChart = new Braincase.GanttChart.Chart();
             this.MachineMenu = new System.Windows.Forms.MenuStrip();
@@ -177,6 +176,9 @@ namespace View
             this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.DownloadDirButton = new System.Windows.Forms.Button();
+            this.refeshListButton = new System.Windows.Forms.Button();
             this.FileArchivTab.SuspendLayout();
             this.ArchivMainTableLayout.SuspendLayout();
             this.FileSeachTableLayout.SuspendLayout();
@@ -217,6 +219,7 @@ namespace View
             this.OrderTabLeftTopTableLayout.SuspendLayout();
             this.MainFrameMenu.SuspendLayout();
             this.MainFrameTabControl.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // FileArchivTab
@@ -394,7 +397,7 @@ namespace View
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.orderFileGrpBox, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.DownloadDirButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 46);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -424,17 +427,6 @@ namespace View
             this.MainFrameDirListBox.Size = new System.Drawing.Size(251, 601);
             this.MainFrameDirListBox.TabIndex = 0;
             this.MainFrameDirListBox.Click += new System.EventHandler(this.MainFrameDirListBox_Click);
-            // 
-            // DownloadDirButton
-            // 
-            this.DownloadDirButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DownloadDirButton.Location = new System.Drawing.Point(3, 3);
-            this.DownloadDirButton.Name = "DownloadDirButton";
-            this.DownloadDirButton.Size = new System.Drawing.Size(257, 28);
-            this.DownloadDirButton.TabIndex = 0;
-            this.DownloadDirButton.Text = "Ordner Herunterladen";
-            this.DownloadDirButton.UseVisualStyleBackColor = true;
-            this.DownloadDirButton.Click += new System.EventHandler(this.DownloadDirButton_Click);
             // 
             // MachineTab
             // 
@@ -1803,7 +1795,7 @@ namespace View
             // EmptyFolderSubMenuItem
             // 
             this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
-            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(142, 22);
             this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
             this.EmptyFolderSubMenuItem.Click += new System.EventHandler(this.EmptyFolderSubMenuItem_Click);
             // 
@@ -1834,6 +1826,42 @@ namespace View
             this.MainFrameTabControl.SelectedIndex = 0;
             this.MainFrameTabControl.Size = new System.Drawing.Size(1362, 741);
             this.MainFrameTabControl.TabIndex = 0;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.refeshListButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.DownloadDirButton, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(257, 28);
+            this.tableLayoutPanel2.TabIndex = 7;
+            // 
+            // DownloadDirButton
+            // 
+            this.DownloadDirButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DownloadDirButton.Location = new System.Drawing.Point(3, 3);
+            this.DownloadDirButton.Name = "DownloadDirButton";
+            this.DownloadDirButton.Size = new System.Drawing.Size(122, 22);
+            this.DownloadDirButton.TabIndex = 1;
+            this.DownloadDirButton.Text = "Ordner Herunterladen";
+            this.DownloadDirButton.UseVisualStyleBackColor = true;
+            // 
+            // refeshListButton
+            // 
+            this.refeshListButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.refeshListButton.Location = new System.Drawing.Point(131, 3);
+            this.refeshListButton.Name = "refeshListButton";
+            this.refeshListButton.Size = new System.Drawing.Size(123, 22);
+            this.refeshListButton.TabIndex = 2;
+            this.refeshListButton.Text = "Liste aktualisieren";
+            this.refeshListButton.UseVisualStyleBackColor = true;
+            this.refeshListButton.Click += new System.EventHandler(this.refeshListButton_Click);
             // 
             // MainFrame
             // 
@@ -1900,6 +1928,7 @@ namespace View
             this.MainFrameMenu.ResumeLayout(false);
             this.MainFrameMenu.PerformLayout();
             this.MainFrameTabControl.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1923,7 +1952,6 @@ namespace View
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox orderFileGrpBox;
         private System.Windows.Forms.ListBox MainFrameDirListBox;
-        private System.Windows.Forms.Button DownloadDirButton;
         private System.Windows.Forms.TabPage MachineTab;
         private Braincase.GanttChart.Chart MachineUsageChart;
         private System.Windows.Forms.MenuStrip MachineMenu;
@@ -2051,6 +2079,9 @@ namespace View
         private System.Windows.Forms.ToolStripMenuItem maschinenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zeitraumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gesammtToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button refeshListButton;
+        private System.Windows.Forms.Button DownloadDirButton;
     }
 }
 

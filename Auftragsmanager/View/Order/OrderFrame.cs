@@ -63,8 +63,9 @@ namespace View
             }
             instance = null;
             MainFrame.Instance(_unit).DisplayOrderFolder("");
+            MainFrame.Instance(_unit).DisplayDirectories("");
+            MainFrame.Instance(_unit).setSelectedOrder();
             _unit.Machine.InitGantt();
-            Console.WriteLine(orderID);
         }
         public static OrderFrame Instance(Unit unit)
         {
@@ -101,7 +102,6 @@ namespace View
 
         private void EditFields(string v, bool clone)
         {
-
             Order editOrder = _unit.Order.GetOrderById(v);
             if (!clone) OrderNumberInput.Text = editOrder.OrderDetails.OrderNumber;
             else OrderNumberInput.Text = _unit.Order.orderIDgen();
@@ -135,8 +135,9 @@ namespace View
             OrderEDVJob4Input.Text = edvActions[3];
             OrderEDVJob5Input.Text = edvActions[4];
             OrderEDVJob6Input.Text = edvActions[5];
-            if (editOrder.EdvActions.Machine.Count > 0) machineName = editOrder.EdvActions.Machine.ToList().Single().Name;
-            MaschineSelectInput.Text = machineName;
+
+            if (editOrder.OrderDetails.Machine != null) machineName = editOrder.OrderDetails.Machine.Name;
+            MaschineSelectInput.SelectedIndex = MaschineSelectInput.FindStringExact(machineName);
             string[] actions = editOrder.ProductionActions.value.Split('|');
             OrderProJob1Input.Text = actions[0];
             OrderProJob2Input.Text = actions[1];
@@ -155,13 +156,10 @@ namespace View
 
         private void AddOrder(object sender, EventArgs e)
         {
-
-
             f.AddRule(OrderNameInput, t.ENTRY_REQUIRED);
 
             if (f.Validate())
             {
-
                 //Linke Seite
                 OrderDetails od = new OrderDetails();
 
@@ -279,7 +277,12 @@ namespace View
             updateOrder.ProductionActions.Kuvert = order.ProductionActions.Kuvert;
             updateOrder.ProductionActions.Order = order.ProductionActions.Order;
             updateOrder.ProductionActions.value = order.ProductionActions.value;
-
+            if (MaschineSelectInput.SelectedItem != null)
+                _unit.MachineTask.ceateTasksFromOrder(OrderNameInput.Text, 
+                    StartMachineUsagesDateTimeInput.Text.ToString(), 
+                    EndMachineUsagesDateTimeInput.Text.ToString(), 
+                    _unit.Order.SplitOrderID(orderID),
+                    _unit.Machine.Find(m => m.Name == MaschineSelectInput.Text).FirstOrDefault());
             _unit.Complete();
         }
 
@@ -295,17 +298,21 @@ namespace View
                 order.Id = Guid.NewGuid();
                 OrderNumber = order.Id;
                 _unit.Order.Add(order);
+                if (MaschineSelectInput.SelectedItem != null)
+                    _unit.MachineTask.ceateTasksFromOrder(OrderNameInput.Text,
+                        StartMachineUsagesDateTimeInput.Text.ToString(),
+                        EndMachineUsagesDateTimeInput.Text.ToString(),
+                        _unit.Order.SplitOrderID(orderID),
+                        _unit.Machine.Find(m => m.Name == MaschineSelectInput.Text).FirstOrDefault());
                 _unit.Complete();
+                _unit.Files.CreateFolder(_unit.Order.SplitOrderID(orderID));
             }
         }
         private void OrderDataButton_Click(object sender, EventArgs e)
         {
-            if (f.Validate())
-            {
-                _unit.Files.CreateFolder(orderID);
-                FilebrowserFrame filebrowserframe = FilebrowserFrame.Instance(_unit,orderID);
-                filebrowserframe.Show();
-            }
+            _unit.Files.CreateFolder(_unit.Order.SplitOrderID(orderID));
+            FilebrowserFrame filebrowserframe = FilebrowserFrame.Instance(_unit, _unit.Order.SplitOrderID(orderID));
+            filebrowserframe.Show();
         }
 
     }

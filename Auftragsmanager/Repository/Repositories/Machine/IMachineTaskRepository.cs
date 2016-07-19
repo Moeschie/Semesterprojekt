@@ -11,6 +11,6 @@ namespace Repository.Core
 {
     public interface IMachineTaskRepository : IRepository<MachineTask>
     {
-
+        void ceateTasksFromOrder(string titel, string start, string end, string orderID, Machine machine);
     }
 }

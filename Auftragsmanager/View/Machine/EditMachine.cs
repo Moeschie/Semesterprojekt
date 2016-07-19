@@ -37,6 +37,7 @@ namespace View
         {
             instance = null;
             _unit.Machine.InitGantt();
+            MainFrame.Instance(_unit).initMenu();
         }
         public static EditMachine Instance(Unit unit)
         {
@@ -57,10 +58,10 @@ namespace View
 
             if (f.Validate())
             {
-                Machine machine = new Machine();                
+                Machine machine = _unit.Machine.GetAll().Where(m => m.Name == EditMaschineSelectMaschineComboBox.Text).FirstOrDefault();              
                 machine.Name = EditMashineNameTextBox.Text;
-                _unit.Machine.Add(machine);
                 _unit.Complete();
+                Close();
             }
         }
     }
