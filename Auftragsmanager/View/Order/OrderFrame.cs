@@ -26,6 +26,7 @@ namespace View
         private static OrderFrame instance;
         private bool UpdateState;
         static string orderID;
+        string machineName = "";
 
         private OrderFrame(Unit unit)
         {
@@ -63,6 +64,7 @@ namespace View
             instance = null;
             MainFrame.Instance(_unit).DisplayOrderFolder("");
             _unit.Machine.InitGantt();
+            Console.WriteLine(orderID);
         }
         public static OrderFrame Instance(Unit unit)
         {
@@ -133,7 +135,6 @@ namespace View
             OrderEDVJob4Input.Text = edvActions[3];
             OrderEDVJob5Input.Text = edvActions[4];
             OrderEDVJob6Input.Text = edvActions[5];
-            string machineName = "";
             if (editOrder.EdvActions.Machine.Count > 0) machineName = editOrder.EdvActions.Machine.ToList().Single().Name;
             MaschineSelectInput.Text = machineName;
             string[] actions = editOrder.ProductionActions.value.Split('|');
@@ -297,13 +298,14 @@ namespace View
                 _unit.Complete();
             }
         }
-
-
         private void OrderDataButton_Click(object sender, EventArgs e)
         {
-            FilebrowserFrame filebrowserframe = FilebrowserFrame.Instance(_unit);
-            filebrowserframe.Show();
-
+            if (f.Validate())
+            {
+                _unit.Files.CreateFolder(orderID);
+                FilebrowserFrame filebrowserframe = FilebrowserFrame.Instance(_unit,orderID);
+                filebrowserframe.Show();
+            }
         }
 
     }

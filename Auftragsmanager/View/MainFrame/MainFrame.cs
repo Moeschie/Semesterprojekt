@@ -55,7 +55,7 @@ namespace View
         private void DisplaySelectedOrder(string orderID)
         {
             Order order = _unit.Order.GetOrderById(orderID);
-            string machineName = "";
+            string machineName="";
 
             if (order != null)
             {
@@ -84,8 +84,8 @@ namespace View
                 OrderEDVJob4Input.Text = edvActions[3];
                 OrderEDVJob5Input.Text = edvActions[4];
                 OrderEDVJob6Input.Text = edvActions[5];
-                if (order.EdvActions.Machine.Count > 0) machineName = order.EdvActions.Machine.ToList().Single().Name;
-
+                if (order.EdvActions.Machine.Count > 0) machineName = order.EdvActions.Machine.ToList().First().Name;
+                Console.WriteLine(machineName);
                 MaschineSelectInput.Text = machineName;
                 OrderMaxProTimeInput.Text = order.OrderDetails.ProductionTimespan;
                 StartLabelDisplay.Text = order.OrderDetails.ProductionStart;
@@ -130,6 +130,7 @@ namespace View
             {
                 foreach (var item in orders)
                 {
+                    //System.Text.RegularExpressions.Regex.IsMatch(item.OrderDetails.OrderName, Filter, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
                     if (item.OrderDetails.OrderName.Contains(Filter) || item.OrderDetails.OrderNumber.Contains(Filter) || item.OrderDetails.Customer.Name.Contains(Filter))
                     {
                         SelectedOrderListBox.Items.Add(item.OrderDetails.OrderNumber + " | " + item.OrderDetails.OrderName);

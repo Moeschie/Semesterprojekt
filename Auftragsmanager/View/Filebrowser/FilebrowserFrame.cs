@@ -10,12 +10,11 @@ namespace View
         private Unit _unit;
         private static FilebrowserFrame instance;
         private string orderID;
-        private FilebrowserFrame(Unit unit)
+        private FilebrowserFrame(Unit unit,string _orderID)
         {
             _unit = unit;
-            orderID = "test";
+            orderID = _orderID;
             InitializeComponent();
-            //_unit.Files.CreateFolder("test");
             DisplayFiles(FileSearchFilterInput.Text);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -28,11 +27,11 @@ namespace View
             instance = null;
         }
 
-        public static FilebrowserFrame Instance(Unit unit)
+        public static FilebrowserFrame Instance(Unit unit, string _orderID)
         {
             if (instance == null)
             {
-                instance = new FilebrowserFrame(unit);
+                instance = new FilebrowserFrame(unit, _orderID);
             }
             instance.BringToFront();
             return instance;

@@ -55,7 +55,7 @@ namespace Repository.Persistence
         {
             string timeString = DateTime.Now.ToString("yyyy-MM");
             count = GetAllByGroup().Count(o => o.OrderDetails.OrderNumber.StartsWith(timeString)) + 1;
-            string orderID = timeString + "-" + count; 
+            string orderID = timeString + "-" + count;
             return orderID;
         }
         public Order GetOrderById(string orderID)

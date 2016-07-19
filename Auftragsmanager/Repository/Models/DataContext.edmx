@@ -159,7 +159,7 @@
     <Property Name="ProductionTimespan" Type="nvarchar(max)" Nullable="true" />
     <Property Name="RemainsToo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Consultant" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Machine_Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Machine_Id" Type="uniqueidentifier" Nullable="true" />
   </EntityType>
   <EntityType Name="ProductionActions">
     <Key>
@@ -294,7 +294,7 @@
   </Association>
   <Association Name="OrderDetailsMachine">
     <End Role="OrderDetails" Type="DataContextModel.Store.OrderDetails" Multiplicity="*" />
-    <End Role="Machine" Type="DataContextModel.Store.Machine" Multiplicity="1" />
+    <End Role="Machine" Type="DataContextModel.Store.Machine" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Machine">
         <PropertyRef Name="Id" />
@@ -616,7 +616,7 @@
         </EntityContainer>
         <Association Name="OrderDetailsMachine">
           <End Type="DataContextModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
-          <End Type="DataContextModel.Machine" Role="Machine" Multiplicity="1" />
+          <End Type="DataContextModel.Machine" Role="Machine" Multiplicity="0..1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -767,6 +767,7 @@
       <EndProperty Name="OrderDetails">
         <ScalarProperty Name="Id" ColumnName="Id" />
       </EndProperty>
+      <Condition ColumnName="Machine_Id" IsNull="false" />
     </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>

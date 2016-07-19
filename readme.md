@@ -5,13 +5,14 @@
 - Architektur Dokumentation
 
 #Abgabe relevant:
-- Mappe speichern ohne maschine auswählen               [/]
+- Mappe speichern ohne maschine auswählen               [Erledigt/ Moritz]
 - Mappe schließen -> Speichern -> Form Validation bug   [/]
-- Filebrwoser öffnen ohne mappe gespeichert zu haben    [/]
-	- ordner erstellen bei mappen erstellung nur mit ID [/]
-	- ergänzung des names der mappe im ordner namen     [/]
+- Filebrwoser öffnen ohne mappe gespeichert zu haben    [Erledigt/ Moritz]
+	- ordner erstellen bei mappen erstellung nur mit ID [Erledigt/ Moritz]
+	- ergänzung des names der mappe im ordner namen     [Erledigt/ Moritz]
 - Machinen Task aus arbeitsmappe erstellen              [/]
 - REGEX Filter von allem DIR,FILES,MAPPEN               [/]
+- OrderDeatils Maschinen Spalten in Updaten & Bearabeiten einbringen [/]
 
 #TODO:
 - Arbeitsmappe Objekt - In DB                                       [Erledigt / Chris]
@@ -22,7 +23,7 @@
 - MainFrame Arbeitsmappen auflistung                                [ERLEDIGT / CHRIS,MORITZ]
 - Belegung von Arbeitsmappe -> gerade in Bearbeitung - Warnung o.ä. [Erledigt / Moritz Chris]
 - Bug wenn kein Element ausgewählt MainFrame                        [Erledigt / Moritz]
-- App.Config verschlüsseln [ / ] --> Vorerst unrelevant
+- App.Config verschlüsseln --> Vorerst unrelevant                   [ / ]
 - OrderFrame Instance                                               [Erledigt / Moritz]
 - Exportieren als PDF und Drucken von Arbeitsmappe und Laufzettel   [ERLEDIGT / CHRIS MORITZ]
 - Arbeitsmappe schließen abfangen speichern                         [Erledigt / Moritz]
