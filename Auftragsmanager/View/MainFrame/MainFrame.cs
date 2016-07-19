@@ -35,9 +35,9 @@ namespace View
                 SelectedOrderListBox.SetSelected(0, true);
                 DisplaySelectedOrder(SelectedOrderListBox.SelectedItem.ToString());
             }
-
+            _unit.Machine.CreateGantMachine(MachineUsageChart, getSelectedMachines());
+            _unit.Machine.InitGantt();
             initMenu();
-            initGant();
         }
 
         public static MainFrame Instance(Unit unit)
@@ -122,10 +122,6 @@ namespace View
             OrderFrame newOrder = OrderFrame.Instance(_unit);
             newOrder.Show();
         }
-        private void ClonedFolderSubMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         public void DisplayOrderFolder(string Filter)
         {
             SelectedOrderListBox.Items.Clear();
@@ -240,14 +236,6 @@ namespace View
             EditMachine editMashine = EditMachine.Instance(_unit);
             editMashine.Show();
         }
-        private void initGant()
-        {
-            _unit.Machine.CreateGantMachine(MachineUsageChart);
-            MachineUsageChart.AllowTaskDragDrop = false;
-            MachineUsageChart.ScrollTo(DateTime.Now);
-            MachineUsageChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
-            MachineUsageChart.Invalidate();           
-        }
         //FIXME: FIX SCROLL BUG
         private void switchScrollTO(object sender, EventArgs e)
         {
@@ -274,9 +262,10 @@ namespace View
             }
             MachineUsageChart.Invalidate();
         }
-        private void initMenu()
+        public void initMenu()
         {
             ToolStripMenuItem added;
+            maschinenToolStripMenuItem.DropDown.Items.Clear();
             foreach (var machine in _unit.Machine.GetAll().ToList())
             {
                 added = new ToolStripMenuItem();
@@ -291,6 +280,20 @@ namespace View
         {
             ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
             clickedItem.Checked = !clickedItem.Checked;
+
+            _unit.Machine.CreateGantMachine(MachineUsageChart, getSelectedMachines());
+            _unit.Machine.InitGantt();
+        }
+        private List<string> getSelectedMachines()
+        {
+            List<string> checkedMachines = new List<string>();
+
+            foreach (ToolStripMenuItem item in maschinenToolStripMenuItem.DropDownItems)
+            {
+                if (item.Checked) checkedMachines.Add(item.Text);
+
+            }
+            return checkedMachines;
         }
         /*
          USER PART - ONLY ADMIN
@@ -350,9 +353,14 @@ namespace View
 
         private void CloneOrder(object sender, EventArgs e)
         {
-            OrderFrame newOrder = OrderFrame.InstanceClone(_unit, SelectedOrderListBox.SelectedItem.ToString());
-            newOrder.Show();
-
+            if (SelectedOrderListBox.SelectedItem != null)
+            {
+                OrderFrame newOrder = OrderFrame.InstanceClone(_unit, SelectedOrderListBox.SelectedItem.ToString());
+                newOrder.Show();
+            }else
+            {
+                MessageBox.Show("Wählen sie die Mappe aus welche geklont werden soll.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

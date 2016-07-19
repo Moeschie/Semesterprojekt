@@ -36,7 +36,7 @@ namespace View
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            if(!UpdateState)
+            if (!UpdateState)
                 OrderNumberInput.Text = _unit.Order.orderIDgen();
 
             orderID = OrderNumberInput.Text;
@@ -49,26 +49,20 @@ namespace View
                 MaschineSelectInput.Items.Add(machine.Name);
                 MaschineSelectInput.SelectedItem = 1;
             }
-        }        
+        }
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
-
-
-                if (MessageBox.Show("Wollen sie die Änderungen Speichern?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Wollen sie die Änderungen Speichern?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                if (f.Validate())
                 {
-                    if (f.Validate())
-                    {
-                        AddOrder(sender, null);
-                   // _unit.Order.PrintOrder(orderID);
+                    AddOrder(sender, null);
                     _unit.Order.SetOccupied(orderID);
                 }
-                }
-
-                instance = null;
-
-                MainFrame.Instance(_unit).DisplayOrderFolder("");
-            
-
+            }
+            instance = null;
+            MainFrame.Instance(_unit).DisplayOrderFolder("");
+            _unit.Machine.InitGantt();
         }
         public static OrderFrame Instance(Unit unit)
         {
@@ -86,13 +80,11 @@ namespace View
             {
                 instance = new OrderFrame(unit);
             }
-            orderID = v; 
+            orderID = v;
             instance.BringToFront();
             instance.EditFields(v, false);
             return instance;
         }
-
-
         internal static OrderFrame InstanceClone(Unit unit, string v)
         {
             if (instance == null)
@@ -169,85 +161,85 @@ namespace View
             if (f.Validate())
             {
 
-            //Linke Seite
-            OrderDetails od = new OrderDetails();
+                //Linke Seite
+                OrderDetails od = new OrderDetails();
 
-            od.Id = Guid.NewGuid();
+                od.Id = Guid.NewGuid();
 
-            od.IncomeDate = OrderIncomeDateInput.Text;
-            od.IncomeTime = OrderIncomeTimeInput.Text;
-            od.Deadline = OrderDeadlineInput.Text;
-            od.OrderEdition = OrderEditionInput.Text;
-            od.OrderName = OrderNameInput.Text;
-            od.OrderNumber = OrderNumberInput.Text;
+                od.IncomeDate = OrderIncomeDateInput.Text;
+                od.IncomeTime = OrderIncomeTimeInput.Text;
+                od.Deadline = OrderDeadlineInput.Text;
+                od.OrderEdition = OrderEditionInput.Text;
+                od.OrderName = OrderNameInput.Text;
+                od.OrderNumber = OrderNumberInput.Text;
+                if (MaschineSelectInput.SelectedItem != null)
+                    od.Machine = _unit.Machine.Find(m => m.Name == MaschineSelectInput.Text).FirstOrDefault();
+                //Details
+                od.Customer = new Customer();
+                od.Customer.Id = Guid.NewGuid();
 
-            //Details
-            od.Customer = new Customer();
-            od.Customer.Id = Guid.NewGuid();
+                od.Customer.Name = OrderCustomerInput.Text;
+                od.ObjectTitel = OrderObjectInput.Text;
+                od.Consultant = OrderConsultantInput.Text;
+                od.User = _unit.Session.GetSessionUser();
+                int n;
+                bool isNumeric = int.TryParse(OrderQuantityInput.Text, out n);
+                if (isNumeric) od.OverallQuantity = n;
+                od.SplitForeinLand = OrderInlandInput.Text;
+                od.SplitHomeLand = OrderInlandInput.Text;
+                od.Adress = new Adress();
+                od.Adress.Id = Guid.NewGuid();
+                od.Adress.Name = OrderConsultantInput.Text;
+                od.Foreign = OrderForeignInput.Text;
+                od.RemainsToo = OrderRemainsInput.Text;
+                od.AdditionalInformation = OrderInfoInput.Text;
+                od.BillTo = OrderBillInput.Text;
+                od.Material = OrderMaterialInput.Text;
 
-            od.Customer.Name = OrderCustomerInput.Text;
-            od.ObjectTitel = OrderObjectInput.Text;
-            od.Consultant = OrderConsultantInput.Text;
-            od.User = _unit.Session.GetSessionUser();         
-            int n;
-            bool isNumeric = int.TryParse(OrderQuantityInput.Text, out n);
-            if (isNumeric)od.OverallQuantity = n;            
-            od.SplitForeinLand = OrderInlandInput.Text;
-            od.SplitHomeLand = OrderInlandInput.Text;
-            od.Adress = new Adress();
-            od.Adress.Id = Guid.NewGuid();
-            od.Adress.Name = OrderConsultantInput.Text;
-            od.Foreign = OrderForeignInput.Text;
-            od.RemainsToo = OrderRemainsInput.Text;
-            od.AdditionalInformation = OrderInfoInput.Text;
-            od.BillTo = OrderBillInput.Text;
-            od.Material = OrderMaterialInput.Text;
-            
-            od.ProductionStart = StartMachineUsagesDateTimeInput.Text.ToString();
-            od.ProductionEnd = EndMachineUsagesDateTimeInput.Text.ToString();
-            od.ProductionTimespan = OrderMaxProTimeInput.Text.ToString();
-            // Rechte Seite
-            EdvActions edv = new EdvActions();
-            string[] data = new string[6];
+                od.ProductionStart = StartMachineUsagesDateTimeInput.Text.ToString();
+                od.ProductionEnd = EndMachineUsagesDateTimeInput.Text.ToString();
+                od.ProductionTimespan = OrderMaxProTimeInput.Text.ToString();
+                // Rechte Seite
+                EdvActions edv = new EdvActions();
+                string[] data = new string[6];
 
-            edv.Id = Guid.NewGuid();
+                edv.Id = Guid.NewGuid();
 
-            data[0] = OrderEDVJob1Input.Text;
-            data[1] = OrderEDVJob2Input.Text;
-            data[2] = OrderEDVJob3Input.Text;
-            data[3] = OrderEDVJob4Input.Text;
-            data[4] = OrderEDVJob5Input.Text;
-            data[5] = OrderEDVJob6Input.Text;
-            edv.Actions = data[0] + "|" + data[1] + "|" + data[2] + "|" + data[3] + "|" + data[4] + "|" + data[5];
+                data[0] = OrderEDVJob1Input.Text;
+                data[1] = OrderEDVJob2Input.Text;
+                data[2] = OrderEDVJob3Input.Text;
+                data[3] = OrderEDVJob4Input.Text;
+                data[4] = OrderEDVJob5Input.Text;
+                data[5] = OrderEDVJob6Input.Text;
+                edv.Actions = data[0] + "|" + data[1] + "|" + data[2] + "|" + data[3] + "|" + data[4] + "|" + data[5];
+                ProductionActions pa = new ProductionActions();
+                pa.Id = Guid.NewGuid();
+                string[] proData = new string[6];
+                proData[0] = OrderProJob1Input.Text;
+                proData[1] = OrderProJob2Input.Text;
+                proData[2] = OrderProJob3Input.Text;
+                proData[3] = OrderProJob4Input.Text;
+                proData[4] = OrderProJob5Input.Text;
+                proData[5] = OrderProJob6Input.Text;
+                pa.value = proData[0] + "|" + proData[1] + "|" + proData[2] + "|" + proData[3] + "|" + proData[4] + "|" + proData[5];
 
-            ProductionActions pa = new ProductionActions();
-            pa.Id = Guid.NewGuid();
-            string[] proData = new string[6];
-            proData[0] = OrderProJob1Input.Text;
-            proData[1] = OrderProJob2Input.Text;
-            proData[2] = OrderProJob3Input.Text;
-            proData[3] = OrderProJob4Input.Text;
-            proData[4] = OrderProJob5Input.Text;
-            proData[5] = OrderProJob6Input.Text;
-            pa.value = proData[0]+"|"+ proData[1] + "|" + proData[2] + "|" + proData[3] + "|" + proData[4] + "|" + proData[5];
+                pa.Insert = OrderInsertInput.Text;
+                pa.InsertKind = OrderInsertKindInput.Text;
+                pa.Kuvert = kuvertierenCBInput.Checked;
+                pa.Ink = inkenCBInput.Checked;
+                pa.folieren = folierenCBInput.Checked;
 
-            pa.Insert = OrderInsertInput.Text;
-            pa.InsertKind = OrderInsertKindInput.Text;
-            pa.Kuvert = kuvertierenCBInput.Checked;
-            pa.Ink = inkenCBInput.Checked;
-            pa.folieren = folierenCBInput.Checked;
+                order = new Order();
+                order.ProductionActions = pa;
+                order.EdvActions = edv;
+                order.OrderDetails = od;
 
-            order = new Order();
-            order.ProductionActions = pa;
-            order.EdvActions = edv;
-            order.OrderDetails = od;
-            
 
-            if (!save)
-                SaveOrder();
+                if (!save)
+                    SaveOrder();
 
-            if (save)
-                UpdateOrder();
+                if (save)
+                    UpdateOrder();
 
             }
 
@@ -293,19 +285,18 @@ namespace View
         private void SaveOrder()
         {
             FormValidation f = new FormValidation();
-             TextStrings t = new TextStrings();
+            TextStrings t = new TextStrings();
 
-                if (f.Validate())
-                {
-                order.Versionierung =  _unit.Order.Find(o => o.OrderDetails.OrderNumber == OrderNumberInput.Text).Count() + 1;
-
+            if (f.Validate())
+            {
+                order.Versionierung = _unit.Order.Find(o => o.OrderDetails.OrderNumber == OrderNumberInput.Text).Count() + 1;
                 save = true;
                 order.Id = Guid.NewGuid();
                 OrderNumber = order.Id;
                 _unit.Order.Add(order);
-                    _unit.Complete();
+                _unit.Complete();
             }
-        } 
+        }
 
 
         private void OrderDataButton_Click(object sender, EventArgs e)

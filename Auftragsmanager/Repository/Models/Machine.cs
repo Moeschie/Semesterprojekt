@@ -18,6 +18,7 @@ namespace Repository.Models
         public Machine()
         {
             this.MachineTask = new HashSet<MachineTask>();
+            this.OrderDetails = new HashSet<OrderDetails>();
         }
     
         public System.Guid Id { get; set; }
@@ -27,5 +28,7 @@ namespace Repository.Models
         public virtual EdvActions EdvActions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MachineTask> MachineTask { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderDetails> OrderDetails { get; set; }
     }
 }

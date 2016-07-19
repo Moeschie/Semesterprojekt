@@ -53,6 +53,10 @@
       <End Role="User" EntitySet="User" />
       <End Role="OrderDetails" EntitySet="OrderDetails" />
     </AssociationSet>
+    <AssociationSet Name="OrderDetailsMachine" Association="DataContextModel.Store.OrderDetailsMachine">
+      <End Role="OrderDetails" EntitySet="OrderDetails" />
+      <End Role="Machine" EntitySet="Machine" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Adress">
     <Key>
@@ -155,6 +159,7 @@
     <Property Name="ProductionTimespan" Type="nvarchar(max)" Nullable="true" />
     <Property Name="RemainsToo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Consultant" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Machine_Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="ProductionActions">
     <Key>
@@ -287,6 +292,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="OrderDetailsMachine">
+    <End Role="OrderDetails" Type="DataContextModel.Store.OrderDetails" Multiplicity="*" />
+    <End Role="Machine" Type="DataContextModel.Store.Machine" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Machine">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OrderDetails">
+        <PropertyRef Name="Machine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -350,6 +367,7 @@
           <Property Name="EdvActions_Id" Type="Guid" />
           <NavigationProperty Name="EdvActions" Relationship="Self.FK_dbo_Machine_dbo_EdvActions_EdvActions_Id" FromRole="Machine" ToRole="EdvActions" />
           <NavigationProperty Name="MachineTask" Relationship="Self.FK_dbo_MachineTask_dbo_Machine_machine_Id" FromRole="Machine" ToRole="MachineTask" />
+          <NavigationProperty Name="OrderDetails" Relationship="DataContextModel.OrderDetailsMachine" FromRole="Machine" ToRole="OrderDetails" />
         </EntityType>
         <EntityType Name="MachineTask">
           <Key>
@@ -408,6 +426,7 @@
           <Property Name="ProductionTimespan" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
           <Property Name="RemainsToo" Type="String" Nullable="false" FixedLength="false" MaxLength="Max" Unicode="true" />
           <Property Name="Consultant" Type="String" Nullable="false" />
+          <NavigationProperty Name="Machine" Relationship="DataContextModel.OrderDetailsMachine" FromRole="OrderDetails" ToRole="Machine" />
         </EntityType>
         <EntityType Name="ProductionActions">
           <Key>
@@ -590,7 +609,15 @@
             <End Role="User" EntitySet="User" />
             <End Role="OrderDetails" EntitySet="OrderDetails" />
           </AssociationSet>
+          <AssociationSet Name="OrderDetailsMachine" Association="DataContextModel.OrderDetailsMachine">
+            <End Role="OrderDetails" EntitySet="OrderDetails" />
+            <End Role="Machine" EntitySet="Machine" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="OrderDetailsMachine">
+          <End Type="DataContextModel.OrderDetails" Role="OrderDetails" Multiplicity="*" />
+          <End Type="DataContextModel.Machine" Role="Machine" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -733,6 +760,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="OrderDetailsMachine" TypeName="DataContextModel.OrderDetailsMachine" StoreEntitySet="OrderDetails">
+      <EndProperty Name="Machine">
+        <ScalarProperty Name="Id" ColumnName="Machine_Id" />
+      </EndProperty>
+      <EndProperty Name="OrderDetails">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

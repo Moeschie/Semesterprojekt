@@ -12,8 +12,10 @@ namespace Repository.Persistence
     public class MachineRepository : Repository<Machine>, IMachineRepository
     {
         public ProjectManager GanttContent;
+        Chart usagesChart;
         MachineTaskRepository machineTasks;
-        private List<Color> colorPalette = new List<Color>(); 
+        private List<string> checkedMachines = new List<string>();        
+        private List<Color> colorPalette = new List<Color>();
         public MachineRepository(DataContext context) : base(context)
         {
             machineTasks = new MachineTaskRepository(context);
@@ -31,7 +33,7 @@ namespace Repository.Persistence
         public Color GetColorCode()
         {
             if (colorPalette.Count() < 1)
-                 setColorPalette();
+                setColorPalette();
 
             Color color = colorPalette[0];
             colorPalette.Remove(color);
@@ -58,37 +60,49 @@ namespace Repository.Persistence
         {
             return GanttContent;
         }
-        public void CreateGantMachine(Chart usagesChart)
+        public void CreateGantMachine(Chart givenChart, List<string> checkedList)
         {
+            usagesChart = givenChart;
+            checkedMachines = checkedList;
             GanttContent = new ProjectManager();
-            foreach (var machine in GetAll().ToList())
+            if (checkedList.Count <1)
             {
-                var AddMachine = new MyTask(GanttContent) { Name = machine.Name, Color = GetColorCode()};
-                GanttContent.Add(AddMachine);
-
-                var AddToolTip = new MyResource() { Name = machine.Name };
-                GanttContent.Assign(AddMachine, AddToolTip);
-
-                usagesChart.SetToolTip(AddMachine, string.Join(", ", GanttContent.ResourcesOf(AddMachine).Select(x => (x as MyResource).Name)));
-
-                foreach (var machineTask in machineTasks.GetAll().Where(m=>m.Machine.Id == machine.Id).ToList())
-                {   
-                    DateTime machineTaskSart = DateTime.Parse(machineTask.UsageStart);
-                    DateTime machineTaskEnd = DateTime.Parse(machineTask.UsageEnd);
-                    if (machineTaskSart >= DateTime.Now ||machineTaskEnd >= DateTime.Now)
-                    {
-                        var AddTask = new MyTask(GanttContent) { Name = machineTask.title, Color = Color.LightGray };
-                        GanttContent.Add(AddTask);
-                        var AddTaskToolTip = new MyResource() { Name = machineTask.title };
-                        GanttContent.Assign(AddTask, AddTaskToolTip);
-                        GanttContent.SetStart(AddTask, setDateTime(machineTaskSart));
-                        GanttContent.SetEnd(AddTask, setDateTime(machineTaskEnd));
-                        GanttContent.Group(AddMachine, AddTask);
-
-                        usagesChart.SetToolTip(AddTask, "Auftrag: " + string.Join(", ", GanttContent.ResourcesOf(AddTask).Select(x => (x as MyResource).Name)) + " Zeitraum: " + string.Format("{0} bis {1}", machineTaskSart.ToString("dd/MM/yyyy"), machineTaskEnd.ToString("dd/MM/yyyy")));
-                    }
+                foreach (var item in GetAll().ToList())
+                {
+                    checkedList.Add(item.Name);
                 }
             }
+            foreach (var item in checkedMachines)
+            {
+                foreach (var machine in GetAll().Where(n => n.Name == item))
+                {
+                    var AddMachine = new MyTask(GanttContent) { Name = machine.Name, Color = GetColorCode() };
+                    GanttContent.Add(AddMachine);
+
+                    var AddToolTip = new MyResource() { Name = machine.Name };
+                    GanttContent.Assign(AddMachine, AddToolTip);
+
+                    usagesChart.SetToolTip(AddMachine, string.Join(", ", GanttContent.ResourcesOf(AddMachine).Select(x => (x as MyResource).Name)));
+
+                    foreach (var machineTask in machineTasks.GetAll().Where(m => m.Machine.Id == machine.Id).ToList())
+                    {
+                        DateTime machineTaskSart = DateTime.Parse(machineTask.UsageStart);
+                        DateTime machineTaskEnd = DateTime.Parse(machineTask.UsageEnd);
+                        if (machineTaskSart >= DateTime.Now || machineTaskEnd >= DateTime.Now)
+                        {
+                            var AddTask = new MyTask(GanttContent) { Name = machineTask.title, Color = Color.LightGray };
+                            GanttContent.Add(AddTask);
+                            var AddTaskToolTip = new MyResource() { Name = machineTask.title };
+                            GanttContent.Assign(AddTask, AddTaskToolTip);
+                            GanttContent.SetStart(AddTask, setDateTime(machineTaskSart));
+                            GanttContent.SetEnd(AddTask, setDateTime(machineTaskEnd));
+                            GanttContent.Group(AddMachine, AddTask);
+
+                            usagesChart.SetToolTip(AddTask, "Auftrag: " + string.Join(", ", GanttContent.ResourcesOf(AddTask).Select(x => (x as MyResource).Name)) + " Zeitraum: " + string.Format("{0} bis {1}", machineTaskSart.ToString("dd/MM/yyyy"), machineTaskEnd.ToString("dd/MM/yyyy")));
+                        }
+                    }
+                } }
+
             //TimeSpan span = DateTime.Now - DateTime.Now.AddDays(-5);
             //GanttContent.Now = span.Days;
             //DateTime test = DateTime.Now;
@@ -110,7 +124,16 @@ namespace Repository.Persistence
         }
         private int setDateTime(DateTime dateTime)
         {
-            return dateTime.DayOfYear-DateTime.Now.DayOfYear;
+            return dateTime.DayOfYear - DateTime.Now.DayOfYear;
+        }
+
+        public void InitGantt()
+        {            
+            CreateGantMachine(usagesChart, checkedMachines);
+            usagesChart.AllowTaskDragDrop = false;
+            usagesChart.ScrollTo(DateTime.Now);
+            usagesChart.TimeScaleDisplay = TimeScaleDisplay.DayOfMonth;
+            usagesChart.Invalidate();
         }
 
         public DataContext DataContext

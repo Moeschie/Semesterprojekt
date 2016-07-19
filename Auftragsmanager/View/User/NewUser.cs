@@ -52,6 +52,7 @@ namespace View
             f.AddRule(PasswordTextBox, t.MIN_CHARS_REQUIRED("Password", 5), f.MinLength(5));
 
             User newUser = new User();
+            newUser.Id = Guid.NewGuid();
             newUser.Username = UsernameTextBox.Text;
             newUser.Name = NameTextBox.Text;
             newUser.LastName = LastNameTextBox.Text;
@@ -63,7 +64,7 @@ namespace View
 
             string UserAccess = UserRightsSelect.Text;
             newUser.AccessLevel = 0;
-            if (!UserAccess.Equals("Moderator"))
+            if (UserAccess.Equals("Moderator"))
                 newUser.AccessLevel = 1000;
 
             if (f.Validate())

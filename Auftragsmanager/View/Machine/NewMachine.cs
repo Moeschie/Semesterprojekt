@@ -17,7 +17,6 @@ namespace View
     {
         private Unit _unit;
         private static NewMachine instance;
-
         private NewMachine(Unit unit)
         {
             _unit = unit;
@@ -30,19 +29,20 @@ namespace View
         }
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
-            instance = null;
+            instance = null;            
+            _unit.Machine.InitGantt();
+            MainFrame.Instance(_unit).initMenu();
         }
 
         public static NewMachine Instance(Unit unit)
         {
-
             if (instance == null)
             {
                 instance = new NewMachine(unit);
             }
             instance.BringToFront();
             return instance;
-
+            
         }
 
         private void AddNewMashineButton_Click(object sender, EventArgs e)

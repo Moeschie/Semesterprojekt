@@ -2,13 +2,13 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 06/22/2016 00:07:13
+-- Date Created: 07/12/2016 11:22:10
 -- Generated from EDMX file: C:\Users\mschl\Source\Repos\Semesterprojekt\Auftragsmanager\Repository\Models\DataContext.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
 GO
-USE [TestDB];
+USE [DBAuftragsmanager];
 GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 GO
@@ -43,6 +43,9 @@ IF OBJECT_ID(N'[dbo].[FK_dbo_Order_dbo_ProductionActions_ProductionActions_Id]',
 GO
 IF OBJECT_ID(N'[dbo].[FK_dbo_OrderDetails_dbo_User_Editor_Id]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_dbo_OrderDetails_dbo_User_Editor_Id];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OrderDetailsMachine]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[OrderDetails] DROP CONSTRAINT [FK_OrderDetailsMachine];
 GO
 
 -- --------------------------------------------------
@@ -185,7 +188,8 @@ CREATE TABLE [dbo].[OrderDetails] (
     [ProductionEnd] nvarchar(max)  NULL,
     [ProductionTimespan] nvarchar(max)  NULL,
     [RemainsToo] nvarchar(max)  NOT NULL,
-    [Consultant] nvarchar(max)  NOT NULL
+    [Consultant] nvarchar(max)  NOT NULL,
+    [Machine_Id] uniqueidentifier  NOT NULL
 );
 GO
 
@@ -419,6 +423,21 @@ GO
 CREATE INDEX [IX_FK_dbo_OrderDetails_dbo_User_Editor_Id]
 ON [dbo].[OrderDetails]
     ([Editor_Id]);
+GO
+
+-- Creating foreign key on [Machine_Id] in table 'OrderDetails'
+ALTER TABLE [dbo].[OrderDetails]
+ADD CONSTRAINT [FK_OrderDetailsMachine]
+    FOREIGN KEY ([Machine_Id])
+    REFERENCES [dbo].[Machine]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OrderDetailsMachine'
+CREATE INDEX [IX_FK_OrderDetailsMachine]
+ON [dbo].[OrderDetails]
+    ([Machine_Id]);
 GO
 
 -- --------------------------------------------------

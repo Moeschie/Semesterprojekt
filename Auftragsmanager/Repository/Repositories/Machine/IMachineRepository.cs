@@ -12,8 +12,9 @@ namespace Repository.Core
     public interface IMachineRepository : IRepository<Machine>
     {
         bool MachineExists(string machinename);
-        void CreateGantMachine(Chart usagesChart);
+        void CreateGantMachine(Chart usagesChart,List<string> selectedList);
         Color GetColorCode();
         ProjectManager getProjectManager();
+        void InitGantt();
     }
 }

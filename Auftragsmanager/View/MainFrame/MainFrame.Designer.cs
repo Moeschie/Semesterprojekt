@@ -174,7 +174,6 @@ namespace View
             this.MainFrameMenu = new System.Windows.Forms.MenuStrip();
             this.NewFolderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmptyFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ClonedFolderSubMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.benutzerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuenBenutzerAnlegenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainFrameTabControl = new System.Windows.Forms.TabControl();
@@ -1796,8 +1795,7 @@ namespace View
             // NewFolderMenuItem
             // 
             this.NewFolderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EmptyFolderSubMenuItem,
-            this.ClonedFolderSubMenuItem});
+            this.EmptyFolderSubMenuItem});
             this.NewFolderMenuItem.Name = "NewFolderMenuItem";
             this.NewFolderMenuItem.Size = new System.Drawing.Size(124, 20);
             this.NewFolderMenuItem.Text = "Neue Arbeitsmappe";
@@ -1805,16 +1803,9 @@ namespace View
             // EmptyFolderSubMenuItem
             // 
             this.EmptyFolderSubMenuItem.Name = "EmptyFolderSubMenuItem";
-            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.EmptyFolderSubMenuItem.Size = new System.Drawing.Size(152, 22);
             this.EmptyFolderSubMenuItem.Text = "Leere Mappe";
             this.EmptyFolderSubMenuItem.Click += new System.EventHandler(this.EmptyFolderSubMenuItem_Click);
-            // 
-            // ClonedFolderSubMenuItem
-            // 
-            this.ClonedFolderSubMenuItem.Name = "ClonedFolderSubMenuItem";
-            this.ClonedFolderSubMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.ClonedFolderSubMenuItem.Text = "Mappe klonen";
-            this.ClonedFolderSubMenuItem.Click += new System.EventHandler(this.ClonedFolderSubMenuItem_Click);
             // 
             // benutzerToolStripMenuItem
             // 
@@ -2046,7 +2037,6 @@ namespace View
         private System.Windows.Forms.MenuStrip MainFrameMenu;
         private System.Windows.Forms.ToolStripMenuItem NewFolderMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmptyFolderSubMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ClonedFolderSubMenuItem;
         private System.Windows.Forms.ToolStripMenuItem benutzerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuenBenutzerAnlegenToolStripMenuItem;
         private System.Windows.Forms.TabControl MainFrameTabControl;

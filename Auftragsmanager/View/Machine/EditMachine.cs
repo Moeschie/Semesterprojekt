@@ -36,6 +36,7 @@ namespace View
         private void closeEvent(object sender, FormClosingEventArgs e)
         {
             instance = null;
+            _unit.Machine.InitGantt();
         }
         public static EditMachine Instance(Unit unit)
         {
