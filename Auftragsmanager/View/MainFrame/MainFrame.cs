@@ -26,7 +26,12 @@ namespace View
             this.Show();
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
+            {
                 benutzerToolStripMenuItem.Visible = true;
+                NewMachineMenuItem.Visible = true;
+                EditMachineMenuItem.Visible = true;
+            }
+                
             DisplayDirectories(DirSearchFilterInput.Text);
             DisplayFiles(FileSeachFilterInput.Text);
             DisplayOrderFolder("");
@@ -63,7 +68,6 @@ namespace View
 
             if (order != null)
             {
-
                 //TOP LEFT
                 OrderIncomeDateInput.Text = order.OrderDetails.IncomeDate;
                 OrderDeadlineInput.Text = order.OrderDetails.Deadline;

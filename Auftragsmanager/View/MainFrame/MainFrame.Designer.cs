@@ -469,6 +469,7 @@ namespace View
             this.NewMachineMenuItem.Name = "NewMachineMenuItem";
             this.NewMachineMenuItem.Size = new System.Drawing.Size(41, 20);
             this.NewMachineMenuItem.Text = "Neu";
+            this.NewMachineMenuItem.Visible = false;
             // 
             // NewMachineCreateSubMenuItem
             // 
@@ -485,6 +486,7 @@ namespace View
             this.EditMachineMenuItem.Name = "EditMachineMenuItem";
             this.EditMachineMenuItem.Size = new System.Drawing.Size(75, 20);
             this.EditMachineMenuItem.Text = "Bearbeiten";
+            this.EditMachineMenuItem.Visible = false;
             // 
             // DefectMachineSubMenuItem
             // 

@@ -4,13 +4,7 @@
 - Allgememeine Bedinungsanleitung
 - Architektur Dokumentation
 
-#Abgabe relevant:
-- Mappe speichern ohne maschine auswählen               [Erledigt/ Moritz]
-- Mappe schließen -> Speichern -> Form Validation bug   [Erledigt/ Moritz]
-- Filebrwoser öffnen ohne mappe gespeichert zu haben    [Erledigt/ Moritz]
-	- ordner erstellen bei mappen erstellung nur mit ID [Erledigt/ Moritz]
-- Machinen Task aus arbeitsmappe erstellen              [Erledigt/]
-- OrderDeatils Maschinen Spalten in Updaten & Bearabeiten einbringen [/]
+
 
 #TODO:
 - Arbeitsmappe Objekt - In DB                                       [Erledigt / Chris]
@@ -30,3 +24,9 @@
 - Maschinen Workorders selectable                                   [Erledigt/Moritz]
 - HTML Template Arbeitsmappe                                        [Erledigt/Chris]
 - Select order nach bearbeiten                                      [Erledigt/Moritz]
+- Mappe speichern ohne maschine auswählen               [Erledigt/ Moritz]
+- Mappe schließen -> Speichern -> Form Validation bug   [Erledigt/ Moritz]
+- Filebrwoser öffnen ohne mappe gespeichert zu haben    [Erledigt/ Moritz]
+	- ordner erstellen bei mappen erstellung nur mit ID [Erledigt/ Moritz]
+- Machinen Task aus arbeitsmappe erstellen              [Erledigt/]
+- OrderDeatils Maschinen Spalten in Updaten & Bearabeiten einbringen [Erledigt/]
