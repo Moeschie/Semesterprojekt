@@ -23,6 +23,8 @@ namespace View
 
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormClosing += closeEvent;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Show();
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
@@ -70,6 +72,7 @@ namespace View
             {
                 //TOP LEFT
                 OrderIncomeDateInput.Text = order.OrderDetails.IncomeDate;
+                OrderIncomeTimeInput.Text = order.OrderDetails.IncomeTime;
                 OrderDeadlineInput.Text = order.OrderDetails.Deadline;
                 OrderEditionInput.Text = order.OrderDetails.OrderEdition;
                 //TOP RIGHT
@@ -124,11 +127,6 @@ namespace View
         private void OrderSelectFilterInput_KeyUp(object sender, KeyEventArgs e)
         {
             DisplayOrderFolder(OrderSelectFilterInput.Text);
-        }
-        private void EmptyFolderSubMenuItem_Click(object sender, EventArgs e)
-        {
-            OrderFrame newOrder = OrderFrame.Instance(_unit);
-            newOrder.Show();
         }
         public void DisplayOrderFolder(string Filter)
         {
@@ -375,6 +373,12 @@ namespace View
         private void refeshListButton_Click(object sender, EventArgs e)
         {
             DisplayDirectories("");
+        }
+
+        private void NewFolderMenuItem_Click(object sender, EventArgs e)
+        {
+            OrderFrame newOrder = OrderFrame.Instance(_unit);
+            newOrder.Show();
         }
     }
 }
