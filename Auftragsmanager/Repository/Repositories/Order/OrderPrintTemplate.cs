@@ -33,12 +33,14 @@ namespace Repository.Persistence.Templates
             htmlString = htmlString.Replace("MATERIAL".setBrackets(), o.OrderDetails.Material);
             htmlString = htmlString.Replace("VERARBEITUNG".setBrackets(), o.ProductionActions.getProductiontype());
             htmlString = htmlString.Replace("BEILAGEN".setBrackets(), o.ProductionActions.Insert);
-            htmlString = htmlString.Replace("RECHNUNG".setBrackets(), o.OrderDetails.ObjectTitel);
+            htmlString = htmlString.Replace("RECHNUNG".setBrackets(), o.OrderDetails.BillTo);
             htmlString = htmlString.Replace("OBJECT".setBrackets(), o.OrderDetails.OrderName);
             htmlString = htmlString.Replace("ANSPRECHPARTNER".setBrackets(), o.OrderDetails.Consultant);
-            htmlString = htmlString.Replace("EDVBEARBEITER".setBrackets(), o.OrderDetails.User.Name);
+            htmlString = htmlString.Replace("EDVBEARBEITER".setBrackets(), o.OrderDetails.User.Username);
             htmlString = htmlString.Replace("MENGE".setBrackets(), o.OrderDetails.OverallQuantity.ToString());
             htmlString = htmlString.Replace("RESTE".setBrackets(), o.OrderDetails.RemainsToo);
+            htmlString = htmlString.Replace("INFO".setBrackets(), o.OrderDetails.AdditionalInformation);
+            htmlString = htmlString.Replace("AUSLAND".setBrackets(), o.OrderDetails.SplitForeinLand+"/"+o.OrderDetails.SplitHomeLand);
 
             htmlString = htmlString.Replace("Action1".setBrackets(), o.EdvActions.Actions.splitAction(0));
             htmlString = htmlString.Replace("Action2".setBrackets(), o.EdvActions.Actions.splitAction(1));
@@ -59,9 +61,9 @@ namespace Repository.Persistence.Templates
             htmlString = htmlString.Replace("folieren".setBrackets(), o.ProductionActions.folieren.checkbox());
 
             htmlString = htmlString.Replace("RESTE".setBrackets(), o.OrderDetails.RemainsToo);
-            if (o.EdvActions.Machine.Count > 0)
+            if (o.OrderDetails.Machine != null)
             {
-                htmlString = htmlString.Replace("MASCHINE".setBrackets(), o.EdvActions.Machine.First().Name);
+                htmlString = htmlString.Replace("MASCHINE".setBrackets(), o.OrderDetails.Machine.Name);
             }
             else
             {

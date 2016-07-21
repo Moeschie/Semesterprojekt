@@ -33,7 +33,7 @@ namespace View
             _unit = unit;
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -184,12 +184,11 @@ namespace View
                 int n;
                 bool isNumeric = int.TryParse(OrderQuantityInput.Text, out n);
                 if (isNumeric) od.OverallQuantity = n;
-                od.SplitForeinLand = OrderInlandInput.Text;
+                od.SplitForeinLand = OrderForeignInput.Text;
                 od.SplitHomeLand = OrderInlandInput.Text;
                 od.Adress = new Adress();
                 od.Adress.Id = Guid.NewGuid();
                 od.Adress.Name = OrderConsultantInput.Text;
-                od.Foreign = OrderForeignInput.Text;
                 od.RemainsToo = OrderRemainsInput.Text;
                 od.AdditionalInformation = OrderInfoInput.Text;
                 od.BillTo = OrderBillInput.Text;
@@ -257,7 +256,6 @@ namespace View
             updateOrder.OrderDetails.BillTo = order.OrderDetails.BillTo;
             updateOrder.OrderDetails.Customer = order.OrderDetails.Customer;
             updateOrder.OrderDetails.Deadline = order.OrderDetails.Deadline;
-            updateOrder.OrderDetails.Foreign = order.OrderDetails.Foreign;
             updateOrder.OrderDetails.IncomeDate = order.OrderDetails.IncomeDate;
             updateOrder.OrderDetails.Material = order.OrderDetails.Material;
             updateOrder.OrderDetails.ObjectTitel = order.OrderDetails.BillTo;

@@ -22,9 +22,9 @@ namespace View
             InitializeComponent();
 
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.FormClosing += closeEvent;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Show();
             _unit.Files.DdisplayDirectories();
             if (_unit.Session.Access(2))
@@ -84,8 +84,8 @@ namespace View
                 OrderConsultantInput.Text = order.OrderDetails.Consultant;
                 OrderEditorInput.Text = order.OrderDetails.User.Username;
                 OrderQuantityInput.Text = order.OrderDetails.OverallQuantity.ToString();
-                OrderInlandInput.Text = order.OrderDetails.SplitForeinLand;
-                OrderForeignInput.Text = order.OrderDetails.Foreign;
+                OrderInlandInput.Text = order.OrderDetails.SplitHomeLand;
+                OrderForeignInput.Text = order.OrderDetails.SplitForeinLand;
                 OrderRemainsInput.Text = order.OrderDetails.RemainsToo;
                 //MID RIGHT
                 string[] edvActions = order.EdvActions.Actions.Split('|');

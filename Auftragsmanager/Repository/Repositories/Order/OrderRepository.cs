@@ -9,6 +9,7 @@ using System.Configuration;
 using SelectPdf;
 using Repository.Persistence.Templates;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Repository.Persistence
 {
@@ -43,8 +44,16 @@ namespace Repository.Persistence
             converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
             Order o = GetOrderById(orderID);
             PdfDocument doc = converter.ConvertHtmlString(OrderPrintTemplate.GetHtmlTemplate(o, type), null);
-            doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, file+"_"+orderID+".pdf"));
-            doc.Close();
+            try
+            {
+                doc.Save(Path.Combine(ConfigurationSettings.AppSettings["Path"], orderID, file+"_"+orderID+".pdf"));
+                doc.Close();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Die Datei ist in einem anderen Programm geöffnet und muss geschlossen werden.", @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         public DataContext DataContext
