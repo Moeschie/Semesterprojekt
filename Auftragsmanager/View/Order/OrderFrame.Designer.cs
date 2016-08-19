@@ -263,11 +263,12 @@
             // ExportButton
             // 
             this.ExportButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ExportButton.Enabled = false;
             this.ExportButton.Location = new System.Drawing.Point(140, 44);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(132, 35);
             this.ExportButton.TabIndex = 17;
-            this.ExportButton.Text = "???????????";
+            this.ExportButton.Text = "X";
             this.ExportButton.UseVisualStyleBackColor = true;
             // 
             // OrderSaveButton
@@ -295,11 +296,12 @@
             // LaufzettelButton
             // 
             this.LaufzettelButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LaufzettelButton.Enabled = false;
             this.LaufzettelButton.Location = new System.Drawing.Point(3, 44);
             this.LaufzettelButton.Name = "LaufzettelButton";
             this.LaufzettelButton.Size = new System.Drawing.Size(131, 35);
             this.LaufzettelButton.TabIndex = 16;
-            this.LaufzettelButton.Text = "?????";
+            this.LaufzettelButton.Text = "X";
             this.LaufzettelButton.UseVisualStyleBackColor = true;
             // 
             // ImportantInfoGrpBox

@@ -27,6 +27,8 @@ namespace Repository.Persistence.Templates
 
 
             htmlString = htmlString.Replace("NUMMER".setBrackets(), o.OrderDetails.OrderNumber);
+            htmlString = htmlString.Replace("AUFTRAGNAME".setBrackets(), " - " +o.OrderDetails.OrderName);
+            htmlString = htmlString.Replace("ZUSATZINFO".setBrackets(), o.OrderDetails.AdditionalInformation);
             htmlString = htmlString.Replace("START".setBrackets(), o.OrderDetails.ProductionStart);
             htmlString = htmlString.Replace("ENDE".setBrackets(), o.OrderDetails.ProductionEnd);
             htmlString = htmlString.Replace("KUNDE".setBrackets(), o.OrderDetails.Customer.Name);

@@ -143,11 +143,11 @@
     <Compile Include="Repositories\User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <EntityDeploy Include="Models\DataContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Models\DataContext.edmx.diagram">
       <DependentUpon>DataContext.edmx</DependentUpon>
     </None>
