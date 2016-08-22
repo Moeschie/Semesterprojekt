@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditMachine));
             this.EditMashineTable1 = new System.Windows.Forms.TableLayoutPanel();
             this.EditMashineTable2 = new System.Windows.Forms.TableLayoutPanel();
             this.EditMashineSelectLabel = new System.Windows.Forms.Label();
@@ -158,8 +159,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 99);
             this.Controls.Add(this.EditMashineTable1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditMachine";
-            this.Text = "EditMashine";
+            this.Text = "Maschine bearbeiten";
             this.EditMashineTable1.ResumeLayout(false);
             this.EditMashineTable2.ResumeLayout(false);
             this.EditMashineTable2.PerformLayout();

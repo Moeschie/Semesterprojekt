@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddDefect));
             this.AddDefectTable = new System.Windows.Forms.TableLayoutPanel();
             this.AddDefectSelectLable = new System.Windows.Forms.Label();
             this.AddDefectSelectMashineComboBox = new System.Windows.Forms.ComboBox();
@@ -157,8 +158,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 130);
             this.Controls.Add(this.AddDefectTable);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddDefect";
-            this.Text = "AddDefect";
+            this.Text = "Defekt / Sonderauftrag";
             this.AddDefectTable.ResumeLayout(false);
             this.AddDefectTable.PerformLayout();
             this.ResumeLayout(false);

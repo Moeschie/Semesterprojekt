@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FilebrowserFrame));
             this.FileFrameMainTable = new System.Windows.Forms.TableLayoutPanel();
             this.FileDisplayListBox = new System.Windows.Forms.ListBox();
             this.FilterSearchTableLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -164,6 +165,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(385, 463);
             this.Controls.Add(this.FileFrameMainTable);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FilebrowserFrame";
             this.Text = "Dateien";
             this.FileFrameMainTable.ResumeLayout(false);

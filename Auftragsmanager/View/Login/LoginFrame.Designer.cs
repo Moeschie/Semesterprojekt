@@ -29,6 +29,7 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginFrame));
             this.usernameLabel = new System.Windows.Forms.Label();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.LoginNameInput = new System.Windows.Forms.TextBox();
@@ -112,6 +113,7 @@ namespace View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 83);
             this.Controls.Add(this.LoginTableLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginFrame";
             this.Text = "Auftragsmanager";
             this.LoginTableLayout.ResumeLayout(false);

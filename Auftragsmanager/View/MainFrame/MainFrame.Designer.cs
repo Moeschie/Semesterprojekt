@@ -32,6 +32,7 @@ namespace View
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFrame));
             this.FileArchivTab = new System.Windows.Forms.TabPage();
             this.ArchivMainTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.FileSeachTableLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -1862,6 +1863,7 @@ namespace View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1362, 741);
             this.Controls.Add(this.MainFrameTabControl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.MainFrameMenu;
             this.Name = "MainFrame";
             this.Text = "Auftragsmanager";

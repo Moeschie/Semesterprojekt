@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderFrame));
             this.TopRightTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.ImportantInfo2GrpBox = new System.Windows.Forms.GroupBox();
             this.OrderRight1TableLayout = new System.Windows.Forms.TableLayoutPanel();
@@ -160,7 +161,7 @@
             this.TopRightTableLayout.RowCount = 1;
             this.TopRightTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TopRightTableLayout.Size = new System.Drawing.Size(574, 107);
-            this.TopRightTableLayout.TabIndex = 11;
+            this.TopRightTableLayout.TabIndex = 1;
             // 
             // ImportantInfo2GrpBox
             // 
@@ -169,7 +170,7 @@
             this.ImportantInfo2GrpBox.Location = new System.Drawing.Point(3, 3);
             this.ImportantInfo2GrpBox.Name = "ImportantInfo2GrpBox";
             this.ImportantInfo2GrpBox.Size = new System.Drawing.Size(281, 101);
-            this.ImportantInfo2GrpBox.TabIndex = 12;
+            this.ImportantInfo2GrpBox.TabIndex = 0;
             this.ImportantInfo2GrpBox.TabStop = false;
             this.ImportantInfo2GrpBox.Text = "Details";
             // 
@@ -189,7 +190,7 @@
             this.OrderRight1TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OrderRight1TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OrderRight1TableLayout.Size = new System.Drawing.Size(275, 82);
-            this.OrderRight1TableLayout.TabIndex = 3;
+            this.OrderRight1TableLayout.TabIndex = 0;
             // 
             // AuftragsNrLabel
             // 
@@ -198,7 +199,7 @@
             this.AuftragsNrLabel.Location = new System.Drawing.Point(68, 55);
             this.AuftragsNrLabel.Name = "AuftragsNrLabel";
             this.AuftragsNrLabel.Size = new System.Drawing.Size(66, 13);
-            this.AuftragsNrLabel.TabIndex = 11;
+            this.AuftragsNrLabel.TabIndex = 0;
             this.AuftragsNrLabel.Text = "Auftrags-Nr.:";
             // 
             // AuftragLabel
@@ -208,7 +209,7 @@
             this.AuftragLabel.Location = new System.Drawing.Point(86, 14);
             this.AuftragLabel.Name = "AuftragLabel";
             this.AuftragLabel.Size = new System.Drawing.Size(48, 13);
-            this.AuftragLabel.TabIndex = 2;
+            this.AuftragLabel.TabIndex = 0;
             this.AuftragLabel.Text = "Auftrag*:";
             // 
             // OrderNameInput
@@ -217,7 +218,7 @@
             this.OrderNameInput.Location = new System.Drawing.Point(140, 10);
             this.OrderNameInput.Name = "OrderNameInput";
             this.OrderNameInput.Size = new System.Drawing.Size(132, 20);
-            this.OrderNameInput.TabIndex = 4;
+            this.OrderNameInput.TabIndex = 0;
             // 
             // OrderNumberInput
             // 
@@ -226,7 +227,7 @@
             this.OrderNumberInput.Location = new System.Drawing.Point(140, 55);
             this.OrderNumberInput.Name = "OrderNumberInput";
             this.OrderNumberInput.Size = new System.Drawing.Size(0, 13);
-            this.OrderNumberInput.TabIndex = 12;
+            this.OrderNumberInput.TabIndex = 0;
             // 
             // FunctionGrpBox
             // 
@@ -235,7 +236,7 @@
             this.FunctionGrpBox.Location = new System.Drawing.Point(290, 3);
             this.FunctionGrpBox.Name = "FunctionGrpBox";
             this.FunctionGrpBox.Size = new System.Drawing.Size(281, 101);
-            this.FunctionGrpBox.TabIndex = 13;
+            this.FunctionGrpBox.TabIndex = 0;
             this.FunctionGrpBox.TabStop = false;
             this.FunctionGrpBox.Text = "Funktionen";
             // 
@@ -258,7 +259,7 @@
             this.OrderRight2TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OrderRight2TableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.OrderRight2TableLayout.Size = new System.Drawing.Size(275, 82);
-            this.OrderRight2TableLayout.TabIndex = 4;
+            this.OrderRight2TableLayout.TabIndex = 0;
             // 
             // ExportButton
             // 
@@ -267,7 +268,8 @@
             this.ExportButton.Location = new System.Drawing.Point(140, 44);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(132, 35);
-            this.ExportButton.TabIndex = 17;
+            this.ExportButton.TabIndex = 0;
+            this.ExportButton.TabStop = false;
             this.ExportButton.Text = "X";
             this.ExportButton.UseVisualStyleBackColor = true;
             // 
@@ -277,7 +279,8 @@
             this.OrderSaveButton.Location = new System.Drawing.Point(140, 3);
             this.OrderSaveButton.Name = "OrderSaveButton";
             this.OrderSaveButton.Size = new System.Drawing.Size(132, 35);
-            this.OrderSaveButton.TabIndex = 14;
+            this.OrderSaveButton.TabIndex = 0;
+            this.OrderSaveButton.TabStop = false;
             this.OrderSaveButton.Text = "Speichern";
             this.OrderSaveButton.UseVisualStyleBackColor = true;
             this.OrderSaveButton.Click += new System.EventHandler(this.AddOrder);
@@ -288,7 +291,8 @@
             this.OrderDataButton.Location = new System.Drawing.Point(3, 3);
             this.OrderDataButton.Name = "OrderDataButton";
             this.OrderDataButton.Size = new System.Drawing.Size(131, 35);
-            this.OrderDataButton.TabIndex = 15;
+            this.OrderDataButton.TabIndex = 0;
+            this.OrderDataButton.TabStop = false;
             this.OrderDataButton.Text = "Dateien";
             this.OrderDataButton.UseVisualStyleBackColor = true;
             this.OrderDataButton.Click += new System.EventHandler(this.OrderDataButton_Click);
@@ -300,7 +304,8 @@
             this.LaufzettelButton.Location = new System.Drawing.Point(3, 44);
             this.LaufzettelButton.Name = "LaufzettelButton";
             this.LaufzettelButton.Size = new System.Drawing.Size(131, 35);
-            this.LaufzettelButton.TabIndex = 16;
+            this.LaufzettelButton.TabIndex = 0;
+            this.LaufzettelButton.TabStop = false;
             this.LaufzettelButton.Text = "X";
             this.LaufzettelButton.UseVisualStyleBackColor = true;
             // 
@@ -311,7 +316,7 @@
             this.ImportantInfoGrpBox.Location = new System.Drawing.Point(3, 3);
             this.ImportantInfoGrpBox.Name = "ImportantInfoGrpBox";
             this.ImportantInfoGrpBox.Size = new System.Drawing.Size(574, 107);
-            this.ImportantInfoGrpBox.TabIndex = 10;
+            this.ImportantInfoGrpBox.TabIndex = 0;
             this.ImportantInfoGrpBox.TabStop = false;
             this.ImportantInfoGrpBox.Text = "Wichtige Daten";
             // 
@@ -337,7 +342,7 @@
             this.OrderLeftTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OrderLeftTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.OrderLeftTableLayout.Size = new System.Drawing.Size(568, 88);
-            this.OrderLeftTableLayout.TabIndex = 2;
+            this.OrderLeftTableLayout.TabIndex = 0;
             // 
             // trifft_einLabel
             // 
@@ -346,7 +351,7 @@
             this.trifft_einLabel.Location = new System.Drawing.Point(26, 15);
             this.trifft_einLabel.Name = "trifft_einLabel";
             this.trifft_einLabel.Size = new System.Drawing.Size(44, 13);
-            this.trifft_einLabel.TabIndex = 4;
+            this.trifft_einLabel.TabIndex = 0;
             this.trifft_einLabel.Text = "trifft ein:";
             // 
             // OrderIncomeDateInput
@@ -355,7 +360,7 @@
             this.OrderIncomeDateInput.Location = new System.Drawing.Point(76, 12);
             this.OrderIncomeDateInput.Name = "OrderIncomeDateInput";
             this.OrderIncomeDateInput.Size = new System.Drawing.Size(200, 20);
-            this.OrderIncomeDateInput.TabIndex = 14;
+            this.OrderIncomeDateInput.TabIndex = 0;
             // 
             // OrderEditionInput
             // 
@@ -364,7 +369,7 @@
             this.OrderEditionInput.Multiline = true;
             this.OrderEditionInput.Name = "OrderEditionInput";
             this.OrderEditionInput.Size = new System.Drawing.Size(212, 38);
-            this.OrderEditionInput.TabIndex = 13;
+            this.OrderEditionInput.TabIndex = 3;
             // 
             // AuflageLabel
             // 
@@ -373,7 +378,7 @@
             this.AuflageLabel.Location = new System.Drawing.Point(301, 59);
             this.AuflageLabel.Name = "AuflageLabel";
             this.AuflageLabel.Size = new System.Drawing.Size(46, 13);
-            this.AuflageLabel.TabIndex = 9;
+            this.AuflageLabel.TabIndex = 0;
             this.AuflageLabel.Text = "Auflage:";
             // 
             // OrderDeadlineInput
@@ -383,7 +388,7 @@
             this.OrderDeadlineInput.Multiline = true;
             this.OrderDeadlineInput.Name = "OrderDeadlineInput";
             this.OrderDeadlineInput.Size = new System.Drawing.Size(212, 38);
-            this.OrderDeadlineInput.TabIndex = 5;
+            this.OrderDeadlineInput.TabIndex = 2;
             // 
             // PALLabel
             // 
@@ -392,7 +397,7 @@
             this.PALLabel.Location = new System.Drawing.Point(317, 15);
             this.PALLabel.Name = "PALLabel";
             this.PALLabel.Size = new System.Drawing.Size(30, 13);
-            this.PALLabel.TabIndex = 3;
+            this.PALLabel.TabIndex = 0;
             this.PALLabel.Text = "PAL:";
             // 
             // OrderIncomeTimeInput
@@ -401,7 +406,7 @@
             this.OrderIncomeTimeInput.Location = new System.Drawing.Point(76, 56);
             this.OrderIncomeTimeInput.Name = "OrderIncomeTimeInput";
             this.OrderIncomeTimeInput.Size = new System.Drawing.Size(200, 20);
-            this.OrderIncomeTimeInput.TabIndex = 17;
+            this.OrderIncomeTimeInput.TabIndex = 1;
             // 
             // UhrzeitLabel
             // 
@@ -410,7 +415,7 @@
             this.UhrzeitLabel.Location = new System.Drawing.Point(27, 59);
             this.UhrzeitLabel.Name = "UhrzeitLabel";
             this.UhrzeitLabel.Size = new System.Drawing.Size(43, 13);
-            this.UhrzeitLabel.TabIndex = 16;
+            this.UhrzeitLabel.TabIndex = 0;
             this.UhrzeitLabel.Text = "Uhrzeit:";
             // 
             // AuftragsdatenGrpBox
@@ -420,7 +425,7 @@
             this.AuftragsdatenGrpBox.Location = new System.Drawing.Point(3, 116);
             this.AuftragsdatenGrpBox.Name = "AuftragsdatenGrpBox";
             this.AuftragsdatenGrpBox.Size = new System.Drawing.Size(574, 242);
-            this.AuftragsdatenGrpBox.TabIndex = 9;
+            this.AuftragsdatenGrpBox.TabIndex = 2;
             this.AuftragsdatenGrpBox.TabStop = false;
             this.AuftragsdatenGrpBox.Text = "Auftragsdaten";
             // 
@@ -456,7 +461,7 @@
             this.CustomerTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.07729F));
             this.CustomerTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.CustomerTableLayout.Size = new System.Drawing.Size(568, 223);
-            this.CustomerTableLayout.TabIndex = 1;
+            this.CustomerTableLayout.TabIndex = 0;
             // 
             // OrderRemainsInput
             // 
@@ -465,7 +470,7 @@
             this.OrderRemainsInput.Multiline = true;
             this.OrderRemainsInput.Name = "OrderRemainsInput";
             this.OrderRemainsInput.Size = new System.Drawing.Size(444, 26);
-            this.OrderRemainsInput.TabIndex = 20;
+            this.OrderRemainsInput.TabIndex = 6;
             // 
             // KundeLabel
             // 
@@ -474,7 +479,7 @@
             this.KundeLabel.Location = new System.Drawing.Point(74, 6);
             this.KundeLabel.Name = "KundeLabel";
             this.KundeLabel.Size = new System.Drawing.Size(41, 13);
-            this.KundeLabel.TabIndex = 3;
+            this.KundeLabel.TabIndex = 0;
             this.KundeLabel.Text = "Kunde:";
             // 
             // AufteilungTableLayout
@@ -487,13 +492,14 @@
             this.AufteilungTableLayout.Controls.Add(this.AuslandLabel, 0, 1);
             this.AufteilungTableLayout.Controls.Add(this.InlandLabel, 0, 0);
             this.AufteilungTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AufteilungTableLayout.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.AufteilungTableLayout.Location = new System.Drawing.Point(121, 133);
             this.AufteilungTableLayout.Name = "AufteilungTableLayout";
             this.AufteilungTableLayout.RowCount = 2;
             this.AufteilungTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.AufteilungTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.AufteilungTableLayout.Size = new System.Drawing.Size(444, 55);
-            this.AufteilungTableLayout.TabIndex = 0;
+            this.AufteilungTableLayout.TabIndex = 5;
             // 
             // OrderForeignInput
             // 
@@ -501,7 +507,7 @@
             this.OrderForeignInput.Location = new System.Drawing.Point(62, 30);
             this.OrderForeignInput.Name = "OrderForeignInput";
             this.OrderForeignInput.Size = new System.Drawing.Size(379, 20);
-            this.OrderForeignInput.TabIndex = 19;
+            this.OrderForeignInput.TabIndex = 1;
             // 
             // OrderInlandInput
             // 
@@ -509,7 +515,7 @@
             this.OrderInlandInput.Location = new System.Drawing.Point(62, 3);
             this.OrderInlandInput.Name = "OrderInlandInput";
             this.OrderInlandInput.Size = new System.Drawing.Size(379, 20);
-            this.OrderInlandInput.TabIndex = 18;
+            this.OrderInlandInput.TabIndex = 0;
             // 
             // AuslandLabel
             // 
@@ -518,7 +524,7 @@
             this.AuslandLabel.Location = new System.Drawing.Point(8, 34);
             this.AuslandLabel.Name = "AuslandLabel";
             this.AuslandLabel.Size = new System.Drawing.Size(48, 13);
-            this.AuslandLabel.TabIndex = 10;
+            this.AuslandLabel.TabIndex = 0;
             this.AuslandLabel.Text = "Ausland:";
             // 
             // InlandLabel
@@ -528,7 +534,7 @@
             this.InlandLabel.Location = new System.Drawing.Point(17, 7);
             this.InlandLabel.Name = "InlandLabel";
             this.InlandLabel.Size = new System.Drawing.Size(39, 13);
-            this.InlandLabel.TabIndex = 9;
+            this.InlandLabel.TabIndex = 0;
             this.InlandLabel.Text = "Inland:";
             // 
             // ObjektLabel
@@ -538,7 +544,7 @@
             this.ObjektLabel.Location = new System.Drawing.Point(74, 32);
             this.ObjektLabel.Name = "ObjektLabel";
             this.ObjektLabel.Size = new System.Drawing.Size(41, 13);
-            this.ObjektLabel.TabIndex = 4;
+            this.ObjektLabel.TabIndex = 0;
             this.ObjektLabel.Text = "Objekt:";
             // 
             // AnsprechpartnerLabel
@@ -548,7 +554,7 @@
             this.AnsprechpartnerLabel.Location = new System.Drawing.Point(27, 58);
             this.AnsprechpartnerLabel.Name = "AnsprechpartnerLabel";
             this.AnsprechpartnerLabel.Size = new System.Drawing.Size(88, 13);
-            this.AnsprechpartnerLabel.TabIndex = 5;
+            this.AnsprechpartnerLabel.TabIndex = 0;
             this.AnsprechpartnerLabel.Text = "Ansprechpartner:";
             // 
             // BearbeiterLabel
@@ -558,7 +564,7 @@
             this.BearbeiterLabel.Location = new System.Drawing.Point(29, 84);
             this.BearbeiterLabel.Name = "BearbeiterLabel";
             this.BearbeiterLabel.Size = new System.Drawing.Size(86, 13);
-            this.BearbeiterLabel.TabIndex = 6;
+            this.BearbeiterLabel.TabIndex = 0;
             this.BearbeiterLabel.Text = "Bearbeiter(EDV):";
             // 
             // GesamtmengeLabel
@@ -568,7 +574,7 @@
             this.GesamtmengeLabel.Location = new System.Drawing.Point(37, 110);
             this.GesamtmengeLabel.Name = "GesamtmengeLabel";
             this.GesamtmengeLabel.Size = new System.Drawing.Size(78, 13);
-            this.GesamtmengeLabel.TabIndex = 7;
+            this.GesamtmengeLabel.TabIndex = 0;
             this.GesamtmengeLabel.Text = "Gesamtmenge:";
             // 
             // AufteilungLabel
@@ -578,7 +584,7 @@
             this.AufteilungLabel.Location = new System.Drawing.Point(58, 154);
             this.AufteilungLabel.Name = "AufteilungLabel";
             this.AufteilungLabel.Size = new System.Drawing.Size(57, 13);
-            this.AufteilungLabel.TabIndex = 8;
+            this.AufteilungLabel.TabIndex = 0;
             this.AufteilungLabel.Text = "Aufteilung:";
             // 
             // ResteLabel
@@ -588,7 +594,7 @@
             this.ResteLabel.Location = new System.Drawing.Point(62, 200);
             this.ResteLabel.Name = "ResteLabel";
             this.ResteLabel.Size = new System.Drawing.Size(53, 13);
-            this.ResteLabel.TabIndex = 9;
+            this.ResteLabel.TabIndex = 0;
             this.ResteLabel.Text = "Reste an:";
             // 
             // OrderCustomerInput
@@ -597,7 +603,7 @@
             this.OrderCustomerInput.Location = new System.Drawing.Point(121, 3);
             this.OrderCustomerInput.Name = "OrderCustomerInput";
             this.OrderCustomerInput.Size = new System.Drawing.Size(444, 20);
-            this.OrderCustomerInput.TabIndex = 13;
+            this.OrderCustomerInput.TabIndex = 0;
             // 
             // OrderObjectInput
             // 
@@ -605,7 +611,7 @@
             this.OrderObjectInput.Location = new System.Drawing.Point(121, 29);
             this.OrderObjectInput.Name = "OrderObjectInput";
             this.OrderObjectInput.Size = new System.Drawing.Size(444, 20);
-            this.OrderObjectInput.TabIndex = 14;
+            this.OrderObjectInput.TabIndex = 1;
             // 
             // OrderConsultantInput
             // 
@@ -613,15 +619,16 @@
             this.OrderConsultantInput.Location = new System.Drawing.Point(121, 55);
             this.OrderConsultantInput.Name = "OrderConsultantInput";
             this.OrderConsultantInput.Size = new System.Drawing.Size(444, 20);
-            this.OrderConsultantInput.TabIndex = 15;
+            this.OrderConsultantInput.TabIndex = 2;
             // 
             // OrderEditorInput
             // 
             this.OrderEditorInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OrderEditorInput.Enabled = false;
             this.OrderEditorInput.Location = new System.Drawing.Point(121, 81);
             this.OrderEditorInput.Name = "OrderEditorInput";
             this.OrderEditorInput.Size = new System.Drawing.Size(444, 20);
-            this.OrderEditorInput.TabIndex = 16;
+            this.OrderEditorInput.TabIndex = 3;
             // 
             // OrderQuantityInput
             // 
@@ -629,7 +636,7 @@
             this.OrderQuantityInput.Location = new System.Drawing.Point(121, 107);
             this.OrderQuantityInput.Name = "OrderQuantityInput";
             this.OrderQuantityInput.Size = new System.Drawing.Size(444, 20);
-            this.OrderQuantityInput.TabIndex = 17;
+            this.OrderQuantityInput.TabIndex = 4;
             // 
             // InfoGrpBox
             // 
@@ -638,7 +645,7 @@
             this.InfoGrpBox.Location = new System.Drawing.Point(3, 364);
             this.InfoGrpBox.Name = "InfoGrpBox";
             this.InfoGrpBox.Size = new System.Drawing.Size(574, 268);
-            this.InfoGrpBox.TabIndex = 8;
+            this.InfoGrpBox.TabIndex = 3;
             this.InfoGrpBox.TabStop = false;
             this.InfoGrpBox.Text = "Infos";
             // 
@@ -661,7 +668,7 @@
             this.ZusatzTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.ZusatzTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.ZusatzTableLayout.Size = new System.Drawing.Size(568, 249);
-            this.ZusatzTableLayout.TabIndex = 5;
+            this.ZusatzTableLayout.TabIndex = 0;
             // 
             // MaterialLabel
             // 
@@ -670,7 +677,7 @@
             this.MaterialLabel.Location = new System.Drawing.Point(42, 201);
             this.MaterialLabel.Name = "MaterialLabel";
             this.MaterialLabel.Size = new System.Drawing.Size(47, 13);
-            this.MaterialLabel.TabIndex = 11;
+            this.MaterialLabel.TabIndex = 0;
             this.MaterialLabel.Text = "Material:";
             // 
             // Zusatz_InfosLabel
@@ -680,7 +687,7 @@
             this.Zusatz_InfosLabel.Location = new System.Drawing.Point(21, 35);
             this.Zusatz_InfosLabel.Name = "Zusatz_InfosLabel";
             this.Zusatz_InfosLabel.Size = new System.Drawing.Size(68, 13);
-            this.Zusatz_InfosLabel.TabIndex = 9;
+            this.Zusatz_InfosLabel.TabIndex = 0;
             this.Zusatz_InfosLabel.Text = "Zusatz-Infos:";
             // 
             // RechnungLabel
@@ -690,7 +697,7 @@
             this.RechnungLabel.Location = new System.Drawing.Point(14, 118);
             this.RechnungLabel.Name = "RechnungLabel";
             this.RechnungLabel.Size = new System.Drawing.Size(75, 13);
-            this.RechnungLabel.TabIndex = 10;
+            this.RechnungLabel.TabIndex = 0;
             this.RechnungLabel.Text = "Rechnung an:";
             // 
             // OrderInfoInput
@@ -700,7 +707,7 @@
             this.OrderInfoInput.Multiline = true;
             this.OrderInfoInput.Name = "OrderInfoInput";
             this.OrderInfoInput.Size = new System.Drawing.Size(470, 77);
-            this.OrderInfoInput.TabIndex = 13;
+            this.OrderInfoInput.TabIndex = 0;
             // 
             // OrderBillInput
             // 
@@ -709,7 +716,7 @@
             this.OrderBillInput.Multiline = true;
             this.OrderBillInput.Name = "OrderBillInput";
             this.OrderBillInput.Size = new System.Drawing.Size(470, 77);
-            this.OrderBillInput.TabIndex = 14;
+            this.OrderBillInput.TabIndex = 1;
             // 
             // OrderMaterialInput
             // 
@@ -718,7 +725,7 @@
             this.OrderMaterialInput.Multiline = true;
             this.OrderMaterialInput.Name = "OrderMaterialInput";
             this.OrderMaterialInput.Size = new System.Drawing.Size(470, 77);
-            this.OrderMaterialInput.TabIndex = 15;
+            this.OrderMaterialInput.TabIndex = 2;
             // 
             // ProductionGrpBox
             // 
@@ -727,7 +734,7 @@
             this.ProductionGrpBox.Location = new System.Drawing.Point(583, 364);
             this.ProductionGrpBox.Name = "ProductionGrpBox";
             this.ProductionGrpBox.Size = new System.Drawing.Size(574, 268);
-            this.ProductionGrpBox.TabIndex = 7;
+            this.ProductionGrpBox.TabIndex = 5;
             this.ProductionGrpBox.TabStop = false;
             this.ProductionGrpBox.Text = "Produktion";
             // 
@@ -768,7 +775,7 @@
             this.ProduktionTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.ProduktionTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.ProduktionTableLayout.Size = new System.Drawing.Size(568, 249);
-            this.ProduktionTableLayout.TabIndex = 6;
+            this.ProduktionTableLayout.TabIndex = 0;
             // 
             // OrderInsertKindInput
             // 
@@ -776,7 +783,7 @@
             this.OrderInsertKindInput.Location = new System.Drawing.Point(92, 192);
             this.OrderInsertKindInput.Name = "OrderInsertKindInput";
             this.OrderInsertKindInput.Size = new System.Drawing.Size(473, 20);
-            this.OrderInsertKindInput.TabIndex = 33;
+            this.OrderInsertKindInput.TabIndex = 7;
             // 
             // OrderInsertInput
             // 
@@ -784,7 +791,7 @@
             this.OrderInsertInput.Location = new System.Drawing.Point(92, 165);
             this.OrderInsertInput.Name = "OrderInsertInput";
             this.OrderInsertInput.Size = new System.Drawing.Size(473, 20);
-            this.OrderInsertInput.TabIndex = 32;
+            this.OrderInsertInput.TabIndex = 6;
             // 
             // OrderProJob6Input
             // 
@@ -792,7 +799,7 @@
             this.OrderProJob6Input.Location = new System.Drawing.Point(92, 138);
             this.OrderProJob6Input.Name = "OrderProJob6Input";
             this.OrderProJob6Input.Size = new System.Drawing.Size(473, 20);
-            this.OrderProJob6Input.TabIndex = 31;
+            this.OrderProJob6Input.TabIndex = 5;
             // 
             // OrderProJob5Input
             // 
@@ -800,7 +807,7 @@
             this.OrderProJob5Input.Location = new System.Drawing.Point(92, 111);
             this.OrderProJob5Input.Name = "OrderProJob5Input";
             this.OrderProJob5Input.Size = new System.Drawing.Size(473, 20);
-            this.OrderProJob5Input.TabIndex = 30;
+            this.OrderProJob5Input.TabIndex = 4;
             // 
             // OrderProJob4Input
             // 
@@ -808,7 +815,7 @@
             this.OrderProJob4Input.Location = new System.Drawing.Point(92, 84);
             this.OrderProJob4Input.Name = "OrderProJob4Input";
             this.OrderProJob4Input.Size = new System.Drawing.Size(473, 20);
-            this.OrderProJob4Input.TabIndex = 29;
+            this.OrderProJob4Input.TabIndex = 3;
             // 
             // OrderProJob3Input
             // 
@@ -816,7 +823,7 @@
             this.OrderProJob3Input.Location = new System.Drawing.Point(92, 57);
             this.OrderProJob3Input.Name = "OrderProJob3Input";
             this.OrderProJob3Input.Size = new System.Drawing.Size(473, 20);
-            this.OrderProJob3Input.TabIndex = 28;
+            this.OrderProJob3Input.TabIndex = 2;
             // 
             // OrderProJob2Input
             // 
@@ -824,7 +831,7 @@
             this.OrderProJob2Input.Location = new System.Drawing.Point(92, 30);
             this.OrderProJob2Input.Name = "OrderProJob2Input";
             this.OrderProJob2Input.Size = new System.Drawing.Size(473, 20);
-            this.OrderProJob2Input.TabIndex = 27;
+            this.OrderProJob2Input.TabIndex = 1;
             // 
             // OrderProJob1Input
             // 
@@ -832,7 +839,7 @@
             this.OrderProJob1Input.Location = new System.Drawing.Point(92, 3);
             this.OrderProJob1Input.Name = "OrderProJob1Input";
             this.OrderProJob1Input.Size = new System.Drawing.Size(473, 20);
-            this.OrderProJob1Input.TabIndex = 25;
+            this.OrderProJob1Input.TabIndex = 0;
             // 
             // Taetigkeit12Label
             // 
@@ -841,7 +848,7 @@
             this.Taetigkeit12Label.Location = new System.Drawing.Point(26, 142);
             this.Taetigkeit12Label.Name = "Taetigkeit12Label";
             this.Taetigkeit12Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit12Label.TabIndex = 22;
+            this.Taetigkeit12Label.TabIndex = 0;
             this.Taetigkeit12Label.Text = "Tätigkeit 6:";
             // 
             // Taetigkeit11Label
@@ -851,7 +858,7 @@
             this.Taetigkeit11Label.Location = new System.Drawing.Point(26, 115);
             this.Taetigkeit11Label.Name = "Taetigkeit11Label";
             this.Taetigkeit11Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit11Label.TabIndex = 20;
+            this.Taetigkeit11Label.TabIndex = 0;
             this.Taetigkeit11Label.Text = "Tätigkeit 5:";
             // 
             // Taetigkeit10Label
@@ -861,7 +868,7 @@
             this.Taetigkeit10Label.Location = new System.Drawing.Point(26, 88);
             this.Taetigkeit10Label.Name = "Taetigkeit10Label";
             this.Taetigkeit10Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit10Label.TabIndex = 18;
+            this.Taetigkeit10Label.TabIndex = 0;
             this.Taetigkeit10Label.Text = "Tätigkeit 4:";
             // 
             // Taetigkeit9Label
@@ -871,7 +878,7 @@
             this.Taetigkeit9Label.Location = new System.Drawing.Point(26, 61);
             this.Taetigkeit9Label.Name = "Taetigkeit9Label";
             this.Taetigkeit9Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit9Label.TabIndex = 16;
+            this.Taetigkeit9Label.TabIndex = 0;
             this.Taetigkeit9Label.Text = "Tätigkeit 3:";
             // 
             // Taetigkeit8Label
@@ -881,7 +888,7 @@
             this.Taetigkeit8Label.Location = new System.Drawing.Point(26, 34);
             this.Taetigkeit8Label.Name = "Taetigkeit8Label";
             this.Taetigkeit8Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit8Label.TabIndex = 14;
+            this.Taetigkeit8Label.TabIndex = 0;
             this.Taetigkeit8Label.Text = "Tätigkeit 2:";
             // 
             // Taetigkeit7Label
@@ -891,7 +898,7 @@
             this.Taetigkeit7Label.Location = new System.Drawing.Point(26, 7);
             this.Taetigkeit7Label.Name = "Taetigkeit7Label";
             this.Taetigkeit7Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit7Label.TabIndex = 12;
+            this.Taetigkeit7Label.TabIndex = 0;
             this.Taetigkeit7Label.Text = "Tätigkeit 1:";
             // 
             // VerarbeitungTableLayout
@@ -909,7 +916,7 @@
             this.VerarbeitungTableLayout.RowCount = 1;
             this.VerarbeitungTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.VerarbeitungTableLayout.Size = new System.Drawing.Size(473, 27);
-            this.VerarbeitungTableLayout.TabIndex = 0;
+            this.VerarbeitungTableLayout.TabIndex = 8;
             // 
             // folierenCBInput
             // 
@@ -919,6 +926,7 @@
             this.folierenCBInput.Name = "folierenCBInput";
             this.folierenCBInput.Size = new System.Drawing.Size(60, 17);
             this.folierenCBInput.TabIndex = 2;
+            this.folierenCBInput.TabStop = false;
             this.folierenCBInput.Text = "folieren";
             this.folierenCBInput.UseVisualStyleBackColor = true;
             // 
@@ -930,6 +938,7 @@
             this.inkenCBInput.Name = "inkenCBInput";
             this.inkenCBInput.Size = new System.Drawing.Size(52, 17);
             this.inkenCBInput.TabIndex = 1;
+            this.inkenCBInput.TabStop = false;
             this.inkenCBInput.Text = "inken";
             this.inkenCBInput.UseVisualStyleBackColor = true;
             // 
@@ -941,6 +950,7 @@
             this.kuvertierenCBInput.Name = "kuvertierenCBInput";
             this.kuvertierenCBInput.Size = new System.Drawing.Size(79, 17);
             this.kuvertierenCBInput.TabIndex = 0;
+            this.kuvertierenCBInput.TabStop = false;
             this.kuvertierenCBInput.Text = "kuvertieren";
             this.kuvertierenCBInput.UseVisualStyleBackColor = true;
             // 
@@ -951,7 +961,7 @@
             this.VerarbeitungLabel.Location = new System.Drawing.Point(19, 226);
             this.VerarbeitungLabel.Name = "VerarbeitungLabel";
             this.VerarbeitungLabel.Size = new System.Drawing.Size(67, 13);
-            this.VerarbeitungLabel.TabIndex = 10;
+            this.VerarbeitungLabel.TabIndex = 0;
             this.VerarbeitungLabel.Text = "Verarbeitung";
             // 
             // BeilagenLabel
@@ -961,7 +971,7 @@
             this.BeilagenLabel.Location = new System.Drawing.Point(35, 169);
             this.BeilagenLabel.Name = "BeilagenLabel";
             this.BeilagenLabel.Size = new System.Drawing.Size(51, 13);
-            this.BeilagenLabel.TabIndex = 23;
+            this.BeilagenLabel.TabIndex = 0;
             this.BeilagenLabel.Text = "Beilagen:";
             // 
             // BeilagenartLabel
@@ -971,7 +981,7 @@
             this.BeilagenartLabel.Location = new System.Drawing.Point(23, 196);
             this.BeilagenartLabel.Name = "BeilagenartLabel";
             this.BeilagenartLabel.Size = new System.Drawing.Size(63, 13);
-            this.BeilagenartLabel.TabIndex = 24;
+            this.BeilagenartLabel.TabIndex = 0;
             this.BeilagenartLabel.Text = "Beilagenart:";
             // 
             // EDVGrpBox
@@ -981,7 +991,7 @@
             this.EDVGrpBox.Location = new System.Drawing.Point(583, 116);
             this.EDVGrpBox.Name = "EDVGrpBox";
             this.EDVGrpBox.Size = new System.Drawing.Size(574, 242);
-            this.EDVGrpBox.TabIndex = 6;
+            this.EDVGrpBox.TabIndex = 4;
             this.EDVGrpBox.TabStop = false;
             this.EDVGrpBox.Text = "EDV";
             // 
@@ -1007,6 +1017,7 @@
             this.EDVTableLayout.Controls.Add(this.MaschineSelectInput, 1, 6);
             this.EDVTableLayout.Controls.Add(this.ProudctionTimeTableLayout, 1, 7);
             this.EDVTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EDVTableLayout.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.EDVTableLayout.Location = new System.Drawing.Point(3, 16);
             this.EDVTableLayout.Name = "EDVTableLayout";
             this.EDVTableLayout.RowCount = 8;
@@ -1019,7 +1030,7 @@
             this.EDVTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.EDVTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.EDVTableLayout.Size = new System.Drawing.Size(568, 223);
-            this.EDVTableLayout.TabIndex = 4;
+            this.EDVTableLayout.TabIndex = 0;
             // 
             // Taetigkeit1Label
             // 
@@ -1028,7 +1039,7 @@
             this.Taetigkeit1Label.Location = new System.Drawing.Point(70, 7);
             this.Taetigkeit1Label.Name = "Taetigkeit1Label";
             this.Taetigkeit1Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit1Label.TabIndex = 9;
+            this.Taetigkeit1Label.TabIndex = 0;
             this.Taetigkeit1Label.Text = "Tätigkeit 1:";
             // 
             // ProduktionszeitLabel
@@ -1038,7 +1049,7 @@
             this.ProduktionszeitLabel.Location = new System.Drawing.Point(23, 199);
             this.ProduktionszeitLabel.Name = "ProduktionszeitLabel";
             this.ProduktionszeitLabel.Size = new System.Drawing.Size(107, 13);
-            this.ProduktionszeitLabel.TabIndex = 12;
+            this.ProduktionszeitLabel.TabIndex = 0;
             this.ProduktionszeitLabel.Text = "max. Produktionszeit:";
             // 
             // MaschineLabel
@@ -1048,7 +1059,7 @@
             this.MaschineLabel.Location = new System.Drawing.Point(30, 169);
             this.MaschineLabel.Name = "MaschineLabel";
             this.MaschineLabel.Size = new System.Drawing.Size(100, 13);
-            this.MaschineLabel.TabIndex = 13;
+            this.MaschineLabel.TabIndex = 0;
             this.MaschineLabel.Text = "geplante Maschine:";
             // 
             // Taetigkeit2Label
@@ -1058,7 +1069,7 @@
             this.Taetigkeit2Label.Location = new System.Drawing.Point(70, 34);
             this.Taetigkeit2Label.Name = "Taetigkeit2Label";
             this.Taetigkeit2Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit2Label.TabIndex = 14;
+            this.Taetigkeit2Label.TabIndex = 0;
             this.Taetigkeit2Label.Text = "Tätigkeit 2:";
             // 
             // Taetigkeit3Label
@@ -1068,7 +1079,7 @@
             this.Taetigkeit3Label.Location = new System.Drawing.Point(70, 61);
             this.Taetigkeit3Label.Name = "Taetigkeit3Label";
             this.Taetigkeit3Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit3Label.TabIndex = 15;
+            this.Taetigkeit3Label.TabIndex = 0;
             this.Taetigkeit3Label.Text = "Tätigkeit 3:";
             // 
             // Taetigkeit4Label
@@ -1078,7 +1089,7 @@
             this.Taetigkeit4Label.Location = new System.Drawing.Point(70, 88);
             this.Taetigkeit4Label.Name = "Taetigkeit4Label";
             this.Taetigkeit4Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit4Label.TabIndex = 16;
+            this.Taetigkeit4Label.TabIndex = 0;
             this.Taetigkeit4Label.Text = "Tätigkeit 4:";
             // 
             // Taetigkeit5Label
@@ -1088,7 +1099,7 @@
             this.Taetigkeit5Label.Location = new System.Drawing.Point(70, 115);
             this.Taetigkeit5Label.Name = "Taetigkeit5Label";
             this.Taetigkeit5Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit5Label.TabIndex = 17;
+            this.Taetigkeit5Label.TabIndex = 0;
             this.Taetigkeit5Label.Text = "Tätigkeit 5:";
             // 
             // Taetigkeit6Label
@@ -1098,7 +1109,7 @@
             this.Taetigkeit6Label.Location = new System.Drawing.Point(70, 142);
             this.Taetigkeit6Label.Name = "Taetigkeit6Label";
             this.Taetigkeit6Label.Size = new System.Drawing.Size(60, 13);
-            this.Taetigkeit6Label.TabIndex = 18;
+            this.Taetigkeit6Label.TabIndex = 0;
             this.Taetigkeit6Label.Text = "Tätigkeit 6:";
             // 
             // OrderEDVJob1Input
@@ -1107,7 +1118,7 @@
             this.OrderEDVJob1Input.Location = new System.Drawing.Point(136, 3);
             this.OrderEDVJob1Input.Name = "OrderEDVJob1Input";
             this.OrderEDVJob1Input.Size = new System.Drawing.Size(429, 20);
-            this.OrderEDVJob1Input.TabIndex = 19;
+            this.OrderEDVJob1Input.TabIndex = 0;
             // 
             // OrderEDVJob2Input
             // 
@@ -1115,7 +1126,7 @@
             this.OrderEDVJob2Input.Location = new System.Drawing.Point(136, 30);
             this.OrderEDVJob2Input.Name = "OrderEDVJob2Input";
             this.OrderEDVJob2Input.Size = new System.Drawing.Size(429, 20);
-            this.OrderEDVJob2Input.TabIndex = 20;
+            this.OrderEDVJob2Input.TabIndex = 1;
             // 
             // OrderEDVJob3Input
             // 
@@ -1123,7 +1134,7 @@
             this.OrderEDVJob3Input.Location = new System.Drawing.Point(136, 57);
             this.OrderEDVJob3Input.Name = "OrderEDVJob3Input";
             this.OrderEDVJob3Input.Size = new System.Drawing.Size(429, 20);
-            this.OrderEDVJob3Input.TabIndex = 21;
+            this.OrderEDVJob3Input.TabIndex = 2;
             // 
             // OrderEDVJob4Input
             // 
@@ -1131,7 +1142,7 @@
             this.OrderEDVJob4Input.Location = new System.Drawing.Point(136, 84);
             this.OrderEDVJob4Input.Name = "OrderEDVJob4Input";
             this.OrderEDVJob4Input.Size = new System.Drawing.Size(429, 20);
-            this.OrderEDVJob4Input.TabIndex = 22;
+            this.OrderEDVJob4Input.TabIndex = 3;
             // 
             // OrderEDVJob5Input
             // 
@@ -1139,7 +1150,7 @@
             this.OrderEDVJob5Input.Location = new System.Drawing.Point(136, 111);
             this.OrderEDVJob5Input.Name = "OrderEDVJob5Input";
             this.OrderEDVJob5Input.Size = new System.Drawing.Size(429, 20);
-            this.OrderEDVJob5Input.TabIndex = 23;
+            this.OrderEDVJob5Input.TabIndex = 4;
             // 
             // OrderEDVJob6Input
             // 
@@ -1147,7 +1158,7 @@
             this.OrderEDVJob6Input.Location = new System.Drawing.Point(136, 138);
             this.OrderEDVJob6Input.Name = "OrderEDVJob6Input";
             this.OrderEDVJob6Input.Size = new System.Drawing.Size(429, 20);
-            this.OrderEDVJob6Input.TabIndex = 24;
+            this.OrderEDVJob6Input.TabIndex = 5;
             // 
             // MaschineSelectInput
             // 
@@ -1156,7 +1167,8 @@
             this.MaschineSelectInput.Location = new System.Drawing.Point(136, 165);
             this.MaschineSelectInput.Name = "MaschineSelectInput";
             this.MaschineSelectInput.Size = new System.Drawing.Size(429, 21);
-            this.MaschineSelectInput.TabIndex = 27;
+            this.MaschineSelectInput.TabIndex = 6;
+            this.MaschineSelectInput.TabStop = false;
             // 
             // ProudctionTimeTableLayout
             // 
@@ -1177,14 +1189,15 @@
             this.ProudctionTimeTableLayout.RowCount = 1;
             this.ProudctionTimeTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.ProudctionTimeTableLayout.Size = new System.Drawing.Size(429, 28);
-            this.ProudctionTimeTableLayout.TabIndex = 28;
+            this.ProudctionTimeTableLayout.TabIndex = 7;
             // 
             // EndMachineUsagesDateTimeInput
             // 
             this.EndMachineUsagesDateTimeInput.Location = new System.Drawing.Point(314, 3);
             this.EndMachineUsagesDateTimeInput.Name = "EndMachineUsagesDateTimeInput";
             this.EndMachineUsagesDateTimeInput.Size = new System.Drawing.Size(112, 20);
-            this.EndMachineUsagesDateTimeInput.TabIndex = 31;
+            this.EndMachineUsagesDateTimeInput.TabIndex = 2;
+            this.EndMachineUsagesDateTimeInput.TabStop = false;
             // 
             // OrderMaxProTimeInput
             // 
@@ -1192,7 +1205,7 @@
             this.OrderMaxProTimeInput.Location = new System.Drawing.Point(3, 3);
             this.OrderMaxProTimeInput.Name = "OrderMaxProTimeInput";
             this.OrderMaxProTimeInput.Size = new System.Drawing.Size(121, 20);
-            this.OrderMaxProTimeInput.TabIndex = 27;
+            this.OrderMaxProTimeInput.TabIndex = 0;
             // 
             // StartMachineUsagesLabel
             // 
@@ -1201,7 +1214,7 @@
             this.StartMachineUsagesLabel.Location = new System.Drawing.Point(133, 7);
             this.StartMachineUsagesLabel.Name = "StartMachineUsagesLabel";
             this.StartMachineUsagesLabel.Size = new System.Drawing.Size(32, 13);
-            this.StartMachineUsagesLabel.TabIndex = 28;
+            this.StartMachineUsagesLabel.TabIndex = 0;
             this.StartMachineUsagesLabel.Text = "Start:";
             // 
             // EndMachineUsagesLabel
@@ -1211,7 +1224,7 @@
             this.EndMachineUsagesLabel.Location = new System.Drawing.Point(273, 7);
             this.EndMachineUsagesLabel.Name = "EndMachineUsagesLabel";
             this.EndMachineUsagesLabel.Size = new System.Drawing.Size(35, 13);
-            this.EndMachineUsagesLabel.TabIndex = 29;
+            this.EndMachineUsagesLabel.TabIndex = 0;
             this.EndMachineUsagesLabel.Text = "Ende:";
             // 
             // StartMachineUsagesDateTimeInput
@@ -1219,7 +1232,8 @@
             this.StartMachineUsagesDateTimeInput.Location = new System.Drawing.Point(171, 3);
             this.StartMachineUsagesDateTimeInput.Name = "StartMachineUsagesDateTimeInput";
             this.StartMachineUsagesDateTimeInput.Size = new System.Drawing.Size(95, 20);
-            this.StartMachineUsagesDateTimeInput.TabIndex = 30;
+            this.StartMachineUsagesDateTimeInput.TabIndex = 1;
+            this.StartMachineUsagesDateTimeInput.TabStop = false;
             // 
             // MainTableLayout
             // 
@@ -1248,8 +1262,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1160, 635);
             this.Controls.Add(this.MainTableLayout);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "OrderFrame";
-            this.Text = "Auftragsmanager";
+            this.Text = "Auftragsmappe";
             this.TopRightTableLayout.ResumeLayout(false);
             this.ImportantInfo2GrpBox.ResumeLayout(false);
             this.OrderRight1TableLayout.ResumeLayout(false);

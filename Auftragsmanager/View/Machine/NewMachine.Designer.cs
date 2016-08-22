@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMachine));
             this.NewMashineTable1 = new System.Windows.Forms.TableLayoutPanel();
             this.NewMashineTable2 = new System.Windows.Forms.TableLayoutPanel();
             this.NewMashineNameTextBox = new System.Windows.Forms.TextBox();
@@ -103,8 +104,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(257, 63);
             this.Controls.Add(this.NewMashineTable1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewMachine";
-            this.Text = "NewMachine";
+            this.Text = "Neue Maschine";
             this.NewMashineTable1.ResumeLayout(false);
             this.NewMashineTable2.ResumeLayout(false);
             this.NewMashineTable2.PerformLayout();
